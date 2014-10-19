@@ -1,0 +1,94 @@
+cmake_minimum_required(VERSION 2.8)
+
+# project name
+project(dsf)
+
+# add the DSF header path
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# disable the rpath stuff
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
+
+# add the subdirectories
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/dsf)
+
+# detect the architecture (note: this test won't work for cross-compilation)
+    
+include(CheckTypeSize)
+check_type_size(void* SIZEOF_VOID_PTR)
+if("${SIZEOF_VOID_PTR}" STREQUAL "4")
+	set(ARCH x86)
+elseif("${SIZEOF_VOID_PTR}" STREQUAL "8")
+	set(ARCH x64)
+else()
+	message(FATAL_ERROR "Unsupported architecture")
+	return()
+endif()
+
+# configure links and headers
+
+set(TBB_LIBRARY 
+	libtbb
+	libtbbmalloc
+	libtbb_preview
+	libtbbmalloc_proxy
+	
+)
+
+if (MSVC)
+	# Windows VC
+	# Activate C++ exception handling
+	if (NOT CMAKE_CXX_FLAGS MATCHES "/EHsc")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc")
+	endif ()
+
+	# Set Warning level always to 4
+	if (CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+		string(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+	else ()
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+	endif () 
+
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH})
+    foreach(lib ${TBB_LIBRARY})
+        set(LINK_LIBRARY
+        ${LINK_LIBRARY}
+        optimized ${lib}.lib
+        debug ${lib}_debug.lib
+        )
+    endforeach()
+elseif(XCODE)
+	# Mac OS X Xcode
+	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/tbb)
+    foreach(lib ${TBB_LIBRARY})
+        set(LINK_LIBRARY
+        ${LINK_LIBRARY}
+        optimized ${lib}.dylib
+        debug ${lib}_debug.dylib
+        )
+    endforeach()
+else()
+	# Unix
+	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-unix/${ARCH})
+	ADD_DEFINITIONS(
+    		-std=c++11
+	)
+endif()
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/headers)
+set(LINK_LIBRARY)
+
+set (OUTPUT_NAME ${PROJECT_NAME})
+
+add_library (${OUTPUT_NAME} SHARED ${SRC})
+set_target_properties(${OUTPUT_NAME} PROPERTIES DEBUG_POSTFIX -d)
+target_link_libraries (${OUTPUT_NAME} ${LINK_LIBRARY})
+
+
+# installation
+if(WINDOWS)
+	install(TARGETS ${OUTPUT_NAME} RUNTIME DESTINATION bin COMPONENT dsf ARCHIVE DESTINATION lib COMPONENT dsf)
+else()
+	install(TARGETS ${OUTPUT_NAME} DESTINATION lib COMPONENT dsf)
+endif()
+# headers
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/dsf DESTINATION include)
