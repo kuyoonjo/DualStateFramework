@@ -12,8 +12,11 @@ namespace dsf
 {
     DualStateFramework::DualStateFramework()
     {
+        this->taskQueues = new std::vector<TaskQueue*>();
         this->initialize();
+        Debug("A DSF Object has been created.");
     }
+    
     DualStateFramework::~DualStateFramework()
     {
         while (!this->taskQueues->empty()) {
@@ -22,11 +25,10 @@ namespace dsf
             delete taskQueue;
         }
         delete this->taskQueues;
+        Debug("A DSF Object has been removed.");
     }
-    void DualStateFramework::initialize()
-    {
-        this->taskQueues = new std::vector<TaskQueue*>();
-    }
+    
+    
     void DualStateFramework::tidy()
     {
         
@@ -34,16 +36,17 @@ namespace dsf
     void DualStateFramework::start()
     {
         this->doOneFrame();
-        for (std::vector<TaskQueue*>::iterator i = this->taskQueues->begin();
-          i != this->taskQueues->end();
-          ++i)
-        {
-            if ((*i)->isEmpty())
-            {
-                delete *i;
-                this->taskQueues->erase(i);
-            }
-        }
+        this->taskQueues->erase(std::remove_if(this->taskQueues->begin(),
+                                               this->taskQueues->end(),
+                                               [](TaskQueue* tq)
+                                                    {
+                                                        if (tq->isEmpty()) {
+                                                            delete tq;
+                                                            return true;
+                                                        }
+                                                        return false;
+                                                    }) ,
+                                this->taskQueues->end());
         if (!this->taskQueues->empty()) {
             this->start();
         }
@@ -52,13 +55,26 @@ namespace dsf
     {
         this->run();
     }
+    
+    void DualStateFramework::add(dsf::TaskQueue *taskQueue)
+    {
+        this->taskQueues->push_back(taskQueue);
+    }
+    
+    //////////////////////////////////////////////////////////////////
+    // Protected
+    //////////////////////////////////////////////////////////////////
+    void DualStateFramework::initialize()
+    {
+    }
+    
     void DualStateFramework::run()
     {
-        for (std::vector<TaskQueue*>::iterator i = this->taskQueues->begin();
+        for (auto i = this->taskQueues->begin();
              i != this->taskQueues->end();
              ++i)
         {
-            (*i)->processMessage();
+            (*i)->start();
         }
     }
 }

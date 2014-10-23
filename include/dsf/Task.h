@@ -16,6 +16,7 @@
 #include "TaskBox.h"
 #include "TaskFunction.h"
 #include "TaskArgument.h"
+#include "Debug.h"
 
 
 namespace dsf
@@ -28,8 +29,11 @@ namespace dsf
     {
     public:
         TaskBox* from;
-        TaskFunction taskFunction;
-        std::vector<TaskArgument*>* taskArguments;
+        TaskFunction* taskFunction;
+        TaskArguments* taskArguments;
+        Task();
+        Task(TaskBox* from, TaskFunction* taskFunction, TaskArguments* taskArguments);
+        ~Task();
     };
 }
 

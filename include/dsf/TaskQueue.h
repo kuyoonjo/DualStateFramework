@@ -10,11 +10,15 @@
 #define dsf_TaskQueue_h
 
 #include <vector>
+#include <string>
 
 #include "Export.h"
+#include "Task.h"
 #include "TaskBox.h"
 #include "TaskFunction.h"
 #include "TaskArgument.h"
+#include "Runnable.h"
+#include "Debug.h"
 
 namespace dsf
 {
@@ -22,19 +26,24 @@ namespace dsf
      * Class TaskQueue
      */
     
-    class DSF_API TaskQueue
+    class DSF_API TaskQueue : public Runnable
     {
     public:
+        TaskQueue();
+        virtual ~TaskQueue();
         bool isEmpty();
-        void processMessage();
+        void process(unsigned int index);
         void sendMessage(TaskBox* to,
                          TaskBox* from,
-                         TaskFunction taskFunction,
-                         std::vector<TaskArgument*>* args);
+                         TaskFunction* taskFunction,
+                         TaskArguments* args);
+        void add(TaskBox* taskBox);
+        void remove(std::string name);
+        void start();
     private:
-        TaskBox* taskBox;
-        TaskBox* nextTaskBox;
+        std::vector<TaskBox*>* taskBoxes;
     protected:
+        virtual void run() override;
         
     };
 }

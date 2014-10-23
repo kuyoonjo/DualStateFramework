@@ -13,10 +13,12 @@
 #include <vector>
 
 #include "TaskArgument.h"
+#include "Debug.h"
 
 namespace dsf
 {
-    typedef std::function<void (std::vector<TaskArgument*>*)> TaskFunction;
+    typedef std::function<void (TaskArguments*)> TaskFunction;
+    typedef void function;
 }
 
 #endif

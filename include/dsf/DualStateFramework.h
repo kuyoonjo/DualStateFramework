@@ -15,19 +15,22 @@
 #include "Task.h"
 #include "TaskQueue.h"
 #include "Runnable.h"
+#include "Debug.h"
 
 namespace dsf {
     class DSF_API DualStateFramework : public Runnable
     {
     public:
-        std::vector<TaskQueue*>* taskQueues;
         DualStateFramework();
         ~DualStateFramework();
-        virtual void initialize();
         void tidy();
         void start();
         void doOneFrame();
+        void add(TaskQueue* taskQueue);
+    private:
+        std::vector<TaskQueue*>* taskQueues;
     protected:
+        virtual void initialize();
         virtual void run() override;
     };
 }

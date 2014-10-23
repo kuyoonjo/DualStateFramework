@@ -16,14 +16,23 @@ namespace dsf
     class TaskArgument
     {
     public:
+        template <class T> static TaskArgument* parse(T* t);
         template <class T> T* getValue();
         template <class T> void setValue(T* t);
     private:
         void* value;
     };
+
+    typedef std::vector<dsf::TaskArgument*> TaskArguments;
 }
 
 namespace dsf {
+    template <class T> TaskArgument* TaskArgument::parse(T* t)
+    {
+        TaskArgument* taskArgument = new TaskArgument();
+        taskArgument->setValue(t);
+        return taskArgument;
+    }
     template <class T> T* TaskArgument::getValue()
     {
         return static_cast<T*>(value);
@@ -34,6 +43,5 @@ namespace dsf {
     }
 }
 
-typedef std::vector<dsf::TaskArgument*> TaskArguments;
 
 #endif

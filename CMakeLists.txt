@@ -60,13 +60,16 @@ if (MSVC)
 elseif(XCODE)
 	# Mac OS X Xcode
 	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/tbb)
-    foreach(lib ${TBB_LIBRARY})
-        set(LINK_LIBRARY
-        ${LINK_LIBRARY}
-        optimized ${lib}.dylib
-        debug ${lib}_debug.dylib
-        )
-    endforeach()
+	ADD_DEFINITIONS(
+    		-std=c++11
+	)
+    	foreach(lib ${TBB_LIBRARY})
+        	set(LINK_LIBRARY
+        		${LINK_LIBRARY}
+       	 		optimized ${lib}.dylib
+        		debug ${lib}_debug.dylib
+        	)
+    	endforeach()
 else()
 	# Unix
 	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-unix/${ARCH})

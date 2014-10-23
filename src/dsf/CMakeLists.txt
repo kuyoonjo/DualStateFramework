@@ -5,6 +5,8 @@ set(SRCROOT ${PROJECT_SOURCE_DIR}/src/DSF)
 # all source files
 set(SRC
 	${INCROOT}/Config.h
+	${INCROOT}/Debug.h
+	${INCROOT}/Declaration.h
 	${INCROOT}/DualStateFramework.h
 	${INCROOT}/Export.h
 	${INCROOT}/Runnable.h
@@ -15,6 +17,7 @@ set(SRC
 	${INCROOT}/TaskQueue.h
 	${SRCROOT}/DualStateFramework.cpp
 	${SRCROOT}/Task.cpp
+	${SRCROOT}/TaskBox.cpp
 	${SRCROOT}/TaskQueue.cpp
 	PARENT_SCOPE
 )
