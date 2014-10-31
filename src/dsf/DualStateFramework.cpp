@@ -12,19 +12,19 @@ namespace dsf
 {
     DualStateFramework::DualStateFramework()
     {
-        this->taskQueues = new std::vector<TaskQueue*>();
+        this->syncObjs = new std::vector<SynchronizedObject*>();
         this->initialize();
         Debug("A DSF Object has been created.");
     }
     
     DualStateFramework::~DualStateFramework()
     {
-        while (!this->taskQueues->empty()) {
-            TaskQueue* taskQueue = this->taskQueues->back();
-            this->taskQueues->pop_back();
-            delete taskQueue;
+        while (!this->syncObjs->empty()) {
+            SynchronizedObject* syncObj = this->syncObjs->back();
+            this->syncObjs->pop_back();
+            delete syncObj;
         }
-        delete this->taskQueues;
+        delete this->syncObjs;
         Debug("A DSF Object has been removed.");
     }
     
@@ -36,18 +36,18 @@ namespace dsf
     void DualStateFramework::start()
     {
         this->doOneFrame();
-        this->taskQueues->erase(std::remove_if(this->taskQueues->begin(),
-                                               this->taskQueues->end(),
-                                               [](TaskQueue* tq)
+        this->syncObjs->erase(std::remove_if(this->syncObjs->begin(),
+                                               this->syncObjs->end(),
+                                               [](SynchronizedObject* sb)
                                                     {
-                                                        if (tq->isEmpty()) {
-                                                            delete tq;
+                                                        if (sb->isEmpty()) {
+                                                            delete sb;
                                                             return true;
                                                         }
                                                         return false;
                                                     }) ,
-                                this->taskQueues->end());
-        if (!this->taskQueues->empty()) {
+                                this->syncObjs->end());
+        if (!this->syncObjs->empty()) {
             this->start();
         }
     }
@@ -56,22 +56,20 @@ namespace dsf
         this->run();
     }
     
-    void DualStateFramework::add(dsf::TaskQueue *taskQueue)
+    void DualStateFramework::add(dsf::SynchronizedObject *syncObj)
     {
-        this->taskQueues->push_back(taskQueue);
+        this->syncObjs->push_back(syncObj);
     }
     
     //////////////////////////////////////////////////////////////////
     // Protected
     //////////////////////////////////////////////////////////////////
-    void DualStateFramework::initialize()
-    {
-    }
+
     
     void DualStateFramework::run()
     {
-        for (auto i = this->taskQueues->begin();
-             i != this->taskQueues->end();
+        for (auto i = this->syncObjs->begin();
+             i != this->syncObjs->end();
              ++i)
         {
             (*i)->start();

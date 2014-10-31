@@ -1,21 +1,21 @@
 //
-//  TaskQueue.cpp
+//  SynchronizedObject.cpp
 //  dsf
 //
 //  Created by Yu Chen on 10/17/14.
 //
 //
 
-#include <dsf/TaskQueue.h>
+#include <dsf/SynchronizedObject.h>
 
 namespace dsf
 {
-    TaskQueue::TaskQueue()
+    SynchronizedObject::SynchronizedObject()
     {
         this->taskBoxes = new std::vector<TaskBox*>();
-        Debug("A TaskQueue Object has been created.");
+        Debug("A SynchronizedObject Object has been created.");
     }
-    TaskQueue::~TaskQueue()
+    SynchronizedObject::~SynchronizedObject()
     {
         std::for_each(this->taskBoxes->begin(),
                       this->taskBoxes->end(),
@@ -24,20 +24,20 @@ namespace dsf
                           delete tb;
                       });
         delete this->taskBoxes;
-        Debug("A TaskQueue Object has been removed.");
+        Debug("A SynchronizedObject Object has been removed.");
     }
     
-    bool TaskQueue::isEmpty()
+    bool SynchronizedObject::isEmpty()
     {
         return this->taskBoxes->empty();
     }
     
-    void TaskQueue::process(unsigned int index)
+    void SynchronizedObject::process(unsigned int index)
     {
         //this->taskBoxes->find(index)->second->start();
     }
     
-    void TaskQueue::sendMessage(dsf::TaskBox *to,
+    void SynchronizedObject::sendMessage(dsf::TaskBox *to,
                                 dsf::TaskBox *from,
                                 TaskFunction *taskFunction,
                                 TaskArguments *args)
@@ -45,16 +45,16 @@ namespace dsf
         to->push(new Task(from, taskFunction, args));
     }
     
-    void TaskQueue::add(dsf::TaskBox *taskBox)
+    void SynchronizedObject::add(dsf::TaskBox *taskBox)
     {
         this->taskBoxes->push_back(taskBox);
     }
     
-    void TaskQueue::remove(std::string name)
+    void SynchronizedObject::remove(std::string name)
     {
     }
     
-    void TaskQueue::start()
+    void SynchronizedObject::start()
     {
         this->run();
         this->taskBoxes->erase(std::remove_if(this->taskBoxes->begin(),
@@ -70,10 +70,10 @@ namespace dsf
                                               }),
                                this->taskBoxes->end());
 
-        Debug("A TaskQueue has been finished.");
+        Debug("A SynchronizedObject has been finished.");
     }
     
-    void TaskQueue::run()
+    void SynchronizedObject::run()
     {
         for (auto i = this->taskBoxes->begin();
              i != this->taskBoxes->end();
@@ -82,6 +82,6 @@ namespace dsf
             Debug("Processing Tasks...");
             (*i)->start();
         }
-        Debug("Ending a TaskQueue ...");
+        Debug("Ending a SynchronizedObject ...");
     }
 }

@@ -1,13 +1,13 @@
 //
-//  TaskQueue.h
+//  SynchronizedObject.h
 //  dsf
 //
 //  Created by Yu Chen on 10/17/14.
 //
 //
 
-#ifndef dsf_TaskQueue_h
-#define dsf_TaskQueue_h
+#ifndef dsf_SynchronizedObject_h
+#define dsf_SynchronizedObject_h
 
 #include <vector>
 #include <string>
@@ -23,14 +23,14 @@
 namespace dsf
 {
     /**
-     * Class TaskQueue
+     * Class SynchronizedObject
      */
     
-    class DSF_API TaskQueue : public Runnable
+    class DSF_API SynchronizedObject : public Runnable
     {
     public:
-        TaskQueue();
-        virtual ~TaskQueue();
+        SynchronizedObject();
+        virtual ~SynchronizedObject();
         bool isEmpty();
         void process(unsigned int index);
         void sendMessage(TaskBox* to,

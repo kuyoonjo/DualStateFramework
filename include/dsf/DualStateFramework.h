@@ -13,7 +13,7 @@
 
 #include "TaskBox.h"
 #include "Task.h"
-#include "TaskQueue.h"
+#include "SynchronizedObject.h"
 #include "Runnable.h"
 #include "Debug.h"
 
@@ -26,11 +26,14 @@ namespace dsf {
         void tidy();
         void start();
         void doOneFrame();
-        void add(TaskQueue* taskQueue);
+        void add(SynchronizedObject* syncObj);
     private:
-        std::vector<TaskQueue*>* taskQueues;
+        std::vector<SynchronizedObject*>* syncObjs;
     protected:
-        virtual void initialize();
+        /**
+         * 
+         */
+        virtual void initialize() = 0;
         virtual void run() override;
     };
 }
