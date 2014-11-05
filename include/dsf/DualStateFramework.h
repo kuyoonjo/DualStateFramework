@@ -22,19 +22,49 @@ namespace dsf {
     {
     public:
         DualStateFramework();
+        
         ~DualStateFramework();
-        void tidy();
+        
+        /*! \brief For Signing TaskFunction Pointers
+         *
+         * Example.
+         @code
+         void MyDSF::initialize()
+         {
+            this->printInt = [this](dsf::TaskArguments *args)
+                            {
+                                this->foo(args);
+                            };
+         }
+         
+         void MyDSF::foo(dsf::TaskArguments *args)
+         {
+            dsf::TaskArgument* arg = args->front();
+            int* i = arg->getValue<int>();
+            std::cout<< *i << std::endl;
+         }
+         @endcode
+         */
+        virtual void initialize() = 0;
+        
+        /*! \brief Start all SyncronizedObjects associated.
+         *          Keep looping.
+         */
         void start();
+        
+        /*! \brief Start all SyncronizedObjects associated.
+         */
         void doOneFrame();
+        
+        /*! \brief Add a SynchronizedObject.
+         */
         void add(SynchronizedObject* syncObj);
     private:
         std::vector<SynchronizedObject*>* syncObjs;
     protected:
-        /**
-         * 
-         */
-        virtual void initialize() = 0;
-        virtual void run() override;
+        /*! \brief Start all SyncronizedObjects associated.
+        */
+         virtual void run() override;
     };
 }
 

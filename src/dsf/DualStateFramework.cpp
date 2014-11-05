@@ -13,7 +13,6 @@ namespace dsf
     DualStateFramework::DualStateFramework()
     {
         this->syncObjs = new std::vector<SynchronizedObject*>();
-        this->initialize();
         Debug("A DSF Object has been created.");
     }
     
@@ -28,14 +27,16 @@ namespace dsf
         Debug("A DSF Object has been removed.");
     }
     
-    
-    void DualStateFramework::tidy()
-    {
-        
-    }
     void DualStateFramework::start()
     {
         this->doOneFrame();
+        if (!this->syncObjs->empty()) {
+            this->start();
+        }
+    }
+    void DualStateFramework::doOneFrame()
+    {
+        this->run();
         this->syncObjs->erase(std::remove_if(this->syncObjs->begin(),
                                                this->syncObjs->end(),
                                                [](SynchronizedObject* sb)
@@ -47,13 +48,6 @@ namespace dsf
                                                         return false;
                                                     }) ,
                                 this->syncObjs->end());
-        if (!this->syncObjs->empty()) {
-            this->start();
-        }
-    }
-    void DualStateFramework::doOneFrame()
-    {
-        this->run();
     }
     
     void DualStateFramework::add(dsf::SynchronizedObject *syncObj)

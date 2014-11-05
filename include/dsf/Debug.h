@@ -12,10 +12,10 @@
 #include <iostream>
 
 namespace dsf {
-#ifdef DEBUG
-#define Debug(x) std::cout << x << std::endl
-#else
+#if __OPTIMIZE__
 #define Debug(x)
+#else
+#define Debug(x) std::cout << x << std::endl
 #endif
 }
 

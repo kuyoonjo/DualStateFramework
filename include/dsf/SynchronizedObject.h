@@ -26,24 +26,17 @@ namespace dsf
      * Class SynchronizedObject
      */
     
-    class DSF_API SynchronizedObject : public Runnable
+    class DSF_API SynchronizedObject : public Runnable, public TaskBox
     {
     public:
         SynchronizedObject();
         virtual ~SynchronizedObject();
-        bool isEmpty();
-        void process(unsigned int index);
-        void sendMessage(TaskBox* to,
-                         TaskBox* from,
-                         TaskFunction* taskFunction,
-                         TaskArguments* args);
-        void add(TaskBox* taskBox);
-        void remove(std::string name);
+        void send(SynchronizedObject* to,
+                  TaskFunction* taskFunction,
+                  TaskArguments* args);
         void start();
-    private:
-        std::vector<TaskBox*>* taskBoxes;
     protected:
-        virtual void run() override;
+        virtual void run() override = 0;
         
     };
 }

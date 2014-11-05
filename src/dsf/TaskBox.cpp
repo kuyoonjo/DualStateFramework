@@ -16,12 +16,6 @@ namespace dsf {
         Debug("A TaskBox Object has been created.");
     }
     
-    TaskBox::TaskBox(std::string name)
-    : TaskBox::TaskBox()
-    {
-        this->name = name;
-    }
-    
     TaskBox::~TaskBox()
     {
         for (std::vector<Task*>::iterator i = this->tasks->begin(); i != this->tasks->end(); ++i) {
@@ -59,23 +53,23 @@ namespace dsf {
         return task;
     }
     
-    void TaskBox::start()
+    int TaskBox::receive()
     {
-        if (this->next)
+        if (!this->next || this->next->isEmpty())
         {
-            if (this->next->isEmpty()) {
-                delete this->next;
-                return;
-            }
-            while (!this->next->isEmpty())
-            {
-                this->tasks->push_back(this->next->pop());
-            }
-            this->run();
+            return 0;
         }
+        
+        int count = 0;
+        while (!this->next->isEmpty())
+        {
+            this->tasks->push_back(this->next->pop());
+            count ++;
+        }
+        return count;
     }
     
-    void TaskBox::run()
+    void TaskBox::process()
     {
         while (!this->isEmpty())
         {

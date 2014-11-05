@@ -20,22 +20,19 @@
 
 namespace dsf
 {
-    class DSF_API TaskBox : public Runnable
+    class DSF_API TaskBox
     {
     public:
         TaskBox();
-        TaskBox(std::string name);
         virtual ~TaskBox();
         bool isEmpty();
         void push(Task* task);
         Task* pop();
-        void start();
+        int receive();
+        void process();
         std::vector<Task*>* tasks;
     private:
-        std::string name;
         TaskBox* next;
-    protected:
-        virtual void run() override;        
     };
 }
 #endif
