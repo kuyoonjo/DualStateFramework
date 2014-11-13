@@ -29,11 +29,8 @@ endif()
 
 set(TBB_LIBRARY 
 	libtbb
-	libtbbmalloc
-	libtbb_preview
-	libtbbmalloc_proxy
-	
 )
+set(LINK_LIBRARY)
 
 if (MSVC)
 	# Windows VC
@@ -78,12 +75,16 @@ else()
 	)
 endif()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/headers)
-set(LINK_LIBRARY)
 
 set (OUTPUT_NAME ${PROJECT_NAME})
 
 add_library (${OUTPUT_NAME} SHARED ${SRC})
-set_target_properties(${OUTPUT_NAME} PROPERTIES DEBUG_POSTFIX -d)
+set_target_properties(
+    ${OUTPUT_NAME} PROPERTIES DEBUG_POSTFIX -d
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
+)
 target_link_libraries (${OUTPUT_NAME} ${LINK_LIBRARY})
 
 

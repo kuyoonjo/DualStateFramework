@@ -48,19 +48,38 @@ namespace dsf {
         virtual void initialize() = 0;
         
         /*! \brief Start all SyncronizedObjects associated.
-         *          Keep looping.
          */
         void start();
         
-        /*! \brief Start all SyncronizedObjects associated.
+        /*! \brief Do one frame of all SyncronizedObjects.
          */
         void doOneFrame();
+        
+        
         
         /*! \brief Add a SynchronizedObject.
          */
         void add(SynchronizedObject* syncObj);
+        
+        /*! \brief Remove a SynchronizedObject.
+         */
+        void remove(SynchronizedObject* syncObj);
+        
+        /*! \brief Send messages
+         */
+        void send(SynchronizedObject* to,
+                  SynchronizedObject* from,
+                  TaskFunction* taskFunction,
+                  TaskArguments* args);
+        
+        /*! \brief Return the state of the object.
+         */
+        State getState() override;
+        
     private:
         std::vector<SynchronizedObject*>* syncObjs;
+        State state;
+        void refresh();
     protected:
         /*! \brief Start all SyncronizedObjects associated.
         */

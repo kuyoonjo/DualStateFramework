@@ -9,6 +9,7 @@
 #ifndef dsf_TaskArgument_h
 #define dsf_TaskArgument_h
 
+#include <memory>
 #include <vector>
 
 namespace dsf
@@ -17,13 +18,12 @@ namespace dsf
     {
     public:
         template <class T> static TaskArgument* parse(T* t);
-        template <class T> T* getValue();
+        template <class T> T* to();
         template <class T> void setValue(T* t);
     private:
-        void* value;
+        std::shared_ptr<void> value;
     };
-
-    typedef std::vector<dsf::TaskArgument*> TaskArguments;
+    typedef std::vector<TaskArgument*> TaskArguments;
 }
 
 namespace dsf {
@@ -33,15 +33,17 @@ namespace dsf {
         taskArgument->setValue(t);
         return taskArgument;
     }
-    template <class T> T* TaskArgument::getValue()
+    template <class T> T* TaskArgument::to()
     {
-        return static_cast<T*>(value);
+        return std::static_pointer_cast<T>(value).get();
     }
     template <class T> void TaskArgument::setValue(T *t)
     {
-        this->value = t;
+        this->value = std::shared_ptr<T>(t);
     }
 }
+
+
 
 
 #endif

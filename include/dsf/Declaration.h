@@ -14,6 +14,8 @@
 namespace dsf {
     class DSF_API Task;
     class DSF_API TaskBox;
+    class DSF_API DualStateFramework;
+    class DSF_API SynchronizedObject;
 }
 
 #endif

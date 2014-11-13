@@ -13,6 +13,7 @@
 #include <string>
 
 #include "Export.h"
+#include "Declaration.h"
 #include "Task.h"
 #include "TaskBox.h"
 #include "TaskFunction.h"
@@ -22,19 +23,25 @@
 
 namespace dsf
 {
-    /**
-     * Class SynchronizedObject
-     */
-    
     class DSF_API SynchronizedObject : public Runnable, public TaskBox
     {
     public:
+        
         SynchronizedObject();
         virtual ~SynchronizedObject();
+        State getState() override;
+        int receive();
+    private:
+        State state;
+        TaskBox next;
+        
         void send(SynchronizedObject* to,
                   TaskFunction* taskFunction,
                   TaskArguments* args);
         void start();
+        void stop();
+        void distroy();
+        friend class DualStateFramework;
     protected:
         virtual void run() override = 0;
         

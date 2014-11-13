@@ -19,19 +19,14 @@ namespace dsf
                TaskArguments* taskArguments)
     : Task::Task()
     {
-        this->from = from;
-        this->taskFunction = taskFunction;
-        this->taskArguments = taskArguments;
+        this->from = std::shared_ptr<TaskBox>(from);
+        this->taskFunction = std::shared_ptr<TaskFunction>(taskFunction);
+        this->taskArguments = std::shared_ptr<TaskArguments>(taskArguments);
     }
     
     Task::~Task()
     {
-        for (TaskArguments::iterator i = this->taskArguments->begin();
-             i != this->taskArguments->end();
-             ++i) {
-            delete *i;
-        }
-        delete this->taskArguments;
+        //delete this->taskArguments;
         Debug("A Task has been removed.");
     }
 }

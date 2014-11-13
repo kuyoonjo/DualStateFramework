@@ -13,11 +13,28 @@ namespace dsf
     SynchronizedObject::SynchronizedObject()
     : TaskBox::TaskBox()
     {
+        this->state = State::STOPPED;
         Debug("A SynchronizedObject Object has been created.");
     }
     SynchronizedObject::~SynchronizedObject()
     {
         Debug("A SynchronizedObject Object has been removed.");
+    }
+    
+    int SynchronizedObject::receive()
+    {
+        if (this->next.isEmpty())
+        {
+            return 0;
+        }
+        
+        int count = 0;
+        while (!this->next.isEmpty())
+        {
+            this->tasks->push_back(std::shared_ptr<Task>(this->next.pop()));
+            count ++;
+        }
+        return count;
     }
     
     void SynchronizedObject::send(dsf::SynchronizedObject *to,
@@ -30,7 +47,27 @@ namespace dsf
     
     void SynchronizedObject::start()
     {
+        this->state = State::RUNNING;
+        Debug("A SynchronizedObject is running");
         this->run();
+        if(this->state == State::RUNNING)
+            this->stop();
     }
     
+    void SynchronizedObject::stop()
+    {
+        this->state = State::STOPPED;
+        Debug("A SynchronizedObject is stopped.");
+    }
+    
+    void SynchronizedObject::distroy()
+    {
+        this->state = State::DELETED;
+        Debug("A SynchronizedObject is distroyed.");
+    }
+    
+    SynchronizedObject::State SynchronizedObject::getState()
+    {
+        return this->state;
+    }
 }

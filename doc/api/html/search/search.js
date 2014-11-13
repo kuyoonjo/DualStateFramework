@@ -9,14 +9,16 @@ var indexSectionsWithContent =
 {
   0: "adirst",
   1: "drst",
-  2: "adirs"
+  2: "airs",
+  3: "s"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "functions"
+  2: "functions",
+  3: "enums"
 };
 
 function convertToId(search)

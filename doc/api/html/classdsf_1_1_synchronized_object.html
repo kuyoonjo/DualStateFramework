@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,15 +86,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classdsf_1_1_synchronized_object-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">dsf::SynchronizedObject Class Reference</div>  </div>
+<div class="title">dsf::SynchronizedObject Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="_synchronized_object_8h_source.html">SynchronizedObject.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for dsf::SynchronizedObject:</div>
 <div class="dyncontent">
@@ -102,45 +101,79 @@ Inheritance diagram for dsf::SynchronizedObject:</div>
   <img src="classdsf_1_1_synchronized_object.png" usemap="#dsf::SynchronizedObject_map" alt=""/>
   <map id="dsf::SynchronizedObject_map" name="dsf::SynchronizedObject_map">
 <area href="classdsf_1_1_runnable.html" alt="dsf::Runnable" shape="rect" coords="0,0,150,24"/>
+<area href="classdsf_1_1_task_box.html" alt="dsf::TaskBox" shape="rect" coords="160,0,310,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:add23ecbc6bd5fe26ec714a57c24038ed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_synchronized_object.html#add23ecbc6bd5fe26ec714a57c24038ed">State</a> { <b>RUNNING</b>, 
+<b>STOPPED</b>, 
+<b>DELETED</b>
+ }</td></tr>
+<tr class="memdesc:add23ecbc6bd5fe26ec714a57c24038ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of the object.  <a href="classdsf_1_1_synchronized_object.html#add23ecbc6bd5fe26ec714a57c24038ed">More...</a><br /></td></tr>
+<tr class="separator:add23ecbc6bd5fe26ec714a57c24038ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa58619404b747edb9008e5c35e9bf4c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa58619404b747edb9008e5c35e9bf4c9"></a>
+<tr class="memitem:afdb49dbdcd6c5049efac6b751d3e1b17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdb49dbdcd6c5049efac6b751d3e1b17"></a>
+<a class="el" href="classdsf_1_1_synchronized_object.html#add23ecbc6bd5fe26ec714a57c24038ed">State</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> ()</td></tr>
+<tr class="separator:afdb49dbdcd6c5049efac6b751d3e1b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classdsf_1_1_task_box"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdsf_1_1_task_box')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdsf_1_1_task_box.html">dsf::TaskBox</a></td></tr>
+<tr class="memitem:a7e67fd9b7104d24cb4be54f6a48eb8c9 inherit pub_methods_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e67fd9b7104d24cb4be54f6a48eb8c9"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEmpty</b> ()</td></tr>
-<tr class="separator:aa58619404b747edb9008e5c35e9bf4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04c5f126520316e145a259ea4cd0f6e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04c5f126520316e145a259ea4cd0f6e4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>process</b> (unsigned int index)</td></tr>
-<tr class="separator:a04c5f126520316e145a259ea4cd0f6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ea084baa8810fb9ef6d2d94805d4027"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ea084baa8810fb9ef6d2d94805d4027"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sendMessage</b> (<a class="el" href="classdsf_1_1_task_box.html">TaskBox</a> *to, <a class="el" href="classdsf_1_1_task_box.html">TaskBox</a> *from, TaskFunction *taskFunction, TaskArguments *args)</td></tr>
-<tr class="separator:a4ea084baa8810fb9ef6d2d94805d4027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c929f2b93d7f3bf555f682a7bfdad0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c929f2b93d7f3bf555f682a7bfdad0a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (<a class="el" href="classdsf_1_1_task_box.html">TaskBox</a> *taskBox)</td></tr>
-<tr class="separator:a3c929f2b93d7f3bf555f682a7bfdad0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ed7e34b539aef782038255032a90966"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ed7e34b539aef782038255032a90966"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (std::string name)</td></tr>
-<tr class="separator:a5ed7e34b539aef782038255032a90966"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab258b306decf057a5b1f207a2cf7b6cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab258b306decf057a5b1f207a2cf7b6cf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()</td></tr>
-<tr class="separator:ab258b306decf057a5b1f207a2cf7b6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a7e67fd9b7104d24cb4be54f6a48eb8c9 inherit pub_methods_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec4e52a625fae00e05b072d6434eef1 inherit pub_methods_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ec4e52a625fae00e05b072d6434eef1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>push</b> (<a class="el" href="classdsf_1_1_task.html">Task</a> *task)</td></tr>
+<tr class="separator:a0ec4e52a625fae00e05b072d6434eef1 inherit pub_methods_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a656f4778edd42d43ff7516de3fa528ef inherit pub_methods_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a656f4778edd42d43ff7516de3fa528ef"></a>
+<a class="el" href="classdsf_1_1_task.html">Task</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pop</b> ()</td></tr>
+<tr class="separator:a656f4778edd42d43ff7516de3fa528ef inherit pub_methods_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1971406a2446326c5bdd58b1462409d inherit pub_methods_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1971406a2446326c5bdd58b1462409d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>receive</b> ()</td></tr>
+<tr class="separator:ab1971406a2446326c5bdd58b1462409d inherit pub_methods_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad35070ac305146aaa4073b2078d9209e inherit pub_methods_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad35070ac305146aaa4073b2078d9209e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>process</b> ()</td></tr>
+<tr class="separator:ad35070ac305146aaa4073b2078d9209e inherit pub_methods_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a9a684c300e5c2bd64c3aaf09f67ef316"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a684c300e5c2bd64c3aaf09f67ef316"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> () override</td></tr>
-<tr class="separator:a9a684c300e5c2bd64c3aaf09f67ef316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae94875bd63d8071f8a563ac45ca7ccc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae94875bd63d8071f8a563ac45ca7ccc2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> () override=0</td></tr>
+<tr class="separator:ae94875bd63d8071f8a563ac45ca7ccc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_classdsf_1_1_task_box"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classdsf_1_1_task_box')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classdsf_1_1_task_box.html">dsf::TaskBox</a></td></tr>
+<tr class="memitem:ae13d0d245cacbf7f4019f7ff5486aa79 inherit pub_attribs_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae13d0d245cacbf7f4019f7ff5486aa79"></a>
+std::vector&lt; <a class="el" href="classdsf_1_1_task.html">Task</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>tasks</b></td></tr>
+<tr class="separator:ae13d0d245cacbf7f4019f7ff5486aa79 inherit pub_attribs_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class <a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a> </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="add23ecbc6bd5fe26ec714a57c24038ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classdsf_1_1_synchronized_object.html#add23ecbc6bd5fe26ec714a57c24038ed">dsf::SynchronizedObject::State</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>State of the object. </p>
+<p>RUNNING: The object is running. <br />
+ STOPPED: The object is stopped. <br />
+ DELETED: The object is marked as deleted. System will automatically delete it. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/dsf/<a class="el" href="_synchronized_object_8h_source.html">SynchronizedObject.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 1 2014 12:58:10 for DualStateFramework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 11 2014 18:36:38 for DualStateFramework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

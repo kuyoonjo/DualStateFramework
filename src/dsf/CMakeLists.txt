@@ -19,6 +19,7 @@ set(SRC
 	${SRCROOT}/SynchronizedObject.cpp
 	${SRCROOT}/Task.cpp
 	${SRCROOT}/TaskBox.cpp
+	${SRCROOT}/CMakeLists.txt
 	PARENT_SCOPE
 )
 source_group("" FILES ${SRC})

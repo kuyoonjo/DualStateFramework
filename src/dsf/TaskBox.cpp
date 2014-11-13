@@ -11,20 +11,12 @@
 namespace dsf {
     TaskBox::TaskBox()
     {
-        this->tasks = new std::vector<Task*>();
-        this->next = nullptr;
+        this->tasks = std::shared_ptr<std::vector<std::shared_ptr<Task>>>(new std::vector<std::shared_ptr<Task>>());
         Debug("A TaskBox Object has been created.");
     }
     
     TaskBox::~TaskBox()
     {
-        for (std::vector<Task*>::iterator i = this->tasks->begin(); i != this->tasks->end(); ++i) {
-            delete *i;
-        }
-        delete this->tasks;
-        if (this->next) {
-            delete this->next;
-        }
         Debug("A TaskBox Object has been removed.");
     }
     
@@ -35,38 +27,14 @@ namespace dsf {
     
     void TaskBox::push(dsf::Task *task)
     {
-        if (this->next)
-        {
-            this->next->tasks->push_back(task);
-        }
-        else
-        {
-            this->next = new TaskBox();
-            this->push(task);
-        }
+        this->tasks->push_back(std::shared_ptr<Task>(task));
     }
     
     Task* TaskBox::pop()
     {
-        Task* task = this->tasks->back();
+        Task* task = this->tasks->back().get();
         this->tasks->pop_back();
         return task;
-    }
-    
-    int TaskBox::receive()
-    {
-        if (!this->next || this->next->isEmpty())
-        {
-            return 0;
-        }
-        
-        int count = 0;
-        while (!this->next->isEmpty())
-        {
-            this->tasks->push_back(this->next->pop());
-            count ++;
-        }
-        return count;
     }
     
     void TaskBox::process()
@@ -75,7 +43,8 @@ namespace dsf {
         {
             Debug("start a Task ...");
             Task* task = this->pop();
-            (*task->taskFunction)(task->taskArguments);
+            (*task->taskFunction)(task->taskArguments.get());
+            Debug("finish a Task.");
         }
     }
 }

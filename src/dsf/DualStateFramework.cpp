@@ -6,6 +6,7 @@
 //
 //
 
+#include <tbb/parallel_for_each.h>
 #include <dsf/DualStateFramework.h>
 
 namespace dsf
@@ -13,6 +14,7 @@ namespace dsf
     DualStateFramework::DualStateFramework()
     {
         this->syncObjs = new std::vector<SynchronizedObject*>();
+        this->state = DualStateFramework::State::STOPPED;
         Debug("A DSF Object has been created.");
     }
     
@@ -23,36 +25,70 @@ namespace dsf
             this->syncObjs->pop_back();
             delete syncObj;
         }
-        delete this->syncObjs;
+        //delete this->syncObjs;
         Debug("A DSF Object has been removed.");
     }
     
     void DualStateFramework::start()
     {
-        this->doOneFrame();
-        if (!this->syncObjs->empty()) {
+        if(!this->syncObjs->empty())
+        {
+            this->doOneFrame();
             this->start();
         }
     }
+    
     void DualStateFramework::doOneFrame()
     {
-        this->run();
-        this->syncObjs->erase(std::remove_if(this->syncObjs->begin(),
-                                               this->syncObjs->end(),
-                                               [](SynchronizedObject* sb)
-                                                    {
-                                                        if (sb->isEmpty()) {
-                                                            delete sb;
-                                                            return true;
-                                                        }
-                                                        return false;
-                                                    }) ,
-                                this->syncObjs->end());
+        this->refresh();
+        
+        if(!this->syncObjs->empty())
+        {
+            this->state = DualStateFramework::State::RUNNING;
+            this->run();
+            if(this->state == DualStateFramework::State::RUNNING)
+                this->state = DualStateFramework::State::STOPPED;
+        }
     }
+    
     
     void DualStateFramework::add(dsf::SynchronizedObject *syncObj)
     {
         this->syncObjs->push_back(syncObj);
+    }
+    
+    void DualStateFramework::remove(dsf::SynchronizedObject *syncObj)
+    {
+        syncObj->distroy();
+    }
+    
+    void DualStateFramework::send(dsf::SynchronizedObject *to, dsf::SynchronizedObject *from, TaskFunction *taskFunction, TaskArguments *args)
+    {
+        from->send(to, taskFunction, args);
+    }
+    
+    DualStateFramework::State DualStateFramework::getState()
+    {
+        return this->state;
+    }
+    
+    //////////////////////////////////////////////////////////////////
+    // Private
+    //////////////////////////////////////////////////////////////////
+    
+    void DualStateFramework::refresh()
+    {
+        this->syncObjs->erase(std::remove_if(this->syncObjs->begin(),
+                                             this->syncObjs->end(),
+                                             [](SynchronizedObject* sb)
+                                             {
+                                                 if (sb->getState() == SynchronizedObject::State::DELETED) {
+                                                     //delete sb;
+                                                     return true;
+                                                 }
+                                                 return false;
+                                             }) ,
+                              this->syncObjs->end());
     }
     
     //////////////////////////////////////////////////////////////////
@@ -62,11 +98,12 @@ namespace dsf
     
     void DualStateFramework::run()
     {
-        for (auto i = this->syncObjs->begin();
-             i != this->syncObjs->end();
-             ++i)
-        {
-            (*i)->start();
-        }
+        tbb::parallel_for_each(this->syncObjs->begin(),
+                               this->syncObjs->end(),
+                               [](SynchronizedObject* sb)
+                               {
+                                   if(sb->getState() == SynchronizedObject::State::STOPPED)
+                                       sb->start();
+                               });
     }
 }
