@@ -40,8 +40,8 @@ namespace dsf {
          void MyDSF::foo(dsf::TaskArguments *args)
          {
             dsf::TaskArgument* arg = args->front();
-            int* i = arg->getValue<int>();
-            std::cout<< *i << std::endl;
+            int i = arg->to<int>();
+            std::cout<< i << std::endl;
          }
          @endcode
          */

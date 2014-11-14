@@ -17,7 +17,7 @@
 
 namespace dsf
 {
-    typedef std::function<void (TaskArguments*)> TaskFunction;
+    typedef std::function<void (dsf::SynchronizedObject*, TaskArguments*)> TaskFunction;
     typedef void function;
 }
 

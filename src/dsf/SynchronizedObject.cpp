@@ -21,22 +21,6 @@ namespace dsf
         Debug("A SynchronizedObject Object has been removed.");
     }
     
-    int SynchronizedObject::receive()
-    {
-        if (this->next.isEmpty())
-        {
-            return 0;
-        }
-        
-        int count = 0;
-        while (!this->next.isEmpty())
-        {
-            this->tasks->push_back(std::shared_ptr<Task>(this->next.pop()));
-            count ++;
-        }
-        return count;
-    }
-    
     void SynchronizedObject::send(dsf::SynchronizedObject *to,
                                 TaskFunction *taskFunction,
                                 TaskArguments *args)

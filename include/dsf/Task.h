@@ -29,14 +29,13 @@ namespace dsf
     class DSF_API Task
     {
     public:
-        std::shared_ptr<TaskBox> from;
-        std::shared_ptr<TaskFunction> taskFunction;
-        std::shared_ptr<TaskArguments> taskArguments;
+        SynchronizedObject* from;
+        TaskFunction* taskFunction;
+        TaskArguments* taskArguments;
         Task();
-        Task(TaskBox* from, TaskFunction* taskFunction, TaskArguments* taskArguments);
+        Task(SynchronizedObject* from, TaskFunction* taskFunction, TaskArguments* taskArguments);
         ~Task();
     };
-    //typedef std::vector<std::shared_ptr<Task>> Tasks;
 }
 
 #endif

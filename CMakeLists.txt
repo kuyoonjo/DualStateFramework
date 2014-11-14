@@ -10,7 +10,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(CMAKE_SKIP_BUILD_RPATH TRUE)
 
 # add the subdirectories
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/dsf)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # detect the architecture (note: this test won't work for cross-compilation)
     

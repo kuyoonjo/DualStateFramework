@@ -30,11 +30,8 @@ namespace dsf
         SynchronizedObject();
         virtual ~SynchronizedObject();
         State getState() override;
-        int receive();
     private:
         State state;
-        TaskBox next;
-        
         void send(SynchronizedObject* to,
                   TaskFunction* taskFunction,
                   TaskArguments* args);

@@ -25,7 +25,7 @@ namespace dsf
             this->syncObjs->pop_back();
             delete syncObj;
         }
-        //delete this->syncObjs;
+        delete this->syncObjs;
         Debug("A DSF Object has been removed.");
     }
     
@@ -83,7 +83,7 @@ namespace dsf
                                              [](SynchronizedObject* sb)
                                              {
                                                  if (sb->getState() == SynchronizedObject::State::DELETED) {
-                                                     //delete sb;
+                                                     delete sb;
                                                      return true;
                                                  }
                                                  return false;

@@ -11,7 +11,6 @@
 
 #include <vector>
 #include <string>
-#include <memory>
 
 #include "Export.h"
 #include "Declaration.h"
@@ -29,9 +28,11 @@ namespace dsf
         bool isEmpty();
         void push(Task* task);
         Task* pop();
+        int receive();
         void process();
-        std::shared_ptr<std::vector<std::shared_ptr<Task>>> tasks;
+        std::vector<Task*>* tasks;
     private:
+        TaskBox* next;
     };
 }
 #endif
