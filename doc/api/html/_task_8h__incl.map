@@ -1,0 +1,12 @@
+<map id="include/dsf/Task.h" name="include/dsf/Task.h">
+<area shape="rect" id="node4" href="$_export_8h.html" title="Export.h" alt="" coords="82,299,153,324"/>
+<area shape="rect" id="node6" href="$_declaration_8h.html" title="Declaration.h" alt="" coords="26,152,126,177"/>
+<area shape="rect" id="node7" href="$_task_box_8h.html" title="TaskBox.h" alt="" coords="281,79,364,104"/>
+<area shape="rect" id="node10" href="$_debug_8h.html" title="Debug.h" alt="" coords="467,152,539,177"/>
+<area shape="rect" id="node12" href="$_task_function_8h.html" title="TaskFunction.h" alt="" coords="614,79,725,104"/>
+<area shape="rect" id="node14" href="$_task_argument_8h.html" title="TaskArgument.h" alt="" coords="767,152,884,177"/>
+<area shape="rect" id="node5" href="$_config_8h.html" title="Config.h" alt="" coords="82,372,153,397"/>
+<area shape="rect" id="node9" href="$_runnable_8h.html" title="Runnable.h" alt="" coords="251,152,341,177"/>
+<area shape="rect" id="node15" href="$_any_8h.html" title="../yc/Any.h" alt="" coords="646,225,728,251"/>
+<area shape="rect" id="node17" href="$_any_exception_8h.html" title="exception/AnyException.h" alt="" coords="722,299,897,324"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="include/dsf/SynchronizedObject.h" name="include/dsf/SynchronizedObject.h">
+<area shape="rect" id="node4" href="$_export_8h.html" title="Export.h" alt="" coords="715,385,786,411"/>
+<area shape="rect" id="node6" href="$_declaration_8h.html" title="Declaration.h" alt="" coords="787,239,887,264"/>
+<area shape="rect" id="node7" href="$_task_8h.html" title="Task.h" alt="" coords="542,92,602,117"/>
+<area shape="rect" id="node9" href="$_task_box_8h.html" title="TaskBox.h" alt="" coords="687,165,769,191"/>
+<area shape="rect" id="node10" href="$_runnable_8h.html" title="Runnable.h" alt="" coords="911,239,1001,264"/>
+<area shape="rect" id="node11" href="$_debug_8h.html" title="Debug.h" alt="" coords="439,239,511,264"/>
+<area shape="rect" id="node13" href="$_task_function_8h.html" title="TaskFunction.h" alt="" coords="253,165,364,191"/>
+<area shape="rect" id="node15" href="$_task_argument_8h.html" title="TaskArgument.h" alt="" coords="93,239,211,264"/>
+<area shape="rect" id="node5" href="$_config_8h.html" title="Config.h" alt="" coords="715,459,786,484"/>
+<area shape="rect" id="node16" href="$_any_8h.html" title="../yc/Any.h" alt="" coords="244,312,327,337"/>
+<area shape="rect" id="node18" href="$_any_exception_8h.html" title="exception/AnyException.h" alt="" coords="47,385,222,411"/>
+</map>

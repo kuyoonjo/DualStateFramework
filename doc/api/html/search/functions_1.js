@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initialize',['initialize',['../classdsf_1_1_dual_state_framework.html#a809a7bba4148e17ea9a43a0a035383ba',1,'dsf::DualStateFramework']]]
+  ['clone',['Clone',['../classyc_1_1_any_1_1_base.html#a34fd629ae1024980277e820e55da2d9c',1,'yc::Any::Base']]]
 ];

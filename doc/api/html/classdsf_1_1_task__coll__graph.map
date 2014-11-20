@@ -1,0 +1,5 @@
+<map id="dsf::Task" name="dsf::Task">
+<area shape="rect" id="node2" href="$classdsf_1_1_synchronized_object.html" title="{dsf::SynchronizedObject\n||+ SynchronizedObject()\l+ ~SynchronizedObject()\l+ getState()\l# run()\l}" alt="" coords="35,208,204,321"/>
+<area shape="rect" id="node3" href="$classdsf_1_1_runnable.html" title="{dsf::Runnable\n||+ getState()\l# run()\l}" alt="" coords="5,39,109,125"/>
+<area shape="rect" id="node4" href="$classdsf_1_1_task_box.html" title="{dsf::TaskBox\n|+ tasks\l|+ TaskBox()\l+ ~TaskBox()\l+ isEmpty()\l+ push()\l+ pop()\l+ receive()\l+ process()\l}" alt="" coords="133,5,232,159"/>
+</map>

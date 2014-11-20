@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>DualStateFramework: include/dsf/Task.h Source File</title>
+<title>Dual State Framework: include/dsf/Task.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">DualStateFramework
+   <div id="projectname">Dual State Framework
    </div>
   </td>
  </tr>
@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -60,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -67,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Task.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="_task_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  Parallel.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  DualStateFramework</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -98,36 +100,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define dsf_Task_h</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;Export.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;Declaration.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;TaskBox.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;TaskFunction.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;TaskArgument.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;Debug.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_export_8h.html">Export.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_declaration_8h.html">Declaration.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_task_box_8h.html">TaskBox.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_task_function_8h.html">TaskFunction.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_task_argument_8h.html">TaskArgument.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_debug_8h.html">Debug.h</a>&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>dsf</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classdsf_1_1_task.html">   28</a></span>&#160;    <span class="keyword">class </span>DSF_API <a class="code" href="classdsf_1_1_task.html">Task</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classdsf_1_1_task_box.html">TaskBox</a>* from;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        TaskFunction* taskFunction;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        TaskArguments* taskArguments;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="classdsf_1_1_task.html">Task</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classdsf_1_1_task.html">Task</a>(<a class="code" href="classdsf_1_1_task_box.html">TaskBox</a>* from, TaskFunction* taskFunction, TaskArguments* taskArguments);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ~<a class="code" href="classdsf_1_1_task.html">Task</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classdsf_1_1_task_box_html"><div class="ttname"><a href="classdsf_1_1_task_box.html">dsf::TaskBox</a></div><div class="ttdef"><b>Definition:</b> TaskBox.h:23</div></div>
-<div class="ttc" id="classdsf_1_1_task_html"><div class="ttname"><a href="classdsf_1_1_task.html">dsf::Task</a></div><div class="ttdef"><b>Definition:</b> Task.h:28</div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span>dsf</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classdsf_1_1_task.html">   29</a></span>&#160;    <span class="keyword">class </span><a class="code" href="_export_8h.html#ad7bb940831423512f29a6981786c37bd">DSF_API</a> <a class="code" href="classdsf_1_1_task.html">Task</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classdsf_1_1_task.html#afc1faf30dab0d57501dfdcb4ef7b5450">   32</a></span>&#160;        <a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* <a class="code" href="classdsf_1_1_task.html#afc1faf30dab0d57501dfdcb4ef7b5450">from</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classdsf_1_1_task.html#a681617cab34fbae641c5b0cf4be46659">   33</a></span>&#160;        <a class="code" href="namespacedsf.html#aea77a3692a91c89394c32d0101ded811">TaskFunction</a>* <a class="code" href="classdsf_1_1_task.html#a681617cab34fbae641c5b0cf4be46659">taskFunction</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classdsf_1_1_task.html#ae70fbe38f3f92295bdd70822a08cfec7">   34</a></span>&#160;        <a class="code" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">TaskArguments</a>* <a class="code" href="classdsf_1_1_task.html#ae70fbe38f3f92295bdd70822a08cfec7">taskArguments</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="namespacedsf.html#a7df24c7d3d82e2e686aa3a524dc1dee9">Task</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="namespacedsf.html#a7df24c7d3d82e2e686aa3a524dc1dee9">Task</a>(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* from, <a class="code" href="namespacedsf.html#aea77a3692a91c89394c32d0101ded811">TaskFunction</a>* taskFunction, <a class="code" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">TaskArguments</a>* taskArguments);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        ~<a class="code" href="classdsf_1_1_task.html">Task</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    };</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_export_8h_html"><div class="ttname"><a href="_export_8h.html">Export.h</a></div></div>
+<div class="ttc" id="_task_box_8h_html"><div class="ttname"><a href="_task_box_8h.html">TaskBox.h</a></div></div>
+<div class="ttc" id="namespacedsf_html_a342e70aaab67b8262840847472c9f4ad"><div class="ttname"><a href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">dsf::TaskArguments</a></div><div class="ttdeci">std::vector&lt; TaskArgument &gt; TaskArguments</div><div class="ttdef"><b>Definition:</b> TaskArgument.h:19</div></div>
+<div class="ttc" id="_declaration_8h_html"><div class="ttname"><a href="_declaration_8h.html">Declaration.h</a></div></div>
+<div class="ttc" id="classdsf_1_1_task_html"><div class="ttname"><a href="classdsf_1_1_task.html">dsf::Task</a></div><div class="ttdef"><b>Definition:</b> Task.h:29</div></div>
+<div class="ttc" id="namespacedsf_html_aea77a3692a91c89394c32d0101ded811"><div class="ttname"><a href="namespacedsf.html#aea77a3692a91c89394c32d0101ded811">dsf::TaskFunction</a></div><div class="ttdeci">std::function&lt; void(dsf::SynchronizedObject *, TaskArguments *)&gt; TaskFunction</div><div class="ttdef"><b>Definition:</b> TaskFunction.h:20</div></div>
+<div class="ttc" id="_export_8h_html_ad7bb940831423512f29a6981786c37bd"><div class="ttname"><a href="_export_8h.html#ad7bb940831423512f29a6981786c37bd">DSF_API</a></div><div class="ttdeci">#define DSF_API</div><div class="ttdef"><b>Definition:</b> Export.h:27</div></div>
+<div class="ttc" id="_task_argument_8h_html"><div class="ttname"><a href="_task_argument_8h.html">TaskArgument.h</a></div></div>
+<div class="ttc" id="classdsf_1_1_task_html_afc1faf30dab0d57501dfdcb4ef7b5450"><div class="ttname"><a href="classdsf_1_1_task.html#afc1faf30dab0d57501dfdcb4ef7b5450">dsf::Task::from</a></div><div class="ttdeci">SynchronizedObject * from</div><div class="ttdef"><b>Definition:</b> Task.h:32</div></div>
+<div class="ttc" id="classdsf_1_1_task_html_a681617cab34fbae641c5b0cf4be46659"><div class="ttname"><a href="classdsf_1_1_task.html#a681617cab34fbae641c5b0cf4be46659">dsf::Task::taskFunction</a></div><div class="ttdeci">TaskFunction * taskFunction</div><div class="ttdef"><b>Definition:</b> Task.h:33</div></div>
+<div class="ttc" id="classdsf_1_1_task_html_ae70fbe38f3f92295bdd70822a08cfec7"><div class="ttname"><a href="classdsf_1_1_task.html#ae70fbe38f3f92295bdd70822a08cfec7">dsf::Task::taskArguments</a></div><div class="ttdeci">TaskArguments * taskArguments</div><div class="ttdef"><b>Definition:</b> Task.h:34</div></div>
+<div class="ttc" id="_task_function_8h_html"><div class="ttname"><a href="_task_function_8h.html">TaskFunction.h</a></div></div>
+<div class="ttc" id="namespacedsf_html_a7df24c7d3d82e2e686aa3a524dc1dee9"><div class="ttname"><a href="namespacedsf.html#a7df24c7d3d82e2e686aa3a524dc1dee9">dsf::Task</a></div><div class="ttdeci">class DSF_API Task</div><div class="ttdef"><b>Definition:</b> Declaration.h:15</div></div>
+<div class="ttc" id="classdsf_1_1_synchronized_object_html"><div class="ttname"><a href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a></div><div class="ttdef"><b>Definition:</b> SynchronizedObject.h:26</div></div>
+<div class="ttc" id="_debug_8h_html"><div class="ttname"><a href="_debug_8h.html">Debug.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 11 2014 18:36:38 for DualStateFramework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 17 2014 20:42:01 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

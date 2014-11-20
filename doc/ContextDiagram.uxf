@@ -4,19 +4,20 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>280</x>
-      <y>140</y>
+      <x>350</x>
+      <y>150</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Process</panel_attributes>
+    <panel_attributes>dsf
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>300</x>
-      <y>140</y>
+      <x>370</x>
+      <y>150</y>
       <w>50</w>
       <h>90</h>
     </coordinates>
@@ -26,8 +27,8 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>200</x>
-      <y>180</y>
+      <x>270</x>
+      <y>190</y>
       <w>250</w>
       <h>50</h>
     </coordinates>
@@ -37,72 +38,76 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>210</x>
-      <y>220</y>
+      <x>280</x>
+      <y>230</y>
       <w>40</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>/P1/
+    <panel_attributes>/so1/
 .
 .
 .
 .
-.</panel_attributes>
+.
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>260</x>
-      <y>220</y>
+      <x>330</x>
+      <y>230</y>
       <w>40</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>/P2/
+    <panel_attributes>/so2/
 .
 .
 .
 .
-.</panel_attributes>
+.
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>310</x>
-      <y>220</y>
+      <x>380</x>
+      <y>230</y>
       <w>40</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>/P3/
+    <panel_attributes>/so3/
 .
 .
 .
 .
-.</panel_attributes>
+.
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>410</x>
-      <y>220</y>
+      <x>480</x>
+      <y>230</y>
       <w>40</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>/Pn/
+    <panel_attributes>/son/
 .
 .
 .
 .
-.</panel_attributes>
+.
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>330</x>
-      <y>250</y>
+      <x>400</x>
+      <y>260</y>
       <w>100</w>
       <h>50</h>
     </coordinates>
@@ -112,8 +117,8 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>200</x>
-      <y>320</y>
+      <x>270</x>
+      <y>330</y>
       <w>250</w>
       <h>50</h>
     </coordinates>
@@ -123,8 +128,8 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>300</x>
-      <y>320</y>
+      <x>370</x>
+      <y>330</y>
       <w>50</w>
       <h>90</h>
     </coordinates>
@@ -134,25 +139,27 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>280</x>
-      <y>390</y>
+      <x>350</x>
+      <y>400</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Process</panel_attributes>
+    <panel_attributes>finish
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>90</x>
-      <y>260</y>
+      <x>160</x>
+      <y>270</y>
       <w>110</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>bt=.
 Parallel 
-Processes</panel_attributes>
+Processes
+bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
