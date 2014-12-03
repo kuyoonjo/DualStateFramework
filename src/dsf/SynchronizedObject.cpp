@@ -46,7 +46,7 @@ namespace dsf
     }
     void SynchronizedObject::send(dsf::SynchronizedObject *to,
                                 TaskFunction *taskFunction,
-                                TaskArguments *args)
+                                TaskArgument *args)
     {
         to->push(new Task(to, this, taskFunction, args));
     }

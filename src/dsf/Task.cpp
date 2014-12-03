@@ -9,26 +9,19 @@
 #include <dsf/Task.h>
 namespace dsf
 {
-    Task::Task()
-    {
-        Debug("A Task has been created.");
-    }
-    
     Task::Task(SynchronizedObject* to,
                SynchronizedObject* from,
                TaskFunction* taskFunction,
-               TaskArguments* taskArguments)
-    : Task::Task()
+               TaskArgument* taskArgument)
     {
         this->to = to;
         this->from = from;
         this->taskFunction = taskFunction;
-        this->taskArguments = taskArguments;
+        this->taskArgument = taskArgument;
     }
     
     Task::~Task()
     {
-        delete this->taskArguments;
-        Debug("A Task has been removed.");
+        delete this->taskArgument;
     }
 }

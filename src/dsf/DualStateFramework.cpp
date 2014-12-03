@@ -62,7 +62,7 @@ namespace dsf
         syncObj->distroy();
     }
     
-    void DualStateFramework::send(dsf::SynchronizedObject *to, dsf::SynchronizedObject *from, TaskFunction *taskFunction, TaskArguments *args)
+    void DualStateFramework::send(dsf::SynchronizedObject *to, dsf::SynchronizedObject *from, TaskFunction *taskFunction, TaskArgument *args)
     {
         from->send(to, taskFunction, args);
     }

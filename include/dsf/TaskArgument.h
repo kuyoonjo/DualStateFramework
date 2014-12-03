@@ -17,7 +17,6 @@
 namespace dsf
 {
     typedef yc::Any TaskArgument;
-    typedef std::vector<TaskArgument> TaskArguments;
     typedef yc::Exception::AnyException TaskArgumentException;
 }
 

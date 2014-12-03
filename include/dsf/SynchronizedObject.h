@@ -39,7 +39,7 @@ namespace dsf
         void synchronize();
         void send(SynchronizedObject* to,
                   TaskFunction* taskFunction,
-                  TaskArguments* args);
+                  TaskArgument* args);
         void start();
         void stop();
         void distroy();

@@ -70,7 +70,7 @@ namespace dsf {
         void send(SynchronizedObject* to,
                   SynchronizedObject* from,
                   TaskFunction* taskFunction,
-                  TaskArguments* args);
+                  TaskArgument* args);
         
         /*! \brief Return the state of the object.
          */

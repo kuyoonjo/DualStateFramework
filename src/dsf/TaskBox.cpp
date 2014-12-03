@@ -75,7 +75,7 @@ namespace dsf {
         {
             Debug("start a Task ...");
             Task* task = this->pop();
-            (*task->taskFunction)(task->to, task->from, task->taskArguments);
+            (*task->taskFunction)(task->to, task->from, task->taskArgument);
             delete task;
             Debug("finish a Task.");
         }

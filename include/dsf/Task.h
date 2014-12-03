@@ -32,9 +32,11 @@ namespace dsf
         SynchronizedObject* to;
         SynchronizedObject* from;
         TaskFunction* taskFunction;
-        TaskArguments* taskArguments;
-        Task();
-        Task(SynchronizedObject* to, SynchronizedObject* from, TaskFunction* taskFunction, TaskArguments* taskArguments);
+        TaskArgument* taskArgument;
+        explicit Task(SynchronizedObject* to,
+             SynchronizedObject* from,
+             TaskFunction* taskFunction,
+             TaskArgument* taskArgument);
         ~Task();
     };
 }
