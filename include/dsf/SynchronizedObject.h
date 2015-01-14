@@ -19,12 +19,13 @@
 #include "TaskFunction.h"
 #include "TaskArgument.h"
 #include "Runnable.h"
+#include "Lock.h"
 #include "SynchronizedVar.h"
 #include "Debug.h"
 
 namespace dsf
 {
-    class DSF_API SynchronizedObject : public Runnable, public TaskBox
+    class DSF_API SynchronizedObject : public Runnable, public TaskBox, public Lock
     {
     public:
         SynchronizedObject();

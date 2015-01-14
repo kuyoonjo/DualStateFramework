@@ -29,20 +29,17 @@ namespace dsf {
          *
          * Example.
          @code
-         void MyDSF::initialize()
+         this->printHello = new dsf::TaskFunction([this](dsf::SynchronizedObject* to,
+                                                         dsf::SynchronizedObject* from,
+                                                         dsf::TaskArgument* args)
          {
-            this->printInt = [this](dsf::TaskArguments *args)
-                            {
-                                this->foo(args);
-                            };
-         }
-         
-         void MyDSF::foo(dsf::TaskArguments *args)
-         {
-            dsf::TaskArgument* arg = args->front();
-            int i = arg->to<int>();
-            std::cout<< i << std::endl;
-         }
+            std::string str;
+            float f;
+            std::tie(str, f) = args->to<std::tuple<std::string, float>>();
+            std::cout << str << " " << f << std::endl;
+            this->remove(from);
+         });
+
          @endcode
          */
         virtual void initialize() = 0;

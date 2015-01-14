@@ -8,7 +8,8 @@ set(SRC
 	${INCROOT}/DSF/Debug.h
 	${INCROOT}/DSF/Declaration.h
 	${INCROOT}/DSF/DualStateFramework.h
-	${INCROOT}/DSF/Export.h
+    ${INCROOT}/DSF/Export.h
+    ${INCROOT}/DSF/Lock.h
 	${INCROOT}/DSF/Runnable.h
 	${INCROOT}/DSF/SynchronizedObject.h
     ${INCROOT}/DSF/SynchronizedVar.h
@@ -17,7 +18,8 @@ set(SRC
 	${INCROOT}/DSF/TaskBox.h
 	${INCROOT}/DSF/TaskFunction.h
 
-	${SRCROOT}/DSF/DualStateFramework.cpp
+    ${SRCROOT}/DSF/DualStateFramework.cpp
+    ${SRCROOT}/DSF/Lock.cpp
 	${SRCROOT}/DSF/SynchronizedObject.cpp
     ${SRCROOT}/DSF/SynchronizedVar.cpp
 	${SRCROOT}/DSF/Task.cpp

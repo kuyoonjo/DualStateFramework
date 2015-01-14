@@ -6,4 +6,23 @@
 //
 //
 
-#include "Lock.h"
+#include <dsf/Lock.h>
+
+namespace dsf
+{
+    void Lock::lock()
+    {
+        if (!this->locked)
+            this->locked = true;
+        else
+            this->lock();
+    }
+    
+    void Lock::unlock()
+    {
+        if(this->locked)
+            this->locked = false;
+        else
+            this->unlock();
+    }
+}

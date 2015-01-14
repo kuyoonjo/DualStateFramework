@@ -10,15 +10,11 @@
 #define dsf_SynchronizedVar_h
 
 #include "../yc/Any.h"
+#include "Lock.h"
 
 namespace dsf
 {
-    class A
-    {
-    private:
-        void foo();
-    };
-    class SynchronizedVar
+    class SynchronizedVar : public Lock
     {
     public:
         SynchronizedVar();
@@ -26,8 +22,10 @@ namespace dsf
         template<typename T> void operator=(T && value);
         template<typename T> T to();
         void synchronize();
+        
     protected:
         template<typename T> void set(T && value);
+        
     private:
         yc::Any value;
         yc::Any next;
@@ -53,7 +51,9 @@ namespace dsf
     
     template<typename T> void SynchronizedVar::set(T && value)
     {
+        this->lock();
         this->next = value;
+        this->unlock();
     }
 }
 

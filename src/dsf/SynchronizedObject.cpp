@@ -48,7 +48,9 @@ namespace dsf
                                 TaskFunction *taskFunction,
                                 TaskArgument *args)
     {
+        this->lock();
         to->push(new Task(to, this, taskFunction, args));
+        this->unlock();
     }
     
     
