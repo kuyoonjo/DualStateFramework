@@ -7,7 +7,7 @@ project(dsf)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # disable the rpath stuff
-set(CMAKE_SKIP_BUILD_RPATH TRUE)
+set(CMAKE_SKIP_BUILD_RPATH FALSE)
 
 # add the subdirectories
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src)
@@ -56,6 +56,7 @@ if (MSVC)
     endforeach()
 elseif(XCODE)
 	# Mac OS X Xcode
+    set(CMAKE_MACOSX_RPATH 1)
 	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/tbb)
 	ADD_DEFINITIONS(
     		-std=c++11
@@ -96,3 +97,13 @@ else()
 endif()
 # headers
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/dsf DESTINATION include)
+
+
+# examples
+set(Example "no" CACHE STRING "A simple Example.")
+set_property(CACHE Example PROPERTY STRINGS no yes)
+message(STATUS "Example='${Example}'")
+
+if (Example MATCHES "yes")
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/example)
+endif()
