@@ -13,12 +13,12 @@
 #include <typeindex>
 #include <string>
 
-#include "../dsf/Export.h"
-#include "exception/AnyException.h"
+#include "Export.h"
+#include "AnyException.h"
 
 namespace yc
 {
-    class DSF_API Any
+    class YCTOOLS_API Any
     {
     public:
         Any(void);

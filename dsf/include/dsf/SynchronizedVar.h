@@ -9,7 +9,7 @@
 #ifndef dsf_SynchronizedVar_h
 #define dsf_SynchronizedVar_h
 
-#include "../yc/Any.h"
+#include <yctools/Any.h>
 #include "Lock.h"
 
 namespace dsf

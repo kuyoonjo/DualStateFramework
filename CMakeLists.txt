@@ -3,14 +3,15 @@ cmake_minimum_required(VERSION 2.8)
 # project name
 project(dsf)
 
-# add the DSF header path
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+# setup version numbers
+set(VERSION_MAJOR 1)
+set(VERSION_MINOR 0)
+set(VERSION_PATCH 0)
+
 
 # disable the rpath stuff
 set(CMAKE_SKIP_BUILD_RPATH FALSE)
 
-# add the subdirectories
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # detect the architecture (note: this test won't work for cross-compilation)
     
@@ -27,9 +28,7 @@ endif()
 
 # configure links and headers
 
-set(TBB_LIBRARY 
-	libtbb
-)
+set(TBB_LIBRARY libtbb)
 set(LINK_LIBRARY)
 
 if (MSVC)
@@ -54,10 +53,11 @@ if (MSVC)
         debug ${lib}_debug.lib
         )
     endforeach()
-elseif(XCODE)
+elseif(APPLE)
 	# Mac OS X Xcode
     set(CMAKE_MACOSX_RPATH 1)
-	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/tbb)
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/tbb)
+    find_library(YCTOOLS_LIBRARY NAMES yctools PATHS ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/yctools)
 	ADD_DEFINITIONS(
     		-std=c++11
 	)
@@ -77,16 +77,11 @@ else()
 endif()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/headers)
 
-set (OUTPUT_NAME ${PROJECT_NAME})
-
-add_library (${OUTPUT_NAME} SHARED ${SRC})
-set_target_properties(
-    ${OUTPUT_NAME} PROPERTIES DEBUG_POSTFIX -d
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
-)
-target_link_libraries (${OUTPUT_NAME} ${LINK_LIBRARY})
+# library
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/dsf)
+if(APPLE)
+    OPTION(OSX_FRAMEWORK "Build a Mac OS X Framework")
+endif()
 
 
 # installation

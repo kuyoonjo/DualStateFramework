@@ -12,11 +12,12 @@
 #include <exception>
 #include <string>
 
+#include "Export.h"
 namespace yc
 {
     namespace Exception
     {
-        class AnyException : public std::exception
+        class YCTOOLS_API AnyException : public std::exception
         {
         public:
             AnyException(std::string from,

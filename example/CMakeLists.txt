@@ -1,10 +1,7 @@
 set(EXECUTABLE_NAME example)
-add_executable(
-    ${EXECUTABLE_NAME}
-    MACOSX_BUNDLE
-    "main.cpp")
 
-if(XCODE)
+if(APPLE)
+    add_executable(${EXECUTABLE_NAME} MACOSX_BUNDLE "main.cpp")
 	# Detect and add SFML
     set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/example/cmake_modules" ${CMAKE_MODULE_PATH})
     #Find any version 2.X of SFML
@@ -12,8 +9,11 @@ if(XCODE)
     find_package(SFML REQUIRED system window graphics network audio)
     if(SFML_FOUND)
         include_directories(${SFML_INCLUDE_DIR})
+        set(CMAKE_EXE_LINKER_FLAGS "-framework dsf")
         target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
     endif()
+else()
+    add_executable(${EXECUTABLE_NAME} "main.cpp")
 endif()
 
 set_target_properties(
