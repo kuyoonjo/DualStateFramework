@@ -7,22 +7,17 @@
 //
 
 #include <dsf/Lock.h>
+#include <tbb/mutex.h>
 
 namespace dsf
 {
     void Lock::lock()
     {
-        if (!this->locked)
-            this->locked = true;
-        else
-            this->lock();
+        this->locker.lock();
     }
     
     void Lock::unlock()
     {
-        if(this->locked)
-            this->locked = false;
-        else
-            this->unlock();
+        this->locker.unlock();
     }
 }

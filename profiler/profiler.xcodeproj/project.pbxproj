@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BB47A641A87E97000F36CCF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A331A87E5DC00F36CCF /* main.cpp */; };
+		4BB47A701A87E9A000F36CCF /* yctools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A661A87E9A000F36CCF /* yctools.framework */; };
+		4BB47A711A87E9A000F36CCF /* sndfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A671A87E9A000F36CCF /* sndfile.framework */; };
+		4BB47A721A87E9A000F36CCF /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A681A87E9A000F36CCF /* SFML.framework */; };
+		4BB47A731A87E9A000F36CCF /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A691A87E9A000F36CCF /* sfml-window.framework */; };
+		4BB47A741A87E9A000F36CCF /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6A1A87E9A000F36CCF /* sfml-system.framework */; };
+		4BB47A751A87E9A000F36CCF /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6B1A87E9A000F36CCF /* sfml-network.framework */; };
+		4BB47A761A87E9A000F36CCF /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6C1A87E9A000F36CCF /* sfml-graphics.framework */; };
+		4BB47A771A87E9A000F36CCF /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6D1A87E9A000F36CCF /* sfml-audio.framework */; };
+		4BB47A781A87E9A000F36CCF /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6E1A87E9A000F36CCF /* freetype.framework */; };
+		4BB47A791A87E9A000F36CCF /* dsf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6F1A87E9A000F36CCF /* dsf.framework */; };
+		4BB47A841A87EB1D00F36CCF /* yctools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A661A87E9A000F36CCF /* yctools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A851A87EB1D00F36CCF /* sndfile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A671A87E9A000F36CCF /* sndfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A861A87EB1D00F36CCF /* sfml-window.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A691A87E9A000F36CCF /* sfml-window.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A871A87EB1D00F36CCF /* sfml-system.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6A1A87E9A000F36CCF /* sfml-system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A881A87EB1D00F36CCF /* sfml-network.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6B1A87E9A000F36CCF /* sfml-network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A891A87EB1D00F36CCF /* sfml-graphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6C1A87E9A000F36CCF /* sfml-graphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A8A1A87EB1D00F36CCF /* sfml-audio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6D1A87E9A000F36CCF /* sfml-audio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A8B1A87EB1D00F36CCF /* freetype.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6E1A87E9A000F36CCF /* freetype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A8C1A87EB1D00F36CCF /* dsf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6F1A87E9A000F36CCF /* dsf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BB47A8F1A87ED9000F36CCF /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A8E1A87ED9000F36CCF /* libtbb.dylib */; };
+		4BB47A911A87EE4700F36CCF /* MyDSF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A901A87EE4700F36CCF /* MyDSF.cpp */; };
+		4BB47A951A87F18F00F36CCF /* MySyncObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A941A87F18F00F36CCF /* MySyncObj.cpp */; };
+		4BB47A981A87F4FD00F36CCF /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BB47A971A87F4FD00F36CCF /* sansation.ttf */; };
+		4BB47A9A1A87F55B00F36CCF /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A991A87F55B00F36CCF /* ResourcePath.mm */; };
+		4BB47A9E1A87FC8C00F36CCF /* FPS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A9D1A87FC8C00F36CCF /* FPS.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4BB47A7A1A87EA6F00F36CCF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4BB47A841A87EB1D00F36CCF /* yctools.framework in CopyFiles */,
+				4BB47A851A87EB1D00F36CCF /* sndfile.framework in CopyFiles */,
+				4BB47A861A87EB1D00F36CCF /* sfml-window.framework in CopyFiles */,
+				4BB47A871A87EB1D00F36CCF /* sfml-system.framework in CopyFiles */,
+				4BB47A881A87EB1D00F36CCF /* sfml-network.framework in CopyFiles */,
+				4BB47A891A87EB1D00F36CCF /* sfml-graphics.framework in CopyFiles */,
+				4BB47A8A1A87EB1D00F36CCF /* sfml-audio.framework in CopyFiles */,
+				4BB47A8B1A87EB1D00F36CCF /* freetype.framework in CopyFiles */,
+				4BB47A8C1A87EB1D00F36CCF /* dsf.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4BB47A331A87E5DC00F36CCF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4BB47A441A87E90400F36CCF /* profiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BB47A661A87E9A000F36CCF /* yctools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = yctools.framework; path = extlib/osx/yctools.framework; sourceTree = "<group>"; };
+		4BB47A671A87E9A000F36CCF /* sndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sndfile.framework; path = extlib/osx/sndfile.framework; sourceTree = "<group>"; };
+		4BB47A681A87E9A000F36CCF /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = extlib/osx/SFML.framework; sourceTree = "<group>"; };
+		4BB47A691A87E9A000F36CCF /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "extlib/osx/sfml-window.framework"; sourceTree = "<group>"; };
+		4BB47A6A1A87E9A000F36CCF /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "extlib/osx/sfml-system.framework"; sourceTree = "<group>"; };
+		4BB47A6B1A87E9A000F36CCF /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "extlib/osx/sfml-network.framework"; sourceTree = "<group>"; };
+		4BB47A6C1A87E9A000F36CCF /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "extlib/osx/sfml-graphics.framework"; sourceTree = "<group>"; };
+		4BB47A6D1A87E9A000F36CCF /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "extlib/osx/sfml-audio.framework"; sourceTree = "<group>"; };
+		4BB47A6E1A87E9A000F36CCF /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = extlib/osx/freetype.framework; sourceTree = "<group>"; };
+		4BB47A6F1A87E9A000F36CCF /* dsf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = dsf.framework; path = extlib/osx/dsf.framework; sourceTree = "<group>"; };
+		4BB47A8E1A87ED9000F36CCF /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = extlib/osx/libtbb.dylib; sourceTree = "<group>"; };
+		4BB47A901A87EE4700F36CCF /* MyDSF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyDSF.cpp; sourceTree = "<group>"; };
+		4BB47A921A87EE7200F36CCF /* MyDSF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDSF.h; sourceTree = "<group>"; };
+		4BB47A931A87F15100F36CCF /* MySyncObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySyncObj.h; sourceTree = "<group>"; };
+		4BB47A941A87F18F00F36CCF /* MySyncObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MySyncObj.cpp; sourceTree = "<group>"; };
+		4BB47A971A87F4FD00F36CCF /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
+		4BB47A991A87F55B00F36CCF /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
+		4BB47A9B1A87F56800F36CCF /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		4BB47A9C1A87FB6000F36CCF /* FPS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPS.h; sourceTree = "<group>"; };
+		4BB47A9D1A87FC8C00F36CCF /* FPS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPS.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BB47A411A87E90400F36CCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BB47A791A87E9A000F36CCF /* dsf.framework in Frameworks */,
+				4BB47A781A87E9A000F36CCF /* freetype.framework in Frameworks */,
+				4BB47A741A87E9A000F36CCF /* sfml-system.framework in Frameworks */,
+				4BB47A8F1A87ED9000F36CCF /* libtbb.dylib in Frameworks */,
+				4BB47A771A87E9A000F36CCF /* sfml-audio.framework in Frameworks */,
+				4BB47A751A87E9A000F36CCF /* sfml-network.framework in Frameworks */,
+				4BB47A731A87E9A000F36CCF /* sfml-window.framework in Frameworks */,
+				4BB47A721A87E9A000F36CCF /* SFML.framework in Frameworks */,
+				4BB47A711A87E9A000F36CCF /* sndfile.framework in Frameworks */,
+				4BB47A701A87E9A000F36CCF /* yctools.framework in Frameworks */,
+				4BB47A761A87E9A000F36CCF /* sfml-graphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BB47A281A87E53700F36CCF = {
+			isa = PBXGroup;
+			children = (
+				4BB47A961A87F4FD00F36CCF /* resource */,
+				4BB47A8D1A87ED3300F36CCF /* lib */,
+				4BB47A651A87E97800F36CCF /* frameworks */,
+				4BB47A321A87E5DC00F36CCF /* src */,
+				4BB47A311A87E5C200F36CCF /* include */,
+				4BB47A391A87E74E00F36CCF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BB47A311A87E5C200F36CCF /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4BB47A921A87EE7200F36CCF /* MyDSF.h */,
+				4BB47A9C1A87FB6000F36CCF /* FPS.h */,
+				4BB47A9B1A87F56800F36CCF /* ResourcePath.hpp */,
+				4BB47A931A87F15100F36CCF /* MySyncObj.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		4BB47A321A87E5DC00F36CCF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				4BB47A331A87E5DC00F36CCF /* main.cpp */,
+				4BB47A9D1A87FC8C00F36CCF /* FPS.cpp */,
+				4BB47A991A87F55B00F36CCF /* ResourcePath.mm */,
+				4BB47A901A87EE4700F36CCF /* MyDSF.cpp */,
+				4BB47A941A87F18F00F36CCF /* MySyncObj.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		4BB47A391A87E74E00F36CCF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BB47A441A87E90400F36CCF /* profiler.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BB47A651A87E97800F36CCF /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BB47A661A87E9A000F36CCF /* yctools.framework */,
+				4BB47A671A87E9A000F36CCF /* sndfile.framework */,
+				4BB47A681A87E9A000F36CCF /* SFML.framework */,
+				4BB47A691A87E9A000F36CCF /* sfml-window.framework */,
+				4BB47A6A1A87E9A000F36CCF /* sfml-system.framework */,
+				4BB47A6B1A87E9A000F36CCF /* sfml-network.framework */,
+				4BB47A6C1A87E9A000F36CCF /* sfml-graphics.framework */,
+				4BB47A6D1A87E9A000F36CCF /* sfml-audio.framework */,
+				4BB47A6E1A87E9A000F36CCF /* freetype.framework */,
+				4BB47A6F1A87E9A000F36CCF /* dsf.framework */,
+			);
+			name = frameworks;
+			sourceTree = "<group>";
+		};
+		4BB47A8D1A87ED3300F36CCF /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				4BB47A8E1A87ED9000F36CCF /* libtbb.dylib */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		4BB47A961A87F4FD00F36CCF /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				4BB47A971A87F4FD00F36CCF /* sansation.ttf */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4BB47A431A87E90400F36CCF /* profiler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BB47A5E1A87E90400F36CCF /* Build configuration list for PBXNativeTarget "profiler" */;
+			buildPhases = (
+				4BB47A401A87E90400F36CCF /* Sources */,
+				4BB47A411A87E90400F36CCF /* Frameworks */,
+				4BB47A421A87E90400F36CCF /* Resources */,
+				4BB47A7A1A87EA6F00F36CCF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = profiler;
+			productName = profiler;
+			productReference = 4BB47A441A87E90400F36CCF /* profiler.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BB47A291A87E53700F36CCF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					4BB47A431A87E90400F36CCF = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 4BB47A2C1A87E53700F36CCF /* Build configuration list for PBXProject "profiler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4BB47A281A87E53700F36CCF;
+			productRefGroup = 4BB47A391A87E74E00F36CCF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BB47A431A87E90400F36CCF /* profiler */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BB47A421A87E90400F36CCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BB47A981A87F4FD00F36CCF /* sansation.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BB47A401A87E90400F36CCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BB47A9A1A87F55B00F36CCF /* ResourcePath.mm in Sources */,
+				4BB47A951A87F18F00F36CCF /* MySyncObj.cpp in Sources */,
+				4BB47A9E1A87FC8C00F36CCF /* FPS.cpp in Sources */,
+				4BB47A641A87E97000F36CCF /* main.cpp in Sources */,
+				4BB47A911A87EE4700F36CCF /* MyDSF.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4BB47A2D1A87E53700F36CCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		4BB47A2E1A87E53700F36CCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		4BB47A5F1A87E90400F36CCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/extlib/osx",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/extlib/header",
+				);
+				INFOPLIST_FILE = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/extlib/osx",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4BB47A601A87E90400F36CCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/extlib/osx",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/extlib/header",
+				);
+				INFOPLIST_FILE = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/extlib/osx",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BB47A2C1A87E53700F36CCF /* Build configuration list for PBXProject "profiler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BB47A2D1A87E53700F36CCF /* Debug */,
+				4BB47A2E1A87E53700F36CCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BB47A5E1A87E90400F36CCF /* Build configuration list for PBXNativeTarget "profiler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BB47A5F1A87E90400F36CCF /* Debug */,
+				4BB47A601A87E90400F36CCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BB47A291A87E53700F36CCF /* Project object */;
+}

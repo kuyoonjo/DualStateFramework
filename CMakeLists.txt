@@ -92,13 +92,3 @@ else()
 endif()
 # headers
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/dsf DESTINATION include)
-
-
-# examples
-set(Example "no" CACHE STRING "A simple Example.")
-set_property(CACHE Example PROPERTY STRINGS no yes)
-message(STATUS "Example='${Example}'")
-
-if (Example MATCHES "yes")
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/example)
-endif()

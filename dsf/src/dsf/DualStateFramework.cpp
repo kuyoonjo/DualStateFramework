@@ -8,11 +8,13 @@
 
 #include <tbb/parallel_for_each.h>
 #include <dsf/DualStateFramework.h>
+#include <tbb/task_scheduler_init.h>
 
 namespace dsf
 {
     DualStateFramework::DualStateFramework()
     {
+        this->NumberOfThreads = tbb::task_scheduler_init::automatic;
         this->syncObjs = new std::vector<SynchronizedObject*>();
         this->state = DualStateFramework::State::STOPPED;
         Debug("A DSF Object has been created.");
@@ -72,6 +74,14 @@ namespace dsf
         return this->state;
     }
     
+    void DualStateFramework::setNumberOfThreads(int NumberOfThreads)
+    {
+        if(NumberOfThreads == 0)
+            this->NumberOfThreads = tbb::task_scheduler_init::automatic;
+        else
+            this->NumberOfThreads = NumberOfThreads;
+    }
+    
     //////////////////////////////////////////////////////////////////
     // Private
     //////////////////////////////////////////////////////////////////
@@ -99,12 +109,16 @@ namespace dsf
     
     void DualStateFramework::run()
     {
+        tbb::task_scheduler_init init(this->NumberOfThreads);
         tbb::parallel_for_each(this->syncObjs->begin(),
                                this->syncObjs->end(),
                                [](SynchronizedObject* sb)
                                {
                                    if(sb->getState() == SynchronizedObject::State::STOPPED)
+                                   {
+                                       sb->synchronize();
                                        sb->start();
+                                   }
                                });
     }
 }

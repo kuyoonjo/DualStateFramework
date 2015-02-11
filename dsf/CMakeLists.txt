@@ -38,6 +38,10 @@ include_directories(${INCROOT})
 # output
 set (OUTPUT_DSF ${PROJECT_NAME})
 include_directories(${INC})
+set_source_files_properties(
+${LINK_LIBRARY} ${YCTOOLS_LIBRARY} PROPERTIES
+    MACOSX_PACKAGE_LOCATION Frameworks
+)
 add_library (${OUTPUT_DSF} SHARED ${DSF_INC} ${DSF_SRC})
 set_target_properties(
     ${OUTPUT_DSF} PROPERTIES DEBUG_POSTFIX -d
