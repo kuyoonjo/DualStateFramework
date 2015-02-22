@@ -82,8 +82,8 @@ namespace dsf {
         int NumberOfThreads;
         std::vector<SynchronizedObject*>* syncObjs;
         State state;
-        void refresh();
     protected:
+        virtual void refresh();
         /*! \brief Start all SyncronizedObjects associated.
         */
          virtual void run() override;

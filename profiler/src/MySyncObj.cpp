@@ -8,7 +8,7 @@
 
 #include "../include/MySyncObj.h"
 
-MySyncObj::MySyncObj()  : dsf::SynchronizedObject::SynchronizedObject()
+MySyncObj::MySyncObj()  : dsf::SynchronizedObject::SynchronizedObject(), sf::CircleShape::CircleShape()
 {
 }
 

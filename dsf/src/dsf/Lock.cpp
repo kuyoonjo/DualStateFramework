@@ -7,7 +7,6 @@
 //
 
 #include <dsf/Lock.h>
-#include <tbb/mutex.h>
 
 namespace dsf
 {

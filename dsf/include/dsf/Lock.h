@@ -9,14 +9,15 @@
 #ifndef dsf_Lock_h
 #define dsf_Lock_h
 
-#include <mutex>
+#include <tbb/mutex.h>
 
 namespace dsf
 {
     class Lock
     {
     protected:
-        std::mutex locker;
+        tbb::mutex locker;
+    public:
         void lock();
         void unlock();
     };

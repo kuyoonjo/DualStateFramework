@@ -13,11 +13,10 @@
 #include <dsf/SynchronizedVar.h>
 #include <SFML/Graphics.hpp>
 
-class MySyncObj : public dsf::SynchronizedObject
+class MySyncObj : public dsf::SynchronizedObject, public sf::CircleShape
 {
 public:
     MySyncObj();
-    sf::CircleShape shape;
 protected:
     void run() override;
 };

@@ -14,17 +14,22 @@
 class FPS
 {
 public:
-    FPS(float refreshTime);
+    FPS(float refreshTime = 1.0, float startTime = 1.0);
     ~FPS();
-    float getFPS();
     void refresh();
     void restart();
+    float current;
+    float average;
+    float max;
+    float min;
 private:
+    bool started;
     float refreshTime;
+    float startTime;
     sf::Clock clock;
     sf::Clock clockFps;
-    float fps;
-    float average;
+    sf::Clock clockStart;
+    float temp;
 };
 
 #endif

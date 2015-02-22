@@ -3,9 +3,51 @@
 #include "../include/ResourcePath.hpp"
 #include "../include/FPS.h"
 #include "../include/MyDSF.h"
-#include "../include/MySyncObj.h"
+#include "../include/SyncCircle.h"
+#include "../include/RandomCircleManager.h"
+#include "../include/SyncBouncingCircle.h"
+#include "../include/BouncingCircleManager.h"
 
 
+int main()
+{
+    int method = 2;
+    auto dsf = new MyDSF();
+    auto rcm = new RandomCircleManager(dsf);
+    auto bcm = new BouncingCircleManager(dsf);
+    if(method == 1)
+    {
+        SyncCircle* circles[1000];
+        for(auto & circle : circles)
+        {
+            circle = new SyncCircle();
+            circle->setRadius(2);
+            circle->setFillColor(sf::Color::Cyan);
+            dsf->add(circle);
+            dsf->send(circle, dsf->sender, rcm->create, new dsf::TaskArgument(circle));
+        }
+    }
+    else if(method == 2)
+    {
+        auto bouncingCircles = bcm->createRandomCircles(1000, 2, 800, 600);
+        for(auto & bouncingCircle : *bouncingCircles)
+        {
+            bouncingCircle->setFillColor(sf::Color::Cyan);
+            dsf->add(bouncingCircle);
+            dsf->send(bouncingCircle,
+                      dsf->sender,
+                      bcm->create,
+                      new dsf::TaskArgument(std::make_tuple(bouncingCircle, bouncingCircles)));
+        }
+    }
+    dsf->start();
+    delete dsf;
+    delete rcm;
+    delete bcm;
+    return 0;
+}
+
+/*
 float* stretch(float arr[], float strelen[], int len, int maxLen);
 const unsigned int NumberOfObjects = 1000;
 const unsigned int MaxNumberOfThreads = 8;
@@ -95,7 +137,7 @@ int main()
     delete fps;
     return 0;
 }
-
+*/
 float* stretch(float arr[], float strelen[], int len, int maxLen)
 {
     bool canDouble = true;
