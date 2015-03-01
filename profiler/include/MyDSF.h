@@ -14,17 +14,27 @@
 #include <dsf/Lock.h>
 #include "DSFSFML.h"
 #include "FPS.h"
+#include "ResourcePath.hpp"
 
 class MyDSF : public dsf::DualStateFramework, public dsf::sfml::RenderWindow, public dsf::Lock
 {
 private:
     class Sender;
+    FPS* fps;
+    std::vector<std::tuple<float,float,float>> fpsList;
+    sf::Clock* clock;
+    float duration = 5;
+    sf::Font font;
+    unsigned int numberOfCores = 1;
+    unsigned int maxNumberOfCores = 8;
+    std::vector<std::tuple<float,float,float>> stretch(std::vector<std::tuple<float,float,float>> arr,
+                                                       std::vector<std::tuple<float,float,float>> strelen,
+                                                       int maxLen);
 public:
     MyDSF();
     ~MyDSF();
     void initialize() override;
     Sender* sender;
-    FPS* fps;
 protected:
     void refresh() override;
     void run() override;

@@ -57,4 +57,5 @@ void FPS::restart()
 {
     this->clockStart.restart();
     this->started = false;
+    this->current = this->average = this->max = this->min = this->temp = 0;
 }
