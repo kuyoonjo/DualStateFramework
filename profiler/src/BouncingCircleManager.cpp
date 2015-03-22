@@ -84,6 +84,7 @@ std::vector<SyncBouncingCircle*>* BouncingCircleManager::createRandomCircles(int
         circle = createRandomCircle(radius, boundX, boundY);
         while (itr != circles->end()) {
             if (circle->hasCollision(*itr)) {
+                delete circle;
                 circle = createRandomCircle(radius, boundX, boundY);
                 itr = circles->begin();
             } else {

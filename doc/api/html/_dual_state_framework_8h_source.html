@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Dual State Framework: include/dsf/DualStateFramework.h Source File</title>
+<title>Dual State Framework: dsf/include/dsf/DualStateFramework.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_651d65a5a11f68b309934f1cfcee4662.html">dsf</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_30bfc8286dd5a9e7df3c4aedf0f1509e.html">dsf</a></li><li class="navelem"><a class="el" href="dir_13521388f474fcd5821629f10582bdd5.html">include</a></li><li class="navelem"><a class="el" href="dir_2773697598433460d3d3dfb1bd0753bc.html">dsf</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -115,52 +115,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        ~<a class="code" href="classdsf_1_1_dual_state_framework.html">DualStateFramework</a>();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> initialize() = 0;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> start();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> doOneFrame();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> add(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* syncObj);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <span class="keyword">remove</span>(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* syncObj);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> send(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* to,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                  <a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* from,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                  <a class="code" href="namespacedsf.html#aea77a3692a91c89394c32d0101ded811">TaskFunction</a>* taskFunction,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                  <a class="code" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">TaskArguments</a>* args);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> getState() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        std::vector&lt;SynchronizedObject*&gt;* syncObjs;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> state;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">void</span> refresh();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;         <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> initialize() = 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> start();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> doOneFrame();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> add(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* syncObj);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> <span class="keyword">remove</span>(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* syncObj);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> send(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* to,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                  <a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* from,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                  <a class="code" href="namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9">TaskFunction</a>* taskFunction,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                  <a class="code" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a>* args);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> getState() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> setNumberOfThreads(<span class="keywordtype">int</span> NumberOfThreads);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">int</span> NumberOfThreads;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        std::vector&lt;SynchronizedObject*&gt;* syncObjs;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> state;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> refresh();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;         <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    };</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="_task_box_8h_html"><div class="ttname"><a href="_task_box_8h.html">TaskBox.h</a></div></div>
 <div class="ttc" id="_task_8h_html"><div class="ttname"><a href="_task_8h.html">Task.h</a></div></div>
 <div class="ttc" id="_runnable_8h_html"><div class="ttname"><a href="_runnable_8h.html">Runnable.h</a></div></div>
-<div class="ttc" id="namespacedsf_html_a342e70aaab67b8262840847472c9f4ad"><div class="ttname"><a href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">dsf::TaskArguments</a></div><div class="ttdeci">std::vector&lt; TaskArgument &gt; TaskArguments</div><div class="ttdef"><b>Definition:</b> TaskArgument.h:19</div></div>
+<div class="ttc" id="namespacedsf_html_aa16e735f29587f4485b56fc46746f7a9"><div class="ttname"><a href="namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9">dsf::TaskFunction</a></div><div class="ttdeci">std::function&lt; void(dsf::SynchronizedObject *, dsf::SynchronizedObject *, TaskArgument *)&gt; TaskFunction</div><div class="ttdef"><b>Definition:</b> TaskFunction.h:20</div></div>
 <div class="ttc" id="namespacedsf_html_a68ac3b6a0526bfa7f6a412918afb1841"><div class="ttname"><a href="namespacedsf.html#a68ac3b6a0526bfa7f6a412918afb1841">dsf::DualStateFramework</a></div><div class="ttdeci">class DSF_API DualStateFramework</div><div class="ttdef"><b>Definition:</b> Declaration.h:17</div></div>
-<div class="ttc" id="namespacedsf_html_aea77a3692a91c89394c32d0101ded811"><div class="ttname"><a href="namespacedsf.html#aea77a3692a91c89394c32d0101ded811">dsf::TaskFunction</a></div><div class="ttdeci">std::function&lt; void(dsf::SynchronizedObject *, TaskArguments *)&gt; TaskFunction</div><div class="ttdef"><b>Definition:</b> TaskFunction.h:20</div></div>
 <div class="ttc" id="_export_8h_html_ad7bb940831423512f29a6981786c37bd"><div class="ttname"><a href="_export_8h.html#ad7bb940831423512f29a6981786c37bd">DSF_API</a></div><div class="ttdeci">#define DSF_API</div><div class="ttdef"><b>Definition:</b> Export.h:27</div></div>
 <div class="ttc" id="_synchronized_object_8h_html"><div class="ttname"><a href="_synchronized_object_8h.html">SynchronizedObject.h</a></div></div>
 <div class="ttc" id="classdsf_1_1_dual_state_framework_html"><div class="ttname"><a href="classdsf_1_1_dual_state_framework.html">dsf::DualStateFramework</a></div><div class="ttdef"><b>Definition:</b> DualStateFramework.h:21</div></div>
-<div class="ttc" id="classdsf_1_1_synchronized_object_html"><div class="ttname"><a href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a></div><div class="ttdef"><b>Definition:</b> SynchronizedObject.h:26</div></div>
+<div class="ttc" id="namespacedsf_html_abe4bf68433935a81c31a5ada9b17663a"><div class="ttname"><a href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">dsf::TaskArgument</a></div><div class="ttdeci">yc::Any TaskArgument</div><div class="ttdef"><b>Definition:</b> TaskArgument.h:19</div></div>
+<div class="ttc" id="classdsf_1_1_synchronized_object_html"><div class="ttname"><a href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a></div><div class="ttdef"><b>Definition:</b> SynchronizedObject.h:28</div></div>
 <div class="ttc" id="classdsf_1_1_runnable_html_a8eb63b21a0accc7a6a2a05f18e257991"><div class="ttname"><a href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">dsf::Runnable::State</a></div><div class="ttdeci">State</div><div class="ttdoc">State of the object. </div><div class="ttdef"><b>Definition:</b> Runnable.h:24</div></div>
 <div class="ttc" id="classdsf_1_1_runnable_html"><div class="ttname"><a href="classdsf_1_1_runnable.html">dsf::Runnable</a></div><div class="ttdef"><b>Definition:</b> Runnable.h:14</div></div>
 <div class="ttc" id="_debug_8h_html"><div class="ttname"><a href="_debug_8h.html">Debug.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 20:42:01 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 5 2015 14:36:43 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

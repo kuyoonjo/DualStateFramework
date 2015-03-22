@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B497ABB1A963D8200AB2BF9 /* DSFSFML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B497ABA1A963D8200AB2BF9 /* DSFSFML.cpp */; };
+		4B7B18B01ABF4578009649C6 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B18AF1ABF4578009649C6 /* Vector3D.cpp */; };
 		4BB47A641A87E97000F36CCF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A331A87E5DC00F36CCF /* main.cpp */; };
 		4BB47A701A87E9A000F36CCF /* yctools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A661A87E9A000F36CCF /* yctools.framework */; };
 		4BB47A711A87E9A000F36CCF /* sndfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A671A87E9A000F36CCF /* sndfile.framework */; };
@@ -34,6 +35,8 @@
 		4BB47A981A87F4FD00F36CCF /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BB47A971A87F4FD00F36CCF /* sansation.ttf */; };
 		4BB47A9A1A87F55B00F36CCF /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A991A87F55B00F36CCF /* ResourcePath.mm */; };
 		4BB47A9E1A87FC8C00F36CCF /* FPS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A9D1A87FC8C00F36CCF /* FPS.cpp */; };
+		4BB611191AB1D07600E3E44D /* FlockingBoidManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB611181AB1D07600E3E44D /* FlockingBoidManager.cpp */; };
+		4BB6111B1AB23CFB00E3E44D /* SyncFlockingBoid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB6111A1AB23CFB00E3E44D /* SyncFlockingBoid.cpp */; };
 		4BB657C01A994589005224C4 /* RandomCircleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB657BF1A994589005224C4 /* RandomCircleManager.cpp */; };
 		4BB657C31A99469E005224C4 /* SyncCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB657C21A99469E005224C4 /* SyncCircle.cpp */; };
 		4BB657C61A995124005224C4 /* SyncBouncingCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB657C51A995124005224C4 /* SyncBouncingCircle.cpp */; };
@@ -64,6 +67,8 @@
 /* Begin PBXFileReference section */
 		4B497AB91A963D6D00AB2BF9 /* DSFSFML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSFSFML.h; sourceTree = "<group>"; };
 		4B497ABA1A963D8200AB2BF9 /* DSFSFML.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DSFSFML.cpp; sourceTree = "<group>"; };
+		4B7B18AE1ABF3388009649C6 /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
+		4B7B18AF1ABF4578009649C6 /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
 		4BB47A331A87E5DC00F36CCF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4BB47A441A87E90400F36CCF /* profiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB47A661A87E9A000F36CCF /* yctools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = yctools.framework; path = extlib/osx/yctools.framework; sourceTree = "<group>"; };
@@ -86,6 +91,10 @@
 		4BB47A9B1A87F56800F36CCF /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		4BB47A9C1A87FB6000F36CCF /* FPS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPS.h; sourceTree = "<group>"; };
 		4BB47A9D1A87FC8C00F36CCF /* FPS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPS.cpp; sourceTree = "<group>"; };
+		4BB611161AB1C70700E3E44D /* FlockingBoidManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlockingBoidManager.h; sourceTree = "<group>"; };
+		4BB611171AB1C77200E3E44D /* SyncFlockingBoid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyncFlockingBoid.h; sourceTree = "<group>"; };
+		4BB611181AB1D07600E3E44D /* FlockingBoidManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlockingBoidManager.cpp; sourceTree = "<group>"; };
+		4BB6111A1AB23CFB00E3E44D /* SyncFlockingBoid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SyncFlockingBoid.cpp; sourceTree = "<group>"; };
 		4BB657BE1A99451C005224C4 /* RandomCircleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomCircleManager.h; sourceTree = "<group>"; };
 		4BB657BF1A994589005224C4 /* RandomCircleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomCircleManager.cpp; sourceTree = "<group>"; };
 		4BB657C11A99464F005224C4 /* SyncCircle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyncCircle.h; sourceTree = "<group>"; };
@@ -136,9 +145,12 @@
 				4BB47A921A87EE7200F36CCF /* MyDSF.h */,
 				4B497AB91A963D6D00AB2BF9 /* DSFSFML.h */,
 				4BB657BE1A99451C005224C4 /* RandomCircleManager.h */,
+				4B7B18AE1ABF3388009649C6 /* Vector3D.h */,
 				4BB657C11A99464F005224C4 /* SyncCircle.h */,
 				4BB657C41A995025005224C4 /* SyncBouncingCircle.h */,
 				4BB657C71A995CED005224C4 /* BouncingCircleManager.h */,
+				4BB611161AB1C70700E3E44D /* FlockingBoidManager.h */,
+				4BB611171AB1C77200E3E44D /* SyncFlockingBoid.h */,
 				4BB47A9C1A87FB6000F36CCF /* FPS.h */,
 				4BB47A9B1A87F56800F36CCF /* ResourcePath.hpp */,
 				4BB47A931A87F15100F36CCF /* MySyncObj.h */,
@@ -157,6 +169,9 @@
 				4BB47A901A87EE4700F36CCF /* MyDSF.cpp */,
 				4BB657BF1A994589005224C4 /* RandomCircleManager.cpp */,
 				4BB657C81A998FB3005224C4 /* BouncingCircleManager.cpp */,
+				4BB611181AB1D07600E3E44D /* FlockingBoidManager.cpp */,
+				4BB6111A1AB23CFB00E3E44D /* SyncFlockingBoid.cpp */,
+				4B7B18AF1ABF4578009649C6 /* Vector3D.cpp */,
 				4BB657C21A99469E005224C4 /* SyncCircle.cpp */,
 				4BB47A941A87F18F00F36CCF /* MySyncObj.cpp */,
 			);
@@ -273,11 +288,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB47A9A1A87F55B00F36CCF /* ResourcePath.mm in Sources */,
+				4BB6111B1AB23CFB00E3E44D /* SyncFlockingBoid.cpp in Sources */,
 				4BB47A951A87F18F00F36CCF /* MySyncObj.cpp in Sources */,
 				4BB47A9E1A87FC8C00F36CCF /* FPS.cpp in Sources */,
 				4B497ABB1A963D8200AB2BF9 /* DSFSFML.cpp in Sources */,
 				4BB657C91A998FB3005224C4 /* BouncingCircleManager.cpp in Sources */,
 				4BB47A641A87E97000F36CCF /* main.cpp in Sources */,
+				4B7B18B01ABF4578009649C6 /* Vector3D.cpp in Sources */,
+				4BB611191AB1D07600E3E44D /* FlockingBoidManager.cpp in Sources */,
 				4BB657C61A995124005224C4 /* SyncBouncingCircle.cpp in Sources */,
 				4BB657C01A994589005224C4 /* RandomCircleManager.cpp in Sources */,
 				4BB657C31A99469E005224C4 /* SyncCircle.cpp in Sources */,

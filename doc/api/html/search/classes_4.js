@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['synchronizedobject',['SynchronizedObject',['../classdsf_1_1_synchronized_object.html',1,'dsf']]]
+  ['task',['Task',['../classdsf_1_1_task.html',1,'dsf']]],
+  ['taskbox',['TaskBox',['../classdsf_1_1_task_box.html',1,'dsf']]]
 ];

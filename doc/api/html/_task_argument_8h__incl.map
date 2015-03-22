@@ -1,6 +1,2 @@
-<map id="include/dsf/TaskArgument.h" name="include/dsf/TaskArgument.h">
-<area shape="rect" id="node3" href="$_any_8h.html" title="../yc/Any.h" alt="" coords="211,79,293,104"/>
-<area shape="rect" id="node7" href="$_export_8h.html" title="../dsf/Export.h" alt="" coords="200,152,304,177"/>
-<area shape="rect" id="node9" href="$_any_exception_8h.html" title="exception/AnyException.h" alt="" coords="379,152,554,177"/>
-<area shape="rect" id="node8" href="$_config_8h.html" title="Config.h" alt="" coords="217,225,288,251"/>
+<map id="dsf/include/dsf/TaskArgument.h" name="dsf/include/dsf/TaskArgument.h">
 </map>

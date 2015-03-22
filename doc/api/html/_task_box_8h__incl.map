@@ -1,12 +1,10 @@
-<map id="include/dsf/TaskBox.h" name="include/dsf/TaskBox.h">
-<area shape="rect" id="node4" href="$_export_8h.html" title="Export.h" alt="" coords="595,372,666,397"/>
-<area shape="rect" id="node6" href="$_declaration_8h.html" title="Declaration.h" alt="" coords="634,152,734,177"/>
-<area shape="rect" id="node7" href="$_task_8h.html" title="Task.h" alt="" coords="450,79,510,104"/>
-<area shape="rect" id="node16" href="$_debug_8h.html" title="Debug.h" alt="" coords="488,225,560,251"/>
-<area shape="rect" id="node18" href="$_runnable_8h.html" title="Runnable.h" alt="" coords="809,79,898,104"/>
-<area shape="rect" id="node5" href="$_config_8h.html" title="Config.h" alt="" coords="595,445,666,471"/>
-<area shape="rect" id="node9" href="$_task_function_8h.html" title="TaskFunction.h" alt="" coords="296,152,408,177"/>
-<area shape="rect" id="node11" href="$_task_argument_8h.html" title="TaskArgument.h" alt="" coords="144,225,262,251"/>
-<area shape="rect" id="node12" href="$_any_8h.html" title="../yc/Any.h" alt="" coords="161,299,244,324"/>
-<area shape="rect" id="node14" href="$_any_exception_8h.html" title="exception/AnyException.h" alt="" coords="303,372,478,397"/>
+<map id="dsf/include/dsf/TaskBox.h" name="dsf/include/dsf/TaskBox.h">
+<area shape="rect" id="node4" href="$_export_8h.html" title="Export.h" alt="" coords="104,225,175,251"/>
+<area shape="rect" id="node6" href="$_declaration_8h.html" title="Declaration.h" alt="" coords="90,152,190,177"/>
+<area shape="rect" id="node7" href="$_task_8h.html" title="Task.h" alt="" coords="247,79,307,104"/>
+<area shape="rect" id="node14" href="$_debug_8h.html" title="Debug.h" alt="" coords="620,225,692,251"/>
+<area shape="rect" id="node16" href="$_runnable_8h.html" title="Runnable.h" alt="" coords="696,79,786,104"/>
+<area shape="rect" id="node5" href="$_config_8h.html" title="Config.h" alt="" coords="104,299,175,324"/>
+<area shape="rect" id="node9" href="$_task_function_8h.html" title="TaskFunction.h" alt="" coords="408,152,519,177"/>
+<area shape="rect" id="node11" href="$_task_argument_8h.html" title="TaskArgument.h" alt="" coords="472,225,589,251"/>
 </map>

@@ -1,6 +1,6 @@
-<map id="include/dsf/TaskFunction.h" name="include/dsf/TaskFunction.h">
-<area shape="rect" id="node2" href="$_task_8h.html" title="include/dsf/Task.h" alt="" coords="65,79,192,104"/>
-<area shape="rect" id="node5" href="$_synchronized_object_8h.html" title="include/dsf/Synchronized\lObject.h" alt="" coords="156,225,325,264"/>
-<area shape="rect" id="node3" href="$_task_box_8h.html" title="include/dsf/TaskBox.h" alt="" coords="53,152,204,177"/>
-<area shape="rect" id="node4" href="$_dual_state_framework_8h.html" title="include/dsf/DualStateFramework.h" alt="" coords="5,312,230,337"/>
+<map id="dsf/include/dsf/TaskFunction.h" name="dsf/include/dsf/TaskFunction.h">
+<area shape="rect" id="node2" href="$_task_8h.html" title="dsf/include/dsf/Task.h" alt="" coords="37,79,186,104"/>
+<area shape="rect" id="node5" href="$_synchronized_object_8h.html" title="dsf/include/dsf/Synchronized\lObject.h" alt="" coords="139,225,330,264"/>
+<area shape="rect" id="node3" href="$_task_box_8h.html" title="dsf/include/dsf/TaskBox.h" alt="" coords="26,152,198,177"/>
+<area shape="rect" id="node4" href="$_dual_state_framework_8h.html" title="dsf/include/dsf/DualState\lFramework.h" alt="" coords="17,312,185,351"/>
 </map>

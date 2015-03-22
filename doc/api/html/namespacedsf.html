@@ -93,9 +93,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html">DualStateFramework</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_lock.html">Lock</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_runnable.html">Runnable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_synchronized_var.html">SynchronizedVar</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_task.html">Task</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,13 +108,14 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:abe4bf68433935a81c31a5ada9b17663a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classyc_1_1_any.html">yc::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a></td></tr>
+<tr class="memitem:abe4bf68433935a81c31a5ada9b17663a"><td class="memItemLeft" align="right" valign="top">typedef yc::Any&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a></td></tr>
 <tr class="separator:abe4bf68433935a81c31a5ada9b17663a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a342e70aaab67b8262840847472c9f4ad"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">TaskArguments</a></td></tr>
-<tr class="separator:a342e70aaab67b8262840847472c9f4ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea77a3692a91c89394c32d0101ded811"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a> <br class="typebreak" />
-*, <a class="el" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">TaskArguments</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedsf.html#aea77a3692a91c89394c32d0101ded811">TaskFunction</a></td></tr>
-<tr class="separator:aea77a3692a91c89394c32d0101ded811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af54027177bbfc0037be408a612d48b83"><td class="memItemLeft" align="right" valign="top">typedef yc::Exception::AnyException&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedsf.html#af54027177bbfc0037be408a612d48b83">TaskArgumentException</a></td></tr>
+<tr class="separator:af54027177bbfc0037be408a612d48b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16e735f29587f4485b56fc46746f7a9"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a> <br class="typebreak" />
+*, <a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a> <br class="typebreak" />
+*, <a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9">TaskFunction</a></td></tr>
+<tr class="separator:aa16e735f29587f4485b56fc46746f7a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ad20407a44eaf5ce4cf784a60c1b92b"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedsf.html#a3ad20407a44eaf5ce4cf784a60c1b92b">function</a></td></tr>
 <tr class="separator:a3ad20407a44eaf5ce4cf784a60c1b92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -143,31 +148,31 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classyc_1_1_any.html">yc::Any</a> <a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">dsf::TaskArgument</a></td>
+          <td class="memname">typedef yc::Any <a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">dsf::TaskArgument</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a342e70aaab67b8262840847472c9f4ad"></a>
+<a class="anchor" id="af54027177bbfc0037be408a612d48b83"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::vector&lt;<a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a>&gt; <a class="el" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">dsf::TaskArguments</a></td>
+          <td class="memname">typedef yc::Exception::AnyException <a class="el" href="namespacedsf.html#af54027177bbfc0037be408a612d48b83">dsf::TaskArgumentException</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="aea77a3692a91c89394c32d0101ded811"></a>
+<a class="anchor" id="aa16e735f29587f4485b56fc46746f7a9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::function&lt;void (<a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a>*, <a class="el" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">TaskArguments</a>*)&gt; <a class="el" href="namespacedsf.html#aea77a3692a91c89394c32d0101ded811">dsf::TaskFunction</a></td>
+          <td class="memname">typedef std::function&lt;void (<a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a>*, <a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a>*, <a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a>*)&gt; <a class="el" href="namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9">dsf::TaskFunction</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -226,7 +231,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 20:42:01 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 5 2015 14:36:43 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -1,4 +1,4 @@
 <map id="dsf::Runnable" name="dsf::Runnable">
-<area shape="rect" id="node2" href="$classdsf_1_1_dual_state_framework.html" title="{dsf::DualStateFramework\n||+ DualStateFramework()\l+ ~DualStateFramework()\l+ initialize()\l+ start()\l+ doOneFrame()\l+ add()\l+ remove()\l+ send()\l+ getState()\l# run()\l}" alt="" coords="5,140,180,333"/>
-<area shape="rect" id="node3" href="$classdsf_1_1_synchronized_object.html" title="{dsf::SynchronizedObject\n||+ SynchronizedObject()\l+ ~SynchronizedObject()\l+ getState()\l# run()\l}" alt="" coords="204,180,373,293"/>
+<area shape="rect" id="node2" href="$classdsf_1_1_dual_state_framework.html" title="{dsf::DualStateFramework\n||+ DualStateFramework()\l+ ~DualStateFramework()\l+ initialize()\l+ start()\l+ doOneFrame()\l+ add()\l+ remove()\l+ send()\l+ getState()\l+ setNumberOfThreads()\l# refresh()\l# run()\l}" alt="" coords="5,140,180,360"/>
+<area shape="rect" id="node3" href="$classdsf_1_1_synchronized_object.html" title="{dsf::SynchronizedObject\n||+ SynchronizedObject()\l+ ~SynchronizedObject()\l+ getState()\l+ synchronize()\l# run()\l}" alt="" coords="204,187,373,313"/>
 </map>

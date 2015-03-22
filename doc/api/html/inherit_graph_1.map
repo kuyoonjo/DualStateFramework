@@ -1,6 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classdsf_1_1_runnable.html" title="dsf::Runnable" alt="" coords="5,5,109,31"/>
-<area shape="rect" id="node2" href="$classdsf_1_1_dual_state_framework.html" title="dsf::DualStateFramework" alt="" coords="157,5,329,31"/>
-<area shape="rect" id="node3" href="$classdsf_1_1_synchronized_object.html" title="dsf::SynchronizedObject" alt="" coords="160,55,326,80"/>
-<area shape="rect" id="node4" href="$classdsf_1_1_task_box.html" title="dsf::TaskBox" alt="" coords="9,55,106,80"/>
+<area shape="rect" id="node1" href="$classdsf_1_1_lock.html" title="dsf::Lock" alt="" coords="20,5,94,31"/>
+<area shape="rect" id="node2" href="$classdsf_1_1_synchronized_object.html" title="dsf::SynchronizedObject" alt="" coords="160,55,326,80"/>
+<area shape="rect" id="node3" href="$classdsf_1_1_synchronized_var.html" title="dsf::SynchronizedVar" alt="" coords="169,5,316,31"/>
+<area shape="rect" id="node4" href="$classdsf_1_1_runnable.html" title="dsf::Runnable" alt="" coords="5,104,109,129"/>
+<area shape="rect" id="node5" href="$classdsf_1_1_dual_state_framework.html" title="dsf::DualStateFramework" alt="" coords="157,104,329,129"/>
+<area shape="rect" id="node6" href="$classdsf_1_1_task_box.html" title="dsf::TaskBox" alt="" coords="9,55,106,80"/>
 </map>

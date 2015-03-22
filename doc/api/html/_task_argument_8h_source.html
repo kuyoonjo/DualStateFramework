@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Dual State Framework: include/dsf/TaskArgument.h Source File</title>
+<title>Dual State Framework: dsf/include/dsf/TaskArgument.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_651d65a5a11f68b309934f1cfcee4662.html">dsf</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_30bfc8286dd5a9e7df3c4aedf0f1509e.html">dsf</a></li><li class="navelem"><a class="el" href="dir_13521388f474fcd5821629f10582bdd5.html">include</a></li><li class="navelem"><a class="el" href="dir_2773697598433460d3d3dfb1bd0753bc.html">dsf</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -101,25 +101,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../yc/Any.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>dsf</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">   18</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classyc_1_1_any.html">yc::Any</a> <a class="code" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">   19</a></span>&#160;    <span class="keyword">typedef</span> std::vector&lt;TaskArgument&gt; <a class="code" href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">TaskArguments</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;yctools/Any.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;yctools/AnyException.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>dsf</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">   19</a></span>&#160;    <span class="keyword">typedef</span> yc::Any <a class="code" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespacedsf.html#af54027177bbfc0037be408a612d48b83">   20</a></span>&#160;    <span class="keyword">typedef</span> yc::Exception::AnyException <a class="code" href="namespacedsf.html#af54027177bbfc0037be408a612d48b83">TaskArgumentException</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="namespacedsf_html_a342e70aaab67b8262840847472c9f4ad"><div class="ttname"><a href="namespacedsf.html#a342e70aaab67b8262840847472c9f4ad">dsf::TaskArguments</a></div><div class="ttdeci">std::vector&lt; TaskArgument &gt; TaskArguments</div><div class="ttdef"><b>Definition:</b> TaskArgument.h:19</div></div>
-<div class="ttc" id="classyc_1_1_any_html"><div class="ttname"><a href="classyc_1_1_any.html">yc::Any</a></div><div class="ttdef"><b>Definition:</b> Any.h:21</div></div>
-<div class="ttc" id="namespacedsf_html_abe4bf68433935a81c31a5ada9b17663a"><div class="ttname"><a href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">dsf::TaskArgument</a></div><div class="ttdeci">yc::Any TaskArgument</div><div class="ttdef"><b>Definition:</b> TaskArgument.h:18</div></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="namespacedsf_html_abe4bf68433935a81c31a5ada9b17663a"><div class="ttname"><a href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">dsf::TaskArgument</a></div><div class="ttdeci">yc::Any TaskArgument</div><div class="ttdef"><b>Definition:</b> TaskArgument.h:19</div></div>
+<div class="ttc" id="namespacedsf_html_af54027177bbfc0037be408a612d48b83"><div class="ttname"><a href="namespacedsf.html#af54027177bbfc0037be408a612d48b83">dsf::TaskArgumentException</a></div><div class="ttdeci">yc::Exception::AnyException TaskArgumentException</div><div class="ttdef"><b>Definition:</b> TaskArgument.h:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 20:42:01 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 5 2015 14:36:43 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

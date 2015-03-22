@@ -102,7 +102,7 @@ Inheritance diagram for dsf::SynchronizedObject:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdsf_1_1_synchronized_object__inherit__graph.png" border="0" usemap="#dsf_1_1_synchronized_object_inherit__map" alt="Inheritance graph"/></div>
 <map name="dsf_1_1_synchronized_object_inherit__map" id="dsf_1_1_synchronized_object_inherit__map">
-<area shape="rect" id="node2" href="classdsf_1_1_runnable.html" title="{dsf::Runnable\n||+ getState()\l# run()\l}" alt="" coords="5,39,109,125"/><area shape="rect" id="node3" href="classdsf_1_1_task_box.html" title="{dsf::TaskBox\n|+ tasks\l|+ TaskBox()\l+ ~TaskBox()\l+ isEmpty()\l+ push()\l+ pop()\l+ receive()\l+ process()\l}" alt="" coords="133,5,232,159"/></map>
+<area shape="rect" id="node2" href="classdsf_1_1_runnable.html" title="{dsf::Runnable\n||+ getState()\l# run()\l}" alt="" coords="5,39,109,125"/><area shape="rect" id="node3" href="classdsf_1_1_task_box.html" title="{dsf::TaskBox\n|+ tasks\l|+ TaskBox()\l+ ~TaskBox()\l+ isEmpty()\l+ push()\l+ pop()\l+ receive()\l+ process()\l}" alt="" coords="133,5,232,159"/><area shape="rect" id="node4" href="classdsf_1_1_lock.html" title="{dsf::Lock\n|# locker\l|+ lock()\l+ unlock()\l}" alt="" coords="257,39,337,125"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -113,6 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac7e50befb4b96229443037be154f1368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a744c49c3f58728492b97a167e2d83d02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_synchronized_object.html#a744c49c3f58728492b97a167e2d83d02">getState</a> () override</td></tr>
 <tr class="separator:a744c49c3f58728492b97a167e2d83d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a314e3933d222438b35d86d8fd86a7fee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_synchronized_object.html#a314e3933d222438b35d86d8fd86a7fee">synchronize</a> (<a class="el" href="classdsf_1_1_synchronized_var.html">SynchronizedVar</a> &amp;syncVar)</td></tr>
+<tr class="separator:a314e3933d222438b35d86d8fd86a7fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdsf_1_1_task_box"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdsf_1_1_task_box')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdsf_1_1_task_box.html">dsf::TaskBox</a></td></tr>
 <tr class="memitem:a931c925e0a4956ee6bc1674f43ecc0a0 inherit pub_methods_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_task_box.html#a931c925e0a4956ee6bc1674f43ecc0a0">TaskBox</a> ()</td></tr>
 <tr class="separator:a931c925e0a4956ee6bc1674f43ecc0a0 inherit pub_methods_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,6 +130,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab1971406a2446326c5bdd58b1462409d inherit pub_methods_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad35070ac305146aaa4073b2078d9209e inherit pub_methods_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_task_box.html#ad35070ac305146aaa4073b2078d9209e">process</a> ()</td></tr>
 <tr class="separator:ad35070ac305146aaa4073b2078d9209e inherit pub_methods_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classdsf_1_1_lock"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdsf_1_1_lock')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdsf_1_1_lock.html">dsf::Lock</a></td></tr>
+<tr class="memitem:ae521388d861fe66b9c6e2f09811b0d4b inherit pub_methods_classdsf_1_1_lock"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_lock.html#ae521388d861fe66b9c6e2f09811b0d4b">lock</a> ()</td></tr>
+<tr class="separator:ae521388d861fe66b9c6e2f09811b0d4b inherit pub_methods_classdsf_1_1_lock"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d03f801920d458b3c3c402a0f4af323 inherit pub_methods_classdsf_1_1_lock"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_lock.html#a3d03f801920d458b3c3c402a0f4af323">unlock</a> ()</td></tr>
+<tr class="separator:a3d03f801920d458b3c3c402a0f4af323 inherit pub_methods_classdsf_1_1_lock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -152,6 +159,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_classdsf_1_1_task_box"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classdsf_1_1_task_box')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classdsf_1_1_task_box.html">dsf::TaskBox</a></td></tr>
 <tr class="memitem:ae13d0d245cacbf7f4019f7ff5486aa79 inherit pub_attribs_classdsf_1_1_task_box"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classdsf_1_1_task.html">Task</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_task_box.html#ae13d0d245cacbf7f4019f7ff5486aa79">tasks</a></td></tr>
 <tr class="separator:ae13d0d245cacbf7f4019f7ff5486aa79 inherit pub_attribs_classdsf_1_1_task_box"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classdsf_1_1_lock"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classdsf_1_1_lock')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classdsf_1_1_lock.html">dsf::Lock</a></td></tr>
+<tr class="memitem:a5ca1ed75b0a4bc88ded7bd5a552844cc inherit pro_attribs_classdsf_1_1_lock"><td class="memItemLeft" align="right" valign="top">tbb::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_lock.html#a5ca1ed75b0a4bc88ded7bd5a552844cc">locker</a></td></tr>
+<tr class="separator:a5ca1ed75b0a4bc88ded7bd5a552844cc inherit pro_attribs_classdsf_1_1_lock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3f1d2def677e6d814de4d0bd2aa3d95b"></a>
@@ -243,6 +253,22 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a314e3933d222438b35d86d8fd86a7fee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsf::SynchronizedObject::synchronize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_var.html">SynchronizedVar</a> &amp;&#160;</td>
+          <td class="paramname"><em>syncVar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a class="anchor" id="a86db03c65431cb461cc8abf33bd2e74a"></a>
 <div class="memitem">
@@ -265,12 +291,12 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/dsf/<a class="el" href="_synchronized_object_8h_source.html">SynchronizedObject.h</a></li>
+<li>dsf/include/dsf/<a class="el" href="_synchronized_object_8h_source.html">SynchronizedObject.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 20:42:01 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 5 2015 14:36:43 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

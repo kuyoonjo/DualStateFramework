@@ -23,7 +23,7 @@ private:
     FPS* fps;
     std::vector<std::tuple<float,float,float>> fpsList;
     sf::Clock* clock;
-    float duration = 5;
+    float duration = 10;
     sf::Font font;
     unsigned int numberOfCores = 1;
     unsigned int maxNumberOfCores = 8;

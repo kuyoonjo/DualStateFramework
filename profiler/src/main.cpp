@@ -7,14 +7,17 @@
 #include "../include/RandomCircleManager.h"
 #include "../include/SyncBouncingCircle.h"
 #include "../include/BouncingCircleManager.h"
+#include "../include/SyncFlockingBoid.h"
+#include "../include/FlockingBoidManager.h"
 
 
 int main()
 {
-    int method = 2;
+    int method = 3;
     auto dsf = new MyDSF();
     auto rcm = new RandomCircleManager(dsf);
     auto bcm = new BouncingCircleManager(dsf);
+    auto fbm = new FlockingBoidManager(dsf);
     if(method == 1)
     {
         SyncCircle* circles[1000];
@@ -38,6 +41,21 @@ int main()
                       dsf->sender,
                       bcm->create,
                       new dsf::TaskArgument(std::make_tuple(bouncingCircle, bouncingCircles)));
+        }
+    }
+    else if(method == 3)
+    {
+        auto flockingBoids = new std::vector<SyncFlockingBoid*>();
+        for (int i = 0; i < 1000; i++)
+            flockingBoids->push_back(new SyncFlockingBoid(Vector3D(dsf->window->getSize().x/2,dsf->window->getSize().y/2),2.0f,0.05f));
+        for(auto & flockingBoid : *flockingBoids)
+        {
+            flockingBoid->setFillColor(sf::Color::Cyan);
+            dsf->add(flockingBoid);
+            dsf->send(flockingBoid,
+                      dsf->sender,
+                      fbm->create,
+                      new dsf::TaskArgument(std::make_tuple(flockingBoid, flockingBoids)));
         }
     }
     dsf->start();

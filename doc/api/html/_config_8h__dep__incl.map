@@ -1,11 +1,8 @@
-<map id="include/dsf/Config.h" name="include/dsf/Config.h">
-<area shape="rect" id="node2" href="$_export_8h.html" title="include/dsf/Export.h" alt="" coords="210,79,348,104"/>
-<area shape="rect" id="node3" href="$_declaration_8h.html" title="include/dsf/Declaration.h" alt="" coords="74,225,241,251"/>
-<area shape="rect" id="node4" href="$_task_box_8h.html" title="include/dsf/TaskBox.h" alt="" coords="5,299,156,324"/>
-<area shape="rect" id="node6" href="$_task_8h.html" title="include/dsf/Task.h" alt="" coords="129,372,256,397"/>
-<area shape="rect" id="node7" href="$_synchronized_object_8h.html" title="include/dsf/Synchronized\lObject.h" alt="" coords="220,445,389,484"/>
-<area shape="rect" id="node8" href="$_any_8h.html" title="include/yc/Any.h" alt="" coords="368,152,486,177"/>
-<area shape="rect" id="node5" href="$_dual_state_framework_8h.html" title="include/dsf/DualStateFramework.h" alt="" coords="69,532,294,557"/>
-<area shape="rect" id="node9" href="$_task_argument_8h.html" title="include/dsf/TaskArgument.h" alt="" coords="365,225,550,251"/>
-<area shape="rect" id="node10" href="$_task_function_8h.html" title="include/dsf/TaskFunction.h" alt="" coords="382,299,560,324"/>
+<map id="dsf/include/dsf/Config.h" name="dsf/include/dsf/Config.h">
+<area shape="rect" id="node2" href="$_export_8h.html" title="dsf/include/dsf/Export.h" alt="" coords="205,79,365,104"/>
+<area shape="rect" id="node3" href="$_declaration_8h.html" title="dsf/include/dsf/Declaration.h" alt="" coords="125,152,314,177"/>
+<area shape="rect" id="node4" href="$_task_box_8h.html" title="dsf/include/dsf/TaskBox.h" alt="" coords="5,225,177,251"/>
+<area shape="rect" id="node6" href="$_task_8h.html" title="dsf/include/dsf/Task.h" alt="" coords="114,299,263,324"/>
+<area shape="rect" id="node7" href="$_synchronized_object_8h.html" title="dsf/include/dsf/Synchronized\lObject.h" alt="" coords="160,372,351,411"/>
+<area shape="rect" id="node5" href="$_dual_state_framework_8h.html" title="dsf/include/dsf/DualState\lFramework.h" alt="" coords="37,459,206,497"/>
 </map>
