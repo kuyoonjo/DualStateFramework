@@ -25,32 +25,18 @@ namespace dsf
     {
         return this->state;
     }
-    
-    void SynchronizedObject::synchronize(dsf::SynchronizedVar &syncVar)
-    {
-        this->syncVars.push_back(&syncVar);
-    }
+
     
     
     ////////////////////////////////////////////////////////
     // Privates
     ////////////////////////////////////////////////////////
     
-    void SynchronizedObject::synchronize()
-    {
-        std::for_each(this->syncVars.begin(), this->syncVars.end(),
-                      [](SynchronizedVar* syncVar)
-                      {
-                          syncVar->synchronize();
-                      });
-    }
     void SynchronizedObject::send(dsf::SynchronizedObject *to,
                                 TaskFunction *taskFunction,
                                 TaskArgument *args)
     {
-        this->lock();
         to->push(new Task(to, this, taskFunction, args));
-        this->unlock();
     }
     
     

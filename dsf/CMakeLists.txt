@@ -25,6 +25,7 @@ set(DSF_INC
     ${INCROOT}/DSF/Runnable.h
     ${INCROOT}/DSF/SynchronizedObject.h
     ${INCROOT}/DSF/SynchronizedVar.h
+    ${INCROOT}/DSF/Synchronisable.h
     ${INCROOT}/DSF/Task.h
     ${INCROOT}/DSF/TaskArgument.h
     ${INCROOT}/DSF/TaskBox.h

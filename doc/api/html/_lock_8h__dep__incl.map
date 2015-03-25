@@ -1,5 +1,3 @@
 <map id="dsf/include/dsf/Lock.h" name="dsf/include/dsf/Lock.h">
-<area shape="rect" id="node2" href="$_synchronized_object_8h.html" title="dsf/include/dsf/Synchronized\lObject.h" alt="" coords="5,165,196,204"/>
-<area shape="rect" id="node4" href="$_synchronized_var_8h.html" title="dsf/include/dsf/Synchronized\lVar.h" alt="" coords="72,79,263,117"/>
-<area shape="rect" id="node3" href="$_dual_state_framework_8h.html" title="dsf/include/dsf/DualState\lFramework.h" alt="" coords="16,252,185,291"/>
+<area shape="rect" id="node2" href="$_synchronized_var_8h.html" title="dsf/include/dsf/Synchronized\lVar.h" alt="" coords="5,79,196,117"/>
 </map>

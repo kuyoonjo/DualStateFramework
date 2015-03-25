@@ -1,5 +1,5 @@
 //
-//  TaskManager.h
+//  DualStateFramework.h
 //  dsf
 //
 //  Created by Yu Chen on 10/17/14.
@@ -18,6 +18,25 @@
 #include "Debug.h"
 
 namespace dsf {
+    /*! The starting pointer for the framework is the abstract class def::DualStateFramework. It provides essential functions for associating and managing its components (SynchronizedObject objects, function points, and etc.). 
+     *
+     * Example.
+     @code
+     #include <dsf/DualStateFramework.h>
+     
+     class MyDSF : public dsf::DualStateFramework
+     {
+     public:
+         MyDSF();
+         ~MyDSF();
+         void initialize() override;
+     protected:
+         void refresh() override;
+         void run() override;
+     };
+     
+     @endcode
+     */
     class DSF_API DualStateFramework : public Runnable
     {
     public:
@@ -83,6 +102,8 @@ namespace dsf {
         std::vector<SynchronizedObject*>* syncObjs;
         State state;
     protected:
+        /*! \brief Clear all SyncronizedObjects which is marked as DELETE
+         */
         virtual void refresh();
         /*! \brief Start all SyncronizedObjects associated.
         */

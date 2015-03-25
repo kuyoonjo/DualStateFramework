@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['task_2eh',['Task.h',['../_task_8h.html',1,'']]],
-  ['taskargument_2eh',['TaskArgument.h',['../_task_argument_8h.html',1,'']]],
-  ['taskbox_2eh',['TaskBox.h',['../_task_box_8h.html',1,'']]],
-  ['taskfunction_2eh',['TaskFunction.h',['../_task_function_8h.html',1,'']]]
+  ['synchronisable_2eh',['Synchronisable.h',['../_synchronisable_8h.html',1,'']]],
+  ['synchronizedobject_2eh',['SynchronizedObject.h',['../_synchronized_object_8h.html',1,'']]],
+  ['synchronizedvar_2eh',['SynchronizedVar.h',['../_synchronized_var_8h.html',1,'']]]
 ];

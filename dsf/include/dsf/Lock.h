@@ -13,12 +13,27 @@
 
 namespace dsf
 {
+    /*! The class can lock the objects using an unspecified sequence of calls to their members lock and unlock that ensures that all arguments are locked on return (without producing any deadlocks).
+     
+     * Example.
+     @code
+     
+     dsf->lock();
+     dsf->drawables->push_back(syncObj); //the object drawables is locked
+     dsf->unlock();
+     
+     @endcode
+     */
     class Lock
     {
     protected:
         tbb::mutex locker;
     public:
+        /*! \brief Locks all the objects passed as arguments, blocking the calling thread if necessary.
+         */
         void lock();
+        /*! \brief Unlocks all the objects.
+         */
         void unlock();
     };
 }

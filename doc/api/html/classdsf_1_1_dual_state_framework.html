@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -138,6 +138,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ab4c6856bd4036f8abbc2be2c0f00ea1a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#ab4c6856bd4036f8abbc2be2c0f00ea1a">refresh</a> ()</td></tr>
+<tr class="memdesc:ab4c6856bd4036f8abbc2be2c0f00ea1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all SyncronizedObjects which is marked as DELETE.  <a href="#ab4c6856bd4036f8abbc2be2c0f00ea1a">More...</a><br /></td></tr>
 <tr class="separator:ab4c6856bd4036f8abbc2be2c0f00ea1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b40bcf755127022f9258e846ddedb23"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#a7b40bcf755127022f9258e846ddedb23">run</a> () override</td></tr>
 <tr class="memdesc:a7b40bcf755127022f9258e846ddedb23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start all SyncronizedObjects associated.  <a href="#a7b40bcf755127022f9258e846ddedb23">More...</a><br /></td></tr>
@@ -154,7 +155,21 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:a8eb63b21a0accc7a6a2a05f18e257991"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of the object.  <a href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">More...</a><br /></td></tr>
 <tr class="separator:a8eb63b21a0accc7a6a2a05f18e257991 inherit pub_types_classdsf_1_1_runnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The starting pointer for the framework is the abstract class def::DualStateFramework. It provides essential functions for associating and managing its components (<a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a> objects, function points, and etc.).</p>
+<p>Example. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_dual_state_framework_8h.html">dsf/DualStateFramework.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">class </span>MyDSF : <span class="keyword">public</span> <a class="code" href="classdsf_1_1_dual_state_framework.html">dsf::DualStateFramework</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    MyDSF();</div>
+<div class="line">    ~MyDSF();</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="classdsf_1_1_dual_state_framework.html#a809a7bba4148e17ea9a43a0a035383ba">initialize</a>() <span class="keyword">override</span>;</div>
+<div class="line"><span class="keyword">protected</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="classdsf_1_1_dual_state_framework.html#ab4c6856bd4036f8abbc2be2c0f00ea1a">refresh</a>() <span class="keyword">override</span>;</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="classdsf_1_1_dual_state_framework.html#a7b40bcf755127022f9258e846ddedb23">run</a>() <span class="keyword">override</span>;</div>
+<div class="line">};</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab2c3f064dee1876d92694544d032b942"></a>
 <div class="memitem">
 <div class="memproto">
@@ -304,6 +319,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Clear all SyncronizedObjects which is marked as DELETE. </p>
+
 </div>
 </div>
 <a class="anchor" id="ab6ca84c5186f4fc3e048c4ff7a104ae7"></a>
@@ -432,7 +449,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 5 2015 14:36:43 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 25 2015 20:58:51 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

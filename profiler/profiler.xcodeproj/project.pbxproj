@@ -41,6 +41,7 @@
 		4BB657C31A99469E005224C4 /* SyncCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB657C21A99469E005224C4 /* SyncCircle.cpp */; };
 		4BB657C61A995124005224C4 /* SyncBouncingCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB657C51A995124005224C4 /* SyncBouncingCircle.cpp */; };
 		4BB657C91A998FB3005224C4 /* BouncingCircleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB657C81A998FB3005224C4 /* BouncingCircleManager.cpp */; };
+		4BED90591AC23552007A8FD6 /* SyncVector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BED90581AC23552007A8FD6 /* SyncVector3D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +104,8 @@
 		4BB657C51A995124005224C4 /* SyncBouncingCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SyncBouncingCircle.cpp; sourceTree = "<group>"; };
 		4BB657C71A995CED005224C4 /* BouncingCircleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BouncingCircleManager.h; sourceTree = "<group>"; };
 		4BB657C81A998FB3005224C4 /* BouncingCircleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BouncingCircleManager.cpp; sourceTree = "<group>"; };
+		4BED90571AC2328D007A8FD6 /* SyncVector3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncVector3D.h; sourceTree = "<group>"; };
+		4BED90581AC23552007A8FD6 /* SyncVector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SyncVector3D.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,7 @@
 				4B497AB91A963D6D00AB2BF9 /* DSFSFML.h */,
 				4BB657BE1A99451C005224C4 /* RandomCircleManager.h */,
 				4B7B18AE1ABF3388009649C6 /* Vector3D.h */,
+				4BED90571AC2328D007A8FD6 /* SyncVector3D.h */,
 				4BB657C11A99464F005224C4 /* SyncCircle.h */,
 				4BB657C41A995025005224C4 /* SyncBouncingCircle.h */,
 				4BB657C71A995CED005224C4 /* BouncingCircleManager.h */,
@@ -172,6 +176,7 @@
 				4BB611181AB1D07600E3E44D /* FlockingBoidManager.cpp */,
 				4BB6111A1AB23CFB00E3E44D /* SyncFlockingBoid.cpp */,
 				4B7B18AF1ABF4578009649C6 /* Vector3D.cpp */,
+				4BED90581AC23552007A8FD6 /* SyncVector3D.cpp */,
 				4BB657C21A99469E005224C4 /* SyncCircle.cpp */,
 				4BB47A941A87F18F00F36CCF /* MySyncObj.cpp */,
 			);
@@ -291,6 +296,7 @@
 				4BB6111B1AB23CFB00E3E44D /* SyncFlockingBoid.cpp in Sources */,
 				4BB47A951A87F18F00F36CCF /* MySyncObj.cpp in Sources */,
 				4BB47A9E1A87FC8C00F36CCF /* FPS.cpp in Sources */,
+				4BED90591AC23552007A8FD6 /* SyncVector3D.cpp in Sources */,
 				4B497ABB1A963D8200AB2BF9 /* DSFSFML.cpp in Sources */,
 				4BB657C91A998FB3005224C4 /* BouncingCircleManager.cpp in Sources */,
 				4BB47A641A87E97000F36CCF /* main.cpp in Sources */,

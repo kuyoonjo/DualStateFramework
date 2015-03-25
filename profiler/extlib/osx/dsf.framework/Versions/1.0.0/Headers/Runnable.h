@@ -11,7 +11,7 @@
 
 namespace dsf
 {
-    class Runnable
+    class DSF_API Runnable
     {
     public:
         /*! \brief State of the object.

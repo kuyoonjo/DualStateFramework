@@ -13,71 +13,85 @@ SyncFlockingBoid::SyncFlockingBoid() : dsf::SynchronizedObject::SynchronizedObje
 }
 SyncFlockingBoid::~SyncFlockingBoid()
 {
-    
+    delete this->acc;
+    delete this->vel;
+    delete this->loc;
 }
-SyncFlockingBoid::SyncFlockingBoid(Vector3D l, float ms, float mf) : dsf::SynchronizedObject::SynchronizedObject(), sf::CircleShape::CircleShape()
+SyncFlockingBoid::SyncFlockingBoid(Vector3D* loc, float ms, float mf) : dsf::SynchronizedObject::SynchronizedObject(), sf::CircleShape::CircleShape()
 {
-    acc = Vector3D(0,0);
-    vel = Vector3D(yc::Random().randFloat(-1,1), yc::Random().randFloat(-1,1));
-    loc = l.copy();
+    this->acc = new SyncVector3D(0,0);
+    this->vel = new SyncVector3D(yc::Random().randFloat(-1,1), yc::Random().randFloat(-1,1));
+    this->loc = new SyncVector3D(loc->getX(), loc->getY(), loc->getZ());
+    delete loc;
     r = 2.0f;
     maxspeed = ms;
     maxforce = mf;
 }
 
 void SyncFlockingBoid::run(std::vector<SyncFlockingBoid*>* boids, sf::RenderWindow* window) {
-    flock(boids);
-    update();
-    borders(window->getSize().x, window->getSize().y);
-    render(window);
-}
-
-// We accumulate a new acceleration each time based on three rules
-void SyncFlockingBoid::flock(std::vector<SyncFlockingBoid*>* boids) {
+    //flock(boids);
+    //update();
+    //borders(window->getSize().x, window->getSize().y);
+    //render(window);
+    
+    // We accumulate a new acceleration each time based on three rules
     Vector3D sep = separate(boids);   // Separation
     Vector3D ali = align(boids);      // Alignment
     Vector3D coh = cohesion(boids);   // Cohesion
     
     // Arbitrarily weight these forces
-    sep.mult(2.0f);
-    ali.mult(1.0f);
-    coh.mult(1.0f);
+    sep *= 2.0f;
+    ali *= 1.0f;
+    coh *= 1.0f;
+    
+    auto acc = Vector3D(*this->acc);
+    auto loc = Vector3D(this->loc->getX(), this->loc->getY());
+    auto vel = Vector3D(*this->vel);
     
     // Add the force vectors to acceleration
-    acc.add(sep);
-    acc.add(ali);
-    acc.add(coh);
-}
-
-// Method to update location
-void SyncFlockingBoid::update() {
+    acc += sep;
+    acc += ali;
+    acc += coh;
+    
+    // Method to update location
     // Update velocity
-    vel.add(acc);
+    vel += acc;
     
     // Limit speed
     vel.limit(maxspeed);
     
-    loc.add(vel);
+    loc += vel;
     
     // Reset accelertion to 0 each cycle
     acc.setXYZ(0,0,0);
     
+    // Wraparound
+    auto width = window->getSize().x;
+    auto height = window->getSize().y;
+    if (loc.getX() < -r)
+        loc.setX(width+r);
+    if (loc.getY() < -r)
+        loc.setY(height+r);
+    if (loc.getX() > width+r)
+        loc.setX(-r);
+    if (loc.getY() > height+r)
+        loc.setY(-r);
+    
+    
+    this->acc->setXYZ(acc);
+    this->loc->setXYZ(loc);
+    this->vel->setXYZ(vel);
+    this->setPosition(this->loc->getX(), this->loc->getY());
+    this->setRadius(r);
 }
 
-void SyncFlockingBoid::seek(Vector3D target) {
-    acc.add(steer(target,false));
-}
-
-void SyncFlockingBoid::arrive(Vector3D target) {
-    acc.add(steer(target,true));
-}
 
 // A method that calculates a steering vector towards a target
 // Takes a second argument, if true, it slows down as it approaches the target
 
-Vector3D SyncFlockingBoid::steer(Vector3D target, bool slowdown) {
+Vector3D SyncFlockingBoid::steer(Vector3D* target, bool slowdown) {
     Vector3D steer;  // The steering vector
-    Vector3D desired = target.sub(target,loc);  // A vector pointing from the location to the target
+    Vector3D desired = *target - *this->loc;  // A vector pointing from the location to the target
     float d = desired.magnitude(); // Distance from the target is the magnitude of the vector
     
     // If the distance is greater than 0, calc steering (otherwise return zero vector)
@@ -87,35 +101,18 @@ Vector3D SyncFlockingBoid::steer(Vector3D target, bool slowdown) {
         
         // Two options for desired vector magnitude (1 -- based on distance, 2 -- maxspeed)
         if ((slowdown) && (d < 100.0f))
-            desired.mult(maxspeed*(d/100.0f)); // This damping is somewhat arbitrary
+            desired *= maxspeed * (d / 100.0f); // This damping is somewhat arbitrary
         else
-            desired.mult(maxspeed);
+            desired *= maxspeed;
         
         // Steering = Desired minus Velocity
-        steer = target.sub(desired,vel);
+        steer = desired - *this->vel;
         steer.limit(maxforce);  // Limit to maximum steering force
         
     } else {
         steer = Vector3D(0,0);
     }
     return steer;
-}
-
-void SyncFlockingBoid::render(sf::RenderWindow* window) {
-    this->setPosition(loc.x, loc.y);
-    this->setRadius(r);
-}
-
-// Wraparound
-void SyncFlockingBoid::borders(int width, int height) {
-    if (loc.x < -r)
-        loc.x = width+r;
-    if (loc.y < -r)
-        loc.y = height+r;
-    if (loc.x > width+r)
-        loc.x = -r;
-    if (loc.y > height+r)
-        loc.y = -r;
 }
 
 // Separation
@@ -127,22 +124,22 @@ Vector3D SyncFlockingBoid::separate (std::vector<SyncFlockingBoid*>* boids) {
     
     // For every boid in the system, check if it's too close
     for (auto other: *boids) {
-        float d = loc.distance(loc,other->loc);
+        float d = this->loc->distance(*other->loc);
         
         // If the distance is greater than 0 and less than an arbitrary amount (0 when you are yourself)
         if ((d > 0) && (d < desiredseparation)) {
             // Calculate vector pointing away from neighbor
-            Vector3D diff = loc.sub(loc,other->loc);
+            Vector3D diff = *this->loc - *other->loc;
             diff.normalize();
-            diff.div(d);        // Weight by distance
-            sum.add(diff);
+            diff /= d;        // Weight by distance
+            sum += diff;
             count++;            // Keep track of how many
         }
     }
     
     // Average -- divide by how many
     if (count > 0)
-        sum.div((float)count);
+        sum /= count;
     return sum;
 }
 
@@ -155,14 +152,14 @@ Vector3D SyncFlockingBoid::align (std::vector<SyncFlockingBoid*>* boids) {
     Vector3D sum = Vector3D(0,0,0);
     int count = 0;
     for (auto & other : *boids) {
-        float d = loc.distance(loc,other->loc);
+        float d = this->loc->distance(*other->loc);
         if ((d > 0) && (d < neighbordist)) {
-            sum.add(other->vel);
+            sum += *other->vel;
             count++;
         }
     }
     if (count > 0) {
-        sum.div((float)count);
+        sum /= count;
         sum.limit(maxforce);
     }
     return sum;
@@ -175,16 +172,16 @@ Vector3D SyncFlockingBoid::cohesion (std::vector<SyncFlockingBoid*>* boids) {
     Vector3D sum = Vector3D(0,0,0);   // Start with empty vector to accumulate all locations
     int count = 0;
     for (auto & other: *boids) {
-        float d = loc.distance(loc,other->loc);
+        float d = this->loc->distance(*other->loc);
         if ((d > 0) && (d < neighbordist)) {
-            sum.add(other->loc); // Add location
+            sum += *other->loc; // Add location
             count++;
         }
     }
     
     if (count > 0) {
-        sum.div((float)count);
-        return steer(sum,false);  // Steer towards the location
+        sum /= count;
+        return steer(&sum,false);  // Steer towards the location
     }
     return sum;
 }
@@ -192,5 +189,10 @@ Vector3D SyncFlockingBoid::cohesion (std::vector<SyncFlockingBoid*>* boids) {
 void SyncFlockingBoid::run()
 {
     if(this->receive())
+    {
+        this->loc->synchronise();
+        this->acc->synchronise();
+        this->vel->synchronise();
         this->process();
+    }
 }

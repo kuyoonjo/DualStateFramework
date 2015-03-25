@@ -1,16 +1,11 @@
 var searchData=
 [
-  ['task',['Task',['../classdsf_1_1_task.html',1,'dsf']]],
-  ['task',['Task',['../classdsf_1_1_task.html#afa460a63f94f30df36df5661de1dbe1a',1,'dsf::Task::Task()'],['../namespacedsf.html#a7df24c7d3d82e2e686aa3a524dc1dee9',1,'dsf::Task()']]],
-  ['task_2eh',['Task.h',['../_task_8h.html',1,'']]],
-  ['taskargument',['taskArgument',['../classdsf_1_1_task.html#a8a095d8a36668f6500d4df8c24dbef8d',1,'dsf::Task::taskArgument()'],['../namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a',1,'dsf::TaskArgument()']]],
-  ['taskargument_2eh',['TaskArgument.h',['../_task_argument_8h.html',1,'']]],
-  ['taskargumentexception',['TaskArgumentException',['../namespacedsf.html#af54027177bbfc0037be408a612d48b83',1,'dsf']]],
-  ['taskbox',['TaskBox',['../classdsf_1_1_task_box.html',1,'dsf']]],
-  ['taskbox',['TaskBox',['../classdsf_1_1_task_box.html#a931c925e0a4956ee6bc1674f43ecc0a0',1,'dsf::TaskBox::TaskBox()'],['../namespacedsf.html#ac3c92e2a98380dd728b0c18d0c495966',1,'dsf::TaskBox()']]],
-  ['taskbox_2eh',['TaskBox.h',['../_task_box_8h.html',1,'']]],
-  ['taskfunction',['taskFunction',['../classdsf_1_1_task.html#a681617cab34fbae641c5b0cf4be46659',1,'dsf::Task::taskFunction()'],['../namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9',1,'dsf::TaskFunction()']]],
-  ['taskfunction_2eh',['TaskFunction.h',['../_task_function_8h.html',1,'']]],
-  ['tasks',['tasks',['../classdsf_1_1_task_box.html#ae13d0d245cacbf7f4019f7ff5486aa79',1,'dsf::TaskBox']]],
-  ['to',['to',['../classdsf_1_1_task.html#a36c485fbeb9c2330f5637b9d625cf01a',1,'dsf::Task::to()'],['../classdsf_1_1_synchronized_var.html#aa1532ad0cd115987f9769f4ef1eaa3df',1,'dsf::SynchronizedVar::to()']]]
+  ['ready',['READY',['../classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991a60038f4f186bbe0d05fdbbe9da0f85de',1,'dsf::Runnable']]],
+  ['receive',['receive',['../classdsf_1_1_task_box.html#ab1971406a2446326c5bdd58b1462409d',1,'dsf::TaskBox']]],
+  ['refresh',['refresh',['../classdsf_1_1_dual_state_framework.html#ab4c6856bd4036f8abbc2be2c0f00ea1a',1,'dsf::DualStateFramework']]],
+  ['remove',['remove',['../classdsf_1_1_dual_state_framework.html#ab6ca84c5186f4fc3e048c4ff7a104ae7',1,'dsf::DualStateFramework']]],
+  ['run',['run',['../classdsf_1_1_dual_state_framework.html#a7b40bcf755127022f9258e846ddedb23',1,'dsf::DualStateFramework::run()'],['../classdsf_1_1_runnable.html#a6e23b3b551a7cfdbff0e9ba2265d4378',1,'dsf::Runnable::run()'],['../classdsf_1_1_synchronized_object.html#ae94875bd63d8071f8a563ac45ca7ccc2',1,'dsf::SynchronizedObject::run()']]],
+  ['runnable',['Runnable',['../classdsf_1_1_runnable.html',1,'dsf']]],
+  ['runnable_2eh',['Runnable.h',['../_runnable_8h.html',1,'']]],
+  ['running',['RUNNING',['../classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991ad7167727fe5c31678c166aee6801ba0a',1,'dsf::Runnable']]]
 ];

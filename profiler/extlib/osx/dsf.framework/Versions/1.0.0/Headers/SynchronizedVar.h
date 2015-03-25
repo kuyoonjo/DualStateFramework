@@ -9,12 +9,27 @@
 #ifndef dsf_SynchronizedVar_h
 #define dsf_SynchronizedVar_h
 
+#include "Export.h"
 #include <yctools/Any.h>
 #include "Lock.h"
 
 namespace dsf
 {
-    class SynchronizedVar : public Lock
+    /*! The purpose of this class is to make thread-safe variables for dsf::SynchronizedObject objects. A dsf::SynchronizedVar object has two member variables - “value” and “next”. The “value” is for read operation, and the “next” is for write operation. The function “synchronize” signs “next” to “value”. 
+     *
+     *Example
+     @code
+     dsf::SynchronizedVar myInt;
+     myInt = int(8); // value == NULL, next == 8
+     myInt.synchronize(); // value == 8, next == 8
+     std::cout << myInt.to<int>() << std::endl; // output 8
+     myInt = int(9); // value == 8, next == 9
+     std::cout << myInt.to<int>() << std::endl; // output 8
+     myInt.synchronize(); // value == 9, next == 9
+     std::cout << myInt.to<int>() << std::endl; // output 9
+     @endcode
+     */
+    class DSF_API SynchronizedVar
     {
     public:
         SynchronizedVar();
@@ -51,9 +66,7 @@ namespace dsf
     
     template<typename T> void SynchronizedVar::set(T && value)
     {
-        this->lock();
         this->next = value;
-        this->unlock();
     }
 }
 

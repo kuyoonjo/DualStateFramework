@@ -102,7 +102,6 @@ namespace dsf
                                                      delete sb;
                                                      return true;
                                                  }
-                                                 sb->synchronize();
                                                  return false;
                                              }) ,
                               this->syncObjs->end());
@@ -117,7 +116,6 @@ namespace dsf
                                {
                                    if(sb->getState() == SynchronizedObject::State::STOPPED)
                                    {
-                                       sb->synchronize();
                                        sb->start();
                                    }
                                });

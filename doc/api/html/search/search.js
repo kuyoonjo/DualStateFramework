@@ -7,17 +7,18 @@
 
 var indexSectionsWithContent =
 {
-  0: "acdefgiloprstu~",
+  0: "acdefgilmnoprstu~",
   1: "dlrst",
   2: "d",
-  3: "cdelrst",
+  3: "cdelmrst",
   4: "adgiloprstu~",
-  5: "dflst",
+  5: "dflnst",
   6: "ft",
   7: "s",
   8: "drs",
   9: "d",
-  10: "d"
+  10: "d",
+  11: "i"
 };
 
 var indexSectionNames =
@@ -32,7 +33,8 @@ var indexSectionNames =
   7: "enums",
   8: "enumvalues",
   9: "related",
-  10: "defines"
+  10: "defines",
+  11: "pages"
 };
 
 function convertToId(search)
