@@ -25,6 +25,8 @@ namespace dsf
         {
             RUNNING, STOPPED, READY, DELETED
         };
+        /*! \brief Returns the current state.
+         */
         virtual State getState() = 0;
     protected:
         virtual void run() = 0;

@@ -39,11 +39,15 @@ namespace dsf {
     template<class T> class Synchronisable
     {
     protected:
+        /*! A copy of current object.
+         */
         T* next;
     public:
         virtual ~Synchronisable() {
             delete this->next;
         }
+        /*! \brief Signs current value to next value.
+         */
         virtual void synchronise() = 0;
     };
 }

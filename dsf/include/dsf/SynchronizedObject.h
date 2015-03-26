@@ -62,6 +62,8 @@ namespace dsf
     public:
         SynchronizedObject();
         virtual ~SynchronizedObject();
+        /*! \brief Returns the current state.
+         */
         State getState() override;
     private:
         State state;

@@ -118,24 +118,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="namespacedsf.html#acbf1798fc56cfb1707162a17e13f5fda">SynchronizedObject</a>();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> getState() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> state;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> send(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* to,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                  <a class="code" href="namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9">TaskFunction</a>* taskFunction,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                  <a class="code" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a>* args);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> start();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">void</span> stop();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> distroy();</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classdsf_1_1_synchronized_object.html#a86db03c65431cb461cc8abf33bd2e74a">   75</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdsf_1_1_dual_state_framework.html">DualStateFramework</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() <span class="keyword">override</span> = 0;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    };</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> getState() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> state;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">void</span> send(<a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* to,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                  <a class="code" href="namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9">TaskFunction</a>* taskFunction,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                  <a class="code" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a>* args);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> start();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">void</span> stop();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> distroy();</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classdsf_1_1_synchronized_object.html#a86db03c65431cb461cc8abf33bd2e74a">   77</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classdsf_1_1_dual_state_framework.html">DualStateFramework</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() <span class="keyword">override</span> = 0;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    };</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="_export_8h_html"><div class="ttname"><a href="_export_8h.html">Export.h</a></div></div>
 <div class="ttc" id="_task_box_8h_html"><div class="ttname"><a href="_task_box_8h.html">TaskBox.h</a></div></div>
 <div class="ttc" id="_task_8h_html"><div class="ttname"><a href="_task_8h.html">Task.h</a></div></div>
@@ -156,7 +156,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 25 2015 20:58:51 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 26 2015 11:09:04 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

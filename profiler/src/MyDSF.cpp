@@ -7,7 +7,6 @@
 //
 
 #include "../include/MyDSF.h"
-#include "../include/MySyncObj.h"
 #include "../include/FPS.h"
 #include <dsf/TaskArgument.h>
 #include <SFML/Graphics.hpp>

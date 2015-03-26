@@ -31,7 +31,6 @@
 		4BB47A8C1A87EB1D00F36CCF /* dsf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6F1A87E9A000F36CCF /* dsf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4BB47A8F1A87ED9000F36CCF /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A8E1A87ED9000F36CCF /* libtbb.dylib */; };
 		4BB47A911A87EE4700F36CCF /* MyDSF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A901A87EE4700F36CCF /* MyDSF.cpp */; };
-		4BB47A951A87F18F00F36CCF /* MySyncObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A941A87F18F00F36CCF /* MySyncObj.cpp */; };
 		4BB47A981A87F4FD00F36CCF /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BB47A971A87F4FD00F36CCF /* sansation.ttf */; };
 		4BB47A9A1A87F55B00F36CCF /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A991A87F55B00F36CCF /* ResourcePath.mm */; };
 		4BB47A9E1A87FC8C00F36CCF /* FPS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A9D1A87FC8C00F36CCF /* FPS.cpp */; };
@@ -85,8 +84,6 @@
 		4BB47A8E1A87ED9000F36CCF /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = extlib/osx/libtbb.dylib; sourceTree = "<group>"; };
 		4BB47A901A87EE4700F36CCF /* MyDSF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyDSF.cpp; sourceTree = "<group>"; };
 		4BB47A921A87EE7200F36CCF /* MyDSF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDSF.h; sourceTree = "<group>"; };
-		4BB47A931A87F15100F36CCF /* MySyncObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySyncObj.h; sourceTree = "<group>"; };
-		4BB47A941A87F18F00F36CCF /* MySyncObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MySyncObj.cpp; sourceTree = "<group>"; };
 		4BB47A971A87F4FD00F36CCF /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		4BB47A991A87F55B00F36CCF /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		4BB47A9B1A87F56800F36CCF /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
@@ -157,7 +154,6 @@
 				4BB611171AB1C77200E3E44D /* SyncFlockingBoid.h */,
 				4BB47A9C1A87FB6000F36CCF /* FPS.h */,
 				4BB47A9B1A87F56800F36CCF /* ResourcePath.hpp */,
-				4BB47A931A87F15100F36CCF /* MySyncObj.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -178,7 +174,6 @@
 				4B7B18AF1ABF4578009649C6 /* Vector3D.cpp */,
 				4BED90581AC23552007A8FD6 /* SyncVector3D.cpp */,
 				4BB657C21A99469E005224C4 /* SyncCircle.cpp */,
-				4BB47A941A87F18F00F36CCF /* MySyncObj.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -294,7 +289,6 @@
 			files = (
 				4BB47A9A1A87F55B00F36CCF /* ResourcePath.mm in Sources */,
 				4BB6111B1AB23CFB00E3E44D /* SyncFlockingBoid.cpp in Sources */,
-				4BB47A951A87F18F00F36CCF /* MySyncObj.cpp in Sources */,
 				4BB47A9E1A87FC8C00F36CCF /* FPS.cpp in Sources */,
 				4BED90591AC23552007A8FD6 /* SyncVector3D.cpp in Sources */,
 				4B497ABB1A963D8200AB2BF9 /* DSFSFML.cpp in Sources */,

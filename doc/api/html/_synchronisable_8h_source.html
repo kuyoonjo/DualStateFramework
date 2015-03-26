@@ -103,24 +103,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classdsf_1_1_synchronisable.html">   39</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span><a class="code" href="classdsf_1_1_synchronisable.html">Synchronisable</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classdsf_1_1_synchronisable.html#ae2434faac15d3184da1543a91e175713">   42</a></span>&#160;        T* <a class="code" href="classdsf_1_1_synchronisable.html#ae2434faac15d3184da1543a91e175713">next</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classdsf_1_1_synchronisable.html#ae733344b5ac5742826aa4781abdc6e2c">   44</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classdsf_1_1_synchronisable.html#ae733344b5ac5742826aa4781abdc6e2c">~Synchronisable</a>() {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keyword">delete</span> this-&gt;<a class="code" href="classdsf_1_1_synchronisable.html#ae2434faac15d3184da1543a91e175713">next</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdsf_1_1_synchronisable.html#a225f9a5f6cb47d73e1ea4d788bbfcaaa">synchronise</a>() = 0;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classdsf_1_1_synchronisable_html_a225f9a5f6cb47d73e1ea4d788bbfcaaa"><div class="ttname"><a href="classdsf_1_1_synchronisable.html#a225f9a5f6cb47d73e1ea4d788bbfcaaa">dsf::Synchronisable::synchronise</a></div><div class="ttdeci">virtual void synchronise()=0</div></div>
-<div class="ttc" id="classdsf_1_1_synchronisable_html_ae733344b5ac5742826aa4781abdc6e2c"><div class="ttname"><a href="classdsf_1_1_synchronisable.html#ae733344b5ac5742826aa4781abdc6e2c">dsf::Synchronisable::~Synchronisable</a></div><div class="ttdeci">virtual ~Synchronisable()</div><div class="ttdef"><b>Definition:</b> Synchronisable.h:44</div></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classdsf_1_1_synchronisable.html#ae2434faac15d3184da1543a91e175713">   44</a></span>&#160;        T* <a class="code" href="classdsf_1_1_synchronisable.html#ae2434faac15d3184da1543a91e175713">next</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classdsf_1_1_synchronisable.html#ae733344b5ac5742826aa4781abdc6e2c">   46</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classdsf_1_1_synchronisable.html#ae733344b5ac5742826aa4781abdc6e2c">~Synchronisable</a>() {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keyword">delete</span> this-&gt;<a class="code" href="classdsf_1_1_synchronisable.html#ae2434faac15d3184da1543a91e175713">next</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdsf_1_1_synchronisable.html#a225f9a5f6cb47d73e1ea4d788bbfcaaa">synchronise</a>() = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    };</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classdsf_1_1_synchronisable_html_a225f9a5f6cb47d73e1ea4d788bbfcaaa"><div class="ttname"><a href="classdsf_1_1_synchronisable.html#a225f9a5f6cb47d73e1ea4d788bbfcaaa">dsf::Synchronisable::synchronise</a></div><div class="ttdeci">virtual void synchronise()=0</div><div class="ttdoc">Signs current value to next value. </div></div>
+<div class="ttc" id="classdsf_1_1_synchronisable_html_ae733344b5ac5742826aa4781abdc6e2c"><div class="ttname"><a href="classdsf_1_1_synchronisable.html#ae733344b5ac5742826aa4781abdc6e2c">dsf::Synchronisable::~Synchronisable</a></div><div class="ttdeci">virtual ~Synchronisable()</div><div class="ttdef"><b>Definition:</b> Synchronisable.h:46</div></div>
 <div class="ttc" id="classdsf_1_1_synchronisable_html"><div class="ttname"><a href="classdsf_1_1_synchronisable.html">dsf::Synchronisable</a></div><div class="ttdef"><b>Definition:</b> Synchronisable.h:39</div></div>
-<div class="ttc" id="classdsf_1_1_synchronisable_html_ae2434faac15d3184da1543a91e175713"><div class="ttname"><a href="classdsf_1_1_synchronisable.html#ae2434faac15d3184da1543a91e175713">dsf::Synchronisable::next</a></div><div class="ttdeci">T * next</div><div class="ttdef"><b>Definition:</b> Synchronisable.h:42</div></div>
+<div class="ttc" id="classdsf_1_1_synchronisable_html_ae2434faac15d3184da1543a91e175713"><div class="ttname"><a href="classdsf_1_1_synchronisable.html#ae2434faac15d3184da1543a91e175713">dsf::Synchronisable::next</a></div><div class="ttdeci">T * next</div><div class="ttdef"><b>Definition:</b> Synchronisable.h:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 25 2015 20:58:51 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 26 2015 11:09:04 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
