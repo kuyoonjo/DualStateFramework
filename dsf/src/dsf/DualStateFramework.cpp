@@ -9,6 +9,7 @@
 #include <tbb/parallel_for_each.h>
 #include <dsf/DualStateFramework.h>
 #include <tbb/task_scheduler_init.h>
+#include <algorithm>
 
 namespace dsf
 {
@@ -17,7 +18,6 @@ namespace dsf
         this->NumberOfThreads = tbb::task_scheduler_init::automatic;
         this->syncObjs = new std::vector<SynchronizedObject*>();
         this->state = DualStateFramework::State::STOPPED;
-        Debug("A DSF Object has been created.");
     }
     
     DualStateFramework::~DualStateFramework()
@@ -28,7 +28,6 @@ namespace dsf
             delete syncObj;
         }
         delete this->syncObjs;
-        Debug("A DSF Object has been removed.");
     }
     
     void DualStateFramework::start()

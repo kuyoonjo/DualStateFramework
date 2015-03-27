@@ -11,14 +11,12 @@
 namespace dsf
 {
     SynchronizedObject::SynchronizedObject()
-    : TaskBox::TaskBox()
+		: TaskBox()
     {
         this->state = State::STOPPED;
-        Debug("A SynchronizedObject Object has been created.");
     }
     SynchronizedObject::~SynchronizedObject()
     {
-        Debug("A SynchronizedObject Object has been removed.");
     }
     
     SynchronizedObject::State SynchronizedObject::getState()
@@ -43,7 +41,6 @@ namespace dsf
     void SynchronizedObject::start()
     {
         this->state = State::RUNNING;
-        Debug("A SynchronizedObject is running");
         this->run();
         if(this->state == State::RUNNING)
             this->stop();
@@ -52,12 +49,10 @@ namespace dsf
     void SynchronizedObject::stop()
     {
         this->state = State::STOPPED;
-        Debug("A SynchronizedObject is stopped.");
     }
     
     void SynchronizedObject::distroy()
     {
         this->state = State::DELETED;
-        Debug("A SynchronizedObject is distroyed.");
     }
 }

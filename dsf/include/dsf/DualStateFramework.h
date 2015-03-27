@@ -15,7 +15,6 @@
 #include "Task.h"
 #include "SynchronizedObject.h"
 #include "Runnable.h"
-#include "Debug.h"
 
 namespace dsf {
     /*! The starting pointer for the framework is the abstract class def::DualStateFramework. It provides essential functions for associating and managing its components (SynchronizedObject objects, function points, and etc.). 

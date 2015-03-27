@@ -8,7 +8,7 @@
 
 #include "../include/SyncFlockingBoid.h"
 
-SyncFlockingBoid::SyncFlockingBoid() : dsf::SynchronizedObject::SynchronizedObject(), sf::CircleShape::CircleShape()
+SyncFlockingBoid::SyncFlockingBoid() : SynchronizedObject(), CircleShape()
 {
 }
 SyncFlockingBoid::~SyncFlockingBoid()
@@ -17,7 +17,7 @@ SyncFlockingBoid::~SyncFlockingBoid()
     delete this->vel;
     delete this->loc;
 }
-SyncFlockingBoid::SyncFlockingBoid(Vector3D* loc, float ms, float mf) : dsf::SynchronizedObject::SynchronizedObject(), sf::CircleShape::CircleShape()
+SyncFlockingBoid::SyncFlockingBoid(Vector3D* loc, float ms, float mf) : SynchronizedObject(), CircleShape()
 {
     this->acc = new SyncVector3D(0,0);
     this->vel = new SyncVector3D(yc::Random().randFloat(-1,1), yc::Random().randFloat(-1,1));

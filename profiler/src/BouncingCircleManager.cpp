@@ -7,7 +7,7 @@
 //
 
 #include "../include/BouncingCircleManager.h"
-
+#include <cmath>
 
 BouncingCircleManager::BouncingCircleManager(MyDSF* dsf)
 {

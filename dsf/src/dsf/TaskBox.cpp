@@ -13,7 +13,6 @@ namespace dsf {
     {
         this->tasks = new std::vector<Task*>();
         this->next = nullptr;
-        Debug("A TaskBox Object has been created.");
     }
     
     TaskBox::~TaskBox()
@@ -25,7 +24,6 @@ namespace dsf {
         if (this->next) {
             delete this->next;
         }
-        Debug("A TaskBox Object has been removed.");
     }
     
     bool TaskBox::isEmpty()
@@ -73,11 +71,9 @@ namespace dsf {
     {
         while (!this->isEmpty())
         {
-            Debug("start a Task ...");
             Task* task = this->pop();
             (*task->taskFunction)(task->to, task->from, task->taskArgument);
             delete task;
-            Debug("finish a Task.");
         }
     }
 }

@@ -28,7 +28,7 @@ endif()
 
 # configure links and headers
 
-set(TBB_LIBRARY libtbb)
+set(TBB_LIBRARY libtbb) 
 set(LINK_LIBRARY)
 
 if (MSVC)
@@ -45,12 +45,22 @@ if (MSVC)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
 	endif () 
 
-    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH})
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/tbb)
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/yctools)
+    set(TBB_LIBRARY tbb) 
+    set(YCTOOLS_LIBRARY yctools)
     foreach(lib ${TBB_LIBRARY})
         set(LINK_LIBRARY
         ${LINK_LIBRARY}
         optimized ${lib}.lib
         debug ${lib}_debug.lib
+        )
+    endforeach()
+    foreach(lib ${YCTOOLS_LIBRARY})
+        set(LINK_LIBRARY
+        ${LINK_LIBRARY}
+        optimized ${lib}.lib
+        debug ${lib}.lib
         )
     endforeach()
 elseif(APPLE)

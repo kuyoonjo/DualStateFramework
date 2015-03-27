@@ -14,7 +14,7 @@
 #include <yctools/Random.h>
 
 MyDSF::MyDSF()
-: dsf::DualStateFramework::DualStateFramework()
+: DualStateFramework()
 {
     this->initialize();
 }
@@ -146,7 +146,7 @@ void MyDSF::draw()
                   });
 }
 
-MyDSF::Sender::Sender(dsf::DualStateFramework* dsf)  : dsf::SynchronizedObject::SynchronizedObject()
+MyDSF::Sender::Sender(dsf::DualStateFramework* dsf)  : SynchronizedObject()
 {
     this->dsf = dsf;
     this->create = new dsf::TaskFunction([this](dsf::SynchronizedObject* to, dsf::SynchronizedObject* from, dsf::TaskArgument* args)

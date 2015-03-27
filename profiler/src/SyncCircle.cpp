@@ -8,7 +8,7 @@
 
 #include "../include/SyncCircle.h"
 
-SyncCircle::SyncCircle()  : dsf::SynchronizedObject::SynchronizedObject(), sf::CircleShape::CircleShape()
+SyncCircle::SyncCircle()  : SynchronizedObject(), CircleShape()
 {
 }
 

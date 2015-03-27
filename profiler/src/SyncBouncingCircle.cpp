@@ -9,7 +9,7 @@
 #include "../include/SyncBouncingCircle.h"
 
 
-SyncBouncingCircle::SyncBouncingCircle()  : dsf::SynchronizedObject::SynchronizedObject(), sf::CircleShape::CircleShape()
+SyncBouncingCircle::SyncBouncingCircle()  : SynchronizedObject(), CircleShape()
 {
 }
 

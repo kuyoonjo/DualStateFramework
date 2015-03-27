@@ -19,7 +19,6 @@
 #include "TaskFunction.h"
 #include "TaskArgument.h"
 #include "Runnable.h"
-#include "Debug.h"
 
 namespace dsf
 {
