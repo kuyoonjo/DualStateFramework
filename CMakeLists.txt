@@ -44,24 +44,7 @@ if (MSVC)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
 	endif () 
 
-    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/tbb)
-    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/yctools)
-    set(TBB_LIBRARY tbb) 
-    set(YCTOOLS_LIBRARY yctools)
-    foreach(lib ${TBB_LIBRARY})
-        set(LINK_LIBRARY
-        ${LINK_LIBRARY}
-        optimized ${lib}.lib
-        debug ${lib}_debug.lib
-        )
-    endforeach()
-    foreach(lib ${YCTOOLS_LIBRARY})
-        set(LINK_LIBRARY
-        ${LINK_LIBRARY}
-        optimized ${lib}.lib
-        debug ${lib}.lib
-        )
-    endforeach()
+    set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/libs)
 elseif(APPLE)
 	# Mac OS X Xcode
     set(CMAKE_MACOSX_RPATH 1)
@@ -112,13 +95,3 @@ foreach(LIB ${LIBS})
     set_source_files_properties(${LIB_${LIB}} PROPERTIES MACOSX_PACKAGE_LOCATION Frameworks)
 	target_link_libraries(${PROJECT_NAME} ${LIB_${LIB}})
 endforeach()
-
-
-# installation
-if(WINDOWS)
-	install(TARGETS ${OUTPUT_NAME} RUNTIME DESTINATION bin COMPONENT dsf ARCHIVE DESTINATION lib COMPONENT dsf)
-else()
-	install(TARGETS ${OUTPUT_NAME} DESTINATION lib COMPONENT dsf)
-endif()
-# headers
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/dsf DESTINATION include)

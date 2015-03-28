@@ -3,5 +3,5 @@
 ////////////////////////////////////////////////////////////
 std::string resourcePath(void)
 {
-	return "./";
+	return "Resources/";
 }

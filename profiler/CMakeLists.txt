@@ -86,27 +86,15 @@ if (MSVC)
 	# Add Math definitions
 	add_definitions(-D_USE_MATH_DEFINES)
 
-
-	# Add Links
-    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/libs)
-    set(LIBRARIES ${TBB_LIBS} ${YCTOOLS_LIBS} ${DSF_LIBS} ${SFML_LIBS}) 
-    foreach(lib ${LIBRARIES})
-        set(LIBS ${LIBS} ${lib}.lib)
-    endforeach()
-
 	# Add Source
 	set(SRC ${SRC} ${SRCROOT}/ResourcePath.cpp)
-
 	add_executable(${PROJECT_NAME} ${INC} ${SRC})
-    target_link_libraries(${PROJECT_NAME} ${LIBS})
-	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-						COMMAND ${CMAKE_COMMAND} -E copy_directory
-						"${PROJECT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/dlls"
-						$<TARGET_FILE_DIR:${PROJECT_NAME}>)
-	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-						COMMAND ${CMAKE_COMMAND} -E copy_directory
-						"${PROJECT_SOURCE_DIR}/resource"
-						$<TARGET_FILE_DIR:${PROJECT_NAME}>)
+	# Add Links
+    set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/libs)
+    set(DEPENDENCIES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/dlls)
+	set(DEPENDENCIES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+	set(RESOURCES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>/Resources)
+
 elseif(APPLE)
 	# Mac OS X Xcode
     set(CMAKE_MACOSX_RPATH 1)
@@ -119,6 +107,7 @@ elseif(APPLE)
 	SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES
 	           XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS @executable_path/../Frameworks/)
 	set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx)
+	set(DEPENDENCIES_DIR ${LIBS_DIR})
 	set(LIBS ${LIBS} SFML)
 	set(DEPENDENCIES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>/../Frameworks)
 	set(RESOURCES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>/../Resources)
@@ -146,7 +135,7 @@ set_target_properties(
 # copy dependencies and resources
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 					COMMAND ${CMAKE_COMMAND} -E copy_directory
-					${LIBS_DIR}
+					${DEPENDENCIES_DIR}
 					${DEPENDENCIES_TARGET_DIR})
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 					COMMAND ${CMAKE_COMMAND} -E copy_directory
