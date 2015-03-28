@@ -54,6 +54,7 @@ elseif(APPLE)
 else()
 	# Unix
 	set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-unix/${ARCH})
+	message(status ${LIBS_DIR})
 	ADD_DEFINITIONS(-std=c++11)
 endif()
 

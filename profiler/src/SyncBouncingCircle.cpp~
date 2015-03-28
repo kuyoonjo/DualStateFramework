@@ -73,6 +73,6 @@ void SyncBouncingCircle::collide(SyncBouncingCircle *sbc)
 
 bool SyncBouncingCircle::hasCollision(SyncBouncingCircle *sbc)
 {
-    float distanceSqr = std::pow(this->getPosition().x - sbc->getPosition().x, 2) + std::pow(this->getPosition().y - sbc->getPosition().y, 2);
-    return distanceSqr <= std::pow(this->getRadius() + sbc->getRadius(), 2);
+    float distanceSqr = std::powf(this->getPosition().x - sbc->getPosition().x, 2) + std::powf(this->getPosition().y - sbc->getPosition().y, 2);
+    return distanceSqr <= std::powf(this->getRadius() + sbc->getRadius(), 2);
 }

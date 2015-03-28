@@ -90,14 +90,14 @@ if (MSVC)
 	set(SRC ${SRC} ${SRCROOT}/ResourcePath.cpp)
 	add_executable(${PROJECT_NAME} ${INC} ${SRC})
 	# Add Links
-    	set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/libs)
-    	set(DEPENDENCIES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/dlls)
+    set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/libs)
+    set(DEPENDENCIES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-msvc/${ARCH}/dlls)
 	set(DEPENDENCIES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 	set(RESOURCES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>/Resources)
 
 elseif(APPLE)
 	# Mac OS X Xcode
-    	set(CMAKE_MACOSX_RPATH 1)
+    set(CMAKE_MACOSX_RPATH 1)
 	ADD_DEFINITIONS(-std=c++11)
 	
 	# Add Source
@@ -113,16 +113,10 @@ elseif(APPLE)
 	set(RESOURCES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>/../Resources)
 else()
 	# Unix
-	ADD_DEFINITIONS(-std=c++11)
-	# Add Source
-	set(SRC ${SRC} ${SRCROOT}/ResourcePath.cpp)
-	add_executable(${PROJECT_NAME} ${INC} ${SRC})
-	# Add Links
-    	set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-unix/${ARCH})
-    	set(DEPENDENCIES_DIR ${LIBS_DIR})
-	set(DEPENDENCIES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>)
-	set(RESOURCES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>/Resources)
-
+	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-unix/${ARCH})
+	ADD_DEFINITIONS(
+    		-std=c++11
+	)
 endif()
 
 
