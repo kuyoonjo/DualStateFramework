@@ -13,8 +13,7 @@ set(VERSION_PATCH 0)
 set(CMAKE_SKIP_BUILD_RPATH FALSE)
 
 
-# detect the architecture (note: this test won't work for cross-compilation)
-    
+# detect the architecture (note: this test won't work for cross-compilation)  
 include(CheckTypeSize)
 check_type_size(void* SIZEOF_VOID_PTR)
 if("${SIZEOF_VOID_PTR}" STREQUAL "4")
@@ -26,14 +25,12 @@ else()
 	return()
 endif()
 
-# configure links
-set(LIBS)
+# links
 set(SFML_LIBS sfml-audio sfml-graphics sfml-network sfml-system sfml-window)
-set(TBB_LIBS tbb)
-set(YCTOOLS_LIBS yctools)
-set(DSF_LIBS dsf)
+set(DSF_LIBS tbb yctools dsf)
+set(LIBS ${SFML_LIBS} ${DSF_LIBS})
 
-# configure headers
+# headers
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/headers)
 set(INCROOT ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(INC
@@ -51,7 +48,7 @@ set(INC
 	${INCROOT}/SyncCircle.h
 )
 
-# configure source
+# source
 set(SRCROOT ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(SRC
     ${SRCROOT}/BouncingCircleManager.cpp
@@ -67,6 +64,11 @@ set(SRC
 	${SRCROOT}/RandomCircleManager.cpp		
 	${SRCROOT}/main.cpp
 )
+
+# resources
+set(RESRCROOT ${PROJECT_SOURCE_DIR}/resource)
+
+# os configurations
 if (MSVC)
 	# Windows VC
 	# Activate C++ exception handling
@@ -108,37 +110,18 @@ if (MSVC)
 elseif(APPLE)
 	# Mac OS X Xcode
     set(CMAKE_MACOSX_RPATH 1)
-    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/tbb)
-    find_library(YCTOOLS_LIBRARY NAMES yctools PATHS ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/yctools)
-	ADD_DEFINITIONS(
-    		-std=c++11
-	)
-    	foreach(lib ${TBB_LIBRARY})
-        	set(LINK_LIBRARY
-        		${LINK_LIBRARY}
-       	 		optimized ${lib}.dylib
-        		debug ${lib}_debug.dylib
-        	)
-    	endforeach()
- 	set(LIB_DIR ${CMAKE_BINARY_DIR}/extlib/osx)
-        find_library(LIBRARIES NAMES 
-		dsf 
-		yctools 
-		freetype 
-		sfml-audio
-		sfml-graphics
-		sfml-network
-		sfml-system
-		sfml-window
-		sndfile
-		PATHS ${DSF_DIR})
-    	set_source_files_properties(
-        	${LIBRARIES}
- 		PROPERTIES
-        	MACOSX_PACKAGE_LOCATION Frameworks
-    	)
-    	add_executable(${EXECUTABLE_NAME} MACOSX_BUNDLE "main.cpp" ${LIBRARIES})
-        target_link_libraries(${EXECUTABLE_NAME} ${LIBRARIES})
+	ADD_DEFINITIONS(-std=c++11)
+	
+	# Add Source
+	set(SRC ${SRC} ${SRCROOT}/ResourcePath.mm)
+	add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${INC} ${SRC})
+	# Add Links
+	SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES
+	           XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS @executable_path/../Frameworks/)
+	set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx)
+	set(LIBS ${LIBS} SFML)
+	set(DEPENDENCIES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>/../Frameworks)
+	set(RESOURCES_TARGET_DIR $<TARGET_FILE_DIR:${PROJECT_NAME}>/../Resources)
 else()
 	# Unix
 	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-unix/${ARCH})
@@ -148,9 +131,24 @@ else()
 endif()
 
 
+foreach(LIB ${LIBS})
+	find_library(LIB_${LIB} NAMES ${LIB} PATHS ${LIBS_DIR})
+	target_link_libraries(${PROJECT_NAME} ${LIB_${LIB}})
+endforeach()
+
 set_target_properties(
-    ${EXECUTABLE_NAME} PROPERTIES
+    ${PROJECT_NAME} PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
 )
+
+# copy dependencies and resources
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+					COMMAND ${CMAKE_COMMAND} -E copy_directory
+					${LIBS_DIR}
+					${DEPENDENCIES_TARGET_DIR})
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+					COMMAND ${CMAKE_COMMAND} -E copy_directory
+					"${PROJECT_SOURCE_DIR}/resource"
+					${RESOURCES_TARGET_DIR})

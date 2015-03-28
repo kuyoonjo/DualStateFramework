@@ -82,7 +82,7 @@ namespace yc
 
 namespace yc {
     
-    class Any::Base
+	class YCTOOLS_API Any::Base
     {
         public:
         virtual ~Base();

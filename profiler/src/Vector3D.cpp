@@ -12,6 +12,9 @@
 Vector3D::Vector3D(float x, float y, float z) : x(x), y(y), z(z) {
 }
 
+Vector3D::~Vector3D(){
+}
+
 void Vector3D::operator=(const Vector3D& obj)
 {
     this->setXYZ(obj.x, obj.y, obj.z);

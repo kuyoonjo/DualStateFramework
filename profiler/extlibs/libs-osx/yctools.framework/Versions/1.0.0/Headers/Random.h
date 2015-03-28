@@ -13,9 +13,10 @@
 #include <ctime>
 #include <random>
 
+#include "Export.h"
 namespace yc
 {
-    class Random
+    class YCTOOLS_API Random
     {
     public:
         int randInt(int min, int max);

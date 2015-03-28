@@ -28,8 +28,7 @@ endif()
 
 # configure links and headers
 
-set(TBB_LIBRARY libtbb) 
-set(LINK_LIBRARY)
+set(LIBS tbb yctools) 
 
 if (MSVC)
 	# Windows VC
@@ -66,18 +65,11 @@ if (MSVC)
 elseif(APPLE)
 	# Mac OS X Xcode
     set(CMAKE_MACOSX_RPATH 1)
-    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/tbb)
-    find_library(YCTOOLS_LIBRARY NAMES yctools PATHS ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx/yctools)
+    set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-osx)
+    OPTION(OSX_FRAMEWORK "Build a Mac OS X Framework")
 	ADD_DEFINITIONS(
     		-std=c++11
 	)
-    	foreach(lib ${TBB_LIBRARY})
-        	set(LINK_LIBRARY
-        		${LINK_LIBRARY}
-       	 		optimized ${lib}.dylib
-        		debug ${lib}_debug.dylib
-        	)
-    	endforeach()
 else()
 	# Unix
 	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/libs-unix/${ARCH})
@@ -85,13 +77,41 @@ else()
     		-std=c++11
 	)
 endif()
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/headers)
 
-# library
+# Source
+set(INCROOT ${CMAKE_CURRENT_SOURCE_DIR}/dsf/include)
+set(SRCROOT ${CMAKE_CURRENT_SOURCE_DIR}/dsf/src)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/dsf)
-if(APPLE)
-    OPTION(OSX_FRAMEWORK "Build a Mac OS X Framework")
+# add the header path
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extlibs/headers)
+include_directories(${INCROOT})
+
+# output
+add_library (${PROJECT_NAME} SHARED ${DSF_INC} ${DSF_SRC})
+set_target_properties(
+    ${PROJECT_NAME} PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/build"
+)
+
+if(OSX_FRAMEWORK)
+    set_target_properties(
+        ${PROJECT_NAME} PROPERTIES
+        FRAMEWORK TRUE
+        FRAMEWORK_VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+        MACOSX_FRAMEWORK_IDENTIFIER ie.itcarlow.yuchen.dsf
+        MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+        MACOSX_FRAMEWORK_BUNDLE_VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+        PUBLIC_HEADER "${DSF_INC}"
+    )
 endif()
+
+foreach(LIB ${LIBS})
+	find_library(LIB_${LIB} NAMES ${LIB} PATHS ${LIBS_DIR})
+    set_source_files_properties(${LIB_${LIB}} PROPERTIES MACOSX_PACKAGE_LOCATION Frameworks)
+	target_link_libraries(${PROJECT_NAME} ${LIB_${LIB}})
+endforeach()
 
 
 # installation

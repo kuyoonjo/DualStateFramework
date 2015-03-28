@@ -18,6 +18,7 @@ protected:
     float z;
 public:
     explicit Vector3D(float x=0, float y=0, float z=0);
+    virtual ~Vector3D();
     virtual void operator=(const Vector3D& obj);
     
     float getX();

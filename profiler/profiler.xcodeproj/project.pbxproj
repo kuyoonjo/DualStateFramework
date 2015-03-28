@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		4B497ABB1A963D8200AB2BF9 /* DSFSFML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B497ABA1A963D8200AB2BF9 /* DSFSFML.cpp */; };
+		4B5A0AB61AC6FF8400E13D54 /* libtbb.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B2671AC5EAB4001007E7 /* libtbb.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		4B5A0AB71AC6FF8400E13D54 /* dsf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B2551AC5EA9B001007E7 /* dsf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A0AB81AC6FF8400E13D54 /* sfml-audio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B2561AC5EA9B001007E7 /* sfml-audio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A0AB91AC6FF8400E13D54 /* sfml-graphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B2571AC5EA9B001007E7 /* sfml-graphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A0ABA1AC6FF8400E13D54 /* sfml-network.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B2581AC5EA9B001007E7 /* sfml-network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A0ABB1AC6FF8400E13D54 /* sfml-system.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B2591AC5EA9B001007E7 /* sfml-system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A0ABC1AC6FF8400E13D54 /* sfml-window.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B25A1AC5EA9B001007E7 /* sfml-window.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A0ABD1AC6FF8400E13D54 /* SFML.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B25B1AC5EA9B001007E7 /* SFML.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A0ABE1AC6FF8400E13D54 /* sndfile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B25C1AC5EA9B001007E7 /* sndfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A0ABF1AC6FF8400E13D54 /* yctools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB3B25D1AC5EA9B001007E7 /* yctools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B7B18B01ABF4578009649C6 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B18AF1ABF4578009649C6 /* Vector3D.cpp */; };
+		4BB3B25E1AC5EA9B001007E7 /* dsf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B2551AC5EA9B001007E7 /* dsf.framework */; };
+		4BB3B25F1AC5EA9B001007E7 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B2561AC5EA9B001007E7 /* sfml-audio.framework */; };
+		4BB3B2601AC5EA9B001007E7 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B2571AC5EA9B001007E7 /* sfml-graphics.framework */; };
+		4BB3B2611AC5EA9B001007E7 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B2581AC5EA9B001007E7 /* sfml-network.framework */; };
+		4BB3B2621AC5EA9B001007E7 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B2591AC5EA9B001007E7 /* sfml-system.framework */; };
+		4BB3B2631AC5EA9B001007E7 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B25A1AC5EA9B001007E7 /* sfml-window.framework */; };
+		4BB3B2641AC5EA9B001007E7 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B25B1AC5EA9B001007E7 /* SFML.framework */; };
+		4BB3B2651AC5EA9B001007E7 /* sndfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B25C1AC5EA9B001007E7 /* sndfile.framework */; };
+		4BB3B2661AC5EA9B001007E7 /* yctools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B25D1AC5EA9B001007E7 /* yctools.framework */; };
+		4BB3B2681AC5EAB4001007E7 /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB3B2671AC5EAB4001007E7 /* libtbb.dylib */; };
 		4BB47A641A87E97000F36CCF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A331A87E5DC00F36CCF /* main.cpp */; };
-		4BB47A701A87E9A000F36CCF /* yctools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A661A87E9A000F36CCF /* yctools.framework */; };
-		4BB47A711A87E9A000F36CCF /* sndfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A671A87E9A000F36CCF /* sndfile.framework */; };
-		4BB47A721A87E9A000F36CCF /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A681A87E9A000F36CCF /* SFML.framework */; };
-		4BB47A731A87E9A000F36CCF /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A691A87E9A000F36CCF /* sfml-window.framework */; };
-		4BB47A741A87E9A000F36CCF /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6A1A87E9A000F36CCF /* sfml-system.framework */; };
-		4BB47A751A87E9A000F36CCF /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6B1A87E9A000F36CCF /* sfml-network.framework */; };
-		4BB47A761A87E9A000F36CCF /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6C1A87E9A000F36CCF /* sfml-graphics.framework */; };
-		4BB47A771A87E9A000F36CCF /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6D1A87E9A000F36CCF /* sfml-audio.framework */; };
-		4BB47A781A87E9A000F36CCF /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6E1A87E9A000F36CCF /* freetype.framework */; };
-		4BB47A791A87E9A000F36CCF /* dsf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A6F1A87E9A000F36CCF /* dsf.framework */; };
-		4BB47A841A87EB1D00F36CCF /* yctools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A661A87E9A000F36CCF /* yctools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A851A87EB1D00F36CCF /* sndfile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A671A87E9A000F36CCF /* sndfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A861A87EB1D00F36CCF /* sfml-window.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A691A87E9A000F36CCF /* sfml-window.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A871A87EB1D00F36CCF /* sfml-system.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6A1A87E9A000F36CCF /* sfml-system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A881A87EB1D00F36CCF /* sfml-network.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6B1A87E9A000F36CCF /* sfml-network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A891A87EB1D00F36CCF /* sfml-graphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6C1A87E9A000F36CCF /* sfml-graphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A8A1A87EB1D00F36CCF /* sfml-audio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6D1A87E9A000F36CCF /* sfml-audio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A8B1A87EB1D00F36CCF /* freetype.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6E1A87E9A000F36CCF /* freetype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A8C1A87EB1D00F36CCF /* dsf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BB47A6F1A87E9A000F36CCF /* dsf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BB47A8F1A87ED9000F36CCF /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB47A8E1A87ED9000F36CCF /* libtbb.dylib */; };
 		4BB47A911A87EE4700F36CCF /* MyDSF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A901A87EE4700F36CCF /* MyDSF.cpp */; };
 		4BB47A981A87F4FD00F36CCF /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BB47A971A87F4FD00F36CCF /* sansation.ttf */; };
 		4BB47A9A1A87F55B00F36CCF /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BB47A991A87F55B00F36CCF /* ResourcePath.mm */; };
@@ -50,15 +50,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4BB47A841A87EB1D00F36CCF /* yctools.framework in CopyFiles */,
-				4BB47A851A87EB1D00F36CCF /* sndfile.framework in CopyFiles */,
-				4BB47A861A87EB1D00F36CCF /* sfml-window.framework in CopyFiles */,
-				4BB47A871A87EB1D00F36CCF /* sfml-system.framework in CopyFiles */,
-				4BB47A881A87EB1D00F36CCF /* sfml-network.framework in CopyFiles */,
-				4BB47A891A87EB1D00F36CCF /* sfml-graphics.framework in CopyFiles */,
-				4BB47A8A1A87EB1D00F36CCF /* sfml-audio.framework in CopyFiles */,
-				4BB47A8B1A87EB1D00F36CCF /* freetype.framework in CopyFiles */,
-				4BB47A8C1A87EB1D00F36CCF /* dsf.framework in CopyFiles */,
+				4B5A0AB61AC6FF8400E13D54 /* libtbb.dylib in CopyFiles */,
+				4B5A0AB71AC6FF8400E13D54 /* dsf.framework in CopyFiles */,
+				4B5A0AB81AC6FF8400E13D54 /* sfml-audio.framework in CopyFiles */,
+				4B5A0AB91AC6FF8400E13D54 /* sfml-graphics.framework in CopyFiles */,
+				4B5A0ABA1AC6FF8400E13D54 /* sfml-network.framework in CopyFiles */,
+				4B5A0ABB1AC6FF8400E13D54 /* sfml-system.framework in CopyFiles */,
+				4B5A0ABC1AC6FF8400E13D54 /* sfml-window.framework in CopyFiles */,
+				4B5A0ABD1AC6FF8400E13D54 /* SFML.framework in CopyFiles */,
+				4B5A0ABE1AC6FF8400E13D54 /* sndfile.framework in CopyFiles */,
+				4B5A0ABF1AC6FF8400E13D54 /* yctools.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,19 +70,18 @@
 		4B497ABA1A963D8200AB2BF9 /* DSFSFML.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DSFSFML.cpp; sourceTree = "<group>"; };
 		4B7B18AE1ABF3388009649C6 /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
 		4B7B18AF1ABF4578009649C6 /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
+		4BB3B2551AC5EA9B001007E7 /* dsf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = dsf.framework; path = "extlibs/libs-osx/dsf.framework"; sourceTree = "<group>"; };
+		4BB3B2561AC5EA9B001007E7 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "extlibs/libs-osx/sfml-audio.framework"; sourceTree = "<group>"; };
+		4BB3B2571AC5EA9B001007E7 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "extlibs/libs-osx/sfml-graphics.framework"; sourceTree = "<group>"; };
+		4BB3B2581AC5EA9B001007E7 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "extlibs/libs-osx/sfml-network.framework"; sourceTree = "<group>"; };
+		4BB3B2591AC5EA9B001007E7 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "extlibs/libs-osx/sfml-system.framework"; sourceTree = "<group>"; };
+		4BB3B25A1AC5EA9B001007E7 /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "extlibs/libs-osx/sfml-window.framework"; sourceTree = "<group>"; };
+		4BB3B25B1AC5EA9B001007E7 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = "extlibs/libs-osx/SFML.framework"; sourceTree = "<group>"; };
+		4BB3B25C1AC5EA9B001007E7 /* sndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sndfile.framework; path = "extlibs/libs-osx/sndfile.framework"; sourceTree = "<group>"; };
+		4BB3B25D1AC5EA9B001007E7 /* yctools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = yctools.framework; path = "extlibs/libs-osx/yctools.framework"; sourceTree = "<group>"; };
+		4BB3B2671AC5EAB4001007E7 /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = "extlibs/libs-osx/libtbb.dylib"; sourceTree = "<group>"; };
 		4BB47A331A87E5DC00F36CCF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4BB47A441A87E90400F36CCF /* profiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BB47A661A87E9A000F36CCF /* yctools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = yctools.framework; path = extlib/osx/yctools.framework; sourceTree = "<group>"; };
-		4BB47A671A87E9A000F36CCF /* sndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sndfile.framework; path = extlib/osx/sndfile.framework; sourceTree = "<group>"; };
-		4BB47A681A87E9A000F36CCF /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = extlib/osx/SFML.framework; sourceTree = "<group>"; };
-		4BB47A691A87E9A000F36CCF /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "extlib/osx/sfml-window.framework"; sourceTree = "<group>"; };
-		4BB47A6A1A87E9A000F36CCF /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "extlib/osx/sfml-system.framework"; sourceTree = "<group>"; };
-		4BB47A6B1A87E9A000F36CCF /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "extlib/osx/sfml-network.framework"; sourceTree = "<group>"; };
-		4BB47A6C1A87E9A000F36CCF /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "extlib/osx/sfml-graphics.framework"; sourceTree = "<group>"; };
-		4BB47A6D1A87E9A000F36CCF /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "extlib/osx/sfml-audio.framework"; sourceTree = "<group>"; };
-		4BB47A6E1A87E9A000F36CCF /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = extlib/osx/freetype.framework; sourceTree = "<group>"; };
-		4BB47A6F1A87E9A000F36CCF /* dsf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = dsf.framework; path = extlib/osx/dsf.framework; sourceTree = "<group>"; };
-		4BB47A8E1A87ED9000F36CCF /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = extlib/osx/libtbb.dylib; sourceTree = "<group>"; };
 		4BB47A901A87EE4700F36CCF /* MyDSF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyDSF.cpp; sourceTree = "<group>"; };
 		4BB47A921A87EE7200F36CCF /* MyDSF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDSF.h; sourceTree = "<group>"; };
 		4BB47A971A87F4FD00F36CCF /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
@@ -110,17 +110,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB47A791A87E9A000F36CCF /* dsf.framework in Frameworks */,
-				4BB47A781A87E9A000F36CCF /* freetype.framework in Frameworks */,
-				4BB47A741A87E9A000F36CCF /* sfml-system.framework in Frameworks */,
-				4BB47A8F1A87ED9000F36CCF /* libtbb.dylib in Frameworks */,
-				4BB47A771A87E9A000F36CCF /* sfml-audio.framework in Frameworks */,
-				4BB47A751A87E9A000F36CCF /* sfml-network.framework in Frameworks */,
-				4BB47A731A87E9A000F36CCF /* sfml-window.framework in Frameworks */,
-				4BB47A721A87E9A000F36CCF /* SFML.framework in Frameworks */,
-				4BB47A711A87E9A000F36CCF /* sndfile.framework in Frameworks */,
-				4BB47A701A87E9A000F36CCF /* yctools.framework in Frameworks */,
-				4BB47A761A87E9A000F36CCF /* sfml-graphics.framework in Frameworks */,
+				4BB3B2621AC5EA9B001007E7 /* sfml-system.framework in Frameworks */,
+				4BB3B2641AC5EA9B001007E7 /* SFML.framework in Frameworks */,
+				4BB3B2651AC5EA9B001007E7 /* sndfile.framework in Frameworks */,
+				4BB3B2681AC5EAB4001007E7 /* libtbb.dylib in Frameworks */,
+				4BB3B25E1AC5EA9B001007E7 /* dsf.framework in Frameworks */,
+				4BB3B2631AC5EA9B001007E7 /* sfml-window.framework in Frameworks */,
+				4BB3B25F1AC5EA9B001007E7 /* sfml-audio.framework in Frameworks */,
+				4BB3B2601AC5EA9B001007E7 /* sfml-graphics.framework in Frameworks */,
+				4BB3B2611AC5EA9B001007E7 /* sfml-network.framework in Frameworks */,
+				4BB3B2661AC5EA9B001007E7 /* yctools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,16 +188,15 @@
 		4BB47A651A87E97800F36CCF /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4BB47A661A87E9A000F36CCF /* yctools.framework */,
-				4BB47A671A87E9A000F36CCF /* sndfile.framework */,
-				4BB47A681A87E9A000F36CCF /* SFML.framework */,
-				4BB47A691A87E9A000F36CCF /* sfml-window.framework */,
-				4BB47A6A1A87E9A000F36CCF /* sfml-system.framework */,
-				4BB47A6B1A87E9A000F36CCF /* sfml-network.framework */,
-				4BB47A6C1A87E9A000F36CCF /* sfml-graphics.framework */,
-				4BB47A6D1A87E9A000F36CCF /* sfml-audio.framework */,
-				4BB47A6E1A87E9A000F36CCF /* freetype.framework */,
-				4BB47A6F1A87E9A000F36CCF /* dsf.framework */,
+				4BB3B2551AC5EA9B001007E7 /* dsf.framework */,
+				4BB3B2561AC5EA9B001007E7 /* sfml-audio.framework */,
+				4BB3B2571AC5EA9B001007E7 /* sfml-graphics.framework */,
+				4BB3B2581AC5EA9B001007E7 /* sfml-network.framework */,
+				4BB3B2591AC5EA9B001007E7 /* sfml-system.framework */,
+				4BB3B25A1AC5EA9B001007E7 /* sfml-window.framework */,
+				4BB3B25B1AC5EA9B001007E7 /* SFML.framework */,
+				4BB3B25C1AC5EA9B001007E7 /* sndfile.framework */,
+				4BB3B25D1AC5EA9B001007E7 /* yctools.framework */,
 			);
 			name = frameworks;
 			sourceTree = "<group>";
@@ -206,7 +204,7 @@
 		4BB47A8D1A87ED3300F36CCF /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				4BB47A8E1A87ED9000F36CCF /* libtbb.dylib */,
+				4BB3B2671AC5EAB4001007E7 /* libtbb.dylib */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -342,7 +340,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/extlib/osx",
+					"$(PROJECT_DIR)/extlibs/libs-osx",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -361,13 +359,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(PROJECT_DIR)/extlib/header",
+					"$(PROJECT_DIR)/extlibs/headers",
 				);
 				INFOPLIST_FILE = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/extlib/osx",
+					"$(PROJECT_DIR)/extlibs/libs-osx",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -403,7 +401,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/extlib/osx",
+					"$(PROJECT_DIR)/extlibs/libs-osx",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -415,13 +413,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(PROJECT_DIR)/extlib/header",
+					"$(PROJECT_DIR)/extlibs/headers",
 				);
 				INFOPLIST_FILE = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/extlib/osx",
+					"$(PROJECT_DIR)/extlibs/libs-osx",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;

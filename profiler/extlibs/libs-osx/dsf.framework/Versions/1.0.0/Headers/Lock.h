@@ -10,6 +10,7 @@
 #define dsf_Lock_h
 
 #include <tbb/mutex.h>
+#include "Export.h"
 
 namespace dsf
 {
@@ -24,7 +25,7 @@ namespace dsf
      
      @endcode
      */
-    class Lock
+	class DSF_API Lock
     {
     protected:
         tbb::mutex locker;
