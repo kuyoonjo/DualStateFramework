@@ -16,7 +16,6 @@
 #include "Declaration.h"
 #include "Task.h"
 #include "Runnable.h"
-#include "Debug.h"
 
 namespace dsf
 {
@@ -28,11 +27,9 @@ namespace dsf
         bool isEmpty();
         void push(Task* task);
         Task* pop();
-        int receive();
         void process();
+    protected:
         std::vector<Task*>* tasks;
-    private:
-        TaskBox* next;
     };
 }
 #endif

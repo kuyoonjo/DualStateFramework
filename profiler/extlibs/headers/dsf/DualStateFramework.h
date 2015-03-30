@@ -15,27 +15,12 @@
 #include "Task.h"
 #include "SynchronizedObject.h"
 #include "Runnable.h"
-#include "Debug.h"
 
 namespace dsf {
-    /*! The starting pointer for the framework is the abstract class def::DualStateFramework. It provides essential functions for associating and managing its components (SynchronizedObject objects, function points, and etc.). 
-     *
-     * Example.
-     @code
-     #include <dsf/DualStateFramework.h>
-     
-     class MyDSF : public dsf::DualStateFramework
-     {
-     public:
-         MyDSF();
-         ~MyDSF();
-         void initialize() override;
-     protected:
-         void refresh() override;
-         void run() override;
-     };
-     
-     @endcode
+    /*! \brief The starting pointer for the framework is the abstract class dsf::DualStateFramework.
+     * \details It provides essential functions for associating and managing its components (SynchronizedObject objects, function points, and etc.).
+     * \section eg Example
+     * \include MyDSF.h
      */
     class DSF_API DualStateFramework : public Runnable
     {
@@ -44,9 +29,9 @@ namespace dsf {
         
         ~DualStateFramework();
         
-        /*! \brief For Signing TaskFunction Pointers
+        /*! For Signing TaskFunction Pointers
          *
-         * Example.
+         * \section eg Example
          @code
          this->printHello = new dsf::TaskFunction([this](dsf::SynchronizedObject* to,
                                                          dsf::SynchronizedObject* from,
@@ -63,36 +48,36 @@ namespace dsf {
          */
         virtual void initialize() = 0;
         
-        /*! \brief Start all SyncronizedObjects associated.
+        /*!  Start all SyncronizedObjects associated.
          */
         void start();
         
-        /*! \brief Do one frame of all SyncronizedObjects.
+        /*!  Do one frame of all SyncronizedObjects.
          */
         void doOneFrame();
         
         
         
-        /*! \brief Add a SynchronizedObject.
+        /*!  Add a SynchronizedObject.
          */
         void add(SynchronizedObject* syncObj);
         
-        /*! \brief Remove a SynchronizedObject.
+        /*!  Remove a SynchronizedObject.
          */
         void remove(SynchronizedObject* syncObj);
         
-        /*! \brief Send messages
+        /*!  Send messages
          */
         void send(SynchronizedObject* to,
                   SynchronizedObject* from,
                   TaskFunction* taskFunction,
                   TaskArgument* args);
         
-        /*! \brief Return the state of the object.
+        /*!  Return the state of the object.
          */
         State getState() override;
         
-        /*! \brief Set the number of threads.
+        /*! Set the number of threads.
          * 0 is automatic.
          */
         void setNumberOfThreads(int NumberOfThreads);
@@ -102,10 +87,10 @@ namespace dsf {
         std::vector<SynchronizedObject*>* syncObjs;
         State state;
     protected:
-        /*! \brief Clear all SyncronizedObjects which is marked as DELETE
+        /*!  Clear all SyncronizedObjects which is marked as DELETE
          */
         virtual void refresh();
-        /*! \brief Start all SyncronizedObjects associated.
+        /*!  Start all SyncronizedObjects associated.
         */
          virtual void run() override;
     };

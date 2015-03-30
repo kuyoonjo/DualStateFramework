@@ -9,14 +9,15 @@
 #ifndef dsf_Lock_h
 #define dsf_Lock_h
 
-#include <tbb/mutex.h>
+#include <mutex>
 #include "Export.h"
 
 namespace dsf
 {
-    /*! The class can lock the objects using an unspecified sequence of calls to their members lock and unlock that ensures that all arguments are locked on return (without producing any deadlocks).
+    /*! \brief Locking variables
+     * \details The class can lock the objects using an unspecified sequence of calls to their members lock and unlock that ensures that all arguments are locked on return (without producing any deadlocks).
      
-     * Example.
+     * \section eg Example
      @code
      
      dsf->lock();
@@ -28,13 +29,12 @@ namespace dsf
 	class DSF_API Lock
     {
     protected:
-        tbb::mutex locker;
+        /*! The locker */
+        std::mutex locker;
     public:
-        /*! \brief Locks all the objects passed as arguments, blocking the calling thread if necessary.
-         */
+        /*! Locks all the objects passed as arguments, blocking the calling thread if necessary. */
         void lock();
-        /*! \brief Unlocks all the objects.
-         */
+        /*! Unlocks all the objects. */
         void unlock();
     };
 }
