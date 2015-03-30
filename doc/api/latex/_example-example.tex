@@ -1,0 +1,24 @@
+\hypertarget{_example-example}{}\section{Example}
+The starting pointer for the framework is the abstract class def\+::\+Dual\+State\+Framework. It provides essential functions for associating and managing its components (Synchronized\+Object objects, function points, and etc.).
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <\hyperlink{_dual_state_framework_8h}{dsf/DualStateFramework.h}>}
+
+\textcolor{keyword}{class }MyDSF : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_dual_state_framework}{dsf::DualStateFramework}
+\{
+\textcolor{keyword}{public}:
+    MyDSF();
+    ~MyDSF();
+    \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a809a7bba4148e17ea9a43a0a035383ba}{initialize}() \textcolor{keyword}{override};
+\textcolor{keyword}{protected}:
+    \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_ab4c6856bd4036f8abbc2be2c0f00ea1a}{refresh}() \textcolor{keyword}{override};
+    \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a7b40bcf755127022f9258e846ddedb23}{run}() \textcolor{keyword}{override};
+\};
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

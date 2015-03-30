@@ -1,0 +1,94 @@
+\hypertarget{classdsf_1_1_lock}{}\section{dsf\+:\+:Lock Class Reference}
+\label{classdsf_1_1_lock}\index{dsf\+::\+Lock@{dsf\+::\+Lock}}
+
+
+Locking variables.  
+
+
+
+
+{\ttfamily \#include $<$Lock.\+h$>$}
+
+
+
+Inheritance diagram for dsf\+:\+:Lock\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classdsf_1_1_lock__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock} ()
+\item 
+void \hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mutex \hyperlink{classdsf_1_1_lock_a605f27e33e37dc8b3b920a3272461c44}{locker}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Locking variables. 
+
+The class can lock the objects using an unspecified sequence of calls to their members lock and unlock that ensures that all arguments are locked on return (without producing any deadlocks).\hypertarget{classdsf_1_1_synchronized_object_eg}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_eg}
+
+\begin{DoxyCode}
+\hyperlink{namespacedsf}{dsf}->lock();
+\hyperlink{namespacedsf}{dsf}->drawables->push\_back(syncObj); \textcolor{comment}{//the object drawables is locked}
+\hyperlink{namespacedsf}{dsf}->unlock();
+\end{DoxyCode}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{}\index{dsf\+::\+Lock@{dsf\+::\+Lock}!lock@{lock}}
+\index{lock@{lock}!dsf\+::\+Lock@{dsf\+::\+Lock}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Lock\+::lock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}
+Locks all the objects passed as arguments, blocking the calling thread if necessary. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{}\index{dsf\+::\+Lock@{dsf\+::\+Lock}!unlock@{unlock}}
+\index{unlock@{unlock}!dsf\+::\+Lock@{dsf\+::\+Lock}}
+\subsubsection[{unlock}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Lock\+::unlock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}
+Unlocks all the objects. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classdsf_1_1_lock_a605f27e33e37dc8b3b920a3272461c44}{}\index{dsf\+::\+Lock@{dsf\+::\+Lock}!locker@{locker}}
+\index{locker@{locker}!dsf\+::\+Lock@{dsf\+::\+Lock}}
+\subsubsection[{locker}]{\setlength{\rightskip}{0pt plus 5cm}std\+::mutex dsf\+::\+Lock\+::locker\hspace{0.3cm}{\ttfamily [protected]}}\label{classdsf_1_1_lock_a605f27e33e37dc8b3b920a3272461c44}
+The locker 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yuchen/\+Repositories/\+Dual\+State\+Framework/dsf/include/dsf/\hyperlink{_lock_8h}{Lock.\+h}\end{DoxyCompactItemize}

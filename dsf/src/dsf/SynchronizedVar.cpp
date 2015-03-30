@@ -10,13 +10,9 @@
 
 namespace dsf
 {
-    SynchronizedVar::SynchronizedVar()
+    void SynchronizedVar::synchronise()
     {
-        // do nothing
-    }
-    void SynchronizedVar::synchronize()
-    {
-        this->value = this->next;
+        *((yc::Any*)this) = *this->next;
     }
 }
 

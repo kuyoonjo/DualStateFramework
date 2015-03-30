@@ -1,3 +1,4 @@
 <map id="dsf::SynchronizedVar" name="dsf::SynchronizedVar">
-<area shape="rect" id="node2" href="$classdsf_1_1_lock.html" title="{dsf::Lock\n|# locker\l|+ lock()\l+ unlock()\l}" alt="" coords="39,5,119,92"/>
+<area shape="rect" id="node2" href="$classdsf_1_1_synchronisable.html" title="{dsf::Synchronisable\l\&lt; yc::Any \&gt;\n|# next\l|+ ~Synchronisable()\l+ synchronise()\l}" alt="" coords="5,5,146,105"/>
+<area shape="rect" id="node4" href="$classdsf_1_1_lock.html" title="Locking variables. " alt="" coords="258,12,338,99"/>
 </map>

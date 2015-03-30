@@ -1,4 +1,3 @@
 <map id="dsf::Lock::unlock" name="dsf::Lock::unlock">
-<area shape="rect" id="node2" href="$classdsf_1_1_synchronized_var.html#afb1a86fceb7e8f5b2cc075b0d82296b4" title="dsf::SynchronizedVar::set" alt="" coords="174,12,346,37"/>
-<area shape="rect" id="node3" href="$classdsf_1_1_synchronized_var.html#a8b72cc04251d677755090bd9b834291c" title="dsf::SynchronizedVar\l::operator=" alt="" coords="394,5,541,44"/>
+<area shape="rect" id="node2" href="$classdsf_1_1_synchronized_var.html#a8b72cc04251d677755090bd9b834291c" title="dsf::SynchronizedVar\l::operator=" alt="" coords="174,5,321,44"/>
 </map>

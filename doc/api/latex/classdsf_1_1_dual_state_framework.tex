@@ -1,0 +1,194 @@
+\hypertarget{classdsf_1_1_dual_state_framework}{}\section{dsf\+:\+:Dual\+State\+Framework Class Reference}
+\label{classdsf_1_1_dual_state_framework}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+
+
+The starting pointer for the framework is the abstract class \hyperlink{classdsf_1_1_dual_state_framework}{dsf\+::\+Dual\+State\+Framework}.  
+
+
+
+
+{\ttfamily \#include $<$Dual\+State\+Framework.\+h$>$}
+
+
+
+Inheritance diagram for dsf\+:\+:Dual\+State\+Framework\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classdsf_1_1_dual_state_framework__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdsf_1_1_dual_state_framework_ab2c3f064dee1876d92694544d032b942}{Dual\+State\+Framework} ()
+\item 
+\hyperlink{classdsf_1_1_dual_state_framework_a0e5246056c73a684d0a167f3ed6d1fb1}{$\sim$\+Dual\+State\+Framework} ()
+\item 
+virtual void \hyperlink{classdsf_1_1_dual_state_framework_a809a7bba4148e17ea9a43a0a035383ba}{initialize} ()=0
+\item 
+void \hyperlink{classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194}{start} ()
+\item 
+void \hyperlink{classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f}{do\+One\+Frame} ()
+\item 
+void \hyperlink{classdsf_1_1_dual_state_framework_a2ce40c8e165a8ed8fd6cb6cb30ae985b}{add} (\hyperlink{classdsf_1_1_synchronized_object}{Synchronized\+Object} $\ast$sync\+Obj)
+\item 
+void \hyperlink{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{remove} (\hyperlink{classdsf_1_1_synchronized_object}{Synchronized\+Object} $\ast$sync\+Obj)
+\item 
+void \hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send} (\hyperlink{classdsf_1_1_synchronized_object}{Synchronized\+Object} $\ast$to, \hyperlink{classdsf_1_1_synchronized_object}{Synchronized\+Object} $\ast$from, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task\+Function} $\ast$task\+Function, \hyperlink{namespacedsf_abe4bf68433935a81c31a5ada9b17663a}{Task\+Argument} $\ast$args)
+\item 
+\hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State} \hyperlink{classdsf_1_1_dual_state_framework_a9f41adffe986e0d9360e0bbfba2a245a}{get\+State} () override
+\item 
+void \hyperlink{classdsf_1_1_dual_state_framework_a8ab358a7456eeed264d53304b6562be4}{set\+Number\+Of\+Threads} (int Number\+Of\+Threads)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdsf_1_1_dual_state_framework_ab4c6856bd4036f8abbc2be2c0f00ea1a}{refresh} ()
+\item 
+virtual void \hyperlink{classdsf_1_1_dual_state_framework_a7b40bcf755127022f9258e846ddedb23}{run} () override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The starting pointer for the framework is the abstract class \hyperlink{classdsf_1_1_dual_state_framework}{dsf\+::\+Dual\+State\+Framework}. 
+
+It provides essential functions for associating and managing its components (\hyperlink{classdsf_1_1_synchronized_object}{Synchronized\+Object} objects, function points, and etc.). \hypertarget{classdsf_1_1_synchronized_object_eg}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_eg}
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#ifndef \_\_DSFExample\_\_MyDSF\_\_}
+\textcolor{preprocessor}{#define \_\_DSFExample\_\_MyDSF\_\_}
+
+\textcolor{preprocessor}{#include <\hyperlink{_dual_state_framework_8h}{dsf/DualStateFramework.h}>}
+
+\textcolor{keyword}{class }MyDSF : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_dual_state_framework}{dsf::DualStateFramework} \textcolor{comment}{// Extends dsf::DualStateFramework}
+\{
+\textcolor{keyword}{public}:
+    \textcolor{keyword}{explicit} MyDSF() : \hyperlink{classdsf_1_1_dual_state_framework_ab2c3f064dee1876d92694544d032b942}{DualStateFramework}() \{\} \textcolor{comment}{// Uses default super constructor}
+    \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a809a7bba4148e17ea9a43a0a035383ba}{initialize}()\textcolor{keyword}{ override }\{\}
+\};
+
+\textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdsf_1_1_dual_state_framework_ab2c3f064dee1876d92694544d032b942}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!Dual\+State\+Framework@{Dual\+State\+Framework}}
+\index{Dual\+State\+Framework@{Dual\+State\+Framework}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{Dual\+State\+Framework}]{\setlength{\rightskip}{0pt plus 5cm}dsf\+::\+Dual\+State\+Framework\+::\+Dual\+State\+Framework (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_dual_state_framework_ab2c3f064dee1876d92694544d032b942}
+\hypertarget{classdsf_1_1_dual_state_framework_a0e5246056c73a684d0a167f3ed6d1fb1}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!````~Dual\+State\+Framework@{$\sim$\+Dual\+State\+Framework}}
+\index{````~Dual\+State\+Framework@{$\sim$\+Dual\+State\+Framework}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{$\sim$\+Dual\+State\+Framework}]{\setlength{\rightskip}{0pt plus 5cm}dsf\+::\+Dual\+State\+Framework\+::$\sim$\+Dual\+State\+Framework (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_dual_state_framework_a0e5246056c73a684d0a167f3ed6d1fb1}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdsf_1_1_dual_state_framework_a2ce40c8e165a8ed8fd6cb6cb30ae985b}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!add@{add}}
+\index{add@{add}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Dual\+State\+Framework\+::add (
+\begin{DoxyParamCaption}
+\item[{{\bf Synchronized\+Object} $\ast$}]{sync\+Obj}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_dual_state_framework_a2ce40c8e165a8ed8fd6cb6cb30ae985b}
+Add a \hyperlink{classdsf_1_1_synchronized_object}{Synchronized\+Object}. \hypertarget{classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!do\+One\+Frame@{do\+One\+Frame}}
+\index{do\+One\+Frame@{do\+One\+Frame}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{do\+One\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Dual\+State\+Framework\+::do\+One\+Frame (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f}
+Do one frame of all Syncronized\+Objects. \hypertarget{classdsf_1_1_dual_state_framework_a9f41adffe986e0d9360e0bbfba2a245a}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} dsf\+::\+Dual\+State\+Framework\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classdsf_1_1_dual_state_framework_a9f41adffe986e0d9360e0bbfba2a245a}
+Return the state of the object. 
+
+Implements \hyperlink{classdsf_1_1_runnable_a139342b0d6d53fc7f1bbd97d99d3724a}{dsf\+::\+Runnable}.
+
+\hypertarget{classdsf_1_1_dual_state_framework_a809a7bba4148e17ea9a43a0a035383ba}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!initialize@{initialize}}
+\index{initialize@{initialize}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dsf\+::\+Dual\+State\+Framework\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdsf_1_1_dual_state_framework_a809a7bba4148e17ea9a43a0a035383ba}
+For Signing Task\+Function Pointers\hypertarget{classdsf_1_1_synchronized_object_eg}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_eg}
+
+\begin{DoxyCode}
+this->printHello = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to,
+                                                \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from,
+                                                \hyperlink{namespacedsf_abe4bf68433935a81c31a5ada9b17663a}{dsf::TaskArgument}* args)
+\{
+   std::string str;
+   \textcolor{keywordtype}{float} f;
+   std::tie(str, f) = args->to<std::tuple<std::string, float>>();
+   std::cout << str << \textcolor{stringliteral}{" "} << f << std::endl;
+   this->\textcolor{keyword}{remove}(from);
+\});
+\end{DoxyCode}
+ \hypertarget{classdsf_1_1_dual_state_framework_ab4c6856bd4036f8abbc2be2c0f00ea1a}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!refresh@{refresh}}
+\index{refresh@{refresh}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{refresh}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dsf\+::\+Dual\+State\+Framework\+::refresh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classdsf_1_1_dual_state_framework_ab4c6856bd4036f8abbc2be2c0f00ea1a}
+Clear all Syncronized\+Objects which is marked as D\+E\+L\+E\+T\+E \hypertarget{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!remove@{remove}}
+\index{remove@{remove}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Dual\+State\+Framework\+::remove (
+\begin{DoxyParamCaption}
+\item[{{\bf Synchronized\+Object} $\ast$}]{sync\+Obj}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}
+Remove a \hyperlink{classdsf_1_1_synchronized_object}{Synchronized\+Object}. \hypertarget{classdsf_1_1_dual_state_framework_a7b40bcf755127022f9258e846ddedb23}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!run@{run}}
+\index{run@{run}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dsf\+::\+Dual\+State\+Framework\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classdsf_1_1_dual_state_framework_a7b40bcf755127022f9258e846ddedb23}
+Start all Syncronized\+Objects associated. 
+
+Implements \hyperlink{classdsf_1_1_runnable_a6e23b3b551a7cfdbff0e9ba2265d4378}{dsf\+::\+Runnable}.
+
+\hypertarget{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!send@{send}}
+\index{send@{send}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Dual\+State\+Framework\+::send (
+\begin{DoxyParamCaption}
+\item[{{\bf Synchronized\+Object} $\ast$}]{to, }
+\item[{{\bf Synchronized\+Object} $\ast$}]{from, }
+\item[{{\bf Task\+Function} $\ast$}]{task\+Function, }
+\item[{{\bf Task\+Argument} $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}
+Send messages \hypertarget{classdsf_1_1_dual_state_framework_a8ab358a7456eeed264d53304b6562be4}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!set\+Number\+Of\+Threads@{set\+Number\+Of\+Threads}}
+\index{set\+Number\+Of\+Threads@{set\+Number\+Of\+Threads}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{set\+Number\+Of\+Threads}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Dual\+State\+Framework\+::set\+Number\+Of\+Threads (
+\begin{DoxyParamCaption}
+\item[{int}]{Number\+Of\+Threads}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_dual_state_framework_a8ab358a7456eeed264d53304b6562be4}
+Set the number of threads. 0 is automatic. \hypertarget{classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194}{}\index{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!start@{start}}
+\index{start@{start}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Dual\+State\+Framework\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194}
+Start all Syncronized\+Objects associated. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yuchen/\+Repositories/\+Dual\+State\+Framework/dsf/include/dsf/\hyperlink{_dual_state_framework_8h}{Dual\+State\+Framework.\+h}\end{DoxyCompactItemize}

@@ -11,6 +11,9 @@
 
 namespace dsf
 {
+    /*! \brief Executing messages.
+     * \details The interface provides a run method which executes messages.
+     */
     class Runnable
     {
     public:
@@ -25,10 +28,10 @@ namespace dsf
         {
             RUNNING, STOPPED, READY, DELETED
         };
-        /*! \brief Returns the current state.
-         */
+        /*! Returns the current state. */
         virtual State getState() = 0;
     protected:
+        /*! Executes messages */
         virtual void run() = 0;
     };
 }

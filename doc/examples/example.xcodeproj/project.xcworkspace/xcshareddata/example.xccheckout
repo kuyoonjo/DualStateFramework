@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>77F3E8D3-F488-4BD4-9941-DB9509A269CB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>example</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EBB5905DE810ECC33C3279B33E04A2F7627E15AE</key>
+		<string>https://github.com/kuyoonjo/DualStateFramework.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>doc/examples/example.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EBB5905DE810ECC33C3279B33E04A2F7627E15AE</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kuyoonjo/DualStateFramework.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EBB5905DE810ECC33C3279B33E04A2F7627E15AE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EBB5905DE810ECC33C3279B33E04A2F7627E15AE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DualStateFramework</string>
+		</dict>
+	</array>
+</dict>
+</plist>

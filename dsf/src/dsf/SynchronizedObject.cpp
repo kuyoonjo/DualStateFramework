@@ -13,6 +13,7 @@ namespace dsf
     SynchronizedObject::SynchronizedObject()
 		: TaskBox()
     {
+        this->next = new TaskBox();
         this->state = State::STOPPED;
     }
     SynchronizedObject::~SynchronizedObject()
@@ -25,6 +26,23 @@ namespace dsf
     }
 
     
+    int SynchronizedObject::receive()
+    {
+        int count = 0;
+        while (!this->next->isEmpty())
+        {
+            this->tasks->push_back(this->next->pop());
+            count ++;
+        }
+        return count;
+    }
+    
+    void SynchronizedObject::push(dsf::Task *task)
+    {
+        this->lock();
+        this->next->push(task);
+        this->unlock();
+    }
     
     ////////////////////////////////////////////////////////
     // Privates
@@ -54,5 +72,16 @@ namespace dsf
     void SynchronizedObject::distroy()
     {
         this->state = State::DELETED;
+    }
+    
+    
+    
+    ////////////////////////////////////////////////////////
+    // Protected
+    ////////////////////////////////////////////////////////
+    
+    void SynchronizedObject::synchronise()
+    {
+        *((TaskBox*) this) = *this->next;
     }
 }

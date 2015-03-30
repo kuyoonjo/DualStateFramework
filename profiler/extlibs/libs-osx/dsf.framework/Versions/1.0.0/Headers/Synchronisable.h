@@ -10,8 +10,9 @@
 #define dsf_Synchronisable_h
 
 namespace dsf {
-    /*! 
-     *Example
+    /*! \brief Synchronising two states.
+     * \details The template interface provides a copy of current object, and a synchronise method which synchronise two copies.
+     * \section Example
      @code
      #include <dsf/Synchronisable.h>
      
@@ -39,15 +40,13 @@ namespace dsf {
     template<class T> class Synchronisable
     {
     protected:
-        /*! A copy of current object.
-         */
+        /*! A copy of current object. */
         T* next;
     public:
         virtual ~Synchronisable() {
             delete this->next;
         }
-        /*! \brief Signs current value to next value.
-         */
+        /*! Signs current value to next value. */
         virtual void synchronise() = 0;
     };
 }

@@ -11,6 +11,7 @@
 
 #include "Export.h"
 #include <yctools/Any.h>
+#include "Synchronisable.h"
 #include "Lock.h"
 
 namespace dsf
@@ -29,21 +30,12 @@ namespace dsf
      std::cout << myInt.to<int>() << std::endl; // output 9
      @endcode
      */
-    class DSF_API SynchronizedVar
+    class DSF_API SynchronizedVar : public Synchronisable<yc::Any>, public yc::Any, public Lock
     {
     public:
-        SynchronizedVar();
         template<typename T> SynchronizedVar(T && value);
         template<typename T> void operator=(T && value);
-        template<typename T> T to();
-        void synchronize();
-        
-    protected:
-        template<typename T> void set(T && value);
-        
-    private:
-        yc::Any value;
-        yc::Any next;
+        void synchronise() override;
     };
 }
 
@@ -51,22 +43,16 @@ namespace dsf
 {
     
     template<typename T> SynchronizedVar::SynchronizedVar(T && value)
-    : next(value)
-    {}
-    
-    template<typename T> T SynchronizedVar::to()
+    : Any(value)
     {
-        return value.to<T>();
+        this->next = new Any(value);
     }
     
     template<typename T> void SynchronizedVar::operator=(T && value)
     {
-        this->set(value);
-    }
-    
-    template<typename T> void SynchronizedVar::set(T && value)
-    {
+        this->lock();
         this->next = value;
+        this->unlock();
     }
 }
 

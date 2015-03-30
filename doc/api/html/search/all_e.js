@@ -12,5 +12,5 @@ var searchData=
   ['taskfunction',['taskFunction',['../classdsf_1_1_task.html#a681617cab34fbae641c5b0cf4be46659',1,'dsf::Task::taskFunction()'],['../namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9',1,'dsf::TaskFunction()']]],
   ['taskfunction_2eh',['TaskFunction.h',['../_task_function_8h.html',1,'']]],
   ['tasks',['tasks',['../classdsf_1_1_task_box.html#ae13d0d245cacbf7f4019f7ff5486aa79',1,'dsf::TaskBox']]],
-  ['to',['to',['../classdsf_1_1_task.html#a36c485fbeb9c2330f5637b9d625cf01a',1,'dsf::Task::to()'],['../classdsf_1_1_synchronized_var.html#aa1532ad0cd115987f9769f4ef1eaa3df',1,'dsf::SynchronizedVar::to()']]]
+  ['to',['to',['../classdsf_1_1_task.html#a36c485fbeb9c2330f5637b9d625cf01a',1,'dsf::Task']]]
 ];

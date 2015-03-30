@@ -1,8 +1,9 @@
-<map id="dsf/include/dsf/Export.h" name="dsf/include/dsf/Export.h">
-<area shape="rect" id="node2" href="$_declaration_8h.html" title="dsf/include/dsf/Declaration.h" alt="" coords="69,85,258,111"/>
-<area shape="rect" id="node3" href="$_task_box_8h.html" title="dsf/include/dsf/TaskBox.h" alt="" coords="5,165,177,191"/>
-<area shape="rect" id="node5" href="$_task_8h.html" title="dsf/include/dsf/Task.h" alt="" coords="134,239,283,264"/>
-<area shape="rect" id="node6" href="$_synchronized_object_8h.html" title="dsf/include/dsf/Synchronized\lObject.h" alt="" coords="180,312,371,351"/>
-<area shape="rect" id="node7" href="$_synchronized_var_8h.html" title="dsf/include/dsf/Synchronized\lVar.h" alt="" coords="409,79,600,117"/>
-<area shape="rect" id="node4" href="$_dual_state_framework_8h.html" title="dsf/include/dsf/DualState\lFramework.h" alt="" coords="57,399,226,437"/>
+<map id="/Users/yuchen/Repositories/DualStateFramework/dsf/include/dsf/Export.h" name="/Users/yuchen/Repositories/DualStateFramework/dsf/include/dsf/Export.h">
+<area shape="rect" id="node2" href="$_declaration_8h.html" title="/Users/yuchen/Repositories\l/DualStateFramework/dsf\l/include/dsf/Declaration.h" alt="" coords="135,105,319,157"/>
+<area shape="rect" id="node3" href="$_task_box_8h.html" title="/Users/yuchen/Repositories\l/DualStateFramework/dsf\l/include/dsf/TaskBox.h" alt="" coords="5,205,190,257"/>
+<area shape="rect" id="node5" href="$_task_8h.html" title="/Users/yuchen/Repositories\l/DualStateFramework/dsf\l/include/dsf/Task.h" alt="" coords="135,305,319,357"/>
+<area shape="rect" id="node6" href="$_synchronized_object_8h.html" title="/Users/yuchen/Repositories\l/DualStateFramework/dsf\l/include/dsf/SynchronizedObject.h" alt="" coords="245,405,468,457"/>
+<area shape="rect" id="node7" href="$_lock_8h.html" title="/Users/yuchen/Repositories\l/DualStateFramework/dsf\l/include/dsf/Lock.h" alt="" coords="444,105,628,157"/>
+<area shape="rect" id="node8" href="$_synchronized_var_8h.html" title="/Users/yuchen/Repositories\l/DualStateFramework/dsf\l/include/dsf/SynchronizedVar.h" alt="" coords="546,205,750,257"/>
+<area shape="rect" id="node4" href="$_dual_state_framework_8h.html" title="/Users/yuchen/Repositories\l/DualStateFramework/dsf\l/include/dsf/DualStateFramework.h" alt="" coords="92,505,321,557"/>
 </map>

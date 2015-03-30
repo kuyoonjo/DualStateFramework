@@ -1,5 +1,6 @@
-<map id="dsf/include/dsf/SynchronizedVar.h" name="dsf/include/dsf/SynchronizedVar.h">
-<area shape="rect" id="node2" href="$_export_8h.html" title="Export.h" alt="" coords="5,92,76,117"/>
-<area shape="rect" id="node5" href="$_lock_8h.html" title="Lock.h" alt="" coords="224,92,284,117"/>
-<area shape="rect" id="node3" href="$_config_8h.html" title="Config.h" alt="" coords="5,165,76,191"/>
+<map id="/Users/yuchen/Repositories/DualStateFramework/dsf/include/dsf/SynchronizedVar.h" name="/Users/yuchen/Repositories/DualStateFramework/dsf/include/dsf/SynchronizedVar.h">
+<area shape="rect" id="node2" href="$_export_8h.html" title="Export.h" alt="" coords="74,179,145,204"/>
+<area shape="rect" id="node5" href="$_synchronisable_8h.html" title="Synchronisable.h" alt="" coords="145,105,269,131"/>
+<area shape="rect" id="node6" href="$_lock_8h.html" title="Lock.h" alt="" coords="293,105,354,131"/>
+<area shape="rect" id="node3" href="$_config_8h.html" title="Config.h" alt="" coords="74,252,145,277"/>
 </map>

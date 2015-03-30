@@ -1,0 +1,106 @@
+\hypertarget{index_welcome}{}\section{Welcome}\label{index_welcome}
+Welcome to the official D\+S\+F documentation. Here you will find a detailed view of all the D\+S\+F classes and functions.\hypertarget{index_example}{}\section{Short example}\label{index_example}
+Here is a short example, to show you how simple it is to use D\+S\+F\+: \hypertarget{index_dsf}{}\subsection{Implementing Dual\+State\+Framework}\label{index_dsf}
+My\+D\+S\+F.\+h 
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#ifndef \_\_DSFExample\_\_MyDSF\_\_}
+\textcolor{preprocessor}{#define \_\_DSFExample\_\_MyDSF\_\_}
+
+\textcolor{preprocessor}{#include <\hyperlink{_dual_state_framework_8h}{dsf/DualStateFramework.h}>}
+
+\textcolor{keyword}{class }MyDSF : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_dual_state_framework}{dsf::DualStateFramework} \textcolor{comment}{// Extends dsf::DualStateFramework}
+\{
+\textcolor{keyword}{public}:
+    \textcolor{keyword}{explicit} MyDSF() : \hyperlink{namespacedsf_a68ac3b6a0526bfa7f6a412918afb1841}{DualStateFramework}() \{\} \textcolor{comment}{// Uses default super constructor}
+    \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a809a7bba4148e17ea9a43a0a035383ba}{initialize}()\textcolor{keyword}{ override }\{\}
+\};
+
+\textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+\hypertarget{index_syncObj}{}\subsection{Implementing dsf\+::\+Synchronized\+Object}\label{index_syncObj}
+Sync\+Obj.\+h 
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#ifndef DSFExample\_SyncObj\_h}
+\textcolor{preprocessor}{#define DSFExample\_SyncObj\_h}
+
+\textcolor{preprocessor}{#include <\hyperlink{_synchronized_object_8h}{dsf/SynchronizedObject.h}>}
+
+\textcolor{keyword}{class }SyncObj : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject} \textcolor{comment}{// Extends dsf::SynchronizedObject}
+\{
+\textcolor{keyword}{public}:
+    SyncObj(\textcolor{keywordtype}{int} v) : \hyperlink{namespacedsf_acbf1798fc56cfb1707162a17e13f5fda}{SynchronizedObject}(), v(v) \{\} \textcolor{comment}{// Uses default super constructor}
+    \textcolor{keywordtype}{int} getValue() \{
+        \textcolor{keywordflow}{return} this->v;
+    \}
+\textcolor{keyword}{protected}:
+    \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{run}()\textcolor{keyword}{ override }\{ \textcolor{comment}{// Overrides pure virtual function}
+        \textcolor{keywordflow}{if}(this->\hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{receive}()) \textcolor{comment}{// Returns the number of message received}
+            this->\hyperlink{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{process}(); \textcolor{comment}{// Executes received messages}
+    \}
+\textcolor{keyword}{private}:
+    \textcolor{keywordtype}{int} v;
+\};
+
+\textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+\hypertarget{index_manager}{}\subsection{Creating a manager class}\label{index_manager}
+Obj\+Manager.\+h 
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#ifndef DSFExample\_ObjManager\_h}
+\textcolor{preprocessor}{#define DSFExample\_ObjManager\_h}
+
+\textcolor{preprocessor}{#include "MyDSF.h"}
+\textcolor{preprocessor}{#include "SyncObj.h"}
+\textcolor{preprocessor}{#include <iostream>}
+
+\textcolor{keyword}{class }ObjManager
+\{
+\textcolor{keyword}{public}:
+    MyDSF* dsf;
+    \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* print;
+    
+    ObjManager(MyDSF* dsf) : dsf(dsf) \{  \textcolor{comment}{// Alias DSF pointer}
+        \textcolor{comment}{// Initialises TaskFunctions}
+        this->print = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to,
+                                                   \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from,
+                                                   \hyperlink{namespacedsf_abe4bf68433935a81c31a5ada9b17663a}{dsf::TaskArgument}* args)
+                                               \{
+                                                   \textcolor{keyword}{auto} syncObj = args->to<SyncObj*>();
+                                                   std::cout << syncObj->getValue();
+                                                   this->dsf->remove(to);
+                                               \});
+
+    \}
+    ~ObjManager() \{
+        \textcolor{keyword}{delete} this->print;
+    \}
+\};
+
+\textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+\hypertarget{index_main}{}\subsection{Running D\+S\+F}\label{index_main}
+main.\+cpp 
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include "MyDSF.h"}
+\textcolor{preprocessor}{#include "SyncObj.h"}
+\textcolor{preprocessor}{#include "ObjManager.h"}
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * argv[]) \{
+    \textcolor{keyword}{const} \textcolor{keywordtype}{int} NUMBER\_OF\_OBJS = 100;
+    \textcolor{keyword}{auto} dsf = \textcolor{keyword}{new} MyDSF();
+    \textcolor{keyword}{auto} om = \textcolor{keyword}{new} ObjManager(dsf);
+    SyncObj* sos[NUMBER\_OF\_OBJS];
+    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < NUMBER\_OF\_OBJS; i ++) \{ \textcolor{comment}{// Creates NUMBER\_OF\_OBJS SyncObj objects}
+        sos[i] = \textcolor{keyword}{new} SyncObj(i);
+        dsf->add(sos[i]); \textcolor{comment}{// Adds objects to DSF object}
+        dsf->send(sos[i], sos[i], om->print, \textcolor{keyword}{new} \hyperlink{namespacedsf_abe4bf68433935a81c31a5ada9b17663a}{dsf::TaskArgument}(sos[i])); \textcolor{comment}{// Sends
+       messages}
+    \}
+    dsf->start();
+    \textcolor{keyword}{delete} dsf;
+    \textcolor{keyword}{delete} om;
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ 

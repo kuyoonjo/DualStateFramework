@@ -1,11 +1,12 @@
-<map id="dsf/include/dsf/SynchronizedObject.h" name="dsf/include/dsf/SynchronizedObject.h">
-<area shape="rect" id="node4" href="$_export_8h.html" title="Export.h" alt="" coords="755,312,826,337"/>
-<area shape="rect" id="node6" href="$_declaration_8h.html" title="Declaration.h" alt="" coords="784,239,884,264"/>
-<area shape="rect" id="node7" href="$_task_8h.html" title="Task.h" alt="" coords="596,92,656,117"/>
-<area shape="rect" id="node9" href="$_task_box_8h.html" title="TaskBox.h" alt="" coords="714,165,797,191"/>
-<area shape="rect" id="node10" href="$_runnable_8h.html" title="Runnable.h" alt="" coords="987,239,1076,264"/>
-<area shape="rect" id="node11" href="$_debug_8h.html" title="Debug.h" alt="" coords="430,239,502,264"/>
-<area shape="rect" id="node13" href="$_task_function_8h.html" title="TaskFunction.h" alt="" coords="283,165,394,191"/>
-<area shape="rect" id="node15" href="$_task_argument_8h.html" title="TaskArgument.h" alt="" coords="135,239,253,264"/>
-<area shape="rect" id="node5" href="$_config_8h.html" title="Config.h" alt="" coords="755,385,826,411"/>
+<map id="/Users/yuchen/Repositories/DualStateFramework/dsf/include/dsf/SynchronizedObject.h" name="/Users/yuchen/Repositories/DualStateFramework/dsf/include/dsf/SynchronizedObject.h">
+<area shape="rect" id="node4" href="$_export_8h.html" title="Export.h" alt="" coords="73,325,144,351"/>
+<area shape="rect" id="node6" href="$_declaration_8h.html" title="Declaration.h" alt="" coords="58,252,158,277"/>
+<area shape="rect" id="node7" href="$_task_8h.html" title="Task.h" alt="" coords="414,105,474,131"/>
+<area shape="rect" id="node9" href="$_task_box_8h.html" title="TaskBox.h" alt="" coords="288,179,371,204"/>
+<area shape="rect" id="node10" href="$_runnable_8h.html" title="Runnable.h" alt="" coords="362,252,452,277"/>
+<area shape="rect" id="node11" href="$_task_function_8h.html" title="TaskFunction.h" alt="" coords="641,179,752,204"/>
+<area shape="rect" id="node13" href="$_task_argument_8h.html" title="TaskArgument.h" alt="" coords="877,252,995,277"/>
+<area shape="rect" id="node16" href="$_synchronisable_8h.html" title="Synchronisable.h" alt="" coords="826,105,950,131"/>
+<area shape="rect" id="node17" href="$_lock_8h.html" title="Lock.h" alt="" coords="51,105,112,131"/>
+<area shape="rect" id="node5" href="$_config_8h.html" title="Config.h" alt="" coords="73,399,144,424"/>
 </map>

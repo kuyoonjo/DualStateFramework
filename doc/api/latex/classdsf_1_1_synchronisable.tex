@@ -1,0 +1,90 @@
+\hypertarget{classdsf_1_1_synchronisable}{}\section{dsf\+:\+:Synchronisable$<$ T $>$ Class Template Reference}
+\label{classdsf_1_1_synchronisable}\index{dsf\+::\+Synchronisable$<$ T $>$@{dsf\+::\+Synchronisable$<$ T $>$}}
+
+
+Synchronising two states.  
+
+
+
+
+{\ttfamily \#include $<$Synchronisable.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classdsf_1_1_synchronisable_ae733344b5ac5742826aa4781abdc6e2c}{$\sim$\+Synchronisable} ()
+\item 
+virtual void \hyperlink{classdsf_1_1_synchronisable_a225f9a5f6cb47d73e1ea4d788bbfcaaa}{synchronise} ()=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T $\ast$ \hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$class dsf\+::\+Synchronisable$<$ T $>$}
+
+Synchronising two states. 
+
+The template interface provides a copy of current object, and a synchronise method which synchronise two copies. \hypertarget{classdsf_1_1_synchronized_object_Example}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_Example}
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <\hyperlink{_synchronisable_8h}{dsf/Synchronisable.h}>}
+
+\textcolor{keyword}{class }Vector3D
+\{
+\textcolor{keyword}{public}:
+    \textcolor{keywordtype}{float} x, y, z;
+    Vector3D(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z) : x(x), y(y), z(z)\{\}
+\}
+
+\textcolor{keyword}{class }SyncVector : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_synchronisable}{dsf::Synchronisable}<Vector3D>, \textcolor{keyword}{public} Vector3D
+\{
+\textcolor{keyword}{public}:
+    SyncInt(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z) : Vector3D(x, y, z) \{
+        this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next} = \textcolor{keyword}{new} Vector3D(x, y, z);
+    \}
+    \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_synchronisable_a225f9a5f6cb47d73e1ea4d788bbfcaaa}{synchronise}()\textcolor{keyword}{ override }\{
+        this->x = this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->x;
+        this->y = this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->y;
+        this->z = this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->z;
+    \}
+\}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdsf_1_1_synchronisable_ae733344b5ac5742826aa4781abdc6e2c}{}\index{dsf\+::\+Synchronisable@{dsf\+::\+Synchronisable}!````~Synchronisable@{$\sim$\+Synchronisable}}
+\index{````~Synchronisable@{$\sim$\+Synchronisable}!dsf\+::\+Synchronisable@{dsf\+::\+Synchronisable}}
+\subsubsection[{$\sim$\+Synchronisable}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ virtual {\bf dsf\+::\+Synchronisable}$<$ T $>$\+::$\sim${\bf Synchronisable} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classdsf_1_1_synchronisable_ae733344b5ac5742826aa4781abdc6e2c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdsf_1_1_synchronisable_a225f9a5f6cb47d73e1ea4d788bbfcaaa}{}\index{dsf\+::\+Synchronisable@{dsf\+::\+Synchronisable}!synchronise@{synchronise}}
+\index{synchronise@{synchronise}!dsf\+::\+Synchronisable@{dsf\+::\+Synchronisable}}
+\subsubsection[{synchronise}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ virtual void {\bf dsf\+::\+Synchronisable}$<$ T $>$\+::synchronise (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdsf_1_1_synchronisable_a225f9a5f6cb47d73e1ea4d788bbfcaaa}
+Signs current value to next value. 
+
+Implemented in \hyperlink{classdsf_1_1_synchronized_object_a4e200d7b3508db98f09c6fe547f46cdb}{dsf\+::\+Synchronized\+Object}, and \hyperlink{classdsf_1_1_synchronized_var_ac8465a885c4dbb5bc5ca9ad25f42c3ec}{dsf\+::\+Synchronized\+Var}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{}\index{dsf\+::\+Synchronisable@{dsf\+::\+Synchronisable}!next@{next}}
+\index{next@{next}!dsf\+::\+Synchronisable@{dsf\+::\+Synchronisable}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T$\ast$ {\bf dsf\+::\+Synchronisable}$<$ T $>$\+::next\hspace{0.3cm}{\ttfamily [protected]}}\label{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}
+A copy of current object. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yuchen/\+Repositories/\+Dual\+State\+Framework/dsf/include/dsf/\hyperlink{_synchronisable_8h}{Synchronisable.\+h}\end{DoxyCompactItemize}

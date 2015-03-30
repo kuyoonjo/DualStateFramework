@@ -1,3 +1,4 @@
 <map id="dsf::Lock" name="dsf::Lock">
-<area shape="rect" id="node2" href="$classdsf_1_1_synchronized_var.html" title="{dsf::SynchronizedVar\n||+ SynchronizedVar()\l+ SynchronizedVar()\l+ operator=()\l+ to()\l+ synchronize()\l# set()\l}" alt="" coords="5,140,152,280"/>
+<area shape="rect" id="node2" href="$classdsf_1_1_synchronized_object.html" title="Dual state object interface. " alt="" coords="5,140,174,293"/>
+<area shape="rect" id="node3" href="$classdsf_1_1_synchronized_var.html" title="{dsf::SynchronizedVar\n||+ SynchronizedVar()\l+ operator=()\l+ synchronise()\l}" alt="" coords="198,167,345,267"/>
 </map>

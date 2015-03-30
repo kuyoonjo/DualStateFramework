@@ -1,0 +1,169 @@
+\hypertarget{classdsf_1_1_synchronized_object}{}\section{dsf\+:\+:Synchronized\+Object Class Reference}
+\label{classdsf_1_1_synchronized_object}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+
+
+Dual state object interface.  
+
+
+
+
+{\ttfamily \#include $<$Synchronized\+Object.\+h$>$}
+
+
+
+Inheritance diagram for dsf\+:\+:Synchronized\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdsf_1_1_synchronized_object__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdsf_1_1_synchronized_object_a3f1d2def677e6d814de4d0bd2aa3d95b}{Synchronized\+Object} ()
+\item 
+virtual \hyperlink{classdsf_1_1_synchronized_object_ac7e50befb4b96229443037be154f1368}{$\sim$\+Synchronized\+Object} ()
+\item 
+\hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State} \hyperlink{classdsf_1_1_synchronized_object_a744c49c3f58728492b97a167e2d83d02}{get\+State} () override
+\item 
+int \hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{receive} ()
+\item 
+void \hyperlink{classdsf_1_1_synchronized_object_a3ae8eb719665a55365412a85647d299b}{push} (\hyperlink{classdsf_1_1_task}{Task} $\ast$task)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{run} () override=0
+\item 
+void \hyperlink{classdsf_1_1_synchronized_object_a4e200d7b3508db98f09c6fe547f46cdb}{synchronise} () override
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdsf_1_1_synchronized_object_a86db03c65431cb461cc8abf33bd2e74a}{Dual\+State\+Framework}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Dual state object interface. 
+
+The \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object} is a subclass of \hyperlink{classdsf_1_1_task_box}{dsf\+::\+Task\+Box}. In this framework, you can regard it as thread. It provides methods for implementing parallelism such as “send”, “receive”, and etc.\hypertarget{classdsf_1_1_synchronized_object_Example}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_Example}
+
+\begin{DoxyCode}
+\textcolor{comment}{// SyncCircle.h}
+
+\textcolor{preprocessor}{#include <\hyperlink{_synchronized_object_8h}{dsf/SynchronizedObject.h}>}
+\textcolor{preprocessor}{#include <SFML/Graphics.hpp>}
+
+\textcolor{keyword}{class }SyncCircle : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}, \textcolor{keyword}{public} sf::CircleShape
+\{
+\textcolor{keyword}{public}:
+   SyncCircle();
+\textcolor{keyword}{protected}:
+   \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{run}() \textcolor{keyword}{override};
+\};
+
+
+\textcolor{comment}{// SyncCircle.cpp}
+
+\textcolor{preprocessor}{#include "SyncCircle.h"}
+
+SyncCircle::SyncCircle()  : \hyperlink{namespacedsf}{dsf}::\hyperlink{classdsf_1_1_synchronized_object_a3f1d2def677e6d814de4d0bd2aa3d95b}{SynchronizedObject}::
+      \hyperlink{classdsf_1_1_synchronized_object_a3f1d2def677e6d814de4d0bd2aa3d95b}{SynchronizedObject}(), sf::CircleShape::CircleShape()
+\{
+\}
+
+\textcolor{keywordtype}{void} SyncCircle::run()
+\{
+   \textcolor{keywordflow}{if}(this->receive())
+       this->process();
+\}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdsf_1_1_synchronized_object_a3f1d2def677e6d814de4d0bd2aa3d95b}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!Synchronized\+Object@{Synchronized\+Object}}
+\index{Synchronized\+Object@{Synchronized\+Object}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+\subsubsection[{Synchronized\+Object}]{\setlength{\rightskip}{0pt plus 5cm}dsf\+::\+Synchronized\+Object\+::\+Synchronized\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_synchronized_object_a3f1d2def677e6d814de4d0bd2aa3d95b}
+\hypertarget{classdsf_1_1_synchronized_object_ac7e50befb4b96229443037be154f1368}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!````~Synchronized\+Object@{$\sim$\+Synchronized\+Object}}
+\index{````~Synchronized\+Object@{$\sim$\+Synchronized\+Object}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+\subsubsection[{$\sim$\+Synchronized\+Object}]{\setlength{\rightskip}{0pt plus 5cm}virtual dsf\+::\+Synchronized\+Object\+::$\sim$\+Synchronized\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdsf_1_1_synchronized_object_ac7e50befb4b96229443037be154f1368}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdsf_1_1_synchronized_object_a744c49c3f58728492b97a167e2d83d02}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} dsf\+::\+Synchronized\+Object\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classdsf_1_1_synchronized_object_a744c49c3f58728492b97a167e2d83d02}
+Returns the current state. 
+
+Implements \hyperlink{classdsf_1_1_runnable_a139342b0d6d53fc7f1bbd97d99d3724a}{dsf\+::\+Runnable}.
+
+\hypertarget{classdsf_1_1_synchronized_object_a3ae8eb719665a55365412a85647d299b}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!push@{push}}
+\index{push@{push}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Synchronized\+Object\+::push (
+\begin{DoxyParamCaption}
+\item[{{\bf Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_synchronized_object_a3ae8eb719665a55365412a85647d299b}
+\hypertarget{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!receive@{receive}}
+\index{receive@{receive}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+\subsubsection[{receive}]{\setlength{\rightskip}{0pt plus 5cm}int dsf\+::\+Synchronized\+Object\+::receive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}
+\hypertarget{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!run@{run}}
+\index{run@{run}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dsf\+::\+Synchronized\+Object\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}
+Executes messages \hypertarget{classdsf_1_1_synchronized_object_eg}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_eg}
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{run}()\textcolor{keyword}{ override }\{ \textcolor{comment}{// Overrides pure virtual function}
+   \textcolor{keywordflow}{if}(this->\hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{receive}()) \textcolor{comment}{// Returns the number of message received}
+       this->\hyperlink{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{process}(); \textcolor{comment}{// Executes received messages}
+\}
+\end{DoxyCode}
+ 
+
+Implements \hyperlink{classdsf_1_1_runnable_a6e23b3b551a7cfdbff0e9ba2265d4378}{dsf\+::\+Runnable}.
+
+\hypertarget{classdsf_1_1_synchronized_object_a4e200d7b3508db98f09c6fe547f46cdb}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!synchronise@{synchronise}}
+\index{synchronise@{synchronise}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+\subsubsection[{synchronise}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Synchronized\+Object\+::synchronise (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classdsf_1_1_synchronized_object_a4e200d7b3508db98f09c6fe547f46cdb}
+Signs current value to next value. 
+
+Implements \hyperlink{classdsf_1_1_synchronisable_a225f9a5f6cb47d73e1ea4d788bbfcaaa}{dsf\+::\+Synchronisable$<$ Task\+Box $>$}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classdsf_1_1_synchronized_object_a86db03c65431cb461cc8abf33bd2e74a}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!Dual\+State\+Framework@{Dual\+State\+Framework}}
+\index{Dual\+State\+Framework@{Dual\+State\+Framework}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
+\subsubsection[{Dual\+State\+Framework}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Dual\+State\+Framework}\hspace{0.3cm}{\ttfamily [friend]}}\label{classdsf_1_1_synchronized_object_a86db03c65431cb461cc8abf33bd2e74a}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yuchen/\+Repositories/\+Dual\+State\+Framework/dsf/include/dsf/\hyperlink{_synchronized_object_8h}{Synchronized\+Object.\+h}\end{DoxyCompactItemize}

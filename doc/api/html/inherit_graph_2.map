@@ -1,3 +1,10 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classdsf_1_1_synchronized_var.html" title="dsf::SynchronizedVar" alt="" coords="5,5,152,31"/>
+<area shape="rect" id="node2" href="$classdsf_1_1_synchronized_var.html" title="dsf::SynchronizedVar" alt="" coords="203,61,350,87"/>
+<area shape="rect" id="node3" href="$classdsf_1_1_lock.html" title="Locking variables. " alt="" coords="37,117,112,143"/>
+<area shape="rect" id="node4" href="$classdsf_1_1_synchronized_object.html" title="Dual state object interface. " alt="" coords="194,201,360,227"/>
+<area shape="rect" id="node5" href="$classdsf_1_1_runnable.html" title="Executing messages. " alt="" coords="22,279,126,304"/>
+<area shape="rect" id="node6" href="$classdsf_1_1_dual_state_framework.html" title="The starting pointer for the framework is the abstract class dsf::DualStateFramework. " alt="" coords="191,279,363,304"/>
+<area shape="rect" id="node7" href="$classdsf_1_1_synchronisable.html" title="dsf::Synchronisable\l\&lt; TaskBox \&gt;" alt="" coords="5,167,143,205"/>
+<area shape="rect" id="node8" href="$classdsf_1_1_synchronisable.html" title="dsf::Synchronisable\l\&lt; yc::Any \&gt;" alt="" coords="5,55,143,93"/>
+<area shape="rect" id="node9" href="$classdsf_1_1_task_box.html" title="dsf::TaskBox" alt="" coords="26,229,123,255"/>
 </map>
