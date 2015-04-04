@@ -2,6 +2,11 @@
 \label{classdsf_1_1_task_box}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
 
 
+A \hyperlink{classdsf_1_1_task}{dsf\+::\+Task} queue.  
+
+
+
+
 {\ttfamily \#include $<$Task\+Box.\+h$>$}
 
 
@@ -35,6 +40,11 @@ std\+::vector$<$ \hyperlink{classdsf_1_1_task}{Task} $\ast$ $>$ $\ast$ \hyperlin
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+A \hyperlink{classdsf_1_1_task}{dsf\+::\+Task} queue. 
+
+The \hyperlink{classdsf_1_1_task_box}{dsf\+::\+Task\+Box} contains a list of def\+::\+Task objects. It provides essential methods to control the list such as “push”, “pop”, and “is\+Empty”. 
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classdsf_1_1_task_box_a931c925e0a4956ee6bc1674f43ecc0a0}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!Task\+Box@{Task\+Box}}
 \index{Task\+Box@{Task\+Box}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
@@ -60,34 +70,34 @@ std\+::vector$<$ \hyperlink{classdsf_1_1_task}{Task} $\ast$ $>$ $\ast$ \hyperlin
 {}
 \end{DoxyParamCaption}
 )}\label{classdsf_1_1_task_box_a7e67fd9b7104d24cb4be54f6a48eb8c9}
-\hypertarget{classdsf_1_1_task_box_a656f4778edd42d43ff7516de3fa528ef}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!pop@{pop}}
+Checks wheather the queue is empty or not. \hypertarget{classdsf_1_1_task_box_a656f4778edd42d43ff7516de3fa528ef}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!pop@{pop}}
 \index{pop@{pop}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
 \subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task}$\ast$ dsf\+::\+Task\+Box\+::pop (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}\label{classdsf_1_1_task_box_a656f4778edd42d43ff7516de3fa528ef}
-\hypertarget{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!process@{process}}
+Pops out a task and returns it \hypertarget{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!process@{process}}
 \index{process@{process}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
 \subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Task\+Box\+::process (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}\label{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}
-\hypertarget{classdsf_1_1_task_box_a0ec4e52a625fae00e05b072d6434eef1}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!push@{push}}
+Pops out all tasks in the queue and executes them. \hypertarget{classdsf_1_1_task_box_a0ec4e52a625fae00e05b072d6434eef1}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!push@{push}}
 \index{push@{push}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
 \subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Task\+Box\+::push (
 \begin{DoxyParamCaption}
 \item[{{\bf Task} $\ast$}]{task}
 \end{DoxyParamCaption}
 )}\label{classdsf_1_1_task_box_a0ec4e52a625fae00e05b072d6434eef1}
-
+Pushes a task into the queue. 
 
 \subsection{Member Data Documentation}
 \hypertarget{classdsf_1_1_task_box_ae13d0d245cacbf7f4019f7ff5486aa79}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!tasks@{tasks}}
 \index{tasks@{tasks}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
 \subsubsection[{tasks}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Task}$\ast$$>$$\ast$ dsf\+::\+Task\+Box\+::tasks\hspace{0.3cm}{\ttfamily [protected]}}\label{classdsf_1_1_task_box_ae13d0d245cacbf7f4019f7ff5486aa79}
-
+The list of \hyperlink{classdsf_1_1_task}{dsf\+::\+Task}. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

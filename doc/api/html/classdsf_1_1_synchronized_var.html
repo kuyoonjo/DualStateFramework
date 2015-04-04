@@ -37,7 +37,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Welcome</span></a></li>
+      <li><a href="pages.html"><span>Installation</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -94,6 +95,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A Class which implements <a class="el" href="classdsf_1_1_synchronisable.html" title="Synchronising two states. ">dsf::Synchronisable</a>.  
+ <a href="classdsf_1_1_synchronized_var.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_synchronized_var_8h_source.html">SynchronizedVar.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for dsf::SynchronizedVar:</div>
@@ -132,8 +136,11 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a605f27e33e37dc8b3b920a3272461c44 inherit pro_attribs_classdsf_1_1_lock"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The purpose of this class is to make thread-safe variables for <a class="el" href="classdsf_1_1_synchronized_object.html" title="Dual state object interface. ">dsf::SynchronizedObject</a> objects. A <a class="el" href="classdsf_1_1_synchronized_var.html">dsf::SynchronizedVar</a> object has two member variables - “value” and “next”. The “value” is for read operation, and the “next” is for write operation. The function “synchronize” signs “next” to “value”.</p>
-<p>Example </p><div class="fragment"><div class="line"><a class="code" href="classdsf_1_1_synchronized_var.html">dsf::SynchronizedVar</a> myInt;</div>
+<div class="textblock"><p>A Class which implements <a class="el" href="classdsf_1_1_synchronisable.html" title="Synchronising two states. ">dsf::Synchronisable</a>. </p>
+<p>The purpose of this class is to make thread-safe variables for <a class="el" href="classdsf_1_1_synchronized_object.html" title="Dual state object interface. ">dsf::SynchronizedObject</a> objects. A <a class="el" href="classdsf_1_1_synchronized_var.html" title="A Class which implements dsf::Synchronisable. ">dsf::SynchronizedVar</a> object has two states - “current” and “next”. The “current” is for read operation, and the “next” is for write operation. The function “synchronise” signs “next” to “current”.</p>
+<h1><a class="anchor" id="Example"></a>
+Example</h1>
+<div class="fragment"><div class="line"><a class="code" href="classdsf_1_1_synchronized_var.html">dsf::SynchronizedVar</a> myInt;</div>
 <div class="line">myInt = int(8); <span class="comment">// value == NULL, next == 8</span></div>
 <div class="line">myInt.synchronize(); <span class="comment">// value == 8, next == 8</span></div>
 <div class="line">std::cout &lt;&lt; myInt.to&lt;<span class="keywordtype">int</span>&gt;() &lt;&lt; std::endl; <span class="comment">// output 8</span></div>
@@ -157,6 +164,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The value of "current" and the value of "next" is initialized as "value". </p>
 
 </div>
 </div>
@@ -176,6 +184,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Signs a value to "next". </p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -220,7 +229,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 30 2015 20:33:47 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 2 2015 16:26:06 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

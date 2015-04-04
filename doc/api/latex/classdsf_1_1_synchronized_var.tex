@@ -2,6 +2,11 @@
 \label{classdsf_1_1_synchronized_var}\index{dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}}
 
 
+A Class which implements \hyperlink{classdsf_1_1_synchronisable}{dsf\+::\+Synchronisable}.  
+
+
+
+
 {\ttfamily \#include $<$Synchronized\+Var.\+h$>$}
 
 
@@ -26,9 +31,10 @@ void \hyperlink{classdsf_1_1_synchronized_var_ac8465a885c4dbb5bc5ca9ad25f42c3ec}
 
 
 \subsection{Detailed Description}
-The purpose of this class is to make thread-\/safe variables for \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object} objects. A \hyperlink{classdsf_1_1_synchronized_var}{dsf\+::\+Synchronized\+Var} object has two member variables -\/ “value” and “next”. The “value” is for read operation, and the “next” is for write operation. The function “synchronize” signs “next” to “value”.
+A Class which implements \hyperlink{classdsf_1_1_synchronisable}{dsf\+::\+Synchronisable}. 
 
-Example 
+The purpose of this class is to make thread-\/safe variables for \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object} objects. A \hyperlink{classdsf_1_1_synchronized_var}{dsf\+::\+Synchronized\+Var} object has two states -\/ “current” and “next”. The “current” is for read operation, and the “next” is for write operation. The function “synchronise” signs “next” to “current”.\hypertarget{classdsf_1_1_synchronized_var_Example}{}\subsection{Example}\label{classdsf_1_1_synchronized_var_Example}
+
 \begin{DoxyCode}
 \hyperlink{classdsf_1_1_synchronized_var}{dsf::SynchronizedVar} myInt;
 myInt = int(8); \textcolor{comment}{// value == NULL, next == 8}
@@ -49,7 +55,7 @@ std::cout << myInt.to<\textcolor{keywordtype}{int}>() << std::endl; \textcolor{c
 \item[{T \&\&}]{value}
 \end{DoxyParamCaption}
 )}\label{classdsf_1_1_synchronized_var_aada6540bf8bbbf1451834f31aad0962f}
-
+The value of \char`\"{}current\char`\"{} and the value of \char`\"{}next\char`\"{} is initialized as \char`\"{}value\char`\"{}. 
 
 \subsection{Member Function Documentation}
 \hypertarget{classdsf_1_1_synchronized_var_a8b72cc04251d677755090bd9b834291c}{}\index{dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}!operator=@{operator=}}
@@ -59,7 +65,7 @@ std::cout << myInt.to<\textcolor{keywordtype}{int}>() << std::endl; \textcolor{c
 \item[{T \&\&}]{value}
 \end{DoxyParamCaption}
 )}\label{classdsf_1_1_synchronized_var_a8b72cc04251d677755090bd9b834291c}
-
+Signs a value to \char`\"{}next\char`\"{}. 
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]

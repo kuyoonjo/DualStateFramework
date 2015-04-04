@@ -3,6 +3,10 @@
 * \section welcome Welcome
 * Welcome to the official DSF documentation. 
 * Here you will find a detailed view of all the DSF classes and functions.
+* If you have not installed DSF, you may be interested in how to install DSF on 
+* \link Mac Mac os X \endlink,
+* \link Win MS Windows \endlink, and 
+* \link Linux Linux \endlink.
 
 * \section example Short example
 * Here is a short example, to show you how simple it is to use DSF:
@@ -21,4 +25,10 @@
 * \subsection main Running DSF
 * main.cpp
 * \include main.cpp
+* \page Mac
+* hello
+* \page Win
+* hello win
+* \page Linux
+* hello linux
 */

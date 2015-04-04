@@ -16,9 +16,13 @@
 
 namespace dsf
 {
-    /*! The purpose of this class is to make thread-safe variables for dsf::SynchronizedObject objects. A dsf::SynchronizedVar object has two member variables - “value” and “next”. The “value” is for read operation, and the “next” is for write operation. The function “synchronize” signs “next” to “value”. 
+    /*! \brief A Class which implements dsf::Synchronisable.
+     * \details The purpose of this class is to make thread-safe variables for dsf::SynchronizedObject objects. 
+     * A dsf::SynchronizedVar object has two states - “current” and “next”.
+     * The “current” is for read operation, and the “next” is for write operation.
+     * The function “synchronise” signs “next” to “current”.
      *
-     *Example
+     * \section Example
      @code
      dsf::SynchronizedVar myInt;
      myInt = int(8); // value == NULL, next == 8
@@ -33,7 +37,9 @@ namespace dsf
     class DSF_API SynchronizedVar : public Synchronisable<yc::Any>, public yc::Any, public Lock
     {
     public:
+        /*! The value of "current" and the value of "next" is initialized as "value". */
         template<typename T> SynchronizedVar(T && value);
+        /*! Signs a value to "next". */
         template<typename T> void operator=(T && value);
         void synchronise() override;
     };

@@ -28,8 +28,6 @@ virtual \hyperlink{classdsf_1_1_synchronized_object_ac7e50befb4b96229443037be154
 \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State} \hyperlink{classdsf_1_1_synchronized_object_a744c49c3f58728492b97a167e2d83d02}{get\+State} () override
 \item 
 int \hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{receive} ()
-\item 
-void \hyperlink{classdsf_1_1_synchronized_object_a3ae8eb719665a55365412a85647d299b}{push} (\hyperlink{classdsf_1_1_task}{Task} $\ast$task)
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -49,7 +47,7 @@ class \hyperlink{classdsf_1_1_synchronized_object_a86db03c65431cb461cc8abf33bd2e
 \subsection{Detailed Description}
 Dual state object interface. 
 
-The \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object} is a subclass of \hyperlink{classdsf_1_1_task_box}{dsf\+::\+Task\+Box}. In this framework, you can regard it as thread. It provides methods for implementing parallelism such as “send”, “receive”, and etc.\hypertarget{classdsf_1_1_synchronized_object_Example}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_Example}
+The \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object} is a subclass of \hyperlink{classdsf_1_1_task_box}{dsf\+::\+Task\+Box}. In this framework, you can regard it as thread. It provides methods for implementing parallelism such as “send”, “receive”, and etc.\hypertarget{classdsf_1_1_synchronized_var_Example}{}\subsection{Example}\label{classdsf_1_1_synchronized_var_Example}
 
 \begin{DoxyCode}
 \textcolor{comment}{// SyncCircle.h}
@@ -112,13 +110,6 @@ Returns the current state.
 
 Implements \hyperlink{classdsf_1_1_runnable_a139342b0d6d53fc7f1bbd97d99d3724a}{dsf\+::\+Runnable}.
 
-\hypertarget{classdsf_1_1_synchronized_object_a3ae8eb719665a55365412a85647d299b}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!push@{push}}
-\index{push@{push}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
-\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Synchronized\+Object\+::push (
-\begin{DoxyParamCaption}
-\item[{{\bf Task} $\ast$}]{task}
-\end{DoxyParamCaption}
-)}\label{classdsf_1_1_synchronized_object_a3ae8eb719665a55365412a85647d299b}
 \hypertarget{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!receive@{receive}}
 \index{receive@{receive}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
 \subsubsection[{receive}]{\setlength{\rightskip}{0pt plus 5cm}int dsf\+::\+Synchronized\+Object\+::receive (
@@ -126,7 +117,7 @@ Implements \hyperlink{classdsf_1_1_runnable_a139342b0d6d53fc7f1bbd97d99d3724a}{d
 {}
 \end{DoxyParamCaption}
 )}\label{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}
-\hypertarget{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!run@{run}}
+Returns the number of message received \hypertarget{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{}\index{dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}!run@{run}}
 \index{run@{run}!dsf\+::\+Synchronized\+Object@{dsf\+::\+Synchronized\+Object}}
 \subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dsf\+::\+Synchronized\+Object\+::run (
 \begin{DoxyParamCaption}
@@ -152,7 +143,7 @@ Implements \hyperlink{classdsf_1_1_runnable_a6e23b3b551a7cfdbff0e9ba2265d4378}{d
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classdsf_1_1_synchronized_object_a4e200d7b3508db98f09c6fe547f46cdb}
-Signs current value to next value. 
+Signs current taskbox to next taskbox. 
 
 Implements \hyperlink{classdsf_1_1_synchronisable_a225f9a5f6cb47d73e1ea4d788bbfcaaa}{dsf\+::\+Synchronisable$<$ Task\+Box $>$}.
 

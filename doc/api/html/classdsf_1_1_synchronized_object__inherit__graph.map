@@ -1,6 +1,6 @@
 <map id="dsf::SynchronizedObject" name="dsf::SynchronizedObject">
 <area shape="rect" id="node2" href="$classdsf_1_1_runnable.html" title="Executing messages. " alt="" coords="5,32,109,119"/>
-<area shape="rect" id="node3" href="$classdsf_1_1_task_box.html" title="{dsf::TaskBox\n|# tasks\l|+ TaskBox()\l+ ~TaskBox()\l+ isEmpty()\l+ push()\l+ pop()\l+ process()\l}" alt="" coords="133,5,232,145"/>
+<area shape="rect" id="node3" href="$classdsf_1_1_task_box.html" title="A dsf::Task queue. " alt="" coords="133,5,232,145"/>
 <area shape="rect" id="node4" href="$classdsf_1_1_synchronisable.html" title="{dsf::Synchronisable\l\&lt; TaskBox \&gt;\n|# next\l|+ ~Synchronisable()\l+ synchronise()\l}" alt="" coords="256,25,397,125"/>
 <area shape="rect" id="node5" href="$classdsf_1_1_lock.html" title="Locking variables. " alt="" coords="421,32,501,119"/>
 </map>

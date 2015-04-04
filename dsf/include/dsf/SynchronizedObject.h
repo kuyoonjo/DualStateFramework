@@ -66,11 +66,12 @@ namespace dsf
         virtual ~SynchronizedObject();
         /*! Returns the current state. */
         State getState() override;
+        /*! Returns the number of message received */
         int receive();
-        void push(Task* task);
     private:
         State state;
         
+        void push(Task* task);
         void send(SynchronizedObject* to,
                   TaskFunction* taskFunction,
                   TaskArgument* args);
@@ -89,6 +90,7 @@ namespace dsf
          @endcode
          */
         virtual void run() override = 0;
+        /*! Signs current taskbox to next taskbox. */
         void synchronise() override;
     };
 }
