@@ -1,0 +1,21 @@
+/**
+* \page source Compile source code
+* To compile the code, you need a C++ compiler with c++11 supported, git, and CMake.
+
+* \section pre_source Pre-Build
+* \subsection git_source Get source code
+@code
+$ git clone https://github.com/kuyoonjo/DualStateFramework.git
+@endcode
+* \subsection cmake_source Generate project for compiler
+* GUI version of CMake is recommended to generate the project. For more information about cmake, please visit \link http://www.cmake.org http://www.cmake.org \endlink.
+
+* \section compile_source Build the project
+* If you generate an Xcode, Visual Studio, or any other GUI IDE project, just open the project and build it. <br />
+* If you generate a Makefile project, in a terminal or console, type
+@code
+$ cd "your project directory"
+$ make
+@endcode
+* Good luck!
+*/

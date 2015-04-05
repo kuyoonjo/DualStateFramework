@@ -1,19 +1,12 @@
 var searchData=
 [
-  ['send',['send',['../classdsf_1_1_dual_state_framework.html#a3063d7f0ce537eb44dc2bdcec816a36b',1,'dsf::DualStateFramework']]],
-  ['setnumberofthreads',['setNumberOfThreads',['../classdsf_1_1_dual_state_framework.html#a8ab358a7456eeed264d53304b6562be4',1,'dsf::DualStateFramework']]],
-  ['start',['start',['../classdsf_1_1_dual_state_framework.html#ab17692c652ab856818d5e8f0dd82f194',1,'dsf::DualStateFramework']]],
-  ['state',['State',['../classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991',1,'dsf::Runnable']]],
-  ['stopped',['STOPPED',['../classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991a0897925165e6577c4d3ebb185178c9c5',1,'dsf::Runnable']]],
-  ['synchronisable',['Synchronisable',['../classdsf_1_1_synchronisable.html',1,'dsf']]],
-  ['synchronisable_2eh',['Synchronisable.h',['../_synchronisable_8h.html',1,'']]],
-  ['synchronisable_3c_20taskbox_20_3e',['Synchronisable&lt; TaskBox &gt;',['../classdsf_1_1_synchronisable.html',1,'dsf']]],
-  ['synchronisable_3c_20yc_3a_3aany_20_3e',['Synchronisable&lt; yc::Any &gt;',['../classdsf_1_1_synchronisable.html',1,'dsf']]],
-  ['synchronise',['synchronise',['../classdsf_1_1_synchronisable.html#a225f9a5f6cb47d73e1ea4d788bbfcaaa',1,'dsf::Synchronisable::synchronise()'],['../classdsf_1_1_synchronized_object.html#a4e200d7b3508db98f09c6fe547f46cdb',1,'dsf::SynchronizedObject::synchronise()'],['../classdsf_1_1_synchronized_var.html#ac8465a885c4dbb5bc5ca9ad25f42c3ec',1,'dsf::SynchronizedVar::synchronise()']]],
-  ['synchronizedobject',['SynchronizedObject',['../classdsf_1_1_synchronized_object.html',1,'dsf']]],
-  ['synchronizedobject',['SynchronizedObject',['../classdsf_1_1_synchronized_object.html#a3f1d2def677e6d814de4d0bd2aa3d95b',1,'dsf::SynchronizedObject::SynchronizedObject()'],['../namespacedsf.html#acbf1798fc56cfb1707162a17e13f5fda',1,'dsf::SynchronizedObject()']]],
-  ['synchronizedobject_2eh',['SynchronizedObject.h',['../_synchronized_object_8h.html',1,'']]],
-  ['synchronizedvar',['SynchronizedVar',['../classdsf_1_1_synchronized_var.html',1,'dsf']]],
-  ['synchronizedvar',['SynchronizedVar',['../classdsf_1_1_synchronized_var.html#aada6540bf8bbbf1451834f31aad0962f',1,'dsf::SynchronizedVar']]],
-  ['synchronizedvar_2eh',['SynchronizedVar.h',['../_synchronized_var_8h.html',1,'']]]
+  ['task',['Task',['../classdsf_1_1_task.html',1,'dsf']]],
+  ['task',['Task',['../classdsf_1_1_task.html#afa460a63f94f30df36df5661de1dbe1a',1,'dsf::Task::Task()'],['../namespacedsf.html#a7df24c7d3d82e2e686aa3a524dc1dee9',1,'dsf::Task()']]],
+  ['taskargument',['taskArgument',['../classdsf_1_1_task.html#a8a095d8a36668f6500d4df8c24dbef8d',1,'dsf::Task::taskArgument()'],['../namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a',1,'dsf::TaskArgument()']]],
+  ['taskargumentexception',['TaskArgumentException',['../namespacedsf.html#af54027177bbfc0037be408a612d48b83',1,'dsf']]],
+  ['taskbox',['TaskBox',['../classdsf_1_1_task_box.html#a931c925e0a4956ee6bc1674f43ecc0a0',1,'dsf::TaskBox::TaskBox()'],['../namespacedsf.html#ac3c92e2a98380dd728b0c18d0c495966',1,'dsf::TaskBox()']]],
+  ['taskbox',['TaskBox',['../classdsf_1_1_task_box.html',1,'dsf']]],
+  ['taskfunction',['taskFunction',['../classdsf_1_1_task.html#a681617cab34fbae641c5b0cf4be46659',1,'dsf::Task::taskFunction()'],['../namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9',1,'dsf::TaskFunction()']]],
+  ['tasks',['tasks',['../classdsf_1_1_task_box.html#ae13d0d245cacbf7f4019f7ff5486aa79',1,'dsf::TaskBox']]],
+  ['to',['to',['../classdsf_1_1_task.html#a36c485fbeb9c2330f5637b9d625cf01a',1,'dsf::Task']]]
 ];

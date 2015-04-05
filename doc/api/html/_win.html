@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Dual State Framework: $title</title>
+<title>Dual State Framework: Microsoft Windows</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Welcome</span></a></li>
       <li class="current"><a href="pages.html"><span>Installation</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -74,12 +74,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 </div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Microsoft Windows </div>  </div>
+</div><!--header-->
 <div class="contents">
-<div class="textblock"><p>hello win </p>
+<div class="textblock"><p>Dual State Framework uses <a class="el" href="_win.html#yctools_win">yctools </a> and <a class="el" href="_win.html#tbb_win">Intel tbb </a>. Before the installation you need to install them first.</p>
+<h1><a class="anchor" id="dependencies_win"></a>
+Install Dependencies</h1>
+<h2><a class="anchor" id="yctools_win"></a>
+yctools</h2>
+<p>Download: <a class="el" href=""><a href="https://sourceforge.net/projects/yctools/">https://sourceforge.net/projects/yctools/</a> </a> <br />
+ Download the exe file and install it. <br />
+ The installation will create an environment variable "yctools" which refers to the program installed path.</p>
+<h2><a class="anchor" id="tbb_win"></a>
+Intel tbb</h2>
+<p>Download: <a class="el" href=""><a href="https://www.threadingbuildingblocks.org/download">https://www.threadingbuildingblocks.org/download</a> </a> <br />
+ Download the Window OS version and unzip it. <br />
+ Inside the directory, copy "tbb.lib" in the subdirectory "lib/your architecture/your visual studio version" to "where you want to store them/lib". <br />
+ Copy "tbb.dll" in the subderectory "bin/your architecture/your visual studio version" to "where you want to store them/bin". <br />
+ Add an environment variable "tbb", and set its value to "where you want to store them". <br />
+ Next, copy the directory "include/dsf" to "where you want to store them/include". </p>
+<h1><a class="anchor" id="dsf_win"></a>
+Install Dual State Framework</h1>
+<p>Download: <a class="el" href=""><a href="https://sourceforge.net/projects/dualstateframework/">https://sourceforge.net/projects/dualstateframework/</a> </a> <br />
+ Download the exe file and install it. <br />
+ The installation will create an environment variable "dsf" which refers to the program installed path.</p>
+<h1><a class="anchor" id="use_win"></a>
+Use DSF in Visual Studio</h1>
+<h2><a class="anchor" id="include_win"></a>
+Add additional header path</h2>
+<p>In project properties -&gt; C/C++ -&gt; General -&gt; Additional Include Directories, add $(yctools)\include, $(dsf)\include, and $(tbb)\include.</p>
+<h2><a class="anchor" id="link_win"></a>
+Add Dependencies</h2>
+<p>In project properties -&gt; Linker -&gt; General -&gt; Additional Library Directories, add $(yctools)\lib, $(dsf)\lib, and $(tbb)\lib. <br />
+ In project properties -&gt; Linker -&gt; Input -&gt; Additional Dependencies, add yctools.lib, tbb.lib, and dsf.lib. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 2 2015 16:26:06 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 5 2015 00:57:01 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

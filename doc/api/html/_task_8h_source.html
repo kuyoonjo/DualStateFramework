@@ -39,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Welcome</span></a></li>
       <li><a href="pages.html"><span>Installation</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -57,12 +57,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -89,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Task.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_task_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  Parallel.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  DualStateFramework</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -103,16 +97,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_export_8h.html">Export.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_declaration_8h.html">Declaration.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_task_box_8h.html">TaskBox.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_task_function_8h.html">TaskFunction.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_task_argument_8h.html">TaskArgument.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;Export.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;Declaration.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;TaskBox.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;TaskFunction.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;TaskArgument.h&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedsf.html">dsf</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classdsf_1_1_task.html">   28</a></span>&#160;    <span class="keyword">class </span><a class="code" href="_export_8h.html#ad7bb940831423512f29a6981786c37bd">DSF_API</a> <a class="code" href="classdsf_1_1_task.html">Task</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classdsf_1_1_task.html">   28</a></span>&#160;    <span class="keyword">class </span>DSF_API <a class="code" href="classdsf_1_1_task.html">Task</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classdsf_1_1_task.html#a36c485fbeb9c2330f5637b9d625cf01a">   32</a></span>&#160;        <a class="code" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a>* <a class="code" href="classdsf_1_1_task.html#a36c485fbeb9c2330f5637b9d625cf01a">to</a>;</div>
@@ -128,26 +122,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="_export_8h_html"><div class="ttname"><a href="_export_8h.html">Export.h</a></div></div>
-<div class="ttc" id="_task_box_8h_html"><div class="ttname"><a href="_task_box_8h.html">TaskBox.h</a></div></div>
 <div class="ttc" id="namespacedsf_html_aa16e735f29587f4485b56fc46746f7a9"><div class="ttname"><a href="namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9">dsf::TaskFunction</a></div><div class="ttdeci">std::function&lt; void(dsf::SynchronizedObject *, dsf::SynchronizedObject *, TaskArgument *)&gt; TaskFunction</div><div class="ttdef"><b>Definition:</b> TaskFunction.h:19</div></div>
 <div class="ttc" id="namespacedsf_html"><div class="ttname"><a href="namespacedsf.html">dsf</a></div><div class="ttdef"><b>Definition:</b> Declaration.h:14</div></div>
-<div class="ttc" id="_declaration_8h_html"><div class="ttname"><a href="_declaration_8h.html">Declaration.h</a></div></div>
 <div class="ttc" id="classdsf_1_1_task_html"><div class="ttname"><a href="classdsf_1_1_task.html">dsf::Task</a></div><div class="ttdoc">Class Task. </div><div class="ttdef"><b>Definition:</b> Task.h:28</div></div>
-<div class="ttc" id="_export_8h_html_ad7bb940831423512f29a6981786c37bd"><div class="ttname"><a href="_export_8h.html#ad7bb940831423512f29a6981786c37bd">DSF_API</a></div><div class="ttdeci">#define DSF_API</div><div class="ttdef"><b>Definition:</b> Export.h:27</div></div>
 <div class="ttc" id="classdsf_1_1_task_html_a36c485fbeb9c2330f5637b9d625cf01a"><div class="ttname"><a href="classdsf_1_1_task.html#a36c485fbeb9c2330f5637b9d625cf01a">dsf::Task::to</a></div><div class="ttdeci">SynchronizedObject * to</div><div class="ttdef"><b>Definition:</b> Task.h:32</div></div>
-<div class="ttc" id="_task_argument_8h_html"><div class="ttname"><a href="_task_argument_8h.html">TaskArgument.h</a></div></div>
 <div class="ttc" id="classdsf_1_1_task_html_a8a095d8a36668f6500d4df8c24dbef8d"><div class="ttname"><a href="classdsf_1_1_task.html#a8a095d8a36668f6500d4df8c24dbef8d">dsf::Task::taskArgument</a></div><div class="ttdeci">TaskArgument * taskArgument</div><div class="ttdef"><b>Definition:</b> Task.h:38</div></div>
 <div class="ttc" id="classdsf_1_1_task_html_afc1faf30dab0d57501dfdcb4ef7b5450"><div class="ttname"><a href="classdsf_1_1_task.html#afc1faf30dab0d57501dfdcb4ef7b5450">dsf::Task::from</a></div><div class="ttdeci">SynchronizedObject * from</div><div class="ttdef"><b>Definition:</b> Task.h:34</div></div>
 <div class="ttc" id="classdsf_1_1_task_html_a681617cab34fbae641c5b0cf4be46659"><div class="ttname"><a href="classdsf_1_1_task.html#a681617cab34fbae641c5b0cf4be46659">dsf::Task::taskFunction</a></div><div class="ttdeci">TaskFunction * taskFunction</div><div class="ttdef"><b>Definition:</b> Task.h:36</div></div>
-<div class="ttc" id="_task_function_8h_html"><div class="ttname"><a href="_task_function_8h.html">TaskFunction.h</a></div></div>
 <div class="ttc" id="namespacedsf_html_a7df24c7d3d82e2e686aa3a524dc1dee9"><div class="ttname"><a href="namespacedsf.html#a7df24c7d3d82e2e686aa3a524dc1dee9">dsf::Task</a></div><div class="ttdeci">class DSF_API Task</div><div class="ttdef"><b>Definition:</b> Declaration.h:15</div></div>
 <div class="ttc" id="namespacedsf_html_abe4bf68433935a81c31a5ada9b17663a"><div class="ttname"><a href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">dsf::TaskArgument</a></div><div class="ttdeci">yc::Any TaskArgument</div><div class="ttdef"><b>Definition:</b> TaskArgument.h:19</div></div>
 <div class="ttc" id="classdsf_1_1_synchronized_object_html"><div class="ttname"><a href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a></div><div class="ttdoc">Dual state object interface. </div><div class="ttdef"><b>Definition:</b> SynchronizedObject.h:62</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 2 2015 16:26:06 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 5 2015 00:57:01 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

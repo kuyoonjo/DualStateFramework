@@ -1,1 +1,18 @@
-hello win 
+Dual State Framework uses \hyperlink{_win_yctools_win}{yctools } and \hyperlink{_win_tbb_win}{Intel tbb }. Before the installation you need to install them first.\hypertarget{_win_dependencies_win}{}\section{Install Dependencies}\label{_win_dependencies_win}
+\hypertarget{_win_yctools_win}{}\subsection{yctools}\label{_win_yctools_win}
+Download\+: \hyperlink{}{\href{https://sourceforge.net/projects/yctools/}{\tt https\+://sourceforge.\+net/projects/yctools/} } ~\newline
+ Download the exe file and install it. ~\newline
+ The installation will create an environment variable \char`\"{}yctools\char`\"{} which refers to the program installed path.\hypertarget{_win_tbb_win}{}\subsection{Intel tbb}\label{_win_tbb_win}
+Download\+: \hyperlink{}{\href{https://www.threadingbuildingblocks.org/download}{\tt https\+://www.\+threadingbuildingblocks.\+org/download} } ~\newline
+ Download the Window O\+S version and unzip it. ~\newline
+ Inside the directory, copy \char`\"{}tbb.\+lib\char`\"{} in the subdirectory \char`\"{}lib/your architecture/your visual studio version\char`\"{} to \char`\"{}where you want to store them/lib\char`\"{}. ~\newline
+ Copy \char`\"{}tbb.\+dll\char`\"{} in the subderectory \char`\"{}bin/your architecture/your visual studio version\char`\"{} to \char`\"{}where you want to store them/bin\char`\"{}. ~\newline
+ Add an environment variable \char`\"{}tbb\char`\"{}, and set its value to \char`\"{}where you want to store them\char`\"{}. ~\newline
+ Next, copy the directory \char`\"{}include/dsf\char`\"{} to \char`\"{}where you want to store them/include\char`\"{}. \hypertarget{_win_dsf_win}{}\section{Install Dual State Framework}\label{_win_dsf_win}
+Download\+: \hyperlink{}{\href{https://sourceforge.net/projects/dualstateframework/}{\tt https\+://sourceforge.\+net/projects/dualstateframework/} } ~\newline
+ Download the exe file and install it. ~\newline
+ The installation will create an environment variable \char`\"{}dsf\char`\"{} which refers to the program installed path.\hypertarget{_win_use_win}{}\section{Use D\+S\+F in Visual Studio}\label{_win_use_win}
+\hypertarget{_win_include_win}{}\subsection{Add additional header path}\label{_win_include_win}
+In project properties -\/$>$ C/\+C++ -\/$>$ General -\/$>$ Additional Include Directories, add \$(yctools)\textbackslash{}include, \$(dsf)\textbackslash{}include, and \$(tbb)\textbackslash{}include.\hypertarget{_win_link_win}{}\subsection{Add Dependencies}\label{_win_link_win}
+In project properties -\/$>$ Linker -\/$>$ General -\/$>$ Additional Library Directories, add \$(yctools)\textbackslash{}lib, \$(dsf)\textbackslash{}lib, and \$(tbb)\textbackslash{}lib. ~\newline
+ In project properties -\/$>$ Linker -\/$>$ Input -\/$>$ Additional Dependencies, add yctools.\+lib, tbb.\+lib, and dsf.\+lib. 
