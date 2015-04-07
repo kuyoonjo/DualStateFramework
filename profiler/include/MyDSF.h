@@ -23,10 +23,8 @@ private:
     FPS* fps;
     std::vector<std::tuple<float,float,float>> fpsList;
     sf::Clock* clock;
-    float duration = 10;
     sf::Font font;
     unsigned int numberOfCores = 1;
-    unsigned int maxNumberOfCores = 8;
     std::vector<std::tuple<float,float,float>> stretch(std::vector<std::tuple<float,float,float>> arr,
                                                        std::vector<std::tuple<float,float,float>> strelen,
                                                        int maxLen);
@@ -35,6 +33,8 @@ public:
     ~MyDSF();
     void initialize() override;
     Sender* sender;
+    unsigned int duration = 10;
+    unsigned int maxNumberOfCores = 8;
 protected:
     void refresh() override;
     void run() override;
