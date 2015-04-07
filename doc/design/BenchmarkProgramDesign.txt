@@ -1,0 +1,18 @@
+/**
+\page BenchmarkProgramDesign Benchmark Program Design
+\section BenchmarkProgramDesignGUIFramework GUI Framework
+To benchmark the framework, I will use SFML to create a graphics application. When running the application, each frame runs many objects. The maximum, minimun, and average FPS(Frame per Second) is what I need for the benchmark. The application allows using different number of threads to run it.
+
+\section BenchmarkProgramDesignGUIConfiguration GUI Configuration
+When you start the application, it will show you a configuration form like this:
+\image latex DesignBenchmarkProgramDesignGUIConfiguration.png
+The application will run by using one thread to the max number of threads that user configured. The maximun, minimun, and average FPS will be recorded each iterator. Number of objects and duration for each iterator can be configured by this form.
+
+\section BenchmarkProgramDesignOutputs Outputs
+The output is a bar graph which shows all information of the benchmark.
+	- x axis representing number of threads
+	- y axis representing frames per second(FPS)
+	- values with the maximum, the minimum, and the average.
+
+\image latex DesignBenchmarkOutputs.png
+*/

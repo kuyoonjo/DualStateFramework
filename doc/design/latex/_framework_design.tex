@@ -1,0 +1,109 @@
+\hypertarget{_framework_design_FrameworkDesignArchitectureDesign}{}\section{Architecture Design}\label{_framework_design_FrameworkDesignArchitectureDesign}
+The goal of this project is to implement concurrency and parallel. In this framework, each Synchronized Object process simultaneously after Dual State Framework started. The process shows as follow\+: 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{DesignArchitecture.png}}
+\end{DoxyImageNoCaption}
+
+\begin{DoxyItemize}
+\item \char`\"{}dsf\char`\"{} refers to Dual State Framework
+\item \char`\"{}so\char`\"{} followed by a number refers to Synchronized Object
+\end{DoxyItemize}\hypertarget{_framework_design_FrameworkDesignProceduralDesign}{}\section{Procedural Design}\label{_framework_design_FrameworkDesignProceduralDesign}
+This diagram shows activities and interactions in one success evaluation(one frame in game). 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{DesignProcedure.png}}
+\end{DoxyImageNoCaption}
+ As it shows, the system create a Dual\+State\+Framework object. A Dual\+State\+Framework object can have many Synchronized\+Object objects. Each Synchronized\+Object object has two Boxes. One is for processing messages. The other one is for receiving messages. The sequence is like this\+:
+\begin{DoxyEnumerate}
+\item The Dual\+State\+Framework object starts with sending a “start” message.
+\item Messages from receiver are popped out and then be pushed into processor.
+\item Processor unpacks messages and evaluates function with arguments in each message sequently.
+\end{DoxyEnumerate}
+
+After step 3, it will go back to step 2. Step 2 and step 3 process alternatively and endlessly until the Dual\+State\+Framework object stopped.\hypertarget{_framework_design_FrameworkDesignInterfaceDesign}{}\section{Interface Design}\label{_framework_design_FrameworkDesignInterfaceDesign}
+\hypertarget{_framework_design_FrameworkDesignInterfaceDesignNamespace}{}\subsection{Namespace}\label{_framework_design_FrameworkDesignInterfaceDesignNamespace}
+All classes in this framework is under the namespace \char`\"{}dsf\char`\"{}, which is abbreviation of the project name \char`\"{}\+Dual State Framework\char`\"{}.\hypertarget{_framework_design_FrameworkDesignInterfaceDesigndsfRunnable}{}\subsection{dsf\+::\+Runnable}\label{_framework_design_FrameworkDesignInterfaceDesigndsfRunnable}
+The interface provides a protected pure virtual function run(), which will be called when subclass object starts. For example\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{class }MyDSF : \textcolor{keyword}{public} dsf::DualStateFrameword
+\{
+\textcolor{keyword}{protected}:
+    \textcolor{keywordtype}{void} run()
+    \{
+        \textcolor{comment}{// do something here...}
+    \}
+\}
+
+\textcolor{keywordtype}{void} main()
+\{
+    MyDSF dsf;
+    dsf.start() \textcolor{comment}{// It will process MyDSF::run();}
+\}
+\end{DoxyCode}
+\hypertarget{_framework_design_FrameworkDesignInterfacedsfDualStateFramework}{}\subsection{dsf\+::\+Dual\+State\+Framework}\label{_framework_design_FrameworkDesignInterfacedsfDualStateFramework}
+The starting pointer for the framework is the abstract class dsf\+::\+Dual\+State\+Framework. It provides essential functions for associating and managing its components (Synchronized\+Object objects, function points, and etc.).\hypertarget{_framework_design_FrameworkDesignInterfacedsfSynchronisable}{}\subsection{dsf\+::\+Synchronisable}\label{_framework_design_FrameworkDesignInterfacedsfSynchronisable}
+Class dsf\+::\+Synchronisable is a template interface. It has a template member variable “next” and a pure virtual function “synchronise”. The variable is a copy of current class. The function synchronises the current state. 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <dsf/Synchronisable.h>}
+
+\textcolor{keyword}{class }Vector3D
+\{
+\textcolor{keyword}{public}:
+    \textcolor{keywordtype}{float} x, y, z;
+    Vector3D(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z) : x(x), y(y), z(z)\{\}
+\};
+
+\textcolor{keyword}{class }SyncVector : \textcolor{keyword}{public} dsf::Synchronisable<Vector3D>, \textcolor{keyword}{public} Vector3D
+\{
+\textcolor{keyword}{public}:
+    SyncInt(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z) : Vector3D(x, y, z) \{
+        this->next = \textcolor{keyword}{new} Vector3D(x, y, z);
+    \}
+    \textcolor{keywordtype}{void} synchronise()\textcolor{keyword}{ override }\{
+        this->x = this->next->x;
+        this->y = this->next->y;
+        this->z = this->next->z;
+    \}
+\};
+\end{DoxyCode}
+\hypertarget{_framework_design_FrameworkDesignInterfacedsfTaskBox}{}\subsection{dsf\+::\+Task\+Box}\label{_framework_design_FrameworkDesignInterfacedsfTaskBox}
+The dsf\+::\+Task\+Box contains a list of dsf\+::\+Task objects. It provides essential methods to control the list such as “push”, “pop”, and “is\+Empty”.\hypertarget{_framework_design_FrameworkDesignInterfacedsfSynchronizedObject}{}\subsection{dsf\+::\+Synchronized\+Object}\label{_framework_design_FrameworkDesignInterfacedsfSynchronizedObject}
+The dsf\+::\+Synchronized\+Object is a subclass of dsf\+::\+Task\+Box. In this framework, you can regard it as thread. It provides methods for implementing parallelism such as “send”, “receive”, and etc. Also, it implements interface dsf\+::\+Synchronisable$<$dsf\+::\+Task\+Box$>$. Therefore, it has two copies of dsf\+::\+Task\+Box. One is for receiving messages, and the other one is for executing messages. 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{DesignInterfaceSynchronizedObject.png}}
+\end{DoxyImageNoCaption}
+\hypertarget{_framework_design_FrameworkDesignInterfacedsfTask}{}\subsection{dsf\+::\+Task}\label{_framework_design_FrameworkDesignInterfacedsfTask}
+This class have three members\+: from, function, and arguments, where \char`\"{}from\char`\"{} is a dsf\+::\+Synchronized\+Object object who sent message to you.\hypertarget{_framework_design_FrameworkDesignInterfacedsfArgument}{}\subsection{dsf\+::\+Argument}\label{_framework_design_FrameworkDesignInterfacedsfArgument}
+A dsf\+::\+Argument object can refer to any type of object. The following code is allowed\+: 
+\begin{DoxyCode}
+dsf::Argument i = int(10);
+dsf::Argument str = std::string(\textcolor{stringliteral}{"Hello"});
+\end{DoxyCode}
+\hypertarget{_framework_design_FrameworkDesignInterfacedsfTaskFunction}{}\subsection{dsf\+::\+Task\+Function}\label{_framework_design_FrameworkDesignInterfacedsfTaskFunction}
+The message in a dsf\+::\+Task is an object of dsf\+::\+Task\+Function. An object of dsf\+::\+Task\+Function is a function pointer whose function takes two dsf\+::\+Synchronized\+Object objects, a dsf\+::\+Argument object as arguments. The constructor of dsf\+::\+Task\+Function takes a function pointer or a lambda expression as arguments. This is an example that uses lambda expression. 
+\begin{DoxyCode}
+dsf::TaskFunction* print = \textcolor{keyword}{new} dsf::TaskFunction([\textcolor{keyword}{this}](dsf::SynchronizedObject* to, 
+                                                        dsf::SynchronizedObject* from,
+                                                        dsf::TaskArgument* args)
+                                                \{
+                                                    \textcolor{keyword}{auto} syncObj = args->to<SyncObj*>();
+                                                    std::cout << syncObj->getValue();
+                                                    this->dsf->remove(to);
+                                                \});
+\end{DoxyCode}
+\hypertarget{_framework_design_FrameworkDesignInterfacedsfSynchronizedVar}{}\subsection{dsf\+::\+Synchronized\+Var}\label{_framework_design_FrameworkDesignInterfacedsfSynchronizedVar}
+The purpose of this class is to make thread-\/safe variables for dsf\+::\+Synchronized\+Object objects. A dsf\+::\+Synchronized\+Var object has two member variables -\/ “value” and “next”. The “value” is for read operation, and the “next” is for write operation. The function “synchronize” signs “next” to “value”. see example below\+: 
+\begin{DoxyCode}
+dsf::SynchronizedVar myInt; 
+myInt = int(8); \textcolor{comment}{// value == NULL, next == 8}
+myInt.synchronise(); \textcolor{comment}{// value == 8, next == 8}
+std::cout << myInt.to<\textcolor{keywordtype}{int}>() << std::endl; \textcolor{comment}{// output 8}
+myInt = int(9); \textcolor{comment}{// value == 8, next == 9}
+std::cout << myInt.to<\textcolor{keywordtype}{int}>() << std::endl; \textcolor{comment}{// output 8}
+myInt.synchronise(); \textcolor{comment}{// value == 9, next == 9}
+std::cout << myInt.to<\textcolor{keywordtype}{int}>() << std::endl; \textcolor{comment}{// output 9}
+\end{DoxyCode}
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{DesignInterfaceSynchronizedVar.png}}
+\end{DoxyImageNoCaption}
+ 

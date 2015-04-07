@@ -1,0 +1,131 @@
+/**
+\page Introduction Introduction
+\par
+The aim of this document is to outline the research conducted to obtain a greater understanding about the technologies that the Dual State Framework will use for the development. 
+\par
+The project is going to create a framework which implements parallel computing. It helps game developers be easier to parallelize. The research contains Game Development, Parallel Programming Model, Concurrency Model, and etc. 
+\par
+Dual State Framework will be developed by C++ under Mac Os X. OpenMP or Intel TBB is used for implementing Parallel Computing. In addition, it will be compiled and debugged both on Microsoft Windows and Linux as well. This process will be done by Cmake.
+The API Documentation of this project will be created by Doxygen. 
+\par
+A simple benchmark program will be written for testing this library. This game will be developed by C++ with SFML or SDL library. 
+Git will be used for source control and version control. The project is now available in following link. 
+\par
+https://github.com/kuyoonjo/DualStateFramework
+
+*********************************************************************
+\page GameDevelopment Game Development
+Games development is one of the most exciting areas of software development that you can work in. Game developers require skills and expertise in modeling, graphics programming,  game design, simulation and animation.
+
+\section GameDevelopmentGraphicsAPIs Graphics APIs
+\subsection GameDevelopmentGraphicsAPIsOpenGL OpenGL
+OpenGL is a multi-platform API for developing  2D and 3D graphics applications. Most of Libraries is based on OpenGL, such as SFML. OpenGL is the industry's most widely used and supported 2D and 3D graphics application programming interface, bringing thousands of applications to a wide variety of computer platforms. [\ref r1 "1"]
+\subsection GameDevelopmentGraphicsAPIsMicrosoftDirectX Microsoft DirectX
+Microsoft DirectX is a collection of APIs designed to allow development of games and multimedia applications on Microsoft platforms. It is the graphics technology powering today’s most impressive games. 
+
+\section GameDevelopmentMultimediaLibraries Multimedia Libraries
+\subsection GameDevelopmentMultimediaLibrariesSFML SFML
+SFML (Simple and Fast Multimedia Library) is a portable API written in C++ for multimedia programming based on OpenGL and OpenAL. It supports multiple programming languages such as C++ , Python, .Net and etc. It can be thought of as an object oriented alternative to SDL. SFML provides hardware accelerated 2D graphics, and supports OpenGL windowing and provides different modules that ease multimedia and game programming. [\ref r2 "2"] 
+\subsection GameDevelopmentMultimediaLibrariesSDL SDL
+SDL (Simple DirectMedia Layer) is a cross-platform development library designed to provide low level access to hardware via OpenGL and Direct3D. It support multiple programming languages (C/C++, python, .Net and etc.) [\ref r3 "3"]
+*********************************************************************
+
+\page ParallelProgrammingModel Parallel Programming Model
+Parallel programming model is a set of software technologies to express parallel algorithms and match applications with the underlying parallel systems.
+\section ParallelProgrammingModelSerialComputingvsParallelComputing Serial Computing vs Parallel Computing
+| Serial Computing | Parallel Computing |
+| :--------------- | :----------------- |
+| A problem is broken into a discrete series of instructions | A problem is broken into discrete parts that can be solved concurrently |
+| Instructions are executed sequentially one after another | Each part is further broken down to a series of instructions |
+| Executed on a single processor | Instructions from each part execute simultaneously on different processors |
+| Only one instruction may execute at any moment in time | An overall control/coordination mechanism is employed |
+\subsection ParallelProgrammingModelSerialComputingvsParallelComputingSerialComputingDiagram Serial Computing Diagram
+\image latex ResearchSerialComputingDiagram.png
+\subsection ParallelProgrammingModelSerialComputingvsParallelComputingParallelComputingDiagram Parallel Computing Diagram
+\image latex ResearchParallelComputingDiagram.png
+
+\section ParallelProgrammingModelOpenMP OpenMP
+The Open Multi-Processing (OpenMP) is a library that can be used to specify shared memory parallelism in Fortran and C/C++ programs. It provides a model for parallel programming that is portable across shared memory architectures from different vendors. The benefit of OpenMP is it is very easy. OpenMP is compiler directive based that means to use OpenMP you need a openMP supported Compiler.More information about the OpenMP API can be found at http://www.openmp.org. 
+
+\section ParallelProgrammingModelIntelTBB Intel TBB
+Intel Threading Building Blocks (Intel TBB) is a C and C++ library for creating high performance and scalable parallel applications. It provides a set of interfaces, functions, and renders for implementing parallelism. The advantage of Intel TBB is it is not compiler directive based as OpenMP that means you can use whatever compiler you preferred.
+*********************************************************************
+\section ParallelProgrammingModelConcurrencyModel Concurrency Model
+Concurrency is a property of systems in which several computations are executing simultaneously, and potentially interacting with each other. \n\n
+Concurrency vs Parallelism [\ref r4 "4"]
+| Concurrency | Parallelism |
+| :---------- | :---------- |
+| Concurrency is when two tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. Eg. multitasking on a single-core machine. | Parallelism is when tasks literally run at the same time. Eg. on a multicore processor. |
+| Eg. multitasking on a single-core machine. | Eg. on a multicore processor. |
+| A condition that exists when at least two threads are making progress. A more generalized form of parallelism that can include time-slicing as a form of virtual parallelism. | A condition that arises when at least two threads are executing simultaneously. |
+\n\n
+Example Concurrency Models:
+	- Actors Model
+	- CSP (Communicating Sequential Processes)
+	- Disruptor
+	- Thread
+*********************************************************************
+
+\page DevelopmentTools Development Tools
+\section DevelopmentToolsCppIDEsforMacOSX C++ IDEs for Mac OS X
+\subsection DevelopmentToolsCppIDEsforMacOSXXcode Xcode
+Xcode is the default software development IDE for Mac os X. It provides everything developers need to create great applications for Apple computers (Mac, iPhone, and iPad). Xcode has a good interface design, a good start up speed, and a good tool set for debugging.
+\subsection DevelopmentToolsCppIDEsforMacOSXNetBeans NetBeans
+NetBeans IDE is originally built for Java development. It has a good scalability that provides plugins for C++ development. It is free and open source and has a large community of users and developers around the world. NetBeans is written in Java so that it may be slower compared to native binary applications.
+\subsection DevelopmentToolsCppIDEsforMacOSXEclipse Eclipse
+Eclipses is similar to NetBeans. The only difference may be it has more plugins and slower. 
+
+\section DevelopmentToolsDocumentation Documentation
+\subsection DevelopmentToolsDocumentationDoxygen Doxygen
+Doxygen is the documentation tool for generating API documentation from source code.It is developed under Mac os and Linux, but also it supports Window or other Unix-like operating systems. Doxygen supports languages like C++, C#, Java, python, and etc.
+\subsection DevelopmentToolsDocumentationGraphviz Graphviz
+Graphviz is an open source graph visualization tool. It is easy to represent structural information as diagrams of abstract graphs and networks. Combining Doxygen and Graphviz can easily create OOP based UML diagram.
+\subsection DevelopmentToolsDocumentationUMLet
+UMLet is a n open source UML tool with a simple user interface. By using UMLet you can draw UML diagrams very fast. It allows you build sequence and activity diagrams from plain text. UMLet runs stand-alone or as Eclipse plug-in on Windows, Mac OS X and Linux.
+*********************************************************************
+
+\page SoftwarePackaging Software Packaging
+Software packaging is the process used to put a software product into an installation package so that it can be installed by the users of the product on their computers. 
+\section SoftwarePackagingOSXPackages OS X Packages
+In Mac OS X world, the installer packages have the file extension .pkg. Instead of distributing multiple files for a package, this allowed all of the software files to be contained in a single file for easier distribution with the benefit of package signing. 
+\n\n
+PackageMaker is part of the Xcode developer software suite. It provides a comfortable graphical user interface to help users create pkg installer easily. [\ref r5 "5"]
+\image latex ResearchPackegeMaker.png
+
+\section SoftwarePackagingOSXBundle OS X Bundle
+A Mac OS X bundle is a directory that allows related resources such as executable files, graphics, and database to be grouped together, and appears as a single file to the user. 
+	- A bundle with extension .app is an application bundle.
+	- A framework is an bundle with extension .framework. It contains dynamic library files and header files.
+
+\section SoftwarePackagingWindowsInstaller Windows Installer
+The Windows Installer is a software component used for the software packaging in Windows world. The component contains installation, maintenance, and removal of software. 
+\n\n
+InstallForge is a free installation creator. It provides a series of functions such as interface design, system environment variable settings, and software update. [\ref r6 "6"]
+\image latex ResearchInstallForge.png
+
+\section SoftwarePackagingDebianPackageManagement Debian Package Management
+Debian packages generally contain all of the files necessary to implement a set of related commands or features. 
+\n\n
+A Debian binary package can contain:
+	- executable files
+	- configuration files
+	- man pages
+	- copyright information
+	- relative documentation.
+Linux distributions use Debian package management:
+	- Ubuntu
+	- Debian
+
+Debreate is a Debian package builder. It makes it easy to use graphical user interface for packaging applications. [\ref r7 "7"]
+\image latex ResearchDebreate.png
+
+*********************************************************************
+\page Reference Reference
+	-# \anchor r1 "OpenGL OverviewData Encryption" [online] Available at: https://www.opengl.org/about/
+	-# \anchor r2 "SFML" Available at: http://www.sfml-dev.org/index.php
+	-# \anchor r3 "About SDL" [online] Available at: https://www.libsdl.org
+	-# \anchor r4 "Parallelism vs. Concurrency" [online] Available at: http://www.haskell.org/haskellwiki/Parallelism_vs._Concurrency
+	-# \anchor r5 "Mac OS X PackageMaker" [online video] Available at: https://www.youtube.com/watch?v=IMchiBazbiI
+	-# \anchor r6 "Installforge Official Website" [online] Available at: http://installforge.net
+	-# \anchor r7 "Debreate Official Website" [online] Available at: http://debreate.sourceforge.net
+*/

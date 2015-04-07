@@ -1,0 +1,117 @@
+/**
+\page FrameworkDesign Framwork Design
+\section FrameworkDesignArchitectureDesign Architecture Design
+The goal of this project is to implement concurrency and parallel. In this framework, each Synchronized Object process simultaneously after Dual State Framework started. The process shows as follow:
+\image latex DesignArchitecture.png
+	- "dsf" refers to Dual State Framework
+	- "so" followed by a number refers to Synchronized Object
+*********************************************************************
+
+\section FrameworkDesignProceduralDesign Procedural Design
+This diagram shows activities and interactions in one success evaluation(one frame in game).
+\image latex DesignProcedure.png
+As it shows, the system create a DualStateFramework object. A DualStateFramework object can have many SynchronizedObject objects. Each SynchronizedObject object has two Boxes. One is for processing messages. The other one is for receiving messages. The sequence is like this:
+	-# The DualStateFramework object starts with sending a “start” message.
+	-# Messages from receiver are popped out and then be pushed into processor.
+	-# Processor unpacks messages and evaluates function with arguments in each message sequently.
+
+After step 3, it will go back to step 2.  Step 2 and step 3 process alternatively and endlessly until the DualStateFramework object stopped.
+*********************************************************************
+
+\section FrameworkDesignInterfaceDesign Interface Design
+\subsection FrameworkDesignInterfaceDesignNamespace Namespace
+All classes in this framework is under the namespace "dsf", which is abbreviation of the project name "Dual State Framework".
+
+\subsection FrameworkDesignInterfaceDesigndsfRunnable dsf::Runnable
+The interface provides a protected pure virtual function run(), which will be called when subclass object starts. For example:
+~~~~~~~~~~~~~~~~{.cpp}
+	class MyDSF : public dsf::DualStateFrameword
+	{
+	protected:
+	    void run()
+	    {
+	        // do something here...
+	    }
+	}
+
+	void main()
+	{
+	    MyDSF dsf;
+	    dsf.start() // It will process MyDSF::run();
+	}
+~~~~~~~~~~~~~~~~
+
+\subsection FrameworkDesignInterfacedsfDualStateFramework dsf::DualStateFramework
+The starting pointer for the framework is the abstract class dsf::DualStateFramework. It provides essential functions for associating and managing its components (SynchronizedObject objects, function points, and etc.).  
+
+\subsection FrameworkDesignInterfacedsfSynchronisable dsf::Synchronisable
+Class dsf::Synchronisable is a template interface. It has a template member variable “next” and a pure virtual function “synchronise”. The variable is a copy of current class. The function synchronises the current state.
+~~~~~~~~~~~~~~~~{.cpp}
+	#include <dsf/Synchronisable.h>
+
+	class Vector3D
+	{
+	public:
+	    float x, y, z;
+	    Vector3D(float x, float y, float z) : x(x), y(y), z(z){}
+	};
+
+	class SyncVector : public dsf::Synchronisable<Vector3D>, public Vector3D
+	{
+	public:
+	    SyncInt(float x, float y, float z) : Vector3D(x, y, z) {
+	        this->next = new Vector3D(x, y, z);
+	    }
+	    void synchronise() override {
+	        this->x = this->next->x;
+	        this->y = this->next->y;
+	        this->z = this->next->z;
+	    }
+	};
+~~~~~~~~~~~~~~~~
+
+\subsection FrameworkDesignInterfacedsfTaskBox dsf::TaskBox
+The dsf::TaskBox contains a list of dsf::Task objects. It provides essential methods to control the list such as “push”, “pop”, and “isEmpty”. 
+
+\subsection FrameworkDesignInterfacedsfSynchronizedObject dsf::SynchronizedObject
+The dsf::SynchronizedObject is a subclass of dsf::TaskBox. In this framework, you can regard it as thread. It provides methods for implementing parallelism such as “send”, “receive”, and etc. Also, it implements interface dsf::Synchronisable<dsf::TaskBox>. Therefore, it has two copies of dsf::TaskBox. One is for receiving messages, and the other one is for executing messages.
+\image latex DesignInterfaceSynchronizedObject.png
+
+\subsection FrameworkDesignInterfacedsfTask dsf::Task
+This class have three members: from, function, and arguments, where "from" is a dsf::SynchronizedObject object who sent message to you. 
+
+\subsection FrameworkDesignInterfacedsfArgument dsf::Argument
+A dsf::Argument object can refer to any type of object. The following code is allowed:
+~~~~~~~~~~~~~~~~{.cpp}
+	dsf::Argument i = int(10);
+	dsf::Argument str = std::string("Hello");
+~~~~~~~~~~~~~~~~
+
+\subsection FrameworkDesignInterfacedsfTaskFunction dsf::TaskFunction
+The message in a dsf::Task is an object of dsf::TaskFunction.
+An object of dsf::TaskFunction is a function pointer whose function takes two dsf::SynchronizedObject objects, a dsf::Argument object as arguments. The constructor of dsf::TaskFunction takes a function pointer or a lambda expression as arguments. This is an example that uses lambda expression.
+~~~~~~~~~~~~~~~~{.cpp}
+dsf::TaskFunction* print = new dsf::TaskFunction([this](dsf::SynchronizedObject* to, 
+														dsf::SynchronizedObject* from,
+														dsf::TaskArgument* args)
+												{
+													auto syncObj = args->to<SyncObj*>();
+													std::cout << syncObj->getValue();
+													this->dsf->remove(to);
+												});
+~~~~~~~~~~~~~~~~
+
+\subsection FrameworkDesignInterfacedsfSynchronizedVar dsf::SynchronizedVar
+The purpose of this class is to make thread-safe variables for dsf::SynchronizedObject objects. A dsf::SynchronizedVar object has two member variables - “value” and “next”. The “value” is for read operation, and the “next” is for write operation. The function “synchronize” signs “next” to “value”. see example below:
+~~~~~~~~~~~~~~~~{.cpp}
+dsf::SynchronizedVar myInt; 
+myInt = int(8); // value == NULL, next == 8
+myInt.synchronise(); // value == 8, next == 8
+std::cout << myInt.to<int>() << std::endl; // output 8
+myInt = int(9); // value == 8, next == 9
+std::cout << myInt.to<int>() << std::endl; // output 8
+myInt.synchronise(); // value == 9, next == 9
+std::cout << myInt.to<int>() << std::endl; // output 9
+~~~~~~~~~~~~~~~~
+\image latex DesignInterfaceSynchronizedVar.png
+*/

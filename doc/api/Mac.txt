@@ -1,5 +1,5 @@
 /**
-* \page Mac Mac os X
+* \page Mac Mac OS X
 * Dual State Framework uses \link yctools yctools \endlink and \link tbb Intel tbb \endlink. Before the installation you need to install them first.
 
 * \section dependencies_mac Install Dependencies
