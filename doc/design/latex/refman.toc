@@ -1,7 +1,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Framwork Design}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Architecture Design}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}Procedural Design}{4}{section.2.2}
+\contentsline {section}{\numberline {2.1}Architectural Design}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Procedural Design}{3}{section.2.2}
 \contentsline {section}{\numberline {2.3}Interface Design}{4}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Namespace}{4}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Runnable}{4}{subsection.2.3.2}

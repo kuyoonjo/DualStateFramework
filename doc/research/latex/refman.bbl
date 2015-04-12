@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{sdl}
+About sdl.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{https://www.libsdl.org}.
+
+\bibitem{debreate}
+Debreate official website.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://debreate.sourceforge.net}.
+
+\bibitem{installforge}
+Installforge official website.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://installforge.net}.
+
+\bibitem{latex}
+Latex -- a document preparation systemr.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://www.latex-project.org}.
+
+\bibitem{PackageMaker}
+Mac os x packagemaker.
+\newblock video, Last checked: Apr. 2015.
+\newblock Available at: \url{https://www.youtube.com/watch?v=IMchiBazbiI}.
+
+\bibitem{opengl}
+Opengl overviewdata encryption.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{https://www.opengl.org/about/}.
+
+\bibitem{openglvsd3x}
+Opengl vs. directx: A comparison.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at:
+  \url{http://www.cprogramming.com/tutorial/openglvsdirectx.html}.
+
+\bibitem{parallelismVsConcurrency}
+Parallelism vs. concurrency.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at:
+  \url{https://wiki.haskell.org/Parallelism_vs._Concurrency}.
+
+\bibitem{sfml}
+Sfml.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://www.sfml-dev.org/index.php}.
+
+\end{thebibliography}

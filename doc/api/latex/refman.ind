@@ -37,15 +37,15 @@
     \subitem {do\+One\+Frame}, \hyperpage{14}
     \subitem {Dual\+State\+Framework}, \hyperpage{14}
     \subitem {get\+State}, \hyperpage{14}
-    \subitem {initialize}, \hyperpage{15}
+    \subitem {initialize}, \hyperpage{14}
     \subitem {refresh}, \hyperpage{15}
     \subitem {remove}, \hyperpage{15}
     \subitem {run}, \hyperpage{15}
     \subitem {send}, \hyperpage{15}
     \subitem {set\+Number\+Of\+Threads}, \hyperpage{15}
     \subitem {start}, \hyperpage{15}
-  \item {dsf\+::\+Lock}, \hyperpage{16}
-    \subitem {lock}, \hyperpage{17}
+  \item {dsf\+::\+Lock}, \hyperpage{15}
+    \subitem {lock}, \hyperpage{16}
     \subitem {locker}, \hyperpage{17}
     \subitem {unlock}, \hyperpage{17}
   \item {dsf\+::\+Runnable}, \hyperpage{17}
@@ -80,13 +80,13 @@
     \subitem {task\+Argument}, \hyperpage{25}
     \subitem {task\+Function}, \hyperpage{25}
     \subitem {to}, \hyperpage{25}
-  \item {dsf\+::\+Task\+Box}, \hyperpage{26}
+  \item {dsf\+::\+Task\+Box}, \hyperpage{25}
     \subitem {$\sim$\+Task\+Box}, \hyperpage{27}
     \subitem {is\+Empty}, \hyperpage{27}
     \subitem {pop}, \hyperpage{27}
     \subitem {process}, \hyperpage{27}
     \subitem {push}, \hyperpage{27}
-    \subitem {Task\+Box}, \hyperpage{27}
+    \subitem {Task\+Box}, \hyperpage{26}
     \subitem {tasks}, \hyperpage{27}
   \item {Dual\+State\+Framework}
     \subitem {dsf}, \hyperpage{12}
@@ -110,14 +110,14 @@
   \indexspace
 
   \item {initialize}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{15}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{14}
   \item {is\+Empty}
     \subitem {dsf\+::\+Task\+Box}, \hyperpage{27}
 
   \indexspace
 
   \item {lock}
-    \subitem {dsf\+::\+Lock}, \hyperpage{17}
+    \subitem {dsf\+::\+Lock}, \hyperpage{16}
   \item {locker}
     \subitem {dsf\+::\+Lock}, \hyperpage{17}
 
@@ -192,7 +192,7 @@
     \subitem {dsf}, \hyperpage{12}
   \item {Task\+Box}
     \subitem {dsf}, \hyperpage{12}
-    \subitem {dsf\+::\+Task\+Box}, \hyperpage{27}
+    \subitem {dsf\+::\+Task\+Box}, \hyperpage{26}
   \item {Task\+Function}
     \subitem {dsf}, \hyperpage{12}
   \item {task\+Function}

@@ -18,7 +18,7 @@
 \contentsline {section}{\numberline {3.2}Install Dual State Framework}{5}{section.3.2}
 \contentsline {section}{\numberline {3.3}Use D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F in Visual Studio}{5}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Add additional header path}{5}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Add Dependencies}{6}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.2}Add Dependencies}{5}{subsection.3.3.2}
 \contentsline {chapter}{\numberline {4}Linux}{7}{chapter.4}
 \contentsline {section}{\numberline {4.1}Install Dependencies}{7}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}yctools}{7}{subsection.4.1.1}
@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {7.1.4}Member Function Documentation}{14}{subsection.7.1.4}
 \contentsline {subsubsection}{\numberline {7.1.4.1}add}{14}{subsubsection.7.1.4.1}
 \contentsline {subsubsection}{\numberline {7.1.4.2}do\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}One\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Frame}{14}{subsubsection.7.1.4.2}
-\contentsline {subsubsection}{\numberline {7.1.4.3}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{15}{subsubsection.7.1.4.3}
+\contentsline {subsubsection}{\numberline {7.1.4.3}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{14}{subsubsection.7.1.4.3}
 \contentsline {subsubsection}{\numberline {7.1.4.4}initialize}{15}{subsubsection.7.1.4.4}
 \contentsline {subsection}{\numberline {7.1.5}Example}{15}{subsection.7.1.5}
 \contentsline {subsubsection}{\numberline {7.1.5.1}refresh}{15}{subsubsection.7.1.5.1}
@@ -60,11 +60,11 @@
 \contentsline {subsubsection}{\numberline {7.1.5.4}send}{15}{subsubsection.7.1.5.4}
 \contentsline {subsubsection}{\numberline {7.1.5.5}set\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Number\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Of\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Threads}{15}{subsubsection.7.1.5.5}
 \contentsline {subsubsection}{\numberline {7.1.5.6}start}{15}{subsubsection.7.1.5.6}
-\contentsline {section}{\numberline {7.2}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Lock Class Reference}{16}{section.7.2}
+\contentsline {section}{\numberline {7.2}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Lock Class Reference}{15}{section.7.2}
 \contentsline {subsection}{\numberline {7.2.1}Detailed Description}{16}{subsection.7.2.1}
 \contentsline {subsection}{\numberline {7.2.2}Example}{16}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Member Function Documentation}{17}{subsection.7.2.3}
-\contentsline {subsubsection}{\numberline {7.2.3.1}lock}{17}{subsubsection.7.2.3.1}
+\contentsline {subsection}{\numberline {7.2.3}Member Function Documentation}{16}{subsection.7.2.3}
+\contentsline {subsubsection}{\numberline {7.2.3.1}lock}{16}{subsubsection.7.2.3.1}
 \contentsline {subsubsection}{\numberline {7.2.3.2}unlock}{17}{subsubsection.7.2.3.2}
 \contentsline {subsection}{\numberline {7.2.4}Member Data Documentation}{17}{subsection.7.2.4}
 \contentsline {subsubsection}{\numberline {7.2.4.1}locker}{17}{subsubsection.7.2.4.1}
@@ -116,9 +116,9 @@
 \contentsline {subsubsection}{\numberline {7.7.3.2}task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Argument}{25}{subsubsection.7.7.3.2}
 \contentsline {subsubsection}{\numberline {7.7.3.3}task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Function}{25}{subsubsection.7.7.3.3}
 \contentsline {subsubsection}{\numberline {7.7.3.4}to}{25}{subsubsection.7.7.3.4}
-\contentsline {section}{\numberline {7.8}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box Class Reference}{26}{section.7.8}
+\contentsline {section}{\numberline {7.8}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box Class Reference}{25}{section.7.8}
 \contentsline {subsection}{\numberline {7.8.1}Detailed Description}{26}{subsection.7.8.1}
-\contentsline {subsection}{\numberline {7.8.2}Constructor \& Destructor Documentation}{27}{subsection.7.8.2}
+\contentsline {subsection}{\numberline {7.8.2}Constructor \& Destructor Documentation}{26}{subsection.7.8.2}
 \contentsline {subsubsection}{\numberline {7.8.2.1}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box}{27}{subsubsection.7.8.2.1}
 \contentsline {subsubsection}{\numberline {7.8.2.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box}{27}{subsubsection.7.8.2.2}
 \contentsline {subsection}{\numberline {7.8.3}Member Function Documentation}{27}{subsection.7.8.3}
@@ -128,4 +128,4 @@
 \contentsline {subsubsection}{\numberline {7.8.3.4}push}{27}{subsubsection.7.8.3.4}
 \contentsline {subsection}{\numberline {7.8.4}Member Data Documentation}{27}{subsection.7.8.4}
 \contentsline {subsubsection}{\numberline {7.8.4.1}tasks}{27}{subsubsection.7.8.4.1}
-\contentsline {chapter}{Index}{29}{section*.26}
+\contentsline {chapter}{Index}{29}{section*.2}

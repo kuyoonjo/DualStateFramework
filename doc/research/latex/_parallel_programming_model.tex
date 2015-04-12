@@ -22,7 +22,7 @@ The Open Multi-\/\+Processing (Open\+M\+P) is a library that can be used to spec
 Intel Threading Building Blocks (Intel T\+B\+B) is a C and C++ library for creating high performance and scalable parallel applications. It provides a set of interfaces, functions, and renders for implementing parallelism. The advantage of Intel T\+B\+B is it is not compiler directive based as Open\+M\+P that means you can use whatever compiler you preferred.\hypertarget{_parallel_programming_model_ParallelProgrammingModelConcurrencyModel}{}\section{Concurrency Model}\label{_parallel_programming_model_ParallelProgrammingModelConcurrencyModel}
 Concurrency is a property of systems in which several computations are executing simultaneously, and potentially interacting with each other. ~\newline
 ~\newline
-Concurrency vs Parallelism \mbox{[}\hyperlink{_reference_r4}{4}\mbox{]} \begin{TabularC}{2}
+Concurrency vs Parallelism \cite{parallelismVsConcurrency} \begin{TabularC}{2}
 \hline
 \rowcolor{lightgray}{\bf Concurrency }&{\bf Parallelism  }\\\cline{1-2}
 Concurrency is when two tasks can start, run, and complete in overlapping time periods. It doesn\textquotesingle{}t necessarily mean they\textquotesingle{}ll ever both be running at the same instant. Eg. multitasking on a single-\/core machine. &Parallelism is when tasks literally run at the same time. Eg. on a multicore processor. \\\cline{1-2}

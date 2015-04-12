@@ -1,6 +1,14 @@
 /**
 \page Introduction Introduction
-This document gives an overall description of the project, and shows the design of the project that can be easier to figure out the change in design. The project is going to build C++ library, so a benchmark program is required.
+This document gives an overall description of the project, and shows the design of the project that can be easier to figure out the change in design.
+The project is going to build C++ library, and a benchmark program to profile this library.
 	- Framework Design
 	- Benchmark Program Design
+
+The Framework Dsign chapter illustrates how the framework works, how to achieve the objective, and how to cooperate with this framework. this chapter has three sections:
+	- Architectural Design
+	- Procedural Design 
+	- Interface Design
+
+The Benchmark Program Design describes what the user interface looks like, what can be configured by user, and what the result should be.
 */

@@ -1,18 +1,14 @@
 /**
+\section Abstract _Abstract
+
+hi
 \page Introduction Introduction
-The document describes all functionalities estimated to be implemented for the project. It also shows what level of quality of the project should be achieved. Project plan and schedule are embedded in this document.
 \section IntroductionPurpose Purpose
-The main purpose of my project is to create a C++ framework for parallel computing. Parallel computing is the science and art of programming computers that can do more than one operation at once during the same cycle, simultaneously and concurrently. It performs often via having more than one processor.
-\n\n
-Next, A benchmark program is required for profiling this framework. The program will be designed as a GUI application which shows the performance in different situations
-\section IntroductionPlan Plan
-Dual State Framework will be developed by C++ under Mac Os X. OpenMP or Intel TBB is used for implementing Parallel Computing. In addition, it will be compiled and debugged both on Microsoft Windows and Linux as well. This process will be done by Cmake.
-The API Documentation of this project will be created by Doxygen. 
-\n\n
-The simple benchmark program will be written by C++ with SFML or SDL library. 
-Git will be used for source control and version control. The project is now available in following link. 
-\n\n
-https://github.com/kuyoonjo/DualStateFramework
+The main purpose of my project is to create a C++ framework for parallel computing. Parallel computing is the science and art of programming computers that can do more than one operation at once during the same cycle, simultaneously and concurrently. It performs often via having more than one processor.<br />
+Next, A benchmark program is required for profiling this framework. The program will be designed as a GUI application which shows the performance in the following list of deferences.
+	- Number of threads
+	- Number of objects
+
 \section IntroductionPotentialUsers Potential Users
 Dual State Framework can have a variety of uses. Initially the project is concerned around computer games, but it can be used in broad kinds of software. The framework can be used in any program or game that runs parallel processes. Currently almost all of them meet that criteria. 
 
@@ -96,41 +92,6 @@ Ensure that the product can be localized later for different languages and units
 The maintenance of the system shall be done as per the maintenance contract. 
 Update will be display when it is available.
 
-*********************************************************************
-\page ProjectPlan Project Plan
-\section ProjectPlanImplementation Implementation
-SCRUM agile development methodology will be used for the implementation phase of the project. It is a great way to keep focused on the individual tasks that need to be completed in order make the project a success. Due to short sprints and constant feedback, it becomes easier to cope with the changes. Changes to be made to the project will not be a big impact on the time schedule for the project.
-\n\n
-The duration for the development of the project will be broken down into sprints. The length of sprint for this project will be one week. In each sprint, a set amounts of task are expected to be completed. At the end of each sprint, how far the goal achieved, and how many issues met will be demonstrated to supervisor.
-\section ProjectPlanDocuments Documents
-The following documents will be done during the time scope:
-	- Vision Documentation
-		- It estimates the value and the risk of the project.
-		- It defines the stakeholders and users.
-	- Functional Specification
-		- It describes functionalities needed by the system.
-	- Design Documentation
-		- It shows the design for implementing functionalities that Functional Specification defined.
-	- Research Documentation
-		- It shows technologies obtained by doing the project.
-	- Technical Manual
-		- It demostrates how to use the framework.
 
-\section ProjectPlanSchedule Schedule
-	- Sprint 1: Generate the Vision Document. 
-	- Sprint 2: Finish the Vision Document, and start the Functional Specification. 
-	- Sprint 3: Finish the Functional Specification, and start the Research Document 
-	- Sprint 4: Start the Design Document 
-	- Sprint 5: Finish the Design Document, and setup develop environment 
-	- Sprint 6: Start coding the main framework. Define interfaces. 
-	- Sprint 7: Implement interfaces defined. 
-	- Sprint 8: Finish the first version. 
-	- Sprint 9: Test the first version. 
-	- Sprint 10: Start coding the profiler 
-	- Sprint 11: Implement the algorithm "Random" 
-	- Sprint 12: Implement the algorithm "Collision" 
-	- Sprint 13: Implement the algorithm "Flocking" 
-	- Sprint 14: Generate the API Document 
-	- Sprint 15: Hand up the final report 
 
 */

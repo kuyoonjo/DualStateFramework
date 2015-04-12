@@ -1,17 +1,43 @@
 /**
-\page Introduction Introduction
-\par
-The aim of this document is to outline the research conducted to obtain a greater understanding about the technologies that the Dual State Framework will use for the development. 
-\par
-The project is going to create a framework which implements parallel computing. It helps game developers be easier to parallelize. The research contains Game Development, Parallel Programming Model, Concurrency Model, and etc. 
-\par
-Dual State Framework will be developed by C++ under Mac Os X. OpenMP or Intel TBB is used for implementing Parallel Computing. In addition, it will be compiled and debugged both on Microsoft Windows and Linux as well. This process will be done by Cmake.
-The API Documentation of this project will be created by Doxygen. 
-\par
-A simple benchmark program will be written for testing this library. This game will be developed by C++ with SFML or SDL library. 
-Git will be used for source control and version control. The project is now available in following link. 
-\par
-https://github.com/kuyoonjo/DualStateFramework
+\page* Abstract Abstract
+This report was commissioned to investigate the possibility of developing the library Dual State Framework that helps programmers implement parallel computing easily. 
+The research covers:
+	- programming languages
+	- libraries for Graphics
+	- libraries of parallel programming 
+	- integrated development environments
+	- source control tools
+	- documentation tools
+	- software packaging tools
+
+According to the investigation, I think it is not hard to complete the project. The correct combination of Open Source and free applications seems to be the best choice to develop the framework.
+	- C++
+	- SFML
+	- Intel TBB
+	- Xcode
+	- Git
+	- Doxygen, Graphviz, and LaTex
+	- PackageMaker, Installforge, Debreate
+ 
+
+\page Overview Overview
+\section LockerinThreadSafety Locker in Thread Safety
+In the context of multi-threaded programs, shared data and be read and written by multiple threads during simultaneous execution. To keep the data correct, usually a locker is required. The function of locker is to make data to be accessed by only one thread at any given time. 
+For example, one thread tries to update the data. It locks the data to make it inaccessible by any other threads. After change, it can unlock the data and now the data is available for all threads. The disadvantage of locker is if one thread need to access the data but the data is locked by another thread, it should wait until the data is unlocked.
+\n\n
+\anchor eg1 Example 1 
+\image latex ResearchOverviewLockerinThreadSafety.png
+	- A variable is locked by a thread
+	- 100 threads need to read the variable
+	- 100 threads need to write the variable
+
+In this case, 200 threads are waiting for one variable.
+
+\section Theideaofthisproject The idea of this project
+The idea of this project is to make the variable in to two states: one for read and the other one for write. This is why the project name is Dual State Framework. Any time, a thread tries to lock the variable will lock the write copy. The read copy is always available for all thread.
+It means only threads that try to write the variable need wait. Back to \ref eg1 "Example 1", now we have only 100 threads are waiting.
+\image latex ResearchOverviewTheideaofthisproject.png
+
 
 *********************************************************************
 \page GameDevelopment Game Development
@@ -19,15 +45,43 @@ Games development is one of the most exciting areas of software development that
 
 \section GameDevelopmentGraphicsAPIs Graphics APIs
 \subsection GameDevelopmentGraphicsAPIsOpenGL OpenGL
-OpenGL is a multi-platform API for developing  2D and 3D graphics applications. Most of Libraries is based on OpenGL, such as SFML. OpenGL is the industry's most widely used and supported 2D and 3D graphics application programming interface, bringing thousands of applications to a wide variety of computer platforms. [\ref r1 "1"]
+OpenGL is a multi-platform API for developing  2D and 3D graphics applications. Most of Libraries is based on OpenGL, such as SFML. OpenGL is the industry's most widely used and supported 2D and 3D graphics application programming interface, bringing thousands of applications to a wide variety of computer platforms. \cite opengl
+
 \subsection GameDevelopmentGraphicsAPIsMicrosoftDirectX Microsoft DirectX
 Microsoft DirectX is a collection of APIs designed to allow development of games and multimedia applications on Microsoft platforms. It is the graphics technology powering today’s most impressive games. 
 
+\subsection GameDevelopmentGraphicsAPIsComparison OpenGL vs. DirectX
+
+| Feature: | OpenGL | DirectX |
+| :------- | :----- | :------ |
+| Vertex Blending					| 	N/A						| Yes
+| Multiple Operating Systems		| 	Yes						| No
+| Extension Mechanism				| 	Yes						| Yes
+| Development						| 	Multiple member Board	| Microsoft
+| Thorough Specification			| 	Yes						| No
+| Two-sided lighting				| 	Yes						| No
+| Volume Textures					| 	Yes						| No
+| Hardware independent Z-buffers	| 	Yes						| No
+| Accumulation buffers				| 	Yes						| No
+| Full-screen Antialiasing			| 	Yes						| Yes
+| Motion Blur						| 	Yes						| Yes
+| Depth of field					| 	Yes						| Yes
+| Stereo Rendering					| 	Yes						| No
+| Point-size/line-width attributes	| 	Yes						| No
+| Picking							| 	Yes						| No
+| Parametric curves and surfaces	| 	Yes						| No
+| Cache geometry					| 	Display Lists			| Vertex Buffers
+| System emulation					| 	Hardware not present	| Let app determine
+| Interface							| 	Procedure calls			| COM
+| Updates							| 	Yearly					| Yearly
+| Source Code						| 	Sample					| SDK Implementation
+\cite openglvsd3x
+
 \section GameDevelopmentMultimediaLibraries Multimedia Libraries
 \subsection GameDevelopmentMultimediaLibrariesSFML SFML
-SFML (Simple and Fast Multimedia Library) is a portable API written in C++ for multimedia programming based on OpenGL and OpenAL. It supports multiple programming languages such as C++ , Python, .Net and etc. It can be thought of as an object oriented alternative to SDL. SFML provides hardware accelerated 2D graphics, and supports OpenGL windowing and provides different modules that ease multimedia and game programming. [\ref r2 "2"] 
+SFML (Simple and Fast Multimedia Library) is a portable API written in C++ for multimedia programming based on OpenGL and OpenAL. It supports multiple programming languages such as C++ , Python, .Net and etc. It can be thought of as an object oriented alternative to SDL. SFML provides hardware accelerated 2D graphics, and supports OpenGL windowing and provides different modules that ease multimedia and game programming. \cite sfml 
 \subsection GameDevelopmentMultimediaLibrariesSDL SDL
-SDL (Simple DirectMedia Layer) is a cross-platform development library designed to provide low level access to hardware via OpenGL and Direct3D. It support multiple programming languages (C/C++, python, .Net and etc.) [\ref r3 "3"]
+SDL (Simple DirectMedia Layer) is a cross-platform development library designed to provide low level access to hardware via OpenGL and Direct3D. It support multiple programming languages (C/C++, python, .Net and etc.) \cite sdl
 *********************************************************************
 
 \page ParallelProgrammingModel Parallel Programming Model
@@ -52,7 +106,7 @@ Intel Threading Building Blocks (Intel TBB) is a C and C++ library for creating 
 *********************************************************************
 \section ParallelProgrammingModelConcurrencyModel Concurrency Model
 Concurrency is a property of systems in which several computations are executing simultaneously, and potentially interacting with each other. \n\n
-Concurrency vs Parallelism [\ref r4 "4"]
+Concurrency vs Parallelism \cite parallelismVsConcurrency
 | Concurrency | Parallelism |
 | :---------- | :---------- |
 | Concurrency is when two tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. Eg. multitasking on a single-core machine. | Parallelism is when tasks literally run at the same time. Eg. on a multicore processor. |
@@ -80,16 +134,17 @@ Eclipses is similar to NetBeans. The only difference may be it has more plugins 
 Doxygen is the documentation tool for generating API documentation from source code.It is developed under Mac os and Linux, but also it supports Window or other Unix-like operating systems. Doxygen supports languages like C++, C#, Java, python, and etc.
 \subsection DevelopmentToolsDocumentationGraphviz Graphviz
 Graphviz is an open source graph visualization tool. It is easy to represent structural information as diagrams of abstract graphs and networks. Combining Doxygen and Graphviz can easily create OOP based UML diagram.
-\subsection DevelopmentToolsDocumentationUMLet
-UMLet is a n open source UML tool with a simple user interface. By using UMLet you can draw UML diagrams very fast. It allows you build sequence and activity diagrams from plain text. UMLet runs stand-alone or as Eclipse plug-in on Windows, Mac OS X and Linux.
+\subsection DevelopmentToolsDocumentationUMLet UMLet
+UMLet is an open source UML tool with a simple user interface. By using UMLet you can draw UML diagrams very fast. It allows you build sequence and activity diagrams from plain text. UMLet is developped by Jave, so is runs on Windows, Mac OS X, Linux, and any Java supported device. An Eclipse plug-in is also available online.
+\subsection DevelopmentToolsDocumentationLaTex LaTex
+LaTeX is a high-quality typesetting system for the production of technical and scientific documentation. LaTeX is not the name of a particular editing application. It refers to the encoding or tagging conventions that are used in LaTeX documents. LaTeX can be used as a standalone document preparation system, or as an intermediate format. LaTeX is widely used in academia. \cite latex
 *********************************************************************
 
 \page SoftwarePackaging Software Packaging
 Software packaging is the process used to put a software product into an installation package so that it can be installed by the users of the product on their computers. 
 \section SoftwarePackagingOSXPackages OS X Packages
 In Mac OS X world, the installer packages have the file extension .pkg. Instead of distributing multiple files for a package, this allowed all of the software files to be contained in a single file for easier distribution with the benefit of package signing. 
-\n\n
-PackageMaker is part of the Xcode developer software suite. It provides a comfortable graphical user interface to help users create pkg installer easily. [\ref r5 "5"]
+PackageMaker is part of the Xcode developer software suite. It provides a comfortable graphical user interface to help users create pkg installer easily. \cite PackageMaker
 \image latex ResearchPackegeMaker.png
 
 \section SoftwarePackagingOSXBundle OS X Bundle
@@ -100,7 +155,7 @@ A Mac OS X bundle is a directory that allows related resources such as executabl
 \section SoftwarePackagingWindowsInstaller Windows Installer
 The Windows Installer is a software component used for the software packaging in Windows world. The component contains installation, maintenance, and removal of software. 
 \n\n
-InstallForge is a free installation creator. It provides a series of functions such as interface design, system environment variable settings, and software update. [\ref r6 "6"]
+InstallForge is a free installation creator. It provides a series of functions such as interface design, system environment variable settings, and software update. \cite installforge
 \image latex ResearchInstallForge.png
 
 \section SoftwarePackagingDebianPackageManagement Debian Package Management
@@ -116,16 +171,19 @@ Linux distributions use Debian package management:
 	- Ubuntu
 	- Debian
 
-Debreate is a Debian package builder. It makes it easy to use graphical user interface for packaging applications. [\ref r7 "7"]
+Debreate is a Debian package builder. It makes it easy to use graphical user interface for packaging applications. \cite debreate
 \image latex ResearchDebreate.png
-
 *********************************************************************
-\page Reference Reference
-	-# \anchor r1 "OpenGL OverviewData Encryption" [online] Available at: https://www.opengl.org/about/
-	-# \anchor r2 "SFML" Available at: http://www.sfml-dev.org/index.php
-	-# \anchor r3 "About SDL" [online] Available at: https://www.libsdl.org
-	-# \anchor r4 "Parallelism vs. Concurrency" [online] Available at: http://www.haskell.org/haskellwiki/Parallelism_vs._Concurrency
-	-# \anchor r5 "Mac OS X PackageMaker" [online video] Available at: https://www.youtube.com/watch?v=IMchiBazbiI
-	-# \anchor r6 "Installforge Official Website" [online] Available at: http://installforge.net
-	-# \anchor r7 "Debreate Official Website" [online] Available at: http://debreate.sourceforge.net
+
+\page Conclusion Conclusion
+After looking into all of the differences, I have decided to use Intel TBB to develop the library.
+OpenMP is easy to use however, it uses compiler directives, which means not all compiler support OpenMP. For example, the default compiler in Mac OS X does not support OpenMP. Intel TBB is a library developed by C++ so that any C++ compiler can use it.
+\n\n
+Because Intel TBB is a C++ library, so the programming language is C++.
+The graphic library will be SFML because of the object oriented programming. Also, SFML is available in multiple platform.
+The C++ IDE is Xcode, which has the best performance under Mac system. It has a serious of tools for debugging such as memory leak detector. Also, use Xcode to create Mac application bundles will be very simple. However, this project is not only for Mac users, so I will use CMake to make the project portable for other operating systems.
+\n\n
+I will use Git for source control because it is the most powerful and most widely used. Github provides a free service that user can create public repositories for free. Doxygen, Graphviz, and LaTex will be used for documentation. Doxygen can generate document from code. Graphviz can create class diagrams from code. The reason I choose LaTex indeed of visible document editors like Microsoft Word, Google Doc, or Apple Pages is that Doxygen can only generate html and latex documents. 
+\n\n
+PackageMaker, Installforge, and Debreate will be used for Mac OS X, Microsoft Window, and Debian-like Linux. All of them are GUI and simple.
 */

@@ -1,6 +1,6 @@
 /**
 \page FrameworkDesign Framwork Design
-\section FrameworkDesignArchitectureDesign Architecture Design
+\section FrameworkDesignArchitectureDesign Architectural Design
 The goal of this project is to implement concurrency and parallel. In this framework, each Synchronized Object process simultaneously after Dual State Framework started. The process shows as follow:
 \image latex DesignArchitecture.png
 	- "dsf" refers to Dual State Framework

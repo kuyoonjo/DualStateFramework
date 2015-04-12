@@ -26,8 +26,8 @@
 \indexentry{do\+One\+Frame@{do\+One\+Frame}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}|hyperpage}{14}
 \indexentry{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!get\+State@{get\+State}|hyperpage}{14}
 \indexentry{get\+State@{get\+State}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}|hyperpage}{14}
-\indexentry{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!initialize@{initialize}|hyperpage}{15}
-\indexentry{initialize@{initialize}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}|hyperpage}{15}
+\indexentry{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!initialize@{initialize}|hyperpage}{14}
+\indexentry{initialize@{initialize}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}|hyperpage}{14}
 \indexentry{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!refresh@{refresh}|hyperpage}{15}
 \indexentry{refresh@{refresh}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}|hyperpage}{15}
 \indexentry{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!remove@{remove}|hyperpage}{15}
@@ -40,9 +40,9 @@
 \indexentry{set\+Number\+Of\+Threads@{set\+Number\+Of\+Threads}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}|hyperpage}{15}
 \indexentry{dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}!start@{start}|hyperpage}{15}
 \indexentry{start@{start}!dsf\+::\+Dual\+State\+Framework@{dsf\+::\+Dual\+State\+Framework}|hyperpage}{15}
-\indexentry{dsf\+::\+Lock@{dsf\+::\+Lock}|hyperpage}{16}
-\indexentry{dsf\+::\+Lock@{dsf\+::\+Lock}!lock@{lock}|hyperpage}{17}
-\indexentry{lock@{lock}!dsf\+::\+Lock@{dsf\+::\+Lock}|hyperpage}{17}
+\indexentry{dsf\+::\+Lock@{dsf\+::\+Lock}|hyperpage}{15}
+\indexentry{dsf\+::\+Lock@{dsf\+::\+Lock}!lock@{lock}|hyperpage}{16}
+\indexentry{lock@{lock}!dsf\+::\+Lock@{dsf\+::\+Lock}|hyperpage}{16}
 \indexentry{dsf\+::\+Lock@{dsf\+::\+Lock}!unlock@{unlock}|hyperpage}{17}
 \indexentry{unlock@{unlock}!dsf\+::\+Lock@{dsf\+::\+Lock}|hyperpage}{17}
 \indexentry{dsf\+::\+Lock@{dsf\+::\+Lock}!locker@{locker}|hyperpage}{17}
@@ -104,9 +104,9 @@
 \indexentry{task\+Function@{task\+Function}!dsf\+::\+Task@{dsf\+::\+Task}|hyperpage}{25}
 \indexentry{dsf\+::\+Task@{dsf\+::\+Task}!to@{to}|hyperpage}{25}
 \indexentry{to@{to}!dsf\+::\+Task@{dsf\+::\+Task}|hyperpage}{25}
-\indexentry{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}|hyperpage}{26}
-\indexentry{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!Task\+Box@{Task\+Box}|hyperpage}{27}
-\indexentry{Task\+Box@{Task\+Box}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}|hyperpage}{27}
+\indexentry{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}|hyperpage}{25}
+\indexentry{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!Task\+Box@{Task\+Box}|hyperpage}{26}
+\indexentry{Task\+Box@{Task\+Box}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}|hyperpage}{26}
 \indexentry{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!````~Task\+Box@{$\sim$\+Task\+Box}|hyperpage}{27}
 \indexentry{````~Task\+Box@{$\sim$\+Task\+Box}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}|hyperpage}{27}
 \indexentry{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!is\+Empty@{is\+Empty}|hyperpage}{27}

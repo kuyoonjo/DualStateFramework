@@ -42,6 +42,11 @@
   left=2.5cm,%
   right=2.5cm%
 }
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 \tolerance=750
 \hfuzz=15pt
 \hbadness=750
@@ -137,16 +142,20 @@
 \end{center}
 \end{titlepage}
 \clearemptydoublepage
+\chapter*{Abstract}
+\label{_abstract}
+\hypertarget{_abstract}{}
+\input{_abstract}
 \tableofcontents
 \clearemptydoublepage
 \pagenumbering{arabic}
 \hypersetup{pageanchor=true}
 
 %--- Begin generated contents ---
-\chapter{Introduction}
-\label{_introduction}
-\hypertarget{_introduction}{}
-\input{_introduction}
+\chapter{Overview}
+\label{_overview}
+\hypertarget{_overview}{}
+\input{_overview}
 \chapter{Game Development}
 \label{_game_development}
 \hypertarget{_game_development}{}
@@ -163,11 +172,18 @@
 \label{_software_packaging}
 \hypertarget{_software_packaging}{}
 \input{_software_packaging}
-\chapter{Reference}
-\label{_reference}
-\hypertarget{_reference}{}
-\input{_reference}
+\chapter{Conclusion}
+\label{_conclusion}
+\hypertarget{_conclusion}{}
+\input{_conclusion}
 %--- End generated contents ---
+
+% Bibliography
+\newpage
+\phantomsection
+\bibliographystyle{plain}
+\bibliography{bibTmpFile_1}
+\addcontentsline{toc}{chapter}{Bibliography}
 
 % Index
 \backmatter
