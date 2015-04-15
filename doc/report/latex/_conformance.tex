@@ -1,0 +1,67 @@
+\hypertarget{_conformance_SetupDevelopmentEnvironment}{}\section{Setup Development Environment}\label{_conformance_SetupDevelopmentEnvironment}
+The operating system of my laptop is Mac O\+S X Yosemite \cite{osxyosemite}. I have installed V\+Mware Fusion \cite{vmwarefusion} and have created two virtual machine for other operating systems(Microsoft Windows 7 \cite{microsoftwindows7} and Ubuntu 14.\+04 L\+T\+S \cite{ubuntu14_04LTS}). The development will be mainly taken place under Mac, and tested in all these three operating systems. \hypertarget{_conformance_SetupDevelopmentEnvironmentCppCompilerandIDE}{}\subsection{C++ Compiler and I\+D\+E}\label{_conformance_SetupDevelopmentEnvironmentCppCompilerandIDE}
+\begin{DoxyParagraph}{Mac O\+S X}
+To setup Xcode \cite{xcode} and default C++ compiler L\+L\+V\+M \cite{llvm} in Mac O\+S X is very easy.
+\begin{DoxyItemize}
+\item Open App Store → search \char`\"{}\+Xcode\char`\"{} → click \char`\"{}get\char`\"{} button
+\end{DoxyItemize}
+\end{DoxyParagraph}
+After the installation, the I\+D\+E Xcode and the compiler L\+L\+V\+M is installed. To see the information about clang by command \char`\"{}clang -\/-\/version\char`\"{}. 
+\begin{DoxyCode}
+MacBook-Pro:~ yuchen$ clang --version
+Apple LLVM version 6.1.0 (clang-602.0.49) (based on LLVM 3.6.0svn)
+Target: x86\_64-apple-darwin14.3.0
+\end{DoxyCode}
+ \begin{DoxyParagraph}{Microsoft Windows}
+Download Visual Studio Community \cite{visualstudiocommunity} from \href{https://www.visualstudio.com}{\tt https\+://www.\+visualstudio.\+com} and install it. Visual Studio has its own embedded C++ compiler. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Ubuntu}
+Open a terminal and type following command to install the G\+N\+U Compiler Collection(\+G\+C\+C) \cite{gcc} 
+\begin{DoxyCode}
+sudo apt-\textcolor{keyword}{get} install build-essential
+\end{DoxyCode}
+ Type \char`\"{}gcc -\/v\char`\"{} to print the descriptions. 
+\begin{DoxyCode}
+yu@ubuntu:~$ gcc -v
+Using built-in specs.
+COLLECT\_GCC=gcc
+COLLECT\_LTO\_WRAPPER=/usr/lib/gcc/x86\_64-linux-gnu/4.8/lto-wrapper
+Target: x86\_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion=\textcolor{stringliteral}{'Ubuntu 4.8.2-19ubuntu1'} --with-bugurl=file:
+Thread model: posix
+gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) 
+\end{DoxyCode}
+
+\end{DoxyParagraph}
+\hypertarget{_conformance_SetupDevelopmentEnvironmentThirdpartylibraries}{}\subsection{Third party libraries}\label{_conformance_SetupDevelopmentEnvironmentThirdpartylibraries}
+\begin{DoxyParagraph}{Intel Threading Building Blocks}
+Intel T\+B\+B \cite{inteltbb} is a C++ library for parallel computing. Use Homebrew \cite{homebrew} to Install the library for Mac O\+S X\+: 
+\begin{DoxyCode}
+$ brew install libtbb
+\end{DoxyCode}
+ For Ubuntu use following command 
+\begin{DoxyCode}
+$ sudo apt-\textcolor{keyword}{get} install libtbb2
+\end{DoxyCode}
+ For Window need go to its download page \href{https://www.threadingbuildingblocks.org/download}{\tt https\+://www.\+threadingbuildingblocks.\+org/download}. Download the Windows version binaries package and unzip it.
+\begin{DoxyItemize}
+\item First, create a a new folder. The full path of it is \char`\"{}\+C\+:\textbackslash{}\+Program Files\textbackslash{}tbb\char`\"{}. Inside the folder create three folders \char`\"{}include\char`\"{}, \char`\"{}lib\char`\"{}, and \char`\"{}bin\char`\"{}.
+\item Secondly, go to the unzipped folder. Copy everything inside the \char`\"{}include\char`\"{} to the \char`\"{}include\char`\"{} has just been created.
+\item Inside the \char`\"{}lib\char`\"{}, there are two folders \char`\"{}ia32\char`\"{} and \char`\"{}intel64\char`\"{} that means the architecture of operating system. My Window 7 is 32 bits, so I chose the \char`\"{}ia32\char`\"{}. Again, inside \char`\"{}ia32\char`\"{}, there are many folders those are the versions of Visual Studio. The version of Visual Studio that I installed is 2013. The core of Visual Studio 2013 is vs2012, so copy all files inside \char`\"{}vc12\char`\"{} to the folder \char`\"{}lib\char`\"{} which has just been created.
+\item Inside the \char`\"{}bin\char`\"{}, do the same thing as \char`\"{}lib\char`\"{} did.
+\item Create a environment variable \char`\"{}tbb\char`\"{} refers to the directory \char`\"{}\+C\+:\textbackslash{}\+Program Files\textbackslash{}tbb\char`\"{}.
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{S\+F\+M\+L}
+Simple and Fast Multimedia Library(S\+F\+M\+L \cite{sfml}) is a graphics library. For Mac, just go to the download page \href{http://www.sfml-dev.org/download/sfml/2.1/}{\tt http\+://www.\+sfml-\/dev.\+org/download/sfml/2.\+1/} to get the installer and run it. For Ubuntu, just need one line command\+: 
+\begin{DoxyCode}
+sudo apt-\textcolor{keyword}{get} install libsfml-dev
+\end{DoxyCode}
+ However, there is a problem for Windows. When I went to its download page, I could not find the version for Visual Studio 2013. The solution is to compile the source code which can be cloned from \href{https://github.com/LaurentGomila/SFML.git}{\tt https\+://github.\+com/\+Laurent\+Gomila/\+S\+F\+M\+L.\+git}.
+\end{DoxyParagraph}
+\hypertarget{_conformance_SetupDevelopmentEnvironmentOtherTools}{}\subsection{Other Tools}\label{_conformance_SetupDevelopmentEnvironmentOtherTools}
+
+\begin{DoxyItemize}
+\item Source\+Tree \cite{sourcetree}, a G\+U\+I git front-\/end, which is available in both Mac and Windows.
+\item cmake-\/gui \cite{cmakegui}, the official G\+U\+I front-\/end for C\+Make, available in Mac, Windows, and Linux. 
+\end{DoxyItemize}

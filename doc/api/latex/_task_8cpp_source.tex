@@ -1,0 +1,32 @@
+\hypertarget{_task_8cpp_source}{}\section{Task.\+cpp}
+\label{_task_8cpp_source}\index{Task.\+cpp@{Task.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Parallel.cpp}
+00003 \textcolor{comment}{//  DualStateFramework}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+00006 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#}\textcolor{preprocessor}{include} \textcolor{preprocessor}{<}\textcolor{preprocessor}{dsf}\textcolor{preprocessor}{/}\textcolor{preprocessor}{Task}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}
+00010 \textcolor{keyword}{namespace} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}
+00011 \{
+\hypertarget{_task_8cpp_source_l00012}{}\hyperlink{classdsf_1_1_task_afa460a63f94f30df36df5661de1dbe1a}{00012}     Task::Task(SynchronizedObject* to,
+00013                SynchronizedObject* from,
+00014                TaskFunction* taskFunction,
+00015                TaskArgument* taskArgument)
+00016     \{
+00017         \textcolor{keyword}{this}->to = to;
+00018         \textcolor{keyword}{this}->from = from;
+00019         \textcolor{keyword}{this}->taskFunction = taskFunction;
+00020         \textcolor{keyword}{this}->taskArgument = taskArgument;
+00021     \}
+00022 
+\hypertarget{_task_8cpp_source_l00023}{}\hyperlink{classdsf_1_1_task_a617ffc1b2f418f061fbc168d74ed5a55}{00023}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task}::~\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task}()
+00024     \{
+00025         \textcolor{keyword}{delete} \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{taskArgument};
+00026     \}
+00027 \}
+\end{DoxyCode}

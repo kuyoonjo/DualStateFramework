@@ -1,0 +1,64 @@
+\hypertarget{_vector3_d_8h_source}{}\section{Vector3\+D.\+h}
+\label{_vector3_d_8h_source}\index{Vector3\+D.\+h@{Vector3\+D.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Vector3D.h}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 3/22/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef profiler\_Vector3D\_h}
+00010 \textcolor{preprocessor}{#define profiler\_Vector3D\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <cmath>}
+00013 
+\hypertarget{_vector3_d_8h_source_l00014}{}\hyperlink{class_vector3_d}{00014} \textcolor{keyword}{class }\hyperlink{class_vector3_d}{Vector3D} \{
+00015 \textcolor{keyword}{protected}:
+\hypertarget{_vector3_d_8h_source_l00016}{}\hyperlink{class_vector3_d_aca5d15bdb846448e3cb73b072783f329}{00016}     \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_aca5d15bdb846448e3cb73b072783f329}{x};
+\hypertarget{_vector3_d_8h_source_l00017}{}\hyperlink{class_vector3_d_a9b6d194fcf526d7d4f9e902421285e94}{00017}     \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_a9b6d194fcf526d7d4f9e902421285e94}{y};
+\hypertarget{_vector3_d_8h_source_l00018}{}\hyperlink{class_vector3_d_af9728f1eba23b9ee091755346214f391}{00018}     \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_af9728f1eba23b9ee091755346214f391}{z};
+00019 \textcolor{keyword}{public}:
+00020     \textcolor{keyword}{explicit} \hyperlink{class_vector3_d_a2716997bbfe6f8ef2a7d6714f60295e5}{Vector3D}(\textcolor{keywordtype}{float} x=0, \textcolor{keywordtype}{float} y=0, \textcolor{keywordtype}{float} z=0);
+00021     \textcolor{keyword}{virtual} \hyperlink{class_vector3_d_ae4fde5759270bf5bcf615f12f0823a8c}{~Vector3D}();
+00022     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a235d1179c738481646a9bb3163126772}{operator=}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& obj);
+00023     
+00024     \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_af3d8e02a27e13d31831a3329402548c2}{getX}();
+00025     \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_abcffa21ac0e55556ff519ef521f6fbc0}{getY}();
+00026     \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_a5f54a4dc4864266c310949f9fe53df81}{getZ}();
+00027     
+00028     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_ac3904b095a2440b9067effc640cf7e5e}{setX}(\textcolor{keywordtype}{float} x);
+00029     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a4672b17cd2a364928149b689958e273d}{setY}(\textcolor{keywordtype}{float} y);
+00030     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a2433f43f72a29a8b330ca6ef346eb6ab}{setZ}(\textcolor{keywordtype}{float} z);
+00031     
+00032     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a5d95bd96475b28f6f0a1f4206400bddf}{setXY}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);
+00033     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a9e643441263c2f8dc804a19b9f8f792f}{setXYZ}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z);
+00034     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a9e643441263c2f8dc804a19b9f8f792f}{setXYZ}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v);
+00035     
+00036     \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_a1139cce4839680afb01a9612eda6e117}{magnitude}();
+00037     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_abfb12ecb9c9beb88e095cc4a1a512d3c}{normalize}();
+00038     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a662cc3834556d61ed29890135c280b04}{limit}(\textcolor{keywordtype}{float} max);
+00039     \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_ac3f23c65b3f67e4b89cc2b92714517a4}{heading2D}();
+00040     \textcolor{keywordtype}{float} \hyperlink{class_vector3_d_a9a7e9d08bcee80d419986b875d704e5e}{distance} (\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v);
+00041     
+00042     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_ac47070b057dc8aeae60ad59cb2b32114}{add}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v);
+00043     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_acd0042055681c8d51964fcf972f16124}{operator+=}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v);
+00044     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a7382a2c358e364d2fbfd4c9cc621eac9}{sub}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v);
+00045     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a59565fd3b2f7012dd288c7481a077cb4}{operator-=}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v);
+00046     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a24fba77b4f4eef3094ece55b189154de}{mul}(\textcolor{keywordtype}{float} n);
+00047     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_ada5c7b7a4b76631d4110c8dd1b7481ba}{operator*=}(\textcolor{keywordtype}{float} n);
+00048     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_a2903bc421971e5734281b58ab05f6313}{div}(\textcolor{keywordtype}{float} n);
+00049     \textcolor{keywordtype}{void} \hyperlink{class_vector3_d_abaa4a4c2ed6720d9e8552c3c3802796e}{operator/=}(\textcolor{keywordtype}{float} n);
+00050     
+00051     
+00052     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_vector3_d_a9afe871c53a3edce04a13ba1386122a2}{operator+}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v) \textcolor{keyword}{const};
+00053     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_vector3_d_aaf121384ca486a88570b29aba21c5972}{operator-}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v) \textcolor{keyword}{const};
+00054     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_vector3_d_a4fca1d38e68d3542ac94c01539dbd410}{operator/}(\textcolor{keywordtype}{float} n) \textcolor{keyword}{const};
+00055     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_vector3_d_a9f8ba749fddc5f1fa5cfe976820735f5}{operator*}(\textcolor{keywordtype}{float} n) \textcolor{keyword}{const};
+00056     
+00057 \};
+00058 
+00059 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

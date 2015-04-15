@@ -1,0 +1,103 @@
+\hypertarget{classdsf_1_1_runnable}{}\section{dsf\+:\+:Runnable Class Reference}
+\label{classdsf_1_1_runnable}\index{dsf\+::\+Runnable@{dsf\+::\+Runnable}}
+
+
+Executing messages.  
+
+
+
+
+{\ttfamily \#include $<$Runnable.\+h$>$}
+
+
+
+Inherited by \hyperlink{classdsf_1_1_dual_state_framework}{dsf\+::\+Dual\+State\+Framework}, and \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object}.
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State} \{ \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991ad7167727fe5c31678c166aee6801ba0a}{R\+U\+N\+N\+I\+N\+G}, 
+\hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a0897925165e6577c4d3ebb185178c9c5}{S\+T\+O\+P\+P\+E\+D}, 
+\hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a60038f4f186bbe0d05fdbbe9da0f85de}{R\+E\+A\+D\+Y}, 
+\hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991aea5cfe327f95ca42d589e660b7cffe28}{D\+E\+L\+E\+T\+E\+D}
+ \}
+\begin{DoxyCompactList}\small\item\em State of the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State} \hyperlink{classdsf_1_1_runnable_a139342b0d6d53fc7f1bbd97d99d3724a}{get\+State} ()=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdsf_1_1_runnable_a6e23b3b551a7cfdbff0e9ba2265d4378}{run} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Executing messages. 
+
+The interface provides a run method which executes messages. 
+
+Definition at line \hyperlink{_runnable_8h_source_l00017}{17} of file \hyperlink{_runnable_8h_source}{Runnable.\+h}.
+
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{}\index{dsf\+::\+Runnable@{dsf\+::\+Runnable}!State@{State}}
+\index{State@{State}!dsf\+::\+Runnable@{dsf\+::\+Runnable}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf dsf\+::\+Runnable\+::\+State}}\label{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}
+
+
+State of the object. 
+
+R\+U\+N\+N\+I\+N\+G\+: The object is running. ~\newline
+ S\+T\+O\+P\+P\+E\+D\+: The object is stopped. ~\newline
+ R\+E\+A\+D\+Y\+: The object is ready to run. ~\newline
+ D\+E\+L\+E\+T\+E\+D\+: The object is marked as deleted. System will automatically delete it. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{R\+U\+N\+N\+I\+N\+G@{R\+U\+N\+N\+I\+N\+G}!dsf\+::\+Runnable@{dsf\+::\+Runnable}}\index{dsf\+::\+Runnable@{dsf\+::\+Runnable}!R\+U\+N\+N\+I\+N\+G@{R\+U\+N\+N\+I\+N\+G}}\item[{\em 
+\hypertarget{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991ad7167727fe5c31678c166aee6801ba0a}{}R\+U\+N\+N\+I\+N\+G\label{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991ad7167727fe5c31678c166aee6801ba0a}
+}]\index{S\+T\+O\+P\+P\+E\+D@{S\+T\+O\+P\+P\+E\+D}!dsf\+::\+Runnable@{dsf\+::\+Runnable}}\index{dsf\+::\+Runnable@{dsf\+::\+Runnable}!S\+T\+O\+P\+P\+E\+D@{S\+T\+O\+P\+P\+E\+D}}\item[{\em 
+\hypertarget{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a0897925165e6577c4d3ebb185178c9c5}{}S\+T\+O\+P\+P\+E\+D\label{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a0897925165e6577c4d3ebb185178c9c5}
+}]\index{R\+E\+A\+D\+Y@{R\+E\+A\+D\+Y}!dsf\+::\+Runnable@{dsf\+::\+Runnable}}\index{dsf\+::\+Runnable@{dsf\+::\+Runnable}!R\+E\+A\+D\+Y@{R\+E\+A\+D\+Y}}\item[{\em 
+\hypertarget{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a60038f4f186bbe0d05fdbbe9da0f85de}{}R\+E\+A\+D\+Y\label{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a60038f4f186bbe0d05fdbbe9da0f85de}
+}]\index{D\+E\+L\+E\+T\+E\+D@{D\+E\+L\+E\+T\+E\+D}!dsf\+::\+Runnable@{dsf\+::\+Runnable}}\index{dsf\+::\+Runnable@{dsf\+::\+Runnable}!D\+E\+L\+E\+T\+E\+D@{D\+E\+L\+E\+T\+E\+D}}\item[{\em 
+\hypertarget{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991aea5cfe327f95ca42d589e660b7cffe28}{}D\+E\+L\+E\+T\+E\+D\label{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991aea5cfe327f95ca42d589e660b7cffe28}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line \hyperlink{_runnable_8h_source_l00027}{27} of file \hyperlink{_runnable_8h_source}{Runnable.\+h}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdsf_1_1_runnable_a139342b0d6d53fc7f1bbd97d99d3724a}{}\index{dsf\+::\+Runnable@{dsf\+::\+Runnable}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!dsf\+::\+Runnable@{dsf\+::\+Runnable}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf State} dsf\+::\+Runnable\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdsf_1_1_runnable_a139342b0d6d53fc7f1bbd97d99d3724a}
+Returns the current state. 
+
+Implemented in \hyperlink{classdsf_1_1_dual_state_framework_aca55fd7ccccf9637aa4cd626cd2bbe58}{dsf\+::\+Dual\+State\+Framework}, and \hyperlink{classdsf_1_1_synchronized_object_a9fbf045eff345188935402ae576933eb}{dsf\+::\+Synchronized\+Object}.
+
+\hypertarget{classdsf_1_1_runnable_a6e23b3b551a7cfdbff0e9ba2265d4378}{}\index{dsf\+::\+Runnable@{dsf\+::\+Runnable}!run@{run}}
+\index{run@{run}!dsf\+::\+Runnable@{dsf\+::\+Runnable}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}virtual void dsf\+::\+Runnable\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{classdsf_1_1_runnable_a6e23b3b551a7cfdbff0e9ba2265d4378}
+Executes messages 
+
+Implemented in \hyperlink{classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b}{dsf\+::\+Dual\+State\+Framework}, \hyperlink{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{dsf\+::\+Synchronized\+Object}, \hyperlink{class_my_d_s_f_1_1_sender_a0d328bcb8646e429712d2dd62ab9d201}{My\+D\+S\+F\+::\+Sender}, \hyperlink{class_my_d_s_f_ad8c4269e040ef6373f36411cf8e5d2f2}{My\+D\+S\+F}, \hyperlink{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{Sync\+Flocking\+Boid}, \hyperlink{class_sync_bouncing_circle_a65add49b37f08c7c2c1ab24fc2251f5a}{Sync\+Bouncing\+Circle}, and \hyperlink{class_sync_circle_aa3087260d193fe4fee75b2adcfb986a3}{Sync\+Circle}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_runnable_8h}{Runnable.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,95 @@
+\hypertarget{classdsf_1_1_synchronized_var}{}\section{dsf\+:\+:Synchronized\+Var Class Reference}
+\label{classdsf_1_1_synchronized_var}\index{dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}}
+
+
+A Class which implements \hyperlink{classdsf_1_1_synchronisable}{dsf\+::\+Synchronisable}.  
+
+
+
+
+{\ttfamily \#include $<$Synchronized\+Var.\+h$>$}
+
+
+
+Inherits \hyperlink{classdsf_1_1_synchronisable}{dsf\+::\+Synchronisable$<$ yc\+::\+Any $>$}, \hyperlink{classyc_1_1_any}{yc\+::\+Any}, and \hyperlink{classdsf_1_1_lock}{dsf\+::\+Lock}.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classdsf_1_1_synchronized_var_aada6540bf8bbbf1451834f31aad0962f}{Synchronized\+Var} (T \&\&value)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{classdsf_1_1_synchronized_var_a8b72cc04251d677755090bd9b834291c}{operator=} (T \&\&value)
+\item 
+void \hyperlink{classdsf_1_1_synchronized_var_ac8465a885c4dbb5bc5ca9ad25f42c3ec}{synchronise} () override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A Class which implements \hyperlink{classdsf_1_1_synchronisable}{dsf\+::\+Synchronisable}. 
+
+The purpose of this class is to make thread-\/safe variables for \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object} objects. A \hyperlink{classdsf_1_1_synchronized_var}{dsf\+::\+Synchronized\+Var} object has two states -\/ “current” and “next”. The “current” is for read operation, and the “next” is for write operation. The function “synchronise” signs “next” to “current”.\hypertarget{classdsf_1_1_synchronized_var_Example}{}\subsection{Example}\label{classdsf_1_1_synchronized_var_Example}
+
+\begin{DoxyCode}
+\hyperlink{classdsf_1_1_synchronized_var}{dsf::SynchronizedVar} myInt;
+myInt = int(8); \textcolor{comment}{// value == NULL, next == 8}
+myInt.synchronize(); \textcolor{comment}{// value == 8, next == 8}
+std::cout << myInt.\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<\textcolor{keywordtype}{int}>() << std::endl; \textcolor{comment}{// output 8}
+myInt = int(9); \textcolor{comment}{// value == 8, next == 9}
+std::cout << myInt.to<\textcolor{keywordtype}{int}>() << std::endl; \textcolor{comment}{// output 8}
+myInt.synchronize(); \textcolor{comment}{// value == 9, next == 9}
+std::cout << myInt.to<\textcolor{keywordtype}{int}>() << std::endl; \textcolor{comment}{// output 9}
+\end{DoxyCode}
+ 
+
+Definition at line \hyperlink{_synchronized_var_8h_source_l00037}{37} of file \hyperlink{_synchronized_var_8h_source}{Synchronized\+Var.\+h}.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdsf_1_1_synchronized_var_aada6540bf8bbbf1451834f31aad0962f}{}\index{dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}!Synchronized\+Var@{Synchronized\+Var}}
+\index{Synchronized\+Var@{Synchronized\+Var}!dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}}
+\subsubsection[{Synchronized\+Var}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ dsf\+::\+Synchronized\+Var\+::\+Synchronized\+Var (
+\begin{DoxyParamCaption}
+\item[{T \&\&}]{value}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_synchronized_var_aada6540bf8bbbf1451834f31aad0962f}
+The value of \char`\"{}current\char`\"{} and the value of \char`\"{}next\char`\"{} is initialized as \char`\"{}value\char`\"{}. 
+
+Definition at line \hyperlink{_synchronized_var_8h_source_l00051}{51} of file \hyperlink{_synchronized_var_8h_source}{Synchronized\+Var.\+h}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdsf_1_1_synchronized_var_a8b72cc04251d677755090bd9b834291c}{}\index{dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}!operator=@{operator=}}
+\index{operator=@{operator=}!dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void dsf\+::\+Synchronized\+Var\+::operator= (
+\begin{DoxyParamCaption}
+\item[{T \&\&}]{value}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_synchronized_var_a8b72cc04251d677755090bd9b834291c}
+Signs a value to \char`\"{}next\char`\"{}. 
+
+Definition at line \hyperlink{_synchronized_var_8h_source_l00057}{57} of file \hyperlink{_synchronized_var_8h_source}{Synchronized\+Var.\+h}.
+
+\hypertarget{classdsf_1_1_synchronized_var_ac8465a885c4dbb5bc5ca9ad25f42c3ec}{}\index{dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}!synchronise@{synchronise}}
+\index{synchronise@{synchronise}!dsf\+::\+Synchronized\+Var@{dsf\+::\+Synchronized\+Var}}
+\subsubsection[{synchronise}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Synchronized\+Var\+::synchronise (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classdsf_1_1_synchronized_var_ac8465a885c4dbb5bc5ca9ad25f42c3ec}
+Signs current value to next value. 
+
+Implements \hyperlink{classdsf_1_1_synchronisable_a225f9a5f6cb47d73e1ea4d788bbfcaaa}{dsf\+::\+Synchronisable$<$ yc\+::\+Any $>$}.
+
+
+
+Definition at line \hyperlink{_synchronized_var_8cpp_source_l00013}{13} of file \hyperlink{_synchronized_var_8cpp_source}{Synchronized\+Var.\+cpp}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_synchronized_var_8h}{Synchronized\+Var.\+h}\item 
+\hyperlink{_synchronized_var_8cpp}{Synchronized\+Var.\+cpp}\end{DoxyCompactItemize}

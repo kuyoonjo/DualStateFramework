@@ -1,0 +1,38 @@
+\hypertarget{_bouncing_circle_manager_8h_source}{}\section{Bouncing\+Circle\+Manager.\+h}
+\label{_bouncing_circle_manager_8h_source}\index{Bouncing\+Circle\+Manager.\+h@{Bouncing\+Circle\+Manager.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  BouncingCircleManager.h}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/22/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef profiler\_BouncingCircleManager\_h}
+00010 \textcolor{preprocessor}{#define profiler\_BouncingCircleManager\_h}
+00011 
+00012 \textcolor{preprocessor}{#include "\hyperlink{_my_d_s_f_8h}{MyDSF.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{_sync_bouncing_circle_8h}{SyncBouncingCircle.h}"}
+00014 \textcolor{preprocessor}{#include <\hyperlink{_random_8h}{yctools/Random.h}>}
+00015 \textcolor{preprocessor}{#include <vector>}
+00016 
+\hypertarget{_bouncing_circle_manager_8h_source_l00017}{}\hyperlink{class_bouncing_circle_manager}{00017} \textcolor{keyword}{class }\hyperlink{class_bouncing_circle_manager}{BouncingCircleManager}
+00018 \{
+00019 \textcolor{keyword}{public}:
+00020     \hyperlink{class_bouncing_circle_manager_a03956961ae6a7c55ffccb15928c58802}{BouncingCircleManager}(\hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{namespacedsf}{dsf});
+00021     \hyperlink{class_bouncing_circle_manager_afa060fb52ab29a72169af32eb03e39a1}{~BouncingCircleManager}();
+\hypertarget{_bouncing_circle_manager_8h_source_l00022}{}\hyperlink{class_bouncing_circle_manager_a4c48cd67fe5ff21396b9e5552d2159a1}{00022}     \hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{class_bouncing_circle_manager_a4c48cd67fe5ff21396b9e5552d2159a1}{dsf};
+\hypertarget{_bouncing_circle_manager_8h_source_l00023}{}\hyperlink{class_bouncing_circle_manager_a470d50514892c85df73f25358d202d1b}{00023}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_bouncing_circle_manager_a470d50514892c85df73f25358d202d1b}{create};
+\hypertarget{_bouncing_circle_manager_8h_source_l00024}{}\hyperlink{class_bouncing_circle_manager_a40c60a1170ab1528bf67c86bcc2d7637}{00024}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_bouncing_circle_manager_a40c60a1170ab1528bf67c86bcc2d7637}{update};
+\hypertarget{_bouncing_circle_manager_8h_source_l00025}{}\hyperlink{class_bouncing_circle_manager_aee82e3ddd983f4e27c439b74494ab3d5}{00025}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_bouncing_circle_manager_aee82e3ddd983f4e27c439b74494ab3d5}{destroy};
+00026     std::vector<SyncBouncingCircle*>* \hyperlink{class_bouncing_circle_manager_aa88c537cbffc870d5def5bcacd3c5ee2}{createRandomCircles}(\textcolor{keywordtype}{int} number, \textcolor{keywordtype}{int} radius, \textcolor{keywordtype}{int} 
+      boundX, \textcolor{keywordtype}{int} boundY);
+00027 \textcolor{keyword}{private}:
+00028     \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}* createRandomCircle(\textcolor{keywordtype}{int} radius, \textcolor{keywordtype}{int} boundX, \textcolor{keywordtype}{int} boundY);
+00029 \};
+00030 
+00031 
+00032 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

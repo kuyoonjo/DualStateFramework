@@ -1,0 +1,33 @@
+\hypertarget{_random_8cpp_source}{}\section{Random.\+cpp}
+\label{_random_8cpp_source}\index{Random.\+cpp@{Random.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Random.cpp}
+00003 \textcolor{comment}{//  yctools}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/9/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 
+00010 \textcolor{preprocessor}{#include <\hyperlink{_random_8h}{yctools/Random.h}>}
+00011 
+\hypertarget{_random_8cpp_source_l00012}{}\hyperlink{classyc_1_1_random_a8cf4d84430a8a030f93078d439d819b8}{00012} \textcolor{keywordtype}{int} \hyperlink{classyc_1_1_random_a8cf4d84430a8a030f93078d439d819b8}{yc::Random::randInt}(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max)
+00013 \{
+00014     std::random\_device rd;
+00015     std::default\_random\_engine generator(rd());
+00016     std::uniform\_int\_distribution<int> distribution(min, max);
+00017     \textcolor{keywordtype}{int} dice\_roll = distribution(generator);
+00018     \textcolor{keywordflow}{return} dice\_roll;
+00019 \}
+00020 
+\hypertarget{_random_8cpp_source_l00021}{}\hyperlink{classyc_1_1_random_ad31bfbe073976c464fa24173c0b669f9}{00021} \textcolor{keywordtype}{float} \hyperlink{classyc_1_1_random_ad31bfbe073976c464fa24173c0b669f9}{yc::Random::randFloat}(\textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max)
+00022 \{
+00023     std::random\_device rd;
+00024     std::default\_random\_engine generator(rd());
+00025     std::uniform\_real\_distribution<float> distribution(min, max);
+00026     \textcolor{keywordtype}{float} dice\_roll = distribution(generator);
+00027     \textcolor{keywordflow}{return} dice\_roll;
+00028 \}
+\end{DoxyCode}

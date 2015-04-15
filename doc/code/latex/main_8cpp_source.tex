@@ -1,0 +1,323 @@
+\hypertarget{main_8cpp_source}{}\section{main.\+cpp}
+\label{main_8cpp_source}\index{main.\+cpp@{main.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include <SFML/Graphics.hpp>}
+00002 \textcolor{preprocessor}{#include <\hyperlink{_dual_state_framework_8h}{dsf/DualStateFramework.h}>}
+00003 \textcolor{preprocessor}{#include "../include/ResourcePath.hpp"}
+00004 \textcolor{preprocessor}{#include "../include/FPS.h"}
+00005 \textcolor{preprocessor}{#include "../include/MyDSF.h"}
+00006 \textcolor{preprocessor}{#include "../include/SyncCircle.h"}
+00007 \textcolor{preprocessor}{#include "../include/RandomCircleManager.h"}
+00008 \textcolor{preprocessor}{#include "../include/SyncBouncingCircle.h"}
+00009 \textcolor{preprocessor}{#include "../include/BouncingCircleManager.h"}
+00010 \textcolor{preprocessor}{#include "../include/SyncFlockingBoid.h"}
+00011 \textcolor{preprocessor}{#include "../include/FlockingBoidManager.h"}
+00012 
+00013 \textcolor{keywordtype}{void} \hyperlink{main_8cpp_a31968186041d4f1e3533777bcb15719c}{profile}(\textcolor{keywordtype}{int} \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads}, \textcolor{keywordtype}{int} 
+      \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects}, \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator}, \textcolor{keywordtype}{int} method);
+00014 \textcolor{keywordtype}{void} \hyperlink{main_8cpp_ae369b3765489ee8bd0ea791c1843630f}{configure}();
+00015 
+00016 \textcolor{comment}{// Constances}
+00017 \textcolor{keyword}{const} sf::Vector2f \hyperlink{main_8cpp_a16e701dc89b4e8467da382318f0d48df}{WINDOW\_SIZE}(800, 600);
+\hypertarget{main_8cpp_source_l00018}{}\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{00018} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE} = 20;
+00019 \textcolor{keyword}{const} sf::Vector2f \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}(100, 100);
+00020 \textcolor{keyword}{const} sf::Vector2f \hyperlink{main_8cpp_a80493c8c36da06f9e6846f4b1bec3e51}{RIGHT\_CORNER}(700, 100);
+00021 \textcolor{keyword}{const} sf::Vector2f \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}(500, 25);
+00022 \textcolor{keyword}{const} sf::Vector2f \hyperlink{main_8cpp_ae7a422ac0192aae5609b1fd4202be5eb}{SHADOW\_SIZE}(\hyperlink{main_8cpp_a16e701dc89b4e8467da382318f0d48df}{WINDOW\_SIZE}.x - \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x * 2, 
+      \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y);
+\hypertarget{main_8cpp_source_l00023}{}\hyperlink{main_8cpp_ad903c6d94e1d79d2c7103b7eeebbff25}{00023} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_ad903c6d94e1d79d2c7103b7eeebbff25}{MAX\_NUMBER\_OF\_THREADS} = 64;
+\hypertarget{main_8cpp_source_l00024}{}\hyperlink{main_8cpp_a7f46011598890ac8e7b3d6290df2e011}{00024} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a7f46011598890ac8e7b3d6290df2e011}{MIN\_NUMBER\_OF\_THREADS} = 2;
+\hypertarget{main_8cpp_source_l00025}{}\hyperlink{main_8cpp_aad62f3880f9d08f6213b65dc9373329e}{00025} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_aad62f3880f9d08f6213b65dc9373329e}{MAX\_NUMBER\_OF\_OBJECTS} = 2000;
+\hypertarget{main_8cpp_source_l00026}{}\hyperlink{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}{00026} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}{MIN\_NUMBER\_OF\_OBJECTS} = 100;
+\hypertarget{main_8cpp_source_l00027}{}\hyperlink{main_8cpp_a2564fde0b4c94421653b40a37597aa62}{00027} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a2564fde0b4c94421653b40a37597aa62}{MAX\_DURATION} = 360;
+\hypertarget{main_8cpp_source_l00028}{}\hyperlink{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}{00028} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}{MIN\_DURATION} = 5;
+\hypertarget{main_8cpp_source_l00029}{}\hyperlink{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}{00029} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}{NUMBER\_OF\_PROFILING\_METHODS} = 3;
+\hypertarget{main_8cpp_source_l00030}{}\hyperlink{main_8cpp_aaa584e20e5a596003330cdcce055ccf9}{00030} \textcolor{keyword}{const} std::string \hyperlink{main_8cpp_aaa584e20e5a596003330cdcce055ccf9}{profilingMethods}[\hyperlink{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}{NUMBER\_OF\_PROFILING\_METHODS}] 
+      = \{
+00031     \textcolor{stringliteral}{"Random"}, \textcolor{stringliteral}{"Collision"}, \textcolor{stringliteral}{"Flocking"}
+00032 \};
+\hypertarget{main_8cpp_source_l00033}{}\hyperlink{main_8cpp_a436c13fbdbbdf82ab2c1b5e23a3928b2}{00033} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a436c13fbdbbdf82ab2c1b5e23a3928b2}{NUMBER\_OF\_SELECTIONS} = 4;
+00034 \textcolor{comment}{// Default Configurations}
+\hypertarget{main_8cpp_source_l00035}{}\hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{00035} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{currentSelection} = 1;
+\hypertarget{main_8cpp_source_l00036}{}\hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{00036} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads} = 4;
+\hypertarget{main_8cpp_source_l00037}{}\hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{00037} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects} = 1000;
+\hypertarget{main_8cpp_source_l00038}{}\hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{00038} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator} = 60;
+\hypertarget{main_8cpp_source_l00039}{}\hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{00039} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex} = 0;
+00040 
+\hypertarget{main_8cpp_source_l00041}{}\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00041} \textcolor{keywordtype}{int} \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}()
+00042 \{
+00043     \hyperlink{main_8cpp_ae369b3765489ee8bd0ea791c1843630f}{configure}();
+00044     \textcolor{keywordflow}{return} 0;
+00045 \}
+00046 
+\hypertarget{main_8cpp_source_l00047}{}\hyperlink{main_8cpp_ae369b3765489ee8bd0ea791c1843630f}{00047} \textcolor{keywordtype}{void} \hyperlink{main_8cpp_ae369b3765489ee8bd0ea791c1843630f}{configure}()
+00048 \{
+00049     \textcolor{keywordtype}{bool} ready = \textcolor{keyword}{false};
+00050     \textcolor{comment}{// Create the main window}
+00051     sf::RenderWindow window(sf::VideoMode(\hyperlink{main_8cpp_a16e701dc89b4e8467da382318f0d48df}{WINDOW\_SIZE}.x, \hyperlink{main_8cpp_a16e701dc89b4e8467da382318f0d48df}{WINDOW\_SIZE}.y), \textcolor{stringliteral}{"DSF
+       Profiler"});
+00052     sf::Font font;
+00053     sf::Text maxNumberOfThreadsText;
+00054     sf::Text numberOfObjectsText;
+00055     sf::Text durationPerIteratorText;
+00056     sf::Text profilingMethodText;
+00057     sf::Text maxNumberOfThreadsValue;
+00058     sf::Text numberOfObjectsValue;
+00059     sf::Text durationPerIteratorValue;
+00060     sf::Text profilingMethodValue;
+00061     sf::Text help;
+00062     font.loadFromFile(\hyperlink{_resource_path_8hpp_a377b456e3964835648f2d726c2e4f510}{resourcePath}() + \textcolor{stringliteral}{"sansation.ttf"});
+00063     maxNumberOfThreadsText.setFont(font);
+00064     numberOfObjectsText.setFont(font);
+00065     durationPerIteratorText.setFont(font);
+00066     profilingMethodText.setFont(font);
+00067     maxNumberOfThreadsValue.setFont(font);
+00068     numberOfObjectsValue.setFont(font);
+00069     durationPerIteratorValue.setFont(font);
+00070     profilingMethodValue.setFont(font);
+00071     help.setFont(font);
+00072     maxNumberOfThreadsText.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00073     numberOfObjectsText.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00074     durationPerIteratorText.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00075     profilingMethodText.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00076     maxNumberOfThreadsValue.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00077     numberOfObjectsValue.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00078     durationPerIteratorValue.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00079     profilingMethodValue.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00080     help.setCharacterSize(\hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{CHAR\_SIZE});
+00081     maxNumberOfThreadsText.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER});
+00082     numberOfObjectsText.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x, \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y + 
+      \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y);
+00083     durationPerIteratorText.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x, \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y + 
+      \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y * 2);
+00084     profilingMethodText.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x, \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y + 
+      \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y * 3);
+00085     maxNumberOfThreadsValue.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.x, 
+      \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y);
+00086     numberOfObjectsValue.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.x, 
+      \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y);
+00087     durationPerIteratorValue.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.x, 
+      \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y * 2);
+00088     profilingMethodValue.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.x, 
+      \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y * 3);
+00089     help.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x, \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y * 5);
+00090     maxNumberOfThreadsText.setString(\textcolor{stringliteral}{"Max Number of Threads"});
+00091     numberOfObjectsText.setString(\textcolor{stringliteral}{"Number of Objects"});
+00092     durationPerIteratorText.setString(\textcolor{stringliteral}{"Duration per Iterator"});
+00093     profilingMethodText.setString(\textcolor{stringliteral}{"Profiling Method"});
+00094     help.setString(\textcolor{stringliteral}{"Press KeyUp, KeyDown, KeyLeft, and KeyRight to edit settings. \(\backslash\)nPress Enter to run the
+       application."});
+00095     
+00096     sf::RectangleShape shadow;
+00097     shadow.setFillColor(sf::Color::Blue);
+00098     shadow.setSize(\hyperlink{main_8cpp_ae7a422ac0192aae5609b1fd4202be5eb}{SHADOW\_SIZE});
+00099     shadow.setPosition(\hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.x, \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{LEFT\_CORNER}.y + 
+      \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y * (\hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{currentSelection} - 1));
+00100     \textcolor{keywordflow}{while} (window.isOpen())
+00101     \{
+00102         \textcolor{comment}{// Process events}
+00103         sf::Event event;
+00104         \textcolor{keywordflow}{while} (window.pollEvent(event))
+00105         \{
+00106             \textcolor{comment}{// Close window: exit}
+00107             \textcolor{keywordflow}{if} (event.type == sf::Event::Closed)
+00108                 window.close();
+00109             \textcolor{comment}{// Keyboard Events}
+00110             \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) \{
+00111                 ready = \textcolor{keyword}{true};
+00112                 window.close();
+00113             \}
+00114             \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+00115             \{
+00116                 \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{currentSelection} > 1)
+00117                 \{
+00118                     \hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{currentSelection} --;
+00119                     \textcolor{keyword}{auto} spos = shadow.getPosition();
+00120                     shadow.setPosition(spos.x, spos.y - \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y);
+00121                 \}
+00122             \}
+00123             \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+00124             \{
+00125                 \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{currentSelection} < \hyperlink{main_8cpp_a436c13fbdbbdf82ab2c1b5e23a3928b2}{NUMBER\_OF\_SELECTIONS})
+00126                 \{
+00127                     \hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{currentSelection} ++;
+00128                     \textcolor{keyword}{auto} spos = shadow.getPosition();
+00129                     shadow.setPosition(spos.x, spos.y + \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{INTENT}.y);
+00130                 \}
+00131             \}
+00132             \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+00133             \{
+00134                 \textcolor{keywordflow}{switch} (\hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{currentSelection}) \{
+00135                     \textcolor{keywordflow}{case} 1:
+00136                         \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads} == 
+      \hyperlink{main_8cpp_a7f46011598890ac8e7b3d6290df2e011}{MIN\_NUMBER\_OF\_THREADS})
+00137                             \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads} = 
+      \hyperlink{main_8cpp_ad903c6d94e1d79d2c7103b7eeebbff25}{MAX\_NUMBER\_OF\_THREADS};
+00138                         \textcolor{keywordflow}{else}
+00139                             \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads} --;
+00140                         \textcolor{keywordflow}{break};
+00141                     \textcolor{keywordflow}{case} 2:
+00142                         \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects} == 
+      \hyperlink{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}{MIN\_NUMBER\_OF\_OBJECTS})
+00143                             \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects} = 
+      \hyperlink{main_8cpp_aad62f3880f9d08f6213b65dc9373329e}{MAX\_NUMBER\_OF\_OBJECTS};
+00144                         \textcolor{keywordflow}{else}
+00145                             \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects} -= 
+      \hyperlink{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}{MIN\_NUMBER\_OF\_OBJECTS};
+00146                         \textcolor{keywordflow}{break};
+00147                     \textcolor{keywordflow}{case} 3:
+00148                         \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator} == 
+      \hyperlink{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}{MIN\_DURATION})
+00149                             \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator} = 
+      \hyperlink{main_8cpp_a2564fde0b4c94421653b40a37597aa62}{MAX\_DURATION};
+00150                         \textcolor{keywordflow}{else}
+00151                             \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator} -= 
+      \hyperlink{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}{MIN\_DURATION};
+00152                         \textcolor{keywordflow}{break};
+00153                     \textcolor{keywordflow}{case} 4:
+00154                         \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex} == 0)
+00155                             \hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex} = 
+      \hyperlink{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}{NUMBER\_OF\_PROFILING\_METHODS} - 1;
+00156                         \textcolor{keywordflow}{else}
+00157                             \hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex} --;
+00158                         \textcolor{keywordflow}{break};
+00159                 \}
+00160             \}
+00161             \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+00162             \{
+00163                 \textcolor{keywordflow}{switch} (\hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{currentSelection}) \{
+00164                     \textcolor{keywordflow}{case} 1:
+00165                         \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads} == 
+      \hyperlink{main_8cpp_ad903c6d94e1d79d2c7103b7eeebbff25}{MAX\_NUMBER\_OF\_THREADS})
+00166                             \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads} = 
+      \hyperlink{main_8cpp_a7f46011598890ac8e7b3d6290df2e011}{MIN\_NUMBER\_OF\_THREADS};
+00167                         \textcolor{keywordflow}{else}
+00168                             \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads} ++;
+00169                         \textcolor{keywordflow}{break};
+00170                     \textcolor{keywordflow}{case} 2:
+00171                         \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects} == 
+      \hyperlink{main_8cpp_aad62f3880f9d08f6213b65dc9373329e}{MAX\_NUMBER\_OF\_OBJECTS})
+00172                             \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects} = 
+      \hyperlink{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}{MIN\_NUMBER\_OF\_OBJECTS};
+00173                         \textcolor{keywordflow}{else}
+00174                             \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects} += 
+      \hyperlink{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}{MIN\_NUMBER\_OF\_OBJECTS};
+00175                         \textcolor{keywordflow}{break};
+00176                     \textcolor{keywordflow}{case} 3:
+00177                         \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator} == 
+      \hyperlink{main_8cpp_a2564fde0b4c94421653b40a37597aa62}{MAX\_DURATION})
+00178                             \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator} = 
+      \hyperlink{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}{MIN\_DURATION};
+00179                         \textcolor{keywordflow}{else}
+00180                             \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator} += 
+      \hyperlink{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}{MIN\_DURATION};
+00181                         \textcolor{keywordflow}{break};
+00182                     \textcolor{keywordflow}{case} 4:
+00183                         \textcolor{keywordflow}{if}(\hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex} == 
+      \hyperlink{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}{NUMBER\_OF\_PROFILING\_METHODS} - 1)
+00184                             \hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex} = 0;
+00185                         \textcolor{keywordflow}{else}
+00186                             \hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex} ++;
+00187                         \textcolor{keywordflow}{break};
+00188                 \}
+00189             \}
+00190         \}
+00191         
+00192         maxNumberOfThreadsValue.setString(std::to\_string(\hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads}));
+00193         numberOfObjectsValue.setString(std::to\_string(\hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects}));
+00194         durationPerIteratorValue.setString(std::to\_string(\hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator}));
+00195         profilingMethodValue.setString(\hyperlink{main_8cpp_aaa584e20e5a596003330cdcce055ccf9}{profilingMethods}[
+      \hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex}]);
+00196         \textcolor{comment}{// Clear screen}
+00197         window.clear();
+00198         \textcolor{comment}{// Draw Items}
+00199         window.draw(shadow);
+00200         window.draw(maxNumberOfThreadsText);
+00201         window.draw(numberOfObjectsText);
+00202         window.draw(durationPerIteratorText);
+00203         window.draw(profilingMethodText);
+00204         window.draw(maxNumberOfThreadsValue);
+00205         window.draw(numberOfObjectsValue);
+00206         window.draw(durationPerIteratorValue);
+00207         window.draw(profilingMethodValue);
+00208         window.draw(help);
+00209         \textcolor{comment}{// Update the window}
+00210         window.display();
+00211     \}
+00212     \textcolor{keywordflow}{if} (ready)
+00213         \hyperlink{main_8cpp_a31968186041d4f1e3533777bcb15719c}{profile}(\hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads}, \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects}, 
+      \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator}, \hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profilingMethodIndex} + 1);
+00214 \}
+00215 
+\hypertarget{main_8cpp_source_l00216}{}\hyperlink{main_8cpp_a31968186041d4f1e3533777bcb15719c}{00216} \textcolor{keywordtype}{void} \hyperlink{main_8cpp_a31968186041d4f1e3533777bcb15719c}{profile}(\textcolor{keywordtype}{int} \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads}, \textcolor{keywordtype}{int} 
+      \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects}, \textcolor{keywordtype}{int} \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator}, \textcolor{keywordtype}{int} method)
+00217 \{
+00218     \textcolor{keywordflow}{if}(method == 1)
+00219     \{
+00220         \textcolor{keyword}{auto} \hyperlink{namespacedsf}{dsf} = \textcolor{keyword}{new} \hyperlink{class_my_d_s_f}{MyDSF}();
+00221         \textcolor{keyword}{auto} rcm = \textcolor{keyword}{new} \hyperlink{class_random_circle_manager}{RandomCircleManager}(\hyperlink{namespacedsf}{dsf});
+00222         std::vector<SyncCircle*> circles(numberOfObjects);
+00223         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} & circle : circles)
+00224         \{
+00225             circle = \textcolor{keyword}{new} \hyperlink{class_sync_circle}{SyncCircle}();
+00226             circle->setRadius(2);
+00227             circle->setFillColor(sf::Color::Cyan);
+00228             \hyperlink{namespacedsf}{dsf}->add(circle);
+00229             \hyperlink{namespacedsf}{dsf}->send(circle, \hyperlink{namespacedsf}{dsf}->sender, rcm->create, \textcolor{keyword}{new} 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(circle));
+00230         \}
+00231         \hyperlink{namespacedsf}{dsf}->duration = \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator};
+00232         \hyperlink{namespacedsf}{dsf}->maxNumberOfCores = \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads};
+00233         \hyperlink{namespacedsf}{dsf}->start();
+00234         \textcolor{keyword}{delete} \hyperlink{namespacedsf}{dsf};
+00235         \textcolor{keyword}{delete} rcm;
+00236     \}
+00237     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(method == 2)
+00238     \{
+00239         \textcolor{keyword}{auto} \hyperlink{namespacedsf}{dsf} = \textcolor{keyword}{new} \hyperlink{class_my_d_s_f}{MyDSF}();
+00240         \textcolor{keyword}{auto} bcm = \textcolor{keyword}{new} \hyperlink{class_bouncing_circle_manager}{BouncingCircleManager}(\hyperlink{namespacedsf}{dsf});
+00241         \textcolor{keyword}{auto} bouncingCircles = bcm->createRandomCircles(numberOfObjects, 2, 800, 600);
+00242         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} & bouncingCircle : *bouncingCircles)
+00243         \{
+00244             bouncingCircle->setFillColor(sf::Color::Cyan);
+00245             \hyperlink{namespacedsf}{dsf}->add(bouncingCircle);
+00246             \hyperlink{namespacedsf}{dsf}->send(bouncingCircle,
+00247                       \hyperlink{namespacedsf}{dsf}->sender,
+00248                       bcm->create,
+00249                       \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(std::make\_tuple(bouncingCircle, 
+      bouncingCircles)));
+00250         \}
+00251         \hyperlink{namespacedsf}{dsf}->duration = \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator};
+00252         \hyperlink{namespacedsf}{dsf}->maxNumberOfCores = \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads};
+00253         \hyperlink{namespacedsf}{dsf}->start();
+00254         \textcolor{keyword}{delete} \hyperlink{namespacedsf}{dsf};
+00255         \textcolor{keyword}{delete} bcm;
+00256     \}
+00257     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(method == 3)
+00258     \{
+00259         \textcolor{keyword}{auto} \hyperlink{namespacedsf}{dsf} = \textcolor{keyword}{new} \hyperlink{class_my_d_s_f}{MyDSF}();
+00260         \textcolor{keyword}{auto} flockingBoids = \textcolor{keyword}{new} std::vector<SyncFlockingBoid*>();
+00261         \textcolor{keyword}{auto} fbm = \textcolor{keyword}{new} \hyperlink{class_flocking_boid_manager}{FlockingBoidManager}(\hyperlink{namespacedsf}{dsf});
+00262         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{numberOfObjects}; i++)
+00263             flockingBoids->push\_back(\textcolor{keyword}{new} \hyperlink{class_sync_flocking_boid}{SyncFlockingBoid}(\textcolor{keyword}{new} 
+      \hyperlink{class_vector3_d}{Vector3D}(\hyperlink{namespacedsf}{dsf}->window->getSize().x/2,\hyperlink{namespacedsf}{dsf}->window->getSize().y/2),2.0f,0.05f));
+00264         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} & flockingBoid : *flockingBoids)
+00265         \{
+00266             flockingBoid->setFillColor(sf::Color::Cyan);
+00267             \hyperlink{namespacedsf}{dsf}->add(flockingBoid);
+00268             \hyperlink{namespacedsf}{dsf}->send(flockingBoid,
+00269                       \hyperlink{namespacedsf}{dsf}->sender,
+00270                       fbm->create,
+00271                       \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(std::make\_tuple(flockingBoid, flockingBoids)))
+      ;
+00272         \}
+00273         \hyperlink{namespacedsf}{dsf}->duration = \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{durationPerIterator};
+00274         \hyperlink{namespacedsf}{dsf}->maxNumberOfCores = \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{maxNumberOfThreads};
+00275         \hyperlink{namespacedsf}{dsf}->start();
+00276         \textcolor{keyword}{delete} \hyperlink{namespacedsf}{dsf};
+00277         \textcolor{keyword}{delete} fbm;
+00278     \}
+00279     \hyperlink{main_8cpp_ae369b3765489ee8bd0ea791c1843630f}{configure}();
+00280 \}
+\end{DoxyCode}

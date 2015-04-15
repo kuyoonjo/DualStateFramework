@@ -1,0 +1,132 @@
+\hypertarget{classdsf_1_1_task_box}{}\section{dsf\+:\+:Task\+Box Class Reference}
+\label{classdsf_1_1_task_box}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
+
+
+A \hyperlink{classdsf_1_1_task}{dsf\+::\+Task} queue.  
+
+
+
+
+{\ttfamily \#include $<$Task\+Box.\+h$>$}
+
+
+
+Inherited by \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object}.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdsf_1_1_task_box_a931c925e0a4956ee6bc1674f43ecc0a0}{Task\+Box} ()
+\item 
+virtual \hyperlink{classdsf_1_1_task_box_a3445ee5ebd0141d317d8fe0a00b07d1c}{$\sim$\+Task\+Box} ()
+\item 
+bool \hyperlink{classdsf_1_1_task_box_a7e67fd9b7104d24cb4be54f6a48eb8c9}{is\+Empty} ()
+\item 
+void \hyperlink{classdsf_1_1_task_box_a0ec4e52a625fae00e05b072d6434eef1}{push} (\hyperlink{classdsf_1_1_task}{Task} $\ast$task)
+\item 
+\hyperlink{classdsf_1_1_task}{Task} $\ast$ \hyperlink{classdsf_1_1_task_box_a4dd2eb0544472b8250037d0014ad71f4}{pop} ()
+\item 
+void \hyperlink{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{process} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{classdsf_1_1_task}{Task} $\ast$ $>$ $\ast$ \hyperlink{classdsf_1_1_task_box_ae13d0d245cacbf7f4019f7ff5486aa79}{tasks}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \hyperlink{classdsf_1_1_task}{dsf\+::\+Task} queue. 
+
+The \hyperlink{classdsf_1_1_task_box}{dsf\+::\+Task\+Box} contains a list of def\+::\+Task objects. It provides essential methods to control the list such as “push”, “pop”, and “is\+Empty”. 
+
+Definition at line \hyperlink{_task_box_8h_source_l00025}{25} of file \hyperlink{_task_box_8h_source}{Task\+Box.\+h}.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdsf_1_1_task_box_a931c925e0a4956ee6bc1674f43ecc0a0}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!Task\+Box@{Task\+Box}}
+\index{Task\+Box@{Task\+Box}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
+\subsubsection[{Task\+Box}]{\setlength{\rightskip}{0pt plus 5cm}dsf\+::\+Task\+Box\+::\+Task\+Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_task_box_a931c925e0a4956ee6bc1674f43ecc0a0}
+
+
+Definition at line \hyperlink{_task_box_8cpp_source_l00013}{13} of file \hyperlink{_task_box_8cpp_source}{Task\+Box.\+cpp}.
+
+\hypertarget{classdsf_1_1_task_box_a3445ee5ebd0141d317d8fe0a00b07d1c}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!````~Task\+Box@{$\sim$\+Task\+Box}}
+\index{````~Task\+Box@{$\sim$\+Task\+Box}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
+\subsubsection[{$\sim$\+Task\+Box}]{\setlength{\rightskip}{0pt plus 5cm}dsf\+::\+Task\+Box\+::$\sim$\+Task\+Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdsf_1_1_task_box_a3445ee5ebd0141d317d8fe0a00b07d1c}
+
+
+Definition at line \hyperlink{_task_box_8cpp_source_l00018}{18} of file \hyperlink{_task_box_8cpp_source}{Task\+Box.\+cpp}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdsf_1_1_task_box_a7e67fd9b7104d24cb4be54f6a48eb8c9}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
+\subsubsection[{is\+Empty}]{\setlength{\rightskip}{0pt plus 5cm}bool dsf\+::\+Task\+Box\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_task_box_a7e67fd9b7104d24cb4be54f6a48eb8c9}
+Checks wheather the queue is empty or not. 
+
+Definition at line \hyperlink{_task_box_8cpp_source_l00027}{27} of file \hyperlink{_task_box_8cpp_source}{Task\+Box.\+cpp}.
+
+\hypertarget{classdsf_1_1_task_box_a4dd2eb0544472b8250037d0014ad71f4}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!pop@{pop}}
+\index{pop@{pop}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task} $\ast$ dsf\+::\+Task\+Box\+::pop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_task_box_a4dd2eb0544472b8250037d0014ad71f4}
+Pops out a task and returns it 
+
+Definition at line \hyperlink{_task_box_8cpp_source_l00037}{37} of file \hyperlink{_task_box_8cpp_source}{Task\+Box.\+cpp}.
+
+\hypertarget{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!process@{process}}
+\index{process@{process}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Task\+Box\+::process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}
+Pops out all tasks in the queue and executes them. 
+
+Definition at line \hyperlink{_task_box_8cpp_source_l00044}{44} of file \hyperlink{_task_box_8cpp_source}{Task\+Box.\+cpp}.
+
+\hypertarget{classdsf_1_1_task_box_a0ec4e52a625fae00e05b072d6434eef1}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!push@{push}}
+\index{push@{push}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}void dsf\+::\+Task\+Box\+::push (
+\begin{DoxyParamCaption}
+\item[{{\bf dsf\+::\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)}\label{classdsf_1_1_task_box_a0ec4e52a625fae00e05b072d6434eef1}
+Pushes a task into the queue. 
+
+Definition at line \hyperlink{_task_box_8cpp_source_l00032}{32} of file \hyperlink{_task_box_8cpp_source}{Task\+Box.\+cpp}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classdsf_1_1_task_box_ae13d0d245cacbf7f4019f7ff5486aa79}{}\index{dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}!tasks@{tasks}}
+\index{tasks@{tasks}!dsf\+::\+Task\+Box@{dsf\+::\+Task\+Box}}
+\subsubsection[{tasks}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Task}$\ast$$>$$\ast$ dsf\+::\+Task\+Box\+::tasks\hspace{0.3cm}{\ttfamily [protected]}}\label{classdsf_1_1_task_box_ae13d0d245cacbf7f4019f7ff5486aa79}
+The list of \hyperlink{classdsf_1_1_task}{dsf\+::\+Task}. 
+
+Definition at line \hyperlink{_task_box_8h_source_l00040}{40} of file \hyperlink{_task_box_8h_source}{Task\+Box.\+h}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_task_box_8h}{Task\+Box.\+h}\item 
+\hyperlink{_task_box_8cpp}{Task\+Box.\+cpp}\end{DoxyCompactItemize}

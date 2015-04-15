@@ -1,0 +1,258 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+{\ttfamily \#include $<$S\+F\+M\+L/\+Graphics.\+hpp$>$}\\*
+{\ttfamily \#include $<$dsf/\+Dual\+State\+Framework.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}../include/\+Resource\+Path.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/\+F\+P\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/\+My\+D\+S\+F.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/\+Sync\+Circle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/\+Random\+Circle\+Manager.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/\+Sync\+Bouncing\+Circle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/\+Bouncing\+Circle\+Manager.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/\+Sync\+Flocking\+Boid.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/\+Flocking\+Boid\+Manager.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a31968186041d4f1e3533777bcb15719c}{profile} (int \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{max\+Number\+Of\+Threads}, int \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{number\+Of\+Objects}, int \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{duration\+Per\+Iterator}, int method)
+\item 
+void \hyperlink{main_8cpp_ae369b3765489ee8bd0ea791c1843630f}{configure} ()
+\item 
+const sf\+::\+Vector2f \hyperlink{main_8cpp_a16e701dc89b4e8467da382318f0d48df}{W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E} (800, 600)
+\item 
+const sf\+::\+Vector2f \hyperlink{main_8cpp_a532235d92b81b25e98dc2f260296c811}{L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R} (100, 100)
+\item 
+const sf\+::\+Vector2f \hyperlink{main_8cpp_a80493c8c36da06f9e6846f4b1bec3e51}{R\+I\+G\+H\+T\+\_\+\+C\+O\+R\+N\+E\+R} (700, 100)
+\item 
+const sf\+::\+Vector2f \hyperlink{main_8cpp_a14d85091e46f0926119718516c204b46}{I\+N\+T\+E\+N\+T} (500, 25)
+\item 
+const sf\+::\+Vector2f \hyperlink{main_8cpp_ae7a422ac0192aae5609b1fd4202be5eb}{S\+H\+A\+D\+O\+W\+\_\+\+S\+I\+Z\+E} (W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E.\+x-\/L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R.\+x $\ast$2, I\+N\+T\+E\+N\+T.\+y)
+\item 
+int \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{C\+H\+A\+R\+\_\+\+S\+I\+Z\+E} = 20
+\item 
+const int \hyperlink{main_8cpp_ad903c6d94e1d79d2c7103b7eeebbff25}{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S} = 64
+\item 
+const int \hyperlink{main_8cpp_a7f46011598890ac8e7b3d6290df2e011}{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S} = 2
+\item 
+const int \hyperlink{main_8cpp_aad62f3880f9d08f6213b65dc9373329e}{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S} = 2000
+\item 
+const int \hyperlink{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S} = 100
+\item 
+const int \hyperlink{main_8cpp_a2564fde0b4c94421653b40a37597aa62}{M\+A\+X\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N} = 360
+\item 
+const int \hyperlink{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}{M\+I\+N\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N} = 5
+\item 
+const int \hyperlink{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S} = 3
+\item 
+const std\+::string \hyperlink{main_8cpp_aaa584e20e5a596003330cdcce055ccf9}{profiling\+Methods} \mbox{[}\hyperlink{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S}\mbox{]}
+\item 
+const int \hyperlink{main_8cpp_a436c13fbdbbdf82ab2c1b5e23a3928b2}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+L\+E\+C\+T\+I\+O\+N\+S} = 4
+\item 
+int \hyperlink{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{current\+Selection} = 1
+\item 
+int \hyperlink{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{max\+Number\+Of\+Threads} = 4
+\item 
+int \hyperlink{main_8cpp_a2303e0afaea24a80ed690de888548862}{number\+Of\+Objects} = 1000
+\item 
+int \hyperlink{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{duration\+Per\+Iterator} = 60
+\item 
+int \hyperlink{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{profiling\+Method\+Index} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_ae369b3765489ee8bd0ea791c1843630f}{}\index{main.\+cpp@{main.\+cpp}!configure@{configure}}
+\index{configure@{configure}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{configure}]{\setlength{\rightskip}{0pt plus 5cm}void configure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_ae369b3765489ee8bd0ea791c1843630f}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00047}{47} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a14d85091e46f0926119718516c204b46}{}\index{main.\+cpp@{main.\+cpp}!I\+N\+T\+E\+N\+T@{I\+N\+T\+E\+N\+T}}
+\index{I\+N\+T\+E\+N\+T@{I\+N\+T\+E\+N\+T}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{I\+N\+T\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}const sf\+::\+Vector2f I\+N\+T\+E\+N\+T (
+\begin{DoxyParamCaption}
+\item[{500}]{, }
+\item[{25}]{}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_a14d85091e46f0926119718516c204b46}
+\hypertarget{main_8cpp_a532235d92b81b25e98dc2f260296c811}{}\index{main.\+cpp@{main.\+cpp}!L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R@{L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R}}
+\index{L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R@{L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}const sf\+::\+Vector2f L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R (
+\begin{DoxyParamCaption}
+\item[{100}]{, }
+\item[{100}]{}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_a532235d92b81b25e98dc2f260296c811}
+\hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00041}{41} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a31968186041d4f1e3533777bcb15719c}{}\index{main.\+cpp@{main.\+cpp}!profile@{profile}}
+\index{profile@{profile}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{profile}]{\setlength{\rightskip}{0pt plus 5cm}void profile (
+\begin{DoxyParamCaption}
+\item[{int}]{max\+Number\+Of\+Threads, }
+\item[{int}]{number\+Of\+Objects, }
+\item[{int}]{duration\+Per\+Iterator, }
+\item[{int}]{method}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_a31968186041d4f1e3533777bcb15719c}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00216}{216} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a80493c8c36da06f9e6846f4b1bec3e51}{}\index{main.\+cpp@{main.\+cpp}!R\+I\+G\+H\+T\+\_\+\+C\+O\+R\+N\+E\+R@{R\+I\+G\+H\+T\+\_\+\+C\+O\+R\+N\+E\+R}}
+\index{R\+I\+G\+H\+T\+\_\+\+C\+O\+R\+N\+E\+R@{R\+I\+G\+H\+T\+\_\+\+C\+O\+R\+N\+E\+R}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{R\+I\+G\+H\+T\+\_\+\+C\+O\+R\+N\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}const sf\+::\+Vector2f R\+I\+G\+H\+T\+\_\+\+C\+O\+R\+N\+E\+R (
+\begin{DoxyParamCaption}
+\item[{700}]{, }
+\item[{100}]{}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_a80493c8c36da06f9e6846f4b1bec3e51}
+\hypertarget{main_8cpp_ae7a422ac0192aae5609b1fd4202be5eb}{}\index{main.\+cpp@{main.\+cpp}!S\+H\+A\+D\+O\+W\+\_\+\+S\+I\+Z\+E@{S\+H\+A\+D\+O\+W\+\_\+\+S\+I\+Z\+E}}
+\index{S\+H\+A\+D\+O\+W\+\_\+\+S\+I\+Z\+E@{S\+H\+A\+D\+O\+W\+\_\+\+S\+I\+Z\+E}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{S\+H\+A\+D\+O\+W\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}const sf\+::\+Vector2f S\+H\+A\+D\+O\+W\+\_\+\+S\+I\+Z\+E (
+\begin{DoxyParamCaption}
+\item[{W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E.\+x-\/L\+E\+F\+T\+\_\+\+C\+O\+R\+N\+E\+R.\+x $\ast$}]{2, }
+\item[{I\+N\+T\+E\+N\+T.}]{y}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_ae7a422ac0192aae5609b1fd4202be5eb}
+\hypertarget{main_8cpp_a16e701dc89b4e8467da382318f0d48df}{}\index{main.\+cpp@{main.\+cpp}!W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E@{W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E}}
+\index{W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E@{W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}const sf\+::\+Vector2f W\+I\+N\+D\+O\+W\+\_\+\+S\+I\+Z\+E (
+\begin{DoxyParamCaption}
+\item[{800}]{, }
+\item[{600}]{}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_a16e701dc89b4e8467da382318f0d48df}
+
+
+\subsection{Variable Documentation}
+\hypertarget{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}{}\index{main.\+cpp@{main.\+cpp}!C\+H\+A\+R\+\_\+\+S\+I\+Z\+E@{C\+H\+A\+R\+\_\+\+S\+I\+Z\+E}}
+\index{C\+H\+A\+R\+\_\+\+S\+I\+Z\+E@{C\+H\+A\+R\+\_\+\+S\+I\+Z\+E}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{C\+H\+A\+R\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}const int C\+H\+A\+R\+\_\+\+S\+I\+Z\+E = 20}\label{main_8cpp_ad48cdf9a3927c8fa8f6017c70d046ba0}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00018}{18} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}{}\index{main.\+cpp@{main.\+cpp}!current\+Selection@{current\+Selection}}
+\index{current\+Selection@{current\+Selection}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{current\+Selection}]{\setlength{\rightskip}{0pt plus 5cm}int current\+Selection = 1}\label{main_8cpp_a0e589f9054cc1ee0716a7ecda74b1352}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00035}{35} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}{}\index{main.\+cpp@{main.\+cpp}!duration\+Per\+Iterator@{duration\+Per\+Iterator}}
+\index{duration\+Per\+Iterator@{duration\+Per\+Iterator}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{duration\+Per\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}int duration\+Per\+Iterator = 60}\label{main_8cpp_a05d9b1ebdb968e99b310a90811f1be91}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00038}{38} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a2564fde0b4c94421653b40a37597aa62}{}\index{main.\+cpp@{main.\+cpp}!M\+A\+X\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N@{M\+A\+X\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}}
+\index{M\+A\+X\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N@{M\+A\+X\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{M\+A\+X\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const int M\+A\+X\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N = 360}\label{main_8cpp_a2564fde0b4c94421653b40a37597aa62}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00027}{27} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_aad62f3880f9d08f6213b65dc9373329e}{}\index{main.\+cpp@{main.\+cpp}!M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S@{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S}}
+\index{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S@{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}const int M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S = 2000}\label{main_8cpp_aad62f3880f9d08f6213b65dc9373329e}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00025}{25} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_ad903c6d94e1d79d2c7103b7eeebbff25}{}\index{main.\+cpp@{main.\+cpp}!M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S@{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S}}
+\index{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S@{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S}]{\setlength{\rightskip}{0pt plus 5cm}const int M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S = 64}\label{main_8cpp_ad903c6d94e1d79d2c7103b7eeebbff25}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00023}{23} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a4639134a7fa7033334111ff9d77316f3}{}\index{main.\+cpp@{main.\+cpp}!max\+Number\+Of\+Threads@{max\+Number\+Of\+Threads}}
+\index{max\+Number\+Of\+Threads@{max\+Number\+Of\+Threads}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{max\+Number\+Of\+Threads}]{\setlength{\rightskip}{0pt plus 5cm}int max\+Number\+Of\+Threads = 4}\label{main_8cpp_a4639134a7fa7033334111ff9d77316f3}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00036}{36} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}{}\index{main.\+cpp@{main.\+cpp}!M\+I\+N\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N@{M\+I\+N\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}}
+\index{M\+I\+N\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N@{M\+I\+N\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{M\+I\+N\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}const int M\+I\+N\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N = 5}\label{main_8cpp_af00d30c4c9cd2a4bcd0cb0084bcabd30}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00028}{28} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}{}\index{main.\+cpp@{main.\+cpp}!M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S@{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S}}
+\index{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S@{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}const int M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+O\+B\+J\+E\+C\+T\+S = 100}\label{main_8cpp_a33029f68c1cf4a3c7c90cfb59edee648}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00026}{26} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a7f46011598890ac8e7b3d6290df2e011}{}\index{main.\+cpp@{main.\+cpp}!M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S@{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S}}
+\index{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S@{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S}]{\setlength{\rightskip}{0pt plus 5cm}const int M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+H\+R\+E\+A\+D\+S = 2}\label{main_8cpp_a7f46011598890ac8e7b3d6290df2e011}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00024}{24} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}{}\index{main.\+cpp@{main.\+cpp}!N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S@{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S}}
+\index{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S@{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S}]{\setlength{\rightskip}{0pt plus 5cm}const int N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S = 3}\label{main_8cpp_aca088c8a49d09566c6c129c95c3e82c9}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00029}{29} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a436c13fbdbbdf82ab2c1b5e23a3928b2}{}\index{main.\+cpp@{main.\+cpp}!N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+L\+E\+C\+T\+I\+O\+N\+S@{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+L\+E\+C\+T\+I\+O\+N\+S}}
+\index{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+L\+E\+C\+T\+I\+O\+N\+S@{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+L\+E\+C\+T\+I\+O\+N\+S}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+L\+E\+C\+T\+I\+O\+N\+S}]{\setlength{\rightskip}{0pt plus 5cm}const int N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+L\+E\+C\+T\+I\+O\+N\+S = 4}\label{main_8cpp_a436c13fbdbbdf82ab2c1b5e23a3928b2}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00033}{33} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a2303e0afaea24a80ed690de888548862}{}\index{main.\+cpp@{main.\+cpp}!number\+Of\+Objects@{number\+Of\+Objects}}
+\index{number\+Of\+Objects@{number\+Of\+Objects}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{number\+Of\+Objects}]{\setlength{\rightskip}{0pt plus 5cm}int number\+Of\+Objects = 1000}\label{main_8cpp_a2303e0afaea24a80ed690de888548862}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00037}{37} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}{}\index{main.\+cpp@{main.\+cpp}!profiling\+Method\+Index@{profiling\+Method\+Index}}
+\index{profiling\+Method\+Index@{profiling\+Method\+Index}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{profiling\+Method\+Index}]{\setlength{\rightskip}{0pt plus 5cm}int profiling\+Method\+Index = 0}\label{main_8cpp_a610d48030bfa1d44ea8b35346a1b4b21}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00039}{39} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+\hypertarget{main_8cpp_aaa584e20e5a596003330cdcce055ccf9}{}\index{main.\+cpp@{main.\+cpp}!profiling\+Methods@{profiling\+Methods}}
+\index{profiling\+Methods@{profiling\+Methods}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{profiling\+Methods}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string profiling\+Methods\mbox{[}{\bf N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+R\+O\+F\+I\+L\+I\+N\+G\+\_\+\+M\+E\+T\+H\+O\+D\+S}\mbox{]}}\label{main_8cpp_aaa584e20e5a596003330cdcce055ccf9}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \textcolor{stringliteral}{"Random"}, \textcolor{stringliteral}{"Collision"}, \textcolor{stringliteral}{"Flocking"}
+\}
+\end{DoxyCode}
+
+
+Definition at line \hyperlink{main_8cpp_source_l00030}{30} of file \hyperlink{main_8cpp_source}{main.\+cpp}.
+

@@ -1,0 +1,60 @@
+\hypertarget{_task_box_8cpp_source}{}\section{Task\+Box.\+cpp}
+\label{_task_box_8cpp_source}\index{Task\+Box.\+cpp@{Task\+Box.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  TaskBox.cpp}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#}\textcolor{preprocessor}{include} \textcolor{preprocessor}{<}\textcolor{preprocessor}{dsf}\textcolor{preprocessor}{/}\textcolor{preprocessor}{TaskBox}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}
+00010 
+00011 \textcolor{keyword}{namespace} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}
+00012 \{
+\hypertarget{_task_box_8cpp_source_l00013}{}\hyperlink{classdsf_1_1_task_box_a931c925e0a4956ee6bc1674f43ecc0a0}{00013}     TaskBox::TaskBox()
+00014     \{
+00015         \textcolor{keyword}{this}->tasks = \textcolor{keyword}{new} std::vector<Task*>();
+00016     \}
+00017 
+\hypertarget{_task_box_8cpp_source_l00018}{}\hyperlink{classdsf_1_1_task_box_a3445ee5ebd0141d317d8fe0a00b07d1c}{00018}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskBox}::~\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskBox}()
+00019     \{
+00020         \textcolor{keywordflow}{for} (\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{std}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{vector}<\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task}*>::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{iterator} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{i} = \textcolor{keyword}{this}->
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tasks}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{begin}(); \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{i} != \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tasks}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{end}(); ++\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{i})
+00021         \{
+00022             \textcolor{keyword}{delete} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{i};
+00023         \}
+00024         \textcolor{keyword}{delete} \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tasks};
+00025     \}
+00026 
+\hypertarget{_task_box_8cpp_source_l00027}{}\hyperlink{classdsf_1_1_task_box_a7e67fd9b7104d24cb4be54f6a48eb8c9}{00027}     \textcolor{keywordtype}{bool} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskBox}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{isEmpty}()
+00028     \{
+00029         \textcolor{keywordflow}{return} \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tasks}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{empty}();
+00030     \}
+00031 
+\hypertarget{_task_box_8cpp_source_l00032}{}\hyperlink{classdsf_1_1_task_box_a0ec4e52a625fae00e05b072d6434eef1}{00032}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskBox}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{push}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task})
+00033     \{
+00034         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tasks}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{push\_back}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task});
+00035     \}
+00036 
+\hypertarget{_task_box_8cpp_source_l00037}{}\hyperlink{classdsf_1_1_task_box_a4dd2eb0544472b8250037d0014ad71f4}{00037}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task}* \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskBox}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{pop}()
+00038     \{
+00039         \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task}* \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task} = \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tasks}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{back}();
+00040         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tasks}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{pop\_back}();
+00041         \textcolor{keywordflow}{return} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task};
+00042     \}
+00043 
+\hypertarget{_task_box_8cpp_source_l00044}{}\hyperlink{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{00044}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskBox}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{process}()
+00045     \{
+00046         \textcolor{keywordflow}{while} (!\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{isEmpty}())
+00047         \{
+00048             \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task}* \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task} = \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{pop}();
+00049             (*\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{taskFunction})(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{to}, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task}->
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{from}, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{taskArgument});
+00050             \textcolor{keyword}{delete} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task};
+00051         \}
+00052     \}
+00053 \}
+\end{DoxyCode}

@@ -1,0 +1,50 @@
+\hypertarget{_config_8h_source}{}\section{Config.\+h}
+\label{_config_8h_source}\index{Config.\+h@{Config.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  config.h}
+00003 \textcolor{comment}{//  DualStateFramework}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+00006 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_Config\_h}
+00010 \textcolor{preprocessor}{#define dsf\_Config\_h}
+00011 
+00012 \textcolor{preprocessor}{#if defined(\_WIN32)}
+00013 
+00014 \textcolor{comment}{// Windows compilers need specific (and different) keywords for export and import}
+00015 \textcolor{preprocessor}{#define DSF\_API\_EXPORT \_\_declspec(dllexport)}
+00016 \textcolor{preprocessor}{#define DSF\_API\_IMPORT \_\_declspec(dllimport)}
+00017 
+00018 \textcolor{comment}{// For Visual C++ compilers, we also need to turn off this annoying C4251 warning}
+00019 \textcolor{preprocessor}{#ifdef \_MSC\_VER}
+00020 
+00021 \textcolor{preprocessor}{#pragma warning(disable : 4251)}
+00022 
+00023 \textcolor{preprocessor}{#endif}
+00024 
+00025 \textcolor{preprocessor}{#else // Linux, FreeBSD, Mac OS X}
+00026 
+00027 \textcolor{preprocessor}{#if \_\_GNUC\_\_ >= 4}
+00028 
+00029 \textcolor{comment}{// GCC 4 has special keywords for showing/hidding symbols,}
+00030 \textcolor{comment}{// the same keyword is used for both importing and exporting}
+00031 \textcolor{preprocessor}{#define DSF\_API\_EXPORT \_\_attribute\_\_ ((\_\_visibility\_\_ ("default")))}
+00032 \textcolor{preprocessor}{#define DSF\_API\_IMPORT \_\_attribute\_\_ ((\_\_visibility\_\_ ("default")))}
+00033 
+00034 \textcolor{preprocessor}{#else}
+00035 
+00036 \textcolor{comment}{// GCC < 4 has no mechanism to explicitely hide symbols, everything's exported}
+00037 \textcolor{preprocessor}{#define DSF\_API\_EXPORT}
+00038 \textcolor{preprocessor}{#define DSF\_API\_IMPORT}
+00039 
+00040 \textcolor{preprocessor}{#endif}
+00041 
+00042 \textcolor{preprocessor}{#endif}
+00043 
+00044 
+00045 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

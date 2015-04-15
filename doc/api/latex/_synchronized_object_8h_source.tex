@@ -1,0 +1,57 @@
+\hypertarget{_synchronized_object_8h_source}{}\section{Synchronized\+Object.\+h}
+\label{_synchronized_object_8h_source}\index{Synchronized\+Object.\+h@{Synchronized\+Object.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  SynchronizedObject.h}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_SynchronizedObject\_h}
+00010 \textcolor{preprocessor}{#define dsf\_SynchronizedObject\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <vector>}
+00013 \textcolor{preprocessor}{#include <string>}
+00014 
+00015 \textcolor{preprocessor}{#include "Export.h"}
+00016 \textcolor{preprocessor}{#include "Declaration.h"}
+00017 \textcolor{preprocessor}{#include "Task.h"}
+00018 \textcolor{preprocessor}{#include "TaskBox.h"}
+00019 \textcolor{preprocessor}{#include "TaskFunction.h"}
+00020 \textcolor{preprocessor}{#include "TaskArgument.h"}
+00021 \textcolor{preprocessor}{#include "Synchronisable.h"}
+00022 \textcolor{preprocessor}{#include "Lock.h"}
+00023 \textcolor{preprocessor}{#include "Runnable.h"}
+00024 
+00025 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00026 \{
+\hypertarget{_synchronized_object_8h_source_l00062}{}\hyperlink{classdsf_1_1_synchronized_object}{00062}     \textcolor{keyword}{class }DSF\_API \hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject} : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_runnable}{Runnable}, \textcolor{keyword}{public} 
+      \hyperlink{classdsf_1_1_task_box}{TaskBox}, \textcolor{keyword}{public} \hyperlink{classdsf_1_1_synchronisable}{Synchronisable}<TaskBox>, \textcolor{keyword}{public} \hyperlink{classdsf_1_1_lock}{Lock}
+00063     \{
+00064     \textcolor{keyword}{public}:
+00065         \hyperlink{namespacedsf_acbf1798fc56cfb1707162a17e13f5fda}{SynchronizedObject}();
+00066         \textcolor{keyword}{virtual} ~\hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}();
+00068         \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State} getState() \textcolor{keyword}{override};
+00070         \textcolor{keywordtype}{int} receive();
+00071     \textcolor{keyword}{private}:
+00072         \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State} state;
+00073         
+00074         \textcolor{keywordtype}{void} push(\hyperlink{classdsf_1_1_task}{Task}* task);
+00075         \textcolor{keywordtype}{void} send(\hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* to,
+00076                   \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction}* taskFunction,
+00077                   \hyperlink{namespacedsf_abe4bf68433935a81c31a5ada9b17663a}{TaskArgument}* args);
+00078         \textcolor{keywordtype}{void} start();
+00079         \textcolor{keywordtype}{void} stop();
+00080         \textcolor{keywordtype}{void} distroy();
+\hypertarget{_synchronized_object_8h_source_l00081}{}\hyperlink{classdsf_1_1_synchronized_object_a86db03c65431cb461cc8abf33bd2e74a}{00081}         \textcolor{keyword}{friend} \textcolor{keyword}{class }\hyperlink{classdsf_1_1_dual_state_framework}{DualStateFramework};
+00082     \textcolor{keyword}{protected}:
+00092         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run() \textcolor{keyword}{override} = 0;
+00094         \textcolor{keywordtype}{void} synchronise() \textcolor{keyword}{override};
+00095     \};
+00096 \}
+00097 
+00098 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

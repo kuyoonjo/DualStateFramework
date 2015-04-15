@@ -1,0 +1,52 @@
+\hypertarget{_synchronized_var_8h_source}{}\section{Synchronized\+Var.\+h}
+\label{_synchronized_var_8h_source}\index{Synchronized\+Var.\+h@{Synchronized\+Var.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  SynchronizedVar.h}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 12/2/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_SynchronizedVar\_h}
+00010 \textcolor{preprocessor}{#define dsf\_SynchronizedVar\_h}
+00011 
+00012 \textcolor{preprocessor}{#include "\hyperlink{dsf_2_export_8h}{Export.h}"}
+00013 \textcolor{preprocessor}{#include <\hyperlink{_any_8h}{yctools/Any.h}>}
+00014 \textcolor{preprocessor}{#include "\hyperlink{_synchronisable_8h}{Synchronisable.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{_lock_8h}{Lock.h}"}
+00016 
+00017 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00018 \{
+\hypertarget{_synchronized_var_8h_source_l00037}{}\hyperlink{classdsf_1_1_synchronized_var}{00037}     \textcolor{keyword}{class }\hyperlink{dsf_2_export_8h_ad7bb940831423512f29a6981786c37bd}{DSF\_API} \hyperlink{classdsf_1_1_synchronized_var}{SynchronizedVar} : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_synchronisable}{Synchronisable}<yc::Any>, \textcolor{keyword}{
+      public} \hyperlink{classyc_1_1_any}{yc::Any}, \textcolor{keyword}{public} \hyperlink{classdsf_1_1_lock}{Lock}
+00038     \{
+00039     \textcolor{keyword}{public}:
+00041         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \hyperlink{classdsf_1_1_synchronized_var}{SynchronizedVar}(T && value);
+00043         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} operator=(T && value);
+00044         \textcolor{keywordtype}{void} synchronise() \textcolor{keyword}{override};
+00045     \};
+00046 \}
+00047 
+00048 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00049 \{
+00050     
+\hypertarget{_synchronized_var_8h_source_l00051}{}\hyperlink{classdsf_1_1_synchronized_var_aada6540bf8bbbf1451834f31aad0962f}{00051}     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \hyperlink{classdsf_1_1_synchronized_var_aada6540bf8bbbf1451834f31aad0962f}{SynchronizedVar::SynchronizedVar}(T && value)
+00052     : Any(value)
+00053     \{
+00054         this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next} = \textcolor{keyword}{new} \hyperlink{classyc_1_1_any_ad8fcf7b262813c063a49dfc91a88e771}{Any}(value);
+00055     \}
+00056     
+\hypertarget{_synchronized_var_8h_source_l00057}{}\hyperlink{classdsf_1_1_synchronized_var_a8b72cc04251d677755090bd9b834291c}{00057}     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_synchronized_var_a8b72cc04251d677755090bd9b834291c}{SynchronizedVar::operator=}(T && value)
+00058     \{
+00059         this->\hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock}();
+00060         this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next} = value;
+00061         this->\hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock}();
+00062     \}
+00063 \}
+00064 
+00065 
+00066 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

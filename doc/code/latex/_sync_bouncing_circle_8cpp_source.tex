@@ -1,0 +1,86 @@
+\hypertarget{_sync_bouncing_circle_8cpp_source}{}\section{Sync\+Bouncing\+Circle.\+cpp}
+\label{_sync_bouncing_circle_8cpp_source}\index{Sync\+Bouncing\+Circle.\+cpp@{Sync\+Bouncing\+Circle.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  SyncBouncingCircle.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/21/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/SyncBouncingCircle.h"}
+00010 
+00011 
+\hypertarget{_sync_bouncing_circle_8cpp_source_l00012}{}\hyperlink{class_sync_bouncing_circle_aa00f50414fddd97cbb14fe702fa201e2}{00012} \hyperlink{class_sync_bouncing_circle_aa00f50414fddd97cbb14fe702fa201e2}{SyncBouncingCircle::SyncBouncingCircle}()  : 
+      \hyperlink{namespacedsf_acbf1798fc56cfb1707162a17e13f5fda}{SynchronizedObject}(), CircleShape()
+00013 \{
+00014 \}
+00015 
+\hypertarget{_sync_bouncing_circle_8cpp_source_l00016}{}\hyperlink{class_sync_bouncing_circle_a65add49b37f08c7c2c1ab24fc2251f5a}{00016} \textcolor{keywordtype}{void} \hyperlink{class_sync_bouncing_circle_a65add49b37f08c7c2c1ab24fc2251f5a}{SyncBouncingCircle::run}()
+00017 \{
+00018     \textcolor{keywordflow}{if}(this->\hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{receive}())
+00019         this->\hyperlink{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{process}();
+00020 \}
+00021 
+\hypertarget{_sync_bouncing_circle_8cpp_source_l00022}{}\hyperlink{class_sync_bouncing_circle_a53ee06bdeb5025dfd42a49c385e5a1c0}{00022} sf::Vector2<float> \hyperlink{class_sync_bouncing_circle_a53ee06bdeb5025dfd42a49c385e5a1c0}{SyncBouncingCircle::getVelocity}() \{
+00023     \textcolor{keywordflow}{return} this->velocity;
+00024 \}
+\hypertarget{_sync_bouncing_circle_8cpp_source_l00025}{}\hyperlink{class_sync_bouncing_circle_a1e732f9061d50b87b227f7b57b3834bd}{00025} \textcolor{keywordtype}{void} \hyperlink{class_sync_bouncing_circle_a1e732f9061d50b87b227f7b57b3834bd}{SyncBouncingCircle::setVelocity}(\textcolor{keyword}{const} sf::Vector2<float>& velocity) \{
+00026     this->velocity = velocity;
+00027 \}
+\hypertarget{_sync_bouncing_circle_8cpp_source_l00028}{}\hyperlink{class_sync_bouncing_circle_ae9682f881b9bcb70450ae6546f3f28a3}{00028} \textcolor{keywordtype}{float} \hyperlink{class_sync_bouncing_circle_ae9682f881b9bcb70450ae6546f3f28a3}{SyncBouncingCircle::getMass}() \{
+00029     \textcolor{keywordflow}{return} this->mass;
+00030 \}
+\hypertarget{_sync_bouncing_circle_8cpp_source_l00031}{}\hyperlink{class_sync_bouncing_circle_a6c3d0788f0efb17e457f1a7d9500643b}{00031} \textcolor{keywordtype}{void} \hyperlink{class_sync_bouncing_circle_a6c3d0788f0efb17e457f1a7d9500643b}{SyncBouncingCircle::move}(\textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height) \{
+00032     sf::Vector2<float> nextPosition = this->getPosition() + this->velocity;
+00033     this->setPosition(nextPosition);
+00034     \textcolor{keywordflow}{if} (getPosition().x <= 0 || getPosition().x >= width - this->getRadius() * 2) \{
+00035         this->velocity = sf::Vector2<float>(-this->velocity.x, this->velocity.y);
+00036     \}
+00037     \textcolor{keywordflow}{if} (getPosition().y <= 0 || getPosition().y >= height - this->getRadius() * 2) \{
+00038         this->velocity = sf::Vector2<float>(this->velocity.x, -this->velocity.y);
+00039     \}
+00040 \}
+00041 
+\hypertarget{_sync_bouncing_circle_8cpp_source_l00042}{}\hyperlink{class_sync_bouncing_circle_a30bf8948d5c62d34d9f403228571886b}{00042} \textcolor{keywordtype}{void} \hyperlink{class_sync_bouncing_circle_a30bf8948d5c62d34d9f403228571886b}{SyncBouncingCircle::collide}(\hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle} *sbc)
+00043 \{
+00044     \textcolor{keywordflow}{if} (this->\hyperlink{class_sync_bouncing_circle_ab4c66394f5604d08cc1c1738f33376b5}{hasCollision}(sbc))
+00045     \{
+00046         sf::Vector2<float> v1 = this->\hyperlink{class_sync_bouncing_circle_a53ee06bdeb5025dfd42a49c385e5a1c0}{getVelocity}();
+00047         sf::Vector2<float> v2 = sbc->\hyperlink{class_sync_bouncing_circle_a53ee06bdeb5025dfd42a49c385e5a1c0}{getVelocity}();
+00048         sf::Vector2<float> pos1 = this->getPosition();
+00049         sf::Vector2<float> pos2 = sbc->getPosition();
+00050         sf::Vector2<float> n = sf::Vector2<float>(pos2.x - pos1.x, pos2.y - pos1.y);
+00051         sf::Vector2<float> un = n / sqrtf(n.x * n.x + n.y * n.y);
+00052         sf::Vector2<float> ut = sf::Vector2<float>(-un.y, un.x);
+00053         \textcolor{keywordtype}{float} v1n = un.x * v1.x + un.y * v1.y;
+00054         \textcolor{keywordtype}{float} v1t = ut.x * v1.x + ut.y * v1.y;
+00055         \textcolor{keywordtype}{float} v2n = un.x * v2.x + un.y * v2.y;
+00056         \textcolor{keywordtype}{float} v2t = ut.x * v2.x + ut.y * v2.y;
+00057         \textcolor{keywordtype}{float} m1 = this->\hyperlink{class_sync_bouncing_circle_ae9682f881b9bcb70450ae6546f3f28a3}{getMass}();
+00058         \textcolor{keywordtype}{float} m2 = sbc->\hyperlink{class_sync_bouncing_circle_ae9682f881b9bcb70450ae6546f3f28a3}{getMass}();
+00059         \textcolor{keywordtype}{float} v\_1t = v1t;
+00060         \textcolor{keywordtype}{float} v\_2t = v2t;
+00061         \textcolor{keywordtype}{float} v\_1n = (v1n * (m1 - m2) + 2 * m2 * v2n) / (m1 + m2);
+00062         \textcolor{keywordtype}{float} v\_2n = (v2n * (m2 - m1) + 2 * m1 * v1n) / (m1 + m2);
+00063         sf::Vector2<float> v\_\_1n = v\_1n * un;
+00064         sf::Vector2<float> v\_\_1t = v\_1t * ut;
+00065         sf::Vector2<float> v\_\_2n = v\_2n * un;
+00066         sf::Vector2<float> v\_\_2t = v\_2t * ut;
+00067         sf::Vector2<float> v\_1 = v\_\_1n + v\_\_1t;
+00068         sf::Vector2<float> v\_2 = v\_\_2n + v\_\_2t;
+00069         this->\hyperlink{class_sync_bouncing_circle_a1e732f9061d50b87b227f7b57b3834bd}{setVelocity}(v\_1);
+00070         sbc->\hyperlink{class_sync_bouncing_circle_a1e732f9061d50b87b227f7b57b3834bd}{setVelocity}(v\_2);
+00071     \}
+00072 \}
+00073 
+\hypertarget{_sync_bouncing_circle_8cpp_source_l00074}{}\hyperlink{class_sync_bouncing_circle_ab4c66394f5604d08cc1c1738f33376b5}{00074} \textcolor{keywordtype}{bool} \hyperlink{class_sync_bouncing_circle_ab4c66394f5604d08cc1c1738f33376b5}{SyncBouncingCircle::hasCollision}(
+      \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle} *sbc)
+00075 \{
+00076     \textcolor{keywordtype}{float} distanceSqr = std::pow(this->getPosition().x - sbc->getPosition().x, 2) + std::pow(this->
+      getPosition().y - sbc->getPosition().y, 2);
+00077     \textcolor{keywordflow}{return} distanceSqr <= std::pow(this->getRadius() + sbc->getRadius(), 2);
+00078 \}
+\end{DoxyCode}

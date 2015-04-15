@@ -1,0 +1,32 @@
+\hypertarget{_lock_8h_source}{}\section{Lock.\+h}
+\label{_lock_8h_source}\index{Lock.\+h@{Lock.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Lockable.h}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 12/10/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_Lock\_h}
+00010 \textcolor{preprocessor}{#define dsf\_Lock\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <mutex>}
+00013 \textcolor{preprocessor}{#include "Export.h"}
+00014 
+00015 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00016 \{
+\hypertarget{_lock_8h_source_l00029}{}\hyperlink{classdsf_1_1_lock}{00029}     \textcolor{keyword}{class }DSF\_API \hyperlink{classdsf_1_1_lock}{Lock}
+00030     \{
+00031     \textcolor{keyword}{protected}:
+\hypertarget{_lock_8h_source_l00033}{}\hyperlink{classdsf_1_1_lock_a605f27e33e37dc8b3b920a3272461c44}{00033}         std::mutex \hyperlink{classdsf_1_1_lock_a605f27e33e37dc8b3b920a3272461c44}{locker};
+00034     \textcolor{keyword}{public}:
+00036         \textcolor{keywordtype}{void} lock();
+00038         \textcolor{keywordtype}{void} unlock();
+00039     \};
+00040 \}
+00041 
+00042 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

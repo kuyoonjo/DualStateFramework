@@ -1,0 +1,32 @@
+\hypertarget{_task_8cpp_source}{}\section{Task.\+cpp}
+\label{_task_8cpp_source}\index{Task.\+cpp@{Task.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Parallel.cpp}
+00003 \textcolor{comment}{//  DualStateFramework}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+00006 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include <\hyperlink{_task_8h}{dsf/Task.h}>}
+00010 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00011 \{
+\hypertarget{_task_8cpp_source_l00012}{}\hyperlink{classdsf_1_1_task_afa460a63f94f30df36df5661de1dbe1a}{00012}     \hyperlink{classdsf_1_1_task_afa460a63f94f30df36df5661de1dbe1a}{Task::Task}(\hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* to,
+00013                \hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* from,
+00014                \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction}* taskFunction,
+00015                \hyperlink{classyc_1_1_any}{TaskArgument}* taskArgument)
+00016     \{
+00017         this->to = \hyperlink{classdsf_1_1_task_a36c485fbeb9c2330f5637b9d625cf01a}{to};
+00018         this->from = \hyperlink{classdsf_1_1_task_afc1faf30dab0d57501dfdcb4ef7b5450}{from};
+00019         this->taskFunction = \hyperlink{classdsf_1_1_task_a681617cab34fbae641c5b0cf4be46659}{taskFunction};
+00020         this->taskArgument = \hyperlink{classdsf_1_1_task_a8a095d8a36668f6500d4df8c24dbef8d}{taskArgument};
+00021     \}
+00022     
+\hypertarget{_task_8cpp_source_l00023}{}\hyperlink{classdsf_1_1_task_a617ffc1b2f418f061fbc168d74ed5a55}{00023}     \hyperlink{classdsf_1_1_task_a617ffc1b2f418f061fbc168d74ed5a55}{Task::~Task}()
+00024     \{
+00025         \textcolor{keyword}{delete} this->\hyperlink{classdsf_1_1_task_a8a095d8a36668f6500d4df8c24dbef8d}{taskArgument};
+00026     \}
+00027 \}
+\end{DoxyCode}

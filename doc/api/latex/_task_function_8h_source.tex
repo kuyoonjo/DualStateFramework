@@ -1,0 +1,29 @@
+\hypertarget{_task_function_8h_source}{}\section{Task\+Function.\+h}
+\label{_task_function_8h_source}\index{Task\+Function.\+h@{Task\+Function.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  TaskFunction.h}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_TaskFunction\_h}
+00010 \textcolor{preprocessor}{#define dsf\_TaskFunction\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <functional>}
+00013 \textcolor{preprocessor}{#include <vector>}
+00014 
+00015 \textcolor{preprocessor}{#include "TaskArgument.h"}
+00016 
+00017 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00018 \{
+\hypertarget{_task_function_8h_source_l00019}{}\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{00019}     \textcolor{keyword}{typedef} std::function<void (dsf::SynchronizedObject*, dsf::SynchronizedObject*, TaskArgument*)> 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction};
+\hypertarget{_task_function_8h_source_l00020}{}\hyperlink{namespacedsf_a3ad20407a44eaf5ce4cf784a60c1b92b}{00020}     \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} \textcolor{keyword}{function};
+00021 \}
+00022 
+00023 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

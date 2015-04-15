@@ -1,0 +1,18 @@
+/**
+\page ProjectDescription Project Description
+\section ProjectDescriptionInstallations Installations
+The installers were uploaded on SourceForge \cite sourceforge. The download page is available at: https://sourceforge.net/projects/dualstateframework/. Click the "files" tab, you will see all versions for different platform.
+\image latex ReportDescriptionInstallations.png
+
+\section ProjectDescriptionFrameworkwithXcode Framework with Xcode
+The library is designed as a bundle \cite bundle for Mac OS X. To use it in Xcode you just need to drag it into your project explorer.
+\image latex ReportDescriptionXcode.png
+
+\section ProjectDescriptionBenchmarkProgram Benchmark Program
+The benchmark program is designed for profiling the library. It allows user to configure settings.
+\image latex ReportDescriptionBenchmark.png width=12cm
+While running it shows the maximum, minimum, and average FPS on the screen.
+\image latex ReportDescriptionBenchmarkRunning.png width=12cm
+The output is a bar graph. X axis is the number of threads, and y axis in the FPS.
+\image latex ReportDescriptionBenchmarkOutput.png width=12cm
+*/

@@ -1,0 +1,32 @@
+\hypertarget{_random_circle_manager_8h_source}{}\section{Random\+Circle\+Manager.\+h}
+\label{_random_circle_manager_8h_source}\index{Random\+Circle\+Manager.\+h@{Random\+Circle\+Manager.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  RandomCircleManager.h}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/21/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef profiler\_RandomCircleManager\_h}
+00010 \textcolor{preprocessor}{#define profiler\_RandomCircleManager\_h}
+00011 
+00012 \textcolor{preprocessor}{#include "\hyperlink{_my_d_s_f_8h}{MyDSF.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{_sync_circle_8h}{SyncCircle.h}"}
+00014 \textcolor{preprocessor}{#include <\hyperlink{_random_8h}{yctools/Random.h}>}
+00015 
+\hypertarget{_random_circle_manager_8h_source_l00016}{}\hyperlink{class_random_circle_manager}{00016} \textcolor{keyword}{class }\hyperlink{class_random_circle_manager}{RandomCircleManager}
+00017 \{
+00018 \textcolor{keyword}{public}:
+00019     \hyperlink{class_random_circle_manager_aa16cf845cb91227bd58709fa4ee44c2c}{RandomCircleManager}(\hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{namespacedsf}{dsf});
+00020     \hyperlink{class_random_circle_manager_aa45606f5a7e53c08e6ca15702fa118d3}{~RandomCircleManager}();
+\hypertarget{_random_circle_manager_8h_source_l00021}{}\hyperlink{class_random_circle_manager_acd654c100c962b48a97aff05fdf3aa5d}{00021}     \hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{class_random_circle_manager_acd654c100c962b48a97aff05fdf3aa5d}{dsf};
+\hypertarget{_random_circle_manager_8h_source_l00022}{}\hyperlink{class_random_circle_manager_a5df9bb06afdb248a8400f4f708c16f0b}{00022}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_random_circle_manager_a5df9bb06afdb248a8400f4f708c16f0b}{create};
+\hypertarget{_random_circle_manager_8h_source_l00023}{}\hyperlink{class_random_circle_manager_a05c52359eec88a70be1296bfbeeb17c7}{00023}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_random_circle_manager_a05c52359eec88a70be1296bfbeeb17c7}{update};
+\hypertarget{_random_circle_manager_8h_source_l00024}{}\hyperlink{class_random_circle_manager_af87d7d788cd9c4a1a37a30ad959cc445}{00024}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_random_circle_manager_af87d7d788cd9c4a1a37a30ad959cc445}{destroy};
+00025 \};
+00026 
+00027 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

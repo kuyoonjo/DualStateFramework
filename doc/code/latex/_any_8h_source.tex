@@ -1,0 +1,112 @@
+\hypertarget{_any_8h_source}{}\section{Any.\+h}
+\label{_any_8h_source}\index{Any.\+h@{Any.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Any.h}
+00003 \textcolor{comment}{//  YCTools}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 11/13/14.}
+00006 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef YCTools\_Any\_h}
+00010 \textcolor{preprocessor}{#define YCTools\_Any\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <memory>}
+00013 \textcolor{preprocessor}{#include <typeindex>}
+00014 \textcolor{preprocessor}{#include <string>}
+00015 
+00016 \textcolor{preprocessor}{#include "\hyperlink{yctools_2_export_8h}{Export.h}"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{_any_exception_8h}{AnyException.h}"}
+00018 
+\hypertarget{_any_8h_source_l00019}{}\hyperlink{namespaceyc}{00019} \textcolor{keyword}{namespace }\hyperlink{namespaceyc}{yc}
+00020 \{
+\hypertarget{_any_8h_source_l00021}{}\hyperlink{classyc_1_1_any}{00021}     \textcolor{keyword}{class }\hyperlink{yctools_2_export_8h_aa9bd63af2d697c3f5d9ee84516c21762}{YCTOOLS\_API} \hyperlink{classyc_1_1_any}{Any}
+00022     \{
+00023     \textcolor{keyword}{public}:
+00024         \hyperlink{classyc_1_1_any}{Any}(\textcolor{keywordtype}{void});
+00025         \hyperlink{classyc_1_1_any}{Any}(\hyperlink{classyc_1_1_any}{Any}& that);
+00026         \hyperlink{classyc_1_1_any}{Any}(\hyperlink{classyc_1_1_any}{Any} && that);
+00027         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \hyperlink{classyc_1_1_any}{Any}(T && value);
+00028         
+00029         \textcolor{keywordtype}{bool} isNull() \textcolor{keyword}{const};
+00030         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} is() \textcolor{keyword}{const};
+00031         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{typename} std::decay<T>::type& to();
+00032         
+00033         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{operator} T() \textcolor{keyword}{const};
+00034         \hyperlink{classyc_1_1_any}{Any}& operator=(\textcolor{keyword}{const} \hyperlink{classyc_1_1_any}{Any}& any);
+00035         
+00036     \textcolor{keyword}{private}:
+00037         \textcolor{keyword}{class }Base;
+00038         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{class }Derived;
+00039         std::unique\_ptr<Base> Clone() \textcolor{keyword}{const};
+00040         std::unique\_ptr<Base> pointer;
+00041         std::type\_index typeIndex;
+00042     \};
+00043 \}
+00044 
+00045 
+00047 \textcolor{comment}{//  Class yc::Any}
+00048 
+00049 \textcolor{keyword}{namespace }\hyperlink{namespaceyc}{yc}
+00050 \{
+00051     
+\hypertarget{_any_8h_source_l00052}{}\hyperlink{classyc_1_1_any_a55eb7a9883b93f61c051bdc0f67ab667}{00052}     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \hyperlink{classyc_1_1_any_ad8fcf7b262813c063a49dfc91a88e771}{Any::Any}(T && value) :
+00053         pointer(new Derived <typename std::decay<T>::type> (std::forward<T>(value))),
+00054         typeIndex(std::type\_index(typeid(typename std::decay<T>::type)))
+00055     \{\}
+00056     
+\hypertarget{_any_8h_source_l00057}{}\hyperlink{classyc_1_1_any_aa70f1a046474d7b621331e44fdb6c20a}{00057}     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} \hyperlink{classyc_1_1_any_aa70f1a046474d7b621331e44fdb6c20a}{Any::is}()\textcolor{keyword}{ const}
+00058 \textcolor{keyword}{    }\{
+00059         \textcolor{keywordflow}{return} typeIndex == std::type\_index(\textcolor{keyword}{typeid}(T));
+00060     \}
+00061     
+\hypertarget{_any_8h_source_l00062}{}\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{00062}     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{typename} std::decay<T>::type& \hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{Any::to}()
+00063     \{
+00064         \textcolor{keywordflow}{if} (!this->is<T>())
+00065         \{
+00066             \textcolor{keywordflow}{throw} \hyperlink{classyc_1_1_exception_1_1_any_exception}{Exception::AnyException}(\textcolor{keyword}{typeid}(T).name(), typeIndex.name());
+00067         \}
+00068         
+00069         \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::decay<T>::type U;
+00070         \textcolor{keyword}{auto} derived = \textcolor{keyword}{static\_cast<}Derived<U>*\textcolor{keyword}{>} (pointer.get());
+00071         \textcolor{keywordflow}{return} derived->value;
+00072     \}
+\hypertarget{_any_8h_source_l00073}{}\hyperlink{classyc_1_1_any_a93c8a2b87ab82f62c3757af23981002e}{00073}     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> Any::operator T()\textcolor{keyword}{ const}
+00074 \textcolor{keyword}{    }\{
+00075         \textcolor{keywordflow}{return} this->to<typename std::decay<T>::type>();
+00076     \}
+00077 
+00078 \}
+00079 
+00081 \textcolor{comment}{// Inner Classes}
+00082 
+00083 \textcolor{keyword}{namespace }\hyperlink{namespaceyc}{yc} \{
+00084     
+00085     \textcolor{keyword}{class }\hyperlink{yctools_2_export_8h_aa9bd63af2d697c3f5d9ee84516c21762}{YCTOOLS\_API} Any::Base
+00086     \{
+00087         \textcolor{keyword}{public}:
+00088         \textcolor{keyword}{virtual} ~Base();
+00089         \textcolor{keyword}{virtual} std::unique\_ptr<Base> Clone() \textcolor{keyword}{const} = 0;
+00090     \};
+00091     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>
+00092     \textcolor{keyword}{class }Any::Derived : \textcolor{keyword}{public} Any::Base
+00093     \{
+00094     \textcolor{keyword}{public}:
+00095         \textcolor{keyword}{template}<\textcolor{keyword}{typename} U>
+00096         Derived(U && value) : value(std::forward<U>(value)) \{ \}
+00097         
+00098         std::unique\_ptr<Base> Clone()\textcolor{keyword}{ const}
+00099 \textcolor{keyword}{        }\{
+00100             \textcolor{keywordflow}{return} std::unique\_ptr<Base>(\textcolor{keyword}{new} Derived<T>(this->value));
+00101         \}
+00102         
+00103         T value;
+00104     \};
+00105 \}
+00106 
+00107 
+00108 
+00109 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

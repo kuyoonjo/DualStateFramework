@@ -1,0 +1,145 @@
+\hypertarget{_dual_state_framework_8cpp_source}{}\section{Dual\+State\+Framework.\+cpp}
+\label{_dual_state_framework_8cpp_source}\index{Dual\+State\+Framework.\+cpp@{Dual\+State\+Framework.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  TaskManager.cpp}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#}\textcolor{preprocessor}{include} \textcolor{preprocessor}{<}\textcolor{preprocessor}{tbb}\textcolor{preprocessor}{/}\textcolor{preprocessor}{parallel\_for\_each}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}
+00010 \textcolor{preprocessor}{#}\textcolor{preprocessor}{include} \textcolor{preprocessor}{<}\textcolor{preprocessor}{dsf}\textcolor{preprocessor}{/}\textcolor{preprocessor}{DualStateFramework}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}
+00011 \textcolor{preprocessor}{#}\textcolor{preprocessor}{include} \textcolor{preprocessor}{<}\textcolor{preprocessor}{tbb}\textcolor{preprocessor}{/}\textcolor{preprocessor}{task\_scheduler\_init}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}
+00012 \textcolor{preprocessor}{#}\textcolor{preprocessor}{include} \textcolor{preprocessor}{<}\textcolor{preprocessor}{algorithm}\textcolor{preprocessor}{>}
+00013 
+\hypertarget{_dual_state_framework_8cpp_source_l00014}{}\hyperlink{namespacedsf}{00014} \textcolor{keyword}{namespace} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}
+00015 \{
+\hypertarget{_dual_state_framework_8cpp_source_l00016}{}\hyperlink{classdsf_1_1_dual_state_framework_ab2c3f064dee1876d92694544d032b942}{00016}     DualStateFramework::DualStateFramework()
+00017     \{
+00018         \textcolor{keyword}{this}->NumberOfThreads = tbb::task\_scheduler\_init::automatic;
+00019         \textcolor{keyword}{this}->syncObjs = \textcolor{keyword}{new} std::vector<SynchronizedObject*>();
+00020         \textcolor{keyword}{this}->state = DualStateFramework::State::STOPPED;
+00021     \}
+00022 
+\hypertarget{_dual_state_framework_8cpp_source_l00023}{}\hyperlink{classdsf_1_1_dual_state_framework_a0e5246056c73a684d0a167f3ed6d1fb1}{00023}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::~\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}()
+00024     \{
+00025         \textcolor{keywordflow}{while} (!\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{empty}()) \{
+00026             \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}* \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObj} = \textcolor{keyword}{this}->
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{back}();
+00027             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{pop\_back}();
+00028             \textcolor{keyword}{delete} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObj};
+00029         \}
+00030         \textcolor{keyword}{delete} \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs};
+00031     \}
+00032 
+\hypertarget{_dual_state_framework_8cpp_source_l00033}{}\hyperlink{classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194}{00033}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{start}()
+00034     \{
+00035         \textcolor{keywordflow}{if}(!\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{empty}())
+00036         \{
+00037             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{doOneFrame}();
+00038             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{start}();
+00039         \}
+00040     \}
+00041 
+\hypertarget{_dual_state_framework_8cpp_source_l00042}{}\hyperlink{classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f}{00042}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{doOneFrame}()
+00043     \{
+00044         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{refresh}();
+00045 
+00046         \textcolor{keywordflow}{if}(!\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{empty}())
+00047         \{
+00048             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state} = \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{RUNNING};
+00049             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{run}();
+00050             \textcolor{keywordflow}{if}(\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state} == \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{RUNNING})
+00051                 \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state} = \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{STOPPED};
+00052         \}
+00053     \}
+00054 
+00055 
+\hypertarget{_dual_state_framework_8cpp_source_l00056}{}\hyperlink{classdsf_1_1_dual_state_framework_a2ce40c8e165a8ed8fd6cb6cb30ae985b}{00056}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{add}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}::
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObj})
+00057     \{
+00058         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{push\_back}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObj});
+00059     \}
+00060 
+\hypertarget{_dual_state_framework_8cpp_source_l00061}{}\hyperlink{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{00061}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{remove}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}::
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObj})
+00062     \{
+00063         \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObj}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{distroy}();
+00064     \}
+00065 
+\hypertarget{_dual_state_framework_8cpp_source_l00066}{}\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{00066}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{send}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}::
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{to}, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject} *
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{from}, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{taskFunction}, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskArgument} *
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{args})
+00067     \{
+00068         \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{from}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{send}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{to}, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{taskFunction}, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{args});
+00069     \}
+00070 
+\hypertarget{_dual_state_framework_8cpp_source_l00071}{}\hyperlink{classdsf_1_1_dual_state_framework_aca55fd7ccccf9637aa4cd626cd2bbe58}{00071}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State} 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{getState}()
+00072     \{
+00073         \textcolor{keywordflow}{return} \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state};
+00074     \}
+00075 
+\hypertarget{_dual_state_framework_8cpp_source_l00076}{}\hyperlink{classdsf_1_1_dual_state_framework_a8ab358a7456eeed264d53304b6562be4}{00076}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{setNumberOfThreads}(\textcolor{keywordtype}{int} 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{NumberOfThreads})
+00077     \{
+00078         \textcolor{keywordflow}{if}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{NumberOfThreads} == 0)
+00079             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{NumberOfThreads} = \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tbb}::
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task\_scheduler\_init}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{automatic};
+00080         \textcolor{keywordflow}{else}
+00081             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{NumberOfThreads} = \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{NumberOfThreads};
+00082     \}
+00083 
+00084     \textcolor{comment}{//////////////////////////////////////////////////////////////////}
+00085     \textcolor{comment}{// Private}
+00086     \textcolor{comment}{//////////////////////////////////////////////////////////////////}
+00087 
+00088 
+00089     \textcolor{comment}{//////////////////////////////////////////////////////////////////}
+00090     \textcolor{comment}{// Protected}
+00091     \textcolor{comment}{//////////////////////////////////////////////////////////////////}
+00092 
+00093 
+\hypertarget{_dual_state_framework_8cpp_source_l00094}{}\hyperlink{classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007}{00094}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{refresh}()
+00095     \{
+00096         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{erase}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{std}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{remove\_if}(\textcolor{keyword}{this}->
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{begin}(),
+00097                                              \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{end}(),
+00098                                              [](\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}* 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{sb})
+00099                                              \{
+00100                                                  \textcolor{keywordflow}{if} (\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{sb}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{getState}() == 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DELETED}) \{
+00101                                                      \textcolor{keyword}{delete} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{sb};
+00102                                                      \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00103                                                  \}
+00104                                                  \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00105                                              \}) ,
+00106                               \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{end}());
+00107     \}
+00108 
+\hypertarget{_dual_state_framework_8cpp_source_l00109}{}\hyperlink{classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b}{00109}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DualStateFramework}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{run}()
+00110     \{
+00111         \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tbb}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task\_scheduler\_init} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{init}(\textcolor{keyword}{this}->
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{NumberOfThreads});
+00112         \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tbb}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{parallel\_for\_each}(\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{begin}(),
+00113                                \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{syncObjs}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{end}(),
+00114                                [](\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}* \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{sb})
+00115                                \{
+00116                                    \textcolor{keywordflow}{if}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{sb}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{getState}() == 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{STOPPED})
+00117                                    \{
+00118                                        \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{sb}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{start}();
+00119                                    \}
+00120                                \});
+00121     \}
+00122 \}
+\end{DoxyCode}

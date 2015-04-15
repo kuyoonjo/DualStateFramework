@@ -1,0 +1,39 @@
+\hypertarget{_any_exception_8h_source}{}\section{Any\+Exception.\+h}
+\label{_any_exception_8h_source}\index{Any\+Exception.\+h@{Any\+Exception.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  AnyException.h}
+00003 \textcolor{comment}{//  YCTools}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 11/13/14.}
+00006 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef YCTools\_AnyException\_h}
+00010 \textcolor{preprocessor}{#define YCTools\_AnyException\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <exception>}
+00013 \textcolor{preprocessor}{#include <string>}
+00014 
+00015 \textcolor{preprocessor}{#include "\hyperlink{yctools_2_export_8h}{Export.h}"}
+00016 \textcolor{keyword}{namespace }\hyperlink{namespaceyc}{yc}
+00017 \{
+\hypertarget{_any_exception_8h_source_l00018}{}\hyperlink{namespaceyc_1_1_exception}{00018}     \textcolor{keyword}{namespace }Exception
+00019     \{
+\hypertarget{_any_exception_8h_source_l00020}{}\hyperlink{classyc_1_1_exception_1_1_any_exception}{00020}         \textcolor{keyword}{class }\hyperlink{yctools_2_export_8h_aa9bd63af2d697c3f5d9ee84516c21762}{YCTOOLS\_API} \hyperlink{classyc_1_1_exception_1_1_any_exception}{AnyException} : \textcolor{keyword}{public} std::exception
+00021         \{
+00022         \textcolor{keyword}{public}:
+00023             \hyperlink{classyc_1_1_exception_1_1_any_exception}{AnyException}(std::string from,
+00024                          std::string to);
+00025             \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* what() \textcolor{keyword}{const} \textcolor{keywordflow}{throw}() \textcolor{keyword}{override};
+00026             std::string details() \textcolor{keyword}{const} \textcolor{keywordflow}{throw}();
+00027         \textcolor{keyword}{private}:
+00028             std::string from;
+00029             std::string to;
+00030         \};
+00031     \}
+00032     
+00033 \}
+00034 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

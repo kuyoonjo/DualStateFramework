@@ -1,0 +1,34 @@
+\hypertarget{_synchronized_int_8cpp-example}{}\section{Synchronized\+Int.\+cpp}
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <dsf/Synchronisable.h>}
+
+\textcolor{keyword}{class }Int
+\{
+\textcolor{keyword}{private}:
+    \textcolor{keywordtype}{int} value;
+\textcolor{keyword}{public}:
+    \textcolor{keywordtype}{void} setValue(\textcolor{keywordtype}{int} value)
+    \{
+        this->value = value;
+    \}
+    \textcolor{keywordtype}{int} getValue()\textcolor{keyword}{ const}
+\textcolor{keyword}{    }\{
+        \textcolor{keywordflow}{return} this->value;
+    \}
+\};
+
+\textcolor{keyword}{class }SynchronizedInt : \textcolor{keyword}{public} dsf::Synchronisable<Int>, \textcolor{keyword}{public} Int
+\{
+\textcolor{keyword}{public}:
+    \textcolor{keywordtype}{void} synchronise()\textcolor{keyword}{ override}
+\textcolor{keyword}{    }\{
+        this->setValue(next->getValue());
+    \}
+    \textcolor{keywordtype}{void} setValue(\textcolor{keywordtype}{int} value)
+    \{
+        next->setValue(value);
+    \}
+\};
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,213 @@
+\hypertarget{_sync_flocking_boid_8cpp_source}{}\section{Sync\+Flocking\+Boid.\+cpp}
+\label{_sync_flocking_boid_8cpp_source}\index{Sync\+Flocking\+Boid.\+cpp@{Sync\+Flocking\+Boid.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  SyncFlockingBoid.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 3/12/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/SyncFlockingBoid.h"}
+00010 
+\hypertarget{_sync_flocking_boid_8cpp_source_l00011}{}\hyperlink{class_sync_flocking_boid_a76ceab54bd8eec11f04c11f557f24100}{00011} \hyperlink{class_sync_flocking_boid_a76ceab54bd8eec11f04c11f557f24100}{SyncFlockingBoid::SyncFlockingBoid}() : 
+      \hyperlink{namespacedsf_acbf1798fc56cfb1707162a17e13f5fda}{SynchronizedObject}(), CircleShape()
+00012 \{
+00013 \}
+\hypertarget{_sync_flocking_boid_8cpp_source_l00014}{}\hyperlink{class_sync_flocking_boid_a2a7c4d7467f92cd223b1ab5290be9f05}{00014} \hyperlink{class_sync_flocking_boid_a2a7c4d7467f92cd223b1ab5290be9f05}{SyncFlockingBoid::~SyncFlockingBoid}()
+00015 \{
+00016     \textcolor{keyword}{delete} this->\hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc};
+00017     \textcolor{keyword}{delete} this->\hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{vel};
+00018     \textcolor{keyword}{delete} this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc};
+00019 \}
+\hypertarget{_sync_flocking_boid_8cpp_source_l00020}{}\hyperlink{class_sync_flocking_boid_ac136f832c43c76135ad2cd80e549320f}{00020} \hyperlink{class_sync_flocking_boid_a76ceab54bd8eec11f04c11f557f24100}{SyncFlockingBoid::SyncFlockingBoid}(\hyperlink{class_vector3_d}{Vector3D}* loc, \textcolor{keywordtype}{float} ms, \textcolor{keywordtype}{float}
+       mf) : \hyperlink{namespacedsf_acbf1798fc56cfb1707162a17e13f5fda}{SynchronizedObject}(), CircleShape()
+00021 \{
+00022     this->\hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc} = \textcolor{keyword}{new} \hyperlink{class_sync_vector3_d}{SyncVector3D}(0,0);
+00023     this->\hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{vel} = \textcolor{keyword}{new} \hyperlink{class_sync_vector3_d}{SyncVector3D}(\hyperlink{classyc_1_1_random}{yc::Random}().randFloat(-1,1), 
+      \hyperlink{classyc_1_1_random}{yc::Random}().randFloat(-1,1));
+00024     this->loc = \textcolor{keyword}{new} \hyperlink{class_sync_vector3_d}{SyncVector3D}(loc->\hyperlink{class_vector3_d_af3d8e02a27e13d31831a3329402548c2}{getX}(), loc->\hyperlink{class_vector3_d_abcffa21ac0e55556ff519ef521f6fbc0}{getY}(), loc->
+      \hyperlink{class_vector3_d_a5f54a4dc4864266c310949f9fe53df81}{getZ}());
+00025     \textcolor{keyword}{delete} \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc};
+00026     \hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r} = 2.0f;
+00027     \hyperlink{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}{maxspeed} = ms;
+00028     \hyperlink{class_sync_flocking_boid_add7d9f2bf292a749bd17e730027e7350}{maxforce} = mf;
+00029 \}
+00030 
+\hypertarget{_sync_flocking_boid_8cpp_source_l00031}{}\hyperlink{class_sync_flocking_boid_a5756920e77254f47a358256f0c317716}{00031} \textcolor{keywordtype}{void} \hyperlink{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{SyncFlockingBoid::run}(std::vector<SyncFlockingBoid*>* boids, sf::RenderWindow* 
+      window) \{
+00032     \textcolor{comment}{//flock(boids);}
+00033     \textcolor{comment}{//update();}
+00034     \textcolor{comment}{//borders(window->getSize().x, window->getSize().y);}
+00035     \textcolor{comment}{//render(window);}
+00036     
+00037     \textcolor{comment}{// We accumulate a new acceleration each time based on three rules}
+00038     \hyperlink{class_vector3_d}{Vector3D} sep = \hyperlink{class_sync_flocking_boid_a372baffa82756888408de186ea06715b}{separate}(boids);   \textcolor{comment}{// Separation}
+00039     \hyperlink{class_vector3_d}{Vector3D} ali = \hyperlink{class_sync_flocking_boid_afdffc148b6eb1062aac75fe081af344f}{align}(boids);      \textcolor{comment}{// Alignment}
+00040     \hyperlink{class_vector3_d}{Vector3D} coh = \hyperlink{class_sync_flocking_boid_a369309343183c3145da610b82ec1e621}{cohesion}(boids);   \textcolor{comment}{// Cohesion}
+00041     
+00042     \textcolor{comment}{// Arbitrarily weight these forces}
+00043     sep *= 2.0f;
+00044     ali *= 1.0f;
+00045     coh *= 1.0f;
+00046     
+00047     \textcolor{keyword}{auto} \hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc} = \hyperlink{class_vector3_d}{Vector3D}(*this->\hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc});
+00048     \textcolor{keyword}{auto} \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc} = \hyperlink{class_vector3_d}{Vector3D}(this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_vector3_d_af3d8e02a27e13d31831a3329402548c2}{getX}(), this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_vector3_d_abcffa21ac0e55556ff519ef521f6fbc0}{getY}());
+00049     \textcolor{keyword}{auto} \hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{vel} = \hyperlink{class_vector3_d}{Vector3D}(*this->vel);
+00050     
+00051     \textcolor{comment}{// Add the force vectors to acceleration}
+00052     \hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc} += sep;
+00053     \hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc} += ali;
+00054     \hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc} += coh;
+00055     
+00056     \textcolor{comment}{// Method to update location}
+00057     \textcolor{comment}{// Update velocity}
+00058     vel += \hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc};
+00059     
+00060     \textcolor{comment}{// Limit speed}
+00061     vel.\hyperlink{class_vector3_d_a662cc3834556d61ed29890135c280b04}{limit}(\hyperlink{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}{maxspeed});
+00062     
+00063     \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc} += \hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{vel};
+00064     
+00065     \textcolor{comment}{// Reset accelertion to 0 each cycle}
+00066     \hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc}.\hyperlink{class_vector3_d_a9e643441263c2f8dc804a19b9f8f792f}{setXYZ}(0,0,0);
+00067     
+00068     \textcolor{comment}{// Wraparound}
+00069     \textcolor{keyword}{auto} width = window->getSize().x;
+00070     \textcolor{keyword}{auto} height = window->getSize().y;
+00071     \textcolor{keywordflow}{if} (\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}.\hyperlink{class_vector3_d_af3d8e02a27e13d31831a3329402548c2}{getX}() < -\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r})
+00072         \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}.\hyperlink{class_sync_vector3_d_a281c1fdd14cf470374f97c03e80b9051}{setX}(width+\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r});
+00073     \textcolor{keywordflow}{if} (\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}.\hyperlink{class_vector3_d_abcffa21ac0e55556ff519ef521f6fbc0}{getY}() < -\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r})
+00074         \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}.\hyperlink{class_sync_vector3_d_a5d3dc3a35ff906da6e26e774c49efe98}{setY}(height+\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r});
+00075     \textcolor{keywordflow}{if} (\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}.\hyperlink{class_vector3_d_af3d8e02a27e13d31831a3329402548c2}{getX}() > width+\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r})
+00076         \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}.\hyperlink{class_sync_vector3_d_a281c1fdd14cf470374f97c03e80b9051}{setX}(-\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r});
+00077     \textcolor{keywordflow}{if} (\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}.\hyperlink{class_vector3_d_abcffa21ac0e55556ff519ef521f6fbc0}{getY}() > height+\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r})
+00078         \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}.\hyperlink{class_sync_vector3_d_a5d3dc3a35ff906da6e26e774c49efe98}{setY}(-\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r});
+00079     
+00080     
+00081     this->\hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc}->\hyperlink{class_vector3_d_a9e643441263c2f8dc804a19b9f8f792f}{setXYZ}(\hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc});
+00082     this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_vector3_d_a9e643441263c2f8dc804a19b9f8f792f}{setXYZ}(\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc});
+00083     this->vel->\hyperlink{class_vector3_d_a9e643441263c2f8dc804a19b9f8f792f}{setXYZ}(vel);
+00084     this->setPosition(this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_vector3_d_af3d8e02a27e13d31831a3329402548c2}{getX}(), this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_vector3_d_abcffa21ac0e55556ff519ef521f6fbc0}{getY}());
+00085     this->setRadius(\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r});
+00086 \}
+00087 
+00088 
+00089 \textcolor{comment}{// A method that calculates a steering vector towards a target}
+00090 \textcolor{comment}{// Takes a second argument, if true, it slows down as it approaches the target}
+00091 
+\hypertarget{_sync_flocking_boid_8cpp_source_l00092}{}\hyperlink{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}{00092} \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}{SyncFlockingBoid::steer}(\hyperlink{class_vector3_d}{Vector3D}* target, \textcolor{keywordtype}{bool} slowdown) \{
+00093     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}{steer};  \textcolor{comment}{// The steering vector}
+00094     \hyperlink{class_vector3_d}{Vector3D} desired = *target - *this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc};  \textcolor{comment}{// A vector pointing from the location to the
+       target}
+00095     \textcolor{keywordtype}{float} d = desired.\hyperlink{class_vector3_d_a1139cce4839680afb01a9612eda6e117}{magnitude}(); \textcolor{comment}{// Distance from the target is the magnitude of the vector}
+00096     
+00097     \textcolor{comment}{// If the distance is greater than 0, calc steering (otherwise return zero vector)}
+00098     \textcolor{keywordflow}{if} (d > 0) \{
+00099         \textcolor{comment}{// Normalize desired}
+00100         desired.\hyperlink{class_vector3_d_abfb12ecb9c9beb88e095cc4a1a512d3c}{normalize}();
+00101         
+00102         \textcolor{comment}{// Two options for desired vector magnitude (1 -- based on distance, 2 -- maxspeed)}
+00103         \textcolor{keywordflow}{if} ((slowdown) && (d < 100.0f))
+00104             desired *= \hyperlink{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}{maxspeed} * (d / 100.0f); \textcolor{comment}{// This damping is somewhat arbitrary}
+00105         \textcolor{keywordflow}{else}
+00106             desired *= \hyperlink{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}{maxspeed};
+00107         
+00108         \textcolor{comment}{// Steering = Desired minus Velocity}
+00109         steer = desired - *this->\hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{vel};
+00110         steer.\hyperlink{class_vector3_d_a662cc3834556d61ed29890135c280b04}{limit}(\hyperlink{class_sync_flocking_boid_add7d9f2bf292a749bd17e730027e7350}{maxforce});  \textcolor{comment}{// Limit to maximum steering force}
+00111         
+00112     \} \textcolor{keywordflow}{else} \{
+00113         steer = \hyperlink{class_vector3_d}{Vector3D}(0,0);
+00114     \}
+00115     \textcolor{keywordflow}{return} \hyperlink{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}{steer};
+00116 \}
+00117 
+00118 \textcolor{comment}{// Separation}
+00119 \textcolor{comment}{// Method checks for nearby boids and steers away}
+\hypertarget{_sync_flocking_boid_8cpp_source_l00120}{}\hyperlink{class_sync_flocking_boid_a372baffa82756888408de186ea06715b}{00120} \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_a372baffa82756888408de186ea06715b}{SyncFlockingBoid::separate} (std::vector<SyncFlockingBoid*>* 
+      boids) \{
+00121     \textcolor{keywordtype}{float} desiredseparation = 25.0f;
+00122     \hyperlink{class_vector3_d}{Vector3D} sum = \hyperlink{class_vector3_d}{Vector3D}(0,0,0);
+00123     \textcolor{keywordtype}{int} count = 0;
+00124     
+00125     \textcolor{comment}{// For every boid in the system, check if it's too close}
+00126     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} other: *boids) \{
+00127         \textcolor{keywordtype}{float} d = this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_vector3_d_a9a7e9d08bcee80d419986b875d704e5e}{distance}(*other->loc);
+00128         
+00129         \textcolor{comment}{// If the distance is greater than 0 and less than an arbitrary amount (0 when you are yourself)}
+00130         \textcolor{keywordflow}{if} ((d > 0) && (d < desiredseparation)) \{
+00131             \textcolor{comment}{// Calculate vector pointing away from neighbor}
+00132             \hyperlink{class_vector3_d}{Vector3D} diff = *this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc} - *other->loc;
+00133             diff.\hyperlink{class_vector3_d_abfb12ecb9c9beb88e095cc4a1a512d3c}{normalize}();
+00134             diff /= d;        \textcolor{comment}{// Weight by distance}
+00135             sum += diff;
+00136             count++;            \textcolor{comment}{// Keep track of how many}
+00137         \}
+00138     \}
+00139     
+00140     \textcolor{comment}{// Average -- divide by how many}
+00141     \textcolor{keywordflow}{if} (count > 0)
+00142         sum /= count;
+00143     \textcolor{keywordflow}{return} sum;
+00144 \}
+00145 
+00146 
+00147 
+00148 \textcolor{comment}{// Alignment}
+00149 \textcolor{comment}{// For every nearby boid in the system, calculate the average velocity}
+\hypertarget{_sync_flocking_boid_8cpp_source_l00150}{}\hyperlink{class_sync_flocking_boid_afdffc148b6eb1062aac75fe081af344f}{00150} \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_afdffc148b6eb1062aac75fe081af344f}{SyncFlockingBoid::align} (std::vector<SyncFlockingBoid*>* boids) \{
+00151     \textcolor{keywordtype}{float} neighbordist = 50.0f;
+00152     \hyperlink{class_vector3_d}{Vector3D} sum = \hyperlink{class_vector3_d}{Vector3D}(0,0,0);
+00153     \textcolor{keywordtype}{int} count = 0;
+00154     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} & other : *boids) \{
+00155         \textcolor{keywordtype}{float} d = this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_vector3_d_a9a7e9d08bcee80d419986b875d704e5e}{distance}(*other->loc);
+00156         \textcolor{keywordflow}{if} ((d > 0) && (d < neighbordist)) \{
+00157             sum += *other->vel;
+00158             count++;
+00159         \}
+00160     \}
+00161     \textcolor{keywordflow}{if} (count > 0) \{
+00162         sum /= count;
+00163         sum.\hyperlink{class_vector3_d_a662cc3834556d61ed29890135c280b04}{limit}(\hyperlink{class_sync_flocking_boid_add7d9f2bf292a749bd17e730027e7350}{maxforce});
+00164     \}
+00165     \textcolor{keywordflow}{return} sum;
+00166 \}
+00167 
+00168 \textcolor{comment}{// Cohesion}
+00169 \textcolor{comment}{// For the average location (i.e. center) of all nearby boids, calculate steering vector towards that
+       location}
+\hypertarget{_sync_flocking_boid_8cpp_source_l00170}{}\hyperlink{class_sync_flocking_boid_a369309343183c3145da610b82ec1e621}{00170} \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_a369309343183c3145da610b82ec1e621}{SyncFlockingBoid::cohesion} (std::vector<SyncFlockingBoid*>* 
+      boids) \{
+00171     \textcolor{keywordtype}{float} neighbordist = 50.0f;
+00172     \hyperlink{class_vector3_d}{Vector3D} sum = \hyperlink{class_vector3_d}{Vector3D}(0,0,0);   \textcolor{comment}{// Start with empty vector to accumulate all
+       locations}
+00173     \textcolor{keywordtype}{int} count = 0;
+00174     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} & other: *boids) \{
+00175         \textcolor{keywordtype}{float} d = this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_vector3_d_a9a7e9d08bcee80d419986b875d704e5e}{distance}(*other->loc);
+00176         \textcolor{keywordflow}{if} ((d > 0) && (d < neighbordist)) \{
+00177             sum += *other->loc; \textcolor{comment}{// Add location}
+00178             count++;
+00179         \}
+00180     \}
+00181     
+00182     \textcolor{keywordflow}{if} (count > 0) \{
+00183         sum /= count;
+00184         \textcolor{keywordflow}{return} \hyperlink{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}{steer}(&sum,\textcolor{keyword}{false});  \textcolor{comment}{// Steer towards the location}
+00185     \}
+00186     \textcolor{keywordflow}{return} sum;
+00187 \}
+00188 
+\hypertarget{_sync_flocking_boid_8cpp_source_l00189}{}\hyperlink{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{00189} \textcolor{keywordtype}{void} \hyperlink{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{SyncFlockingBoid::run}()
+00190 \{
+00191     \textcolor{keywordflow}{if}(this->\hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{receive}())
+00192     \{
+00193         this->\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}->\hyperlink{class_sync_vector3_d_a99be7456cf1a444ce9ca3d144772f6ff}{synchronise}();
+00194         this->\hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc}->\hyperlink{class_sync_vector3_d_a99be7456cf1a444ce9ca3d144772f6ff}{synchronise}();
+00195         this->\hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{vel}->\hyperlink{class_sync_vector3_d_a99be7456cf1a444ce9ca3d144772f6ff}{synchronise}();
+00196         this->\hyperlink{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{process}();
+00197     \}
+00198 \}
+\end{DoxyCode}

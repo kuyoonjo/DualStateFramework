@@ -1,0 +1,89 @@
+\hypertarget{_synchronized_object_8cpp_source}{}\section{Synchronized\+Object.\+cpp}
+\label{_synchronized_object_8cpp_source}\index{Synchronized\+Object.\+cpp@{Synchronized\+Object.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  SynchronizedObject.cpp}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include <\hyperlink{_synchronized_object_8h}{dsf/SynchronizedObject.h}>}
+00010 
+00011 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00012 \{
+\hypertarget{_synchronized_object_8cpp_source_l00013}{}\hyperlink{classdsf_1_1_synchronized_object_a3f1d2def677e6d814de4d0bd2aa3d95b}{00013}     \hyperlink{classdsf_1_1_synchronized_object_a3f1d2def677e6d814de4d0bd2aa3d95b}{SynchronizedObject::SynchronizedObject}()
+00014         : \hyperlink{classdsf_1_1_task_box}{TaskBox}()
+00015     \{
+00016         this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next} = \textcolor{keyword}{new} \hyperlink{classdsf_1_1_task_box_a931c925e0a4956ee6bc1674f43ecc0a0}{TaskBox}();
+00017         this->state = State::STOPPED;
+00018     \}
+\hypertarget{_synchronized_object_8cpp_source_l00019}{}\hyperlink{classdsf_1_1_synchronized_object_a0181452530628f24baad25eea03580f9}{00019}     \hyperlink{classdsf_1_1_synchronized_object_a0181452530628f24baad25eea03580f9}{SynchronizedObject::~SynchronizedObject}()
+00020     \{
+00021     \}
+00022     
+\hypertarget{_synchronized_object_8cpp_source_l00023}{}\hyperlink{classdsf_1_1_synchronized_object_a9fbf045eff345188935402ae576933eb}{00023}     \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{SynchronizedObject::State} 
+      \hyperlink{classdsf_1_1_synchronized_object_a9fbf045eff345188935402ae576933eb}{SynchronizedObject::getState}()
+00024     \{
+00025         \textcolor{keywordflow}{return} this->state;
+00026     \}
+00027 
+00028     
+\hypertarget{_synchronized_object_8cpp_source_l00029}{}\hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{00029}     \textcolor{keywordtype}{int} \hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{SynchronizedObject::receive}()
+00030     \{
+00031         \textcolor{keywordtype}{int} count = 0;
+00032         \textcolor{keywordflow}{while} (!this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{classdsf_1_1_task_box_a7e67fd9b7104d24cb4be54f6a48eb8c9}{isEmpty}())
+00033         \{
+00034             this->\hyperlink{classdsf_1_1_task_box_ae13d0d245cacbf7f4019f7ff5486aa79}{tasks}->push\_back(this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{classdsf_1_1_task_box_a4dd2eb0544472b8250037d0014ad71f4}{pop}());
+00035             count ++;
+00036         \}
+00037         \textcolor{keywordflow}{return} count;
+00038     \}
+00039     
+00040     \textcolor{keywordtype}{void} SynchronizedObject::push(\hyperlink{classdsf_1_1_task}{dsf::Task} *task)
+00041     \{
+00042         this->\hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock}();
+00043         this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{classdsf_1_1_task_box_a0ec4e52a625fae00e05b072d6434eef1}{push}(task);
+00044         this->\hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock}();
+00045     \}
+00046     
+00048     \textcolor{comment}{// Privates}
+00050 \textcolor{comment}{}    
+00051     \textcolor{keywordtype}{void} SynchronizedObject::send(\hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject} *to,
+00052                                 \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction} *taskFunction,
+00053                                 \hyperlink{namespacedsf_abe4bf68433935a81c31a5ada9b17663a}{TaskArgument} *args)
+00054     \{
+00055         to->push(\textcolor{keyword}{new} \hyperlink{namespacedsf_a7df24c7d3d82e2e686aa3a524dc1dee9}{Task}(to, \textcolor{keyword}{this}, taskFunction, args));
+00056     \}
+00057     
+00058     
+00059     \textcolor{keywordtype}{void} SynchronizedObject::start()
+00060     \{
+00061         this->state = State::RUNNING;
+00062         this->\hyperlink{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{run}();
+00063         \textcolor{keywordflow}{if}(this->state == State::RUNNING)
+00064             this->stop();
+00065     \}
+00066     
+00067     \textcolor{keywordtype}{void} SynchronizedObject::stop()
+00068     \{
+00069         this->state = State::STOPPED;
+00070     \}
+00071     
+00072     \textcolor{keywordtype}{void} SynchronizedObject::distroy()
+00073     \{
+00074         this->state = State::DELETED;
+00075     \}
+00076     
+00077     
+00078     
+00080     \textcolor{comment}{// Protected}
+00082 \textcolor{comment}{}    
+\hypertarget{_synchronized_object_8cpp_source_l00083}{}\hyperlink{classdsf_1_1_synchronized_object_a4e200d7b3508db98f09c6fe547f46cdb}{00083}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_synchronized_object_a4e200d7b3508db98f09c6fe547f46cdb}{SynchronizedObject::synchronise}()
+00084     \{
+00085         *((\hyperlink{classdsf_1_1_task_box}{TaskBox}*) \textcolor{keyword}{this}) = *this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next};
+00086     \}
+00087 \}
+\end{DoxyCode}

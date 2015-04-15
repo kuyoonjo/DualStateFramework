@@ -1,0 +1,212 @@
+/**
+\page DualStateFramework  Dual State Framework
+\section DualStateFrameworkCMakeLists CMakeLists
+\subsection DualStateFrameworkCMakeListsMain CMakeLists.txt
+__Path:__ <EM>$PROJECT_DIR/CMakeLists.txt</EM>
+\includelineno CMakeLists.txt
+\subsection DualStateFrameworkCMakeListsDSF dsf/CMakeLists.txt
+__Path:__ <EM>$PROJECT_DIR/dsf/CMakeLists.txt</EM>
+\includelineno dsf/CMakeLists.txt
+\section DualStateFrameworkConfig Config
+\subsection DualStateFrameworkConfig_h Config.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/Config.h</EM>
+\includelineno dsf/include/dsf/Config.h
+\section DualStateFrameworkDeclaration Declaration
+\subsection DualStateFrameworkDeclaration_h Declaration.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/Declaration.h</EM>
+\includelineno dsf/include/dsf/Declaration.h
+\section DualStateFrameworkDualStateFramework DualStateFramework
+\subsection DualStateFrameworkDualStateFramework_h DualStateFramework.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/DualStateFramework.h</EM>
+\includelineno dsf/include/dsf/DualStateFramework.h
+\subsection DualStateFrameworkDualStateFramework_cpp DualStateFramework.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/dsf/DualStateFramework.cpp</EM>
+\includelineno dsf/src/dsf/DualStateFramework.cpp
+\section DualStateFrameworkExport Export
+\subsection DualStateFrameworkExport_h Export.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/Export.h</EM>
+\includelineno dsf/include/dsf/Export.h
+\section DualStateFrameworkLock Lock
+\subsection DualStateFrameworkLock_h Lock.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/Lock.h</EM>
+\includelineno dsf/include/dsf/Lock.h
+\subsection DualStateFrameworkLock_cpp Lock.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/dsf/Lock.cpp</EM>
+\includelineno dsf/src/dsf/Lock.cpp
+\section DualStateFrameworkRunnable Runnable
+\subsection DualStateFrameworkRunnable_h Runnable.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/Runnable.h</EM>
+\includelineno dsf/include/dsf/Runnable.h
+\section DualStateFrameworkSynchronisable Synchronisable
+\subsection DualStateFrameworkSynchronisable_h Synchronisable.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/Synchronisable.h</EM>
+\includelineno dsf/include/dsf/Synchronisable.h
+\section DualStateFrameworkSynchronizedObject SynchronizedObject
+\subsection DualStateFrameworkSynchronizedObject_h SynchronizedObject.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/SynchronizedObject.h</EM>
+\includelineno dsf/include/dsf/SynchronizedObject.h
+\subsection DualStateFrameworkSynchronizedObject_cpp SynchronizedObject.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/dsf/SynchronizedObject.cpp</EM>
+\includelineno dsf/src/dsf/SynchronizedObject.cpp
+\section DualStateFrameworkSynchronizedVar SynchronizedVar
+\subsection DualStateFrameworkSynchronizedVar_h SynchronizedVar.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/SynchronizedVar.h</EM>
+\includelineno dsf/include/dsf/SynchronizedVar.h
+\subsection DualStateFrameworkSynchronizedVar_cpp SynchronizedVar.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/dsf/SynchronizedVar.cpp</EM>
+\includelineno dsf/src/dsf/SynchronizedVar.cpp
+\section DualStateFrameworkTask Task
+\subsection DualStateFrameworkTask_h Task.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/Task.h</EM>
+\includelineno dsf/include/dsf/Task.h
+\subsection DualStateFrameworkTask_cpp Task.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/dsf/Task.cpp</EM>
+\includelineno dsf/src/dsf/Task.cpp
+\section DualStateFrameworkTaskArgument TaskArgument
+\subsection DualStateFrameworkTaskArgument_h TaskArgument.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/TaskArgument.h</EM>
+\includelineno dsf/include/dsf/TaskArgument.h
+\section DualStateFrameworkTaskBox TaskBox
+\subsection DualStateFrameworkTaskBox_h TaskBox.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/TaskBox.h</EM>
+\includelineno dsf/include/dsf/TaskBox.h
+\subsection DualStateFrameworkTaskBox_cpp TaskBox.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/dsf/TaskBox.cpp</EM>
+\includelineno dsf/src/dsf/TaskBox.cpp
+\section DualStateFrameworkTaskFunction TaskFunction
+\subsection DualStateFrameworkTaskFunction_h TaskFunction.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/dsf/TaskFunction.h</EM>
+\includelineno dsf/include/dsf/TaskFunction.h
+
+
+\page yctools  yctools
+\section yctoolsAny Any
+\subsection yctoolsAny_h Any.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/yctools/Any.h</EM>
+\includelineno dsf/include/yctools/Any.h
+\subsection yctoolsAny_cpp Any.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/yctools/Any.cpp</EM>
+\includelineno dsf/src/yctools/Any.cpp
+\section yctoolsAnyException AnyException
+\subsection yctoolsAnyException_h AnyException.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/yctools/AnyException.h</EM>
+\includelineno dsf/include/yctools/AnyException.h
+\subsection yctoolsAnyException_cpp AnyException.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/yctools/AnyException.cpp</EM>
+\includelineno dsf/src/yctools/AnyException.cpp
+\section yctoolsConfig Config
+\subsection yctoolsConfig_h Config.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/yctools/Config.h</EM>
+\includelineno dsf/include/yctools/Config.h
+\section yctoolsExport Export
+\subsection yctoolsExport_h Export.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/yctools/Export.h</EM>
+\includelineno dsf/include/yctools/Export.h
+\section yctoolsRandom Random
+\subsection yctoolsRandom_h Random.h
+__Path:__ <EM>$PROJECT_DIR/dsf/include/yctools/Random.h</EM>
+\includelineno dsf/include/yctools/Random.h
+\subsection yctoolsRandom_cpp Random.cpp
+__Path:__ <EM>$PROJECT_DIR/dsf/src/yctools/Random.cpp</EM>
+\includelineno dsf/src/yctools/Random.cpp
+
+
+\page BenchmarkProgram  Benchmark Program
+\section BenchmarkProgramCMakeLists CMakeLists
+\subsection BenchmarkProgramCMakeListsMain CMakeLists.txt
+__Path:__ <EM>$PROJECT_DIR/profiler/CMakeLists.txt</EM>
+\includelineno profiler/CMakeLists.txt
+\section BenchmarkProgramBouncingCircleManager BouncingCircleManager
+\subsection BenchmarkProgramBouncingCircleManager_h BouncingCircleManager.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/BouncingCircleManager.h</EM>
+\includelineno profiler/include/BouncingCircleManager.h
+\subsection BenchmarkProgramBouncingCircleManager_cpp BouncingCircleManager.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/BouncingCircleManager.cpp</EM>
+\includelineno profiler/src/BouncingCircleManager.cpp
+\section BenchmarkProgramDSFSFML DSFSFML
+\subsection BenchmarkProgramDSFSFML_h DSFSFML.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/DSFSFML.h</EM>
+\includelineno profiler/include/DSFSFML.h
+\subsection BenchmarkProgramDSFSFML_cpp DSFSFML.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/DSFSFML.cpp</EM>
+\includelineno profiler/src/DSFSFML.cpp
+\section BenchmarkProgramFlockingBoidManager FlockingBoidManager
+\subsection BenchmarkProgramFlockingBoidManager_h FlockingBoidManager.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/FlockingBoidManager.h</EM>
+\includelineno profiler/include/FlockingBoidManager.h
+\subsection BenchmarkProgramFlockingBoidManager_cpp FlockingBoidManager.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/FlockingBoidManager.cpp</EM>
+\includelineno profiler/src/FlockingBoidManager.cpp
+\section BenchmarkProgramFPS FPS
+\subsection BenchmarkProgramFPS_h FPS.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/FPS.h</EM>
+\includelineno profiler/include/FPS.h
+\subsection BenchmarkProgramFPS_cpp FPS.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/FPS.cpp</EM>
+\includelineno profiler/src/FPS.cpp
+\section BenchmarkProgramMyDSF MyDSF
+\subsection BenchmarkProgramMyDSF_h MyDSF.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/MyDSF.h</EM>
+\includelineno profiler/include/MyDSF.h
+\subsection BenchmarkProgramMyDSF_cpp MyDSF.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/MyDSF.cpp</EM>
+\includelineno profiler/src/MyDSF.cpp
+\section BenchmarkProgramRandomCircleManager RandomCircleManager
+\subsection BenchmarkProgramRandomCircleManager_h RandomCircleManager.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/RandomCircleManager.h</EM>
+\includelineno profiler/include/RandomCircleManager.h
+\subsection BenchmarkProgramRandomCircleManager_cpp RandomCircleManager.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/RandomCircleManager.cpp</EM>
+\includelineno profiler/src/RandomCircleManager.cpp
+\section BenchmarkProgramResourcePath ResourcePath
+\subsection BenchmarkProgramResourcePath_h ResourcePath.hpp
+__Path:__ <EM>$PROJECT_DIR/profiler/include/ResourcePath.hpp</EM>
+\includelineno profiler/include/ResourcePath.hpp
+\subsection BenchmarkProgramResourcePath_cpp ResourcePath.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/ResourcePath.cpp</EM>
+\includelineno profiler/src/ResourcePath.cpp
+\subsection BenchmarkProgramResourcePath_mm ResourcePath.mm
+__Path:__ <EM>$PROJECT_DIR/profiler/src/ResourcePath.mm</EM>
+\includelineno profiler/src/ResourcePath.mm
+\section BenchmarkProgramSyncBouncingCircle SyncBouncingCircle
+\subsection BenchmarkProgramSyncBouncingCircle_h SyncBouncingCircle.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/SyncBouncingCircle.h</EM>
+\includelineno profiler/include/SyncBouncingCircle.h
+\subsection BenchmarkProgramSyncBouncingCircle_cpp SyncBouncingCircle.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/SyncBouncingCircle.cpp</EM>
+\includelineno profiler/src/SyncBouncingCircle.cpp
+\section BenchmarkProgramSyncCircle SyncCircle
+\subsection BenchmarkProgramSyncCircle_h SyncCircle.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/SyncCircle.h</EM>
+\includelineno profiler/include/SyncCircle.h
+\subsection BenchmarkProgramSyncCircle_cpp SyncCircle.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/SyncCircle.cpp</EM>
+\includelineno profiler/src/SyncCircle.cpp
+\section BenchmarkProgramSyncFlockingBoid SyncFlockingBoid
+\subsection BenchmarkProgramSyncFlockingBoid_h SyncFlockingBoid.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/SyncFlockingBoid.h</EM>
+\includelineno profiler/include/SyncFlockingBoid.h
+\subsection BenchmarkProgramSyncFlockingBoid_cpp SyncFlockingBoid.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/SyncFlockingBoid.cpp</EM>
+\includelineno profiler/src/SyncFlockingBoid.cpp
+\section BenchmarkProgramSyncVector3D SyncVector3D
+\subsection BenchmarkProgramSyncVector3D_h SyncVector3D.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/SyncVector3D.h</EM>
+\includelineno profiler/include/SyncVector3D.h
+\subsection BenchmarkProgramSyncVector3D_cpp SyncVector3D.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/SyncVector3D.cpp</EM>
+\includelineno profiler/src/SyncVector3D.cpp
+\section BenchmarkProgramVector3D Vector3D
+\subsection BenchmarkProgramVector3D_h Vector3D.h
+__Path:__ <EM>$PROJECT_DIR/profiler/include/Vector3D.h</EM>
+\includelineno profiler/include/Vector3D.h
+\subsection BenchmarkProgramVector3D_cpp Vector3D.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/Vector3D.cpp</EM>
+\includelineno profiler/src/Vector3D.cpp
+
+\section BenchmarkProgramMain main
+\subsection BenchmarkProgramMainCPP main.cpp
+__Path:__ <EM>$PROJECT_DIR/profiler/src/main.cpp</EM>
+\includelineno profiler/src/main.cpp
+
+*/

@@ -1,0 +1,235 @@
+/**
+\page ConformancetoSpecificationandDesignManual Conformance to Specification and Design Manual
+Fortunately, the submitted product matches all functionalities that my specification and design documents mentioned.
+\section SetupDevelopmentEnvironment Setup Development Environment
+The operating system of my laptop is Mac OS X Yosemite \cite osxyosemite. I have installed VMware Fusion \cite vmwarefusion and have created two virtual machine for other operating systems(Microsoft Windows 7 \cite microsoftwindows7 and Ubuntu 14.04 LTS \cite ubuntu14_04LTS). The development will be mainly taken place under Mac, and tested in all these three operating systems.
+\subsection SetupDevelopmentEnvironmentCppCompilerandIDE C++ Compiler and IDE
+\par Mac OS X
+To setup Xcode \cite xcode and default C++ compiler LLVM \cite llvm in Mac OS X is very easy. 
+		- Open App Store → search "Xcode" → click "get" button
+
+After the installation, the IDE Xcode and the compiler LLVM is installed. To see the information about clang by command "clang --version".
+~~~~~~~ .sh
+MacBook-Pro:~ yuchen$ clang --version
+Apple LLVM version 6.1.0 (clang-602.0.49) (based on LLVM 3.6.0svn)
+Target: x86_64-apple-darwin14.3.0
+~~~~~~~
+\par Microsoft Windows
+Download Visual Studio Community \cite visualstudiocommunity from https://www.visualstudio.com and install it. Visual Studio has its own embedded C++ compiler.
+\par Ubuntu
+Open a terminal and type following command to install the GNU Compiler Collection(GCC) \cite gcc
+~~~~~~~ .sh
+sudo apt-get install build-essential
+~~~~~~~
+Type "gcc -v" to print the descriptions.
+~~~~~~~ .sh
+yu@ubuntu:~$ gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.2-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) 
+~~~~~~~
+
+\subsection SetupDevelopmentEnvironmentThirdpartylibraries Third party libraries
+\par Intel Threading Building Blocks
+Intel TBB \cite inteltbb is a C++ library for parallel computing. Use Homebrew \cite homebrew to Install the library for Mac OS X:
+~~~~~~ .sh
+$ brew install libtbb
+~~~~~~
+For Ubuntu use following command
+~~~~~~ .sh
+$ sudo apt-get install libtbb2
+~~~~~~
+For Window need go to its download page https://www.threadingbuildingblocks.org/download. Download the Windows version binaries package and unzip it.
+	- First, create a a new folder. The full path of it is "C:\Program Files\tbb". Inside the folder create three folders "include", "lib", and "bin".
+	- Secondly, go to the unzipped folder. Copy everything inside the "include" to the "include" has just been created.
+	- Inside the "lib", there are two folders "ia32" and "intel64" that means the architecture of operating system. My Window 7 is 32 bits, so I chose the "ia32". Again, inside "ia32", there are many folders those are the versions of Visual Studio. The version of  Visual Studio that I installed is 2013. The core of Visual Studio 2013 is vs2012, so copy all files inside "vc12" to the folder "lib" which has just been created.
+	- Inside the "bin", do the same thing as "lib" did.
+	- Create a environment variable "tbb" refers to the directory "C:\Program Files\tbb".
+
+\par SFML
+Simple and Fast Multimedia Library(SFML \cite sfml) is a graphics library. For Mac, just go to the download page http://www.sfml-dev.org/download/sfml/2.1/ to get the installer and run it. For Ubuntu, just need one line command:
+~~~~~ .sh
+sudo apt-get install libsfml-dev
+~~~~~
+However, there is a problem for Windows. When I went to its download page, I could not find the version for Visual Studio 2013. The solution is to compile the source code which can be cloned from https://github.com/LaurentGomila/SFML.git.
+ 
+\subsection SetupDevelopmentEnvironmentOtherTools Other Tools
+	- SourceTree \cite sourcetree, a GUI git front-end, which is available in both Mac and Windows.
+	- cmake-gui \cite cmakegui, the official GUI front-end for CMake, available in Mac, Windows, and Linux.
+	
+*****************************************************************************************
+\section StartDevelopment Start Development
+\subsection StartDevelopmentSourceControl Source Control
+I used git for source control. The repository is available at https://github.com/kuyoonjo/DualStateFramework.git.
+\subsection StartDevelopmentCodeConfigurations Code Configurations
+The project is designed for Mac OS X, Microsoft Window, and other Unix-like operating systems. Therefore, the code should be portable in all of them. Write different copy for different operating system is not a good idea. The best solution is prepare some configuration file, then different operating system will generate different copies.
+\par Config.h
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.c}
+#ifndef dsf_Config_h
+#define dsf_Config_h
+
+#if defined(_WIN32)
+
+// Windows compilers need specific (and different) keywords for export and import
+#define DSF_API_EXPORT __declspec(dllexport)
+#define DSF_API_IMPORT __declspec(dllimport)
+
+// For Visual C++ compilers, we also need to turn off this annoying C4251 warning
+#ifdef _MSC_VER
+
+#pragma warning(disable : 4251)
+
+#endif
+
+#else // Linux, FreeBSD, Mac OS X
+
+#if __GNUC__ >= 4
+
+// GCC 4 has special keywords for showing/hidding symbols,
+// the same keyword is used for both importing and exporting
+#define DSF_API_EXPORT __attribute__ ((__visibility__ ("default")))
+#define DSF_API_IMPORT __attribute__ ((__visibility__ ("default")))
+
+#else
+
+// GCC < 4 has no mechanism to explicitely hide symbols, everything's exported
+#define DSF_API_EXPORT
+#define DSF_API_IMPORT
+
+#endif
+
+#endif
+
+
+#endif
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\par Export.h
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.c}
+#ifndef dsf_Export_h
+#define dsf_Export_h
+
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
+#include "Config.h"
+
+
+////////////////////////////////////////////////////////////
+// Define portable import / export macros
+////////////////////////////////////////////////////////////
+#if defined(dsf_EXPORTS)
+
+#define DSF_API DSF_API_EXPORT
+
+#else
+
+#define DSF_API DSF_API_IMPORT
+
+#endif
+
+#endif
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\subsection StartDevelopmentBuildProcessManagement Build Process Management
+Different IDEs use different build process managements.
+	- A bundle with extension name "xcodeproj" is an Xcode project.
+	- A file with extension name "sln" is a Visual Studio Solution.
+	- GCC uses Makefile.
+	- Many others.
+
+CMake can generate different build process systems for those. What I need is a little bit configurations for different IDEs.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if (MSVC)
+	# Windows VC
+	# Activate C++ exception handling
+	if (NOT CMAKE_CXX_FLAGS MATCHES "/EHsc")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc")
+	endif ()
+
+	# Set Warning level always to 4
+	if (CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+		string(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+	else ()
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+	endif () 
+elseif(APPLE)
+	# Mac OS X Xcode
+	set(CMAKE_MACOSX_RPATH 1)
+	ADD_DEFINITIONS(-std=c++11)
+else()
+	# Unix
+	ADD_DEFINITIONS(-std=c++11)
+endif()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*****************************************************************************************
+\section Implementation Implementation
+\subsection ImplementationDualState Dual State
+The idea to make an object two states is to create an abstract class named "Synchronisable" that any other class inherits it will have two copies. The class is designed as this:
+~~~~~~~~~~~~~~{.cpp}
+    template<class T> class Synchronisable
+    {
+    protected:
+        T* next; //A copy of current object.
+    public:
+        virtual ~Synchronisable() {
+            delete this->next;
+        }
+        virtual void synchronise() = 0; //Signs current value to next value.
+    };
+~~~~~~~~~~~~~~
+Any class implements the abstract class will automatically generate a copy "next" when an object is created. What we need to do is just override the method "synchronise". For example:
+~~~~~~~~~~~~~~{.cpp}
+#include <dsf/Synchronisable.h>
+
+class Int
+{
+private:
+    int value;
+public:
+    void setValue(int value)
+    {
+        this->value = value;
+    }
+    int getValue() const
+    {
+        return this->value;
+    }
+};
+
+class SynchronizedInt : public dsf::Synchronisable<Int>, public Int
+{
+public:
+    void synchronise() override
+    {
+        this->setValue(next->getValue());
+    }
+};
+~~~~~~~~~~~~~~
+
+\subsection Implementationrnd Read operation and Write operation
+Now, we need to make the current value for all read operations, and the next value for all write operations. To implement this, we just need to override the method "setValue".
+~~~~~~~~~~~~~{.cpp}
+    void setValue(int value)
+    {
+        next->setValue(value);
+    }
+~~~~~~~~~~~~~
+Every time we call the method "setValue" will effect the next, but not the current. The example code will now like this:
+\include SynchronizedInt.cpp
+*************************************************************
+\subsection ImplementationBenchmarkProgram Benchmark Program
+For benchmarks, I used SFML to create graphics. Frames per Second is the measurement for the benchmark program. Three methods of different algorithms are used:
+	- Random
+	- Elastic collision
+	- Flocking boids
+
+Because of SFML using opengl, and opengl not supporting multiple-thread rendering, the step of draw elements should be in serial programming phase. A class was designed for SFML:
+\include DSFSFML.h
+In parallel programming phase, all elements need to be drawn will be pushed in to the list drawables. In serial phase, all elements in the list will be drawn out.
+
+*/

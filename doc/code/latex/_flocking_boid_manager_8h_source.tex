@@ -1,0 +1,33 @@
+\hypertarget{_flocking_boid_manager_8h_source}{}\section{Flocking\+Boid\+Manager.\+h}
+\label{_flocking_boid_manager_8h_source}\index{Flocking\+Boid\+Manager.\+h@{Flocking\+Boid\+Manager.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  FlockingBoidManager.h}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 3/12/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef profiler\_FlockingBoidManager\_h}
+00010 \textcolor{preprocessor}{#define profiler\_FlockingBoidManager\_h}
+00011 
+00012 \textcolor{preprocessor}{#include "\hyperlink{_my_d_s_f_8h}{MyDSF.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{_sync_flocking_boid_8h}{SyncFlockingBoid.h}"}
+00014 \textcolor{preprocessor}{#include <\hyperlink{_random_8h}{yctools/Random.h}>}
+00015 \textcolor{preprocessor}{#include <vector>}
+00016 
+\hypertarget{_flocking_boid_manager_8h_source_l00017}{}\hyperlink{class_flocking_boid_manager}{00017} \textcolor{keyword}{class }\hyperlink{class_flocking_boid_manager}{FlockingBoidManager}
+00018 \{
+00019 \textcolor{keyword}{public}:
+00020     \hyperlink{class_flocking_boid_manager_a54782df4dd7271ffae97e3cf0fd5e8a1}{FlockingBoidManager}(\hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{namespacedsf}{dsf});
+00021     \hyperlink{class_flocking_boid_manager_ad9a7f5d35a1867a60b55b1160a8068ab}{~FlockingBoidManager}();
+\hypertarget{_flocking_boid_manager_8h_source_l00022}{}\hyperlink{class_flocking_boid_manager_a9a564c99978c8e6115562472544bb839}{00022}     \hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{class_flocking_boid_manager_a9a564c99978c8e6115562472544bb839}{dsf};
+\hypertarget{_flocking_boid_manager_8h_source_l00023}{}\hyperlink{class_flocking_boid_manager_adba8774f051608d3aa3591cd848087bb}{00023}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_flocking_boid_manager_adba8774f051608d3aa3591cd848087bb}{create};
+\hypertarget{_flocking_boid_manager_8h_source_l00024}{}\hyperlink{class_flocking_boid_manager_a53cd9d7409eb6169290c4447c82c4906}{00024}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_flocking_boid_manager_a53cd9d7409eb6169290c4447c82c4906}{update};
+\hypertarget{_flocking_boid_manager_8h_source_l00025}{}\hyperlink{class_flocking_boid_manager_a71e9958bd298f68630681364bd0677f8}{00025}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}* \hyperlink{class_flocking_boid_manager_a71e9958bd298f68630681364bd0677f8}{destroy};
+00026 \};
+00027 
+00028 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

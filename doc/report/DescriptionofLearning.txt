@@ -1,0 +1,37 @@
+/**
+\page DescriptionofLearning Description of Learning
+\section DescriptionofLearningTechnical Technical
+By developing this framework I learned a lot of information: 
+	- Dynamic-link library. 
+		- how dynamic-link works on different operating systems
+		- export symbols and import symbols
+	- Intel TBB
+		- how Intel TBB implements parallel programming
+		- how to execute a program by a specified number of threads
+	- C++11 features
+		- when and how to use smart pointers
+		- function pointers and Lambdas
+		- override and final keywords
+	- Mac os X related
+		- Mac library bundle
+		- Mac application bundle
+		- \@rpath, \@excutable_path, and \@load_path
+		- how to use otool command to display specified parts of object files or libraries
+		- how to use install_name_tool command to edit  specified parts of object files or libraries
+	- Algorithms
+		- Elastic collision
+		- Flocking Boids
+	- CMake
+		- how to create a Mac bundle, and copy relative files to the bundle
+		- how to detect a specified library is installed or not
+		- how to add extra headings and libraries
+	- Others
+		- how to use Doxygen to generate LaTex format documents
+		- how to use Graphviz and DOT to create inheritance diagrams
+		- how to use LaTex to create pdf documents.
+		- how to use BibTeX to manage bibliography.
+
+\section DescriptionofLearningPersonal Personal
+I did not practice good Time management and Project management skills during the most of project development. As a result of this project work, I have once more realized that the Time management and Project management are important personal skills, which should be always improved. Also, I have achieved presentation skills through project presentations and demos.
+
+*/

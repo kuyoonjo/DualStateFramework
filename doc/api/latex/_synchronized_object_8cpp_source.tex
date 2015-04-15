@@ -1,0 +1,96 @@
+\hypertarget{_synchronized_object_8cpp_source}{}\section{Synchronized\+Object.\+cpp}
+\label{_synchronized_object_8cpp_source}\index{Synchronized\+Object.\+cpp@{Synchronized\+Object.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  SynchronizedObject.cpp}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#}\textcolor{preprocessor}{include} \textcolor{preprocessor}{<}\textcolor{preprocessor}{dsf}\textcolor{preprocessor}{/}\textcolor{preprocessor}{SynchronizedObject}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}
+00010 
+00011 \textcolor{keyword}{namespace} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}
+00012 \{
+\hypertarget{_synchronized_object_8cpp_source_l00013}{}\hyperlink{classdsf_1_1_synchronized_object_a3f1d2def677e6d814de4d0bd2aa3d95b}{00013}     SynchronizedObject::SynchronizedObject()
+00014         : TaskBox()
+00015     \{
+00016         \textcolor{keyword}{this}->next = \textcolor{keyword}{new} TaskBox();
+00017         \textcolor{keyword}{this}->state = State::STOPPED;
+00018     \}
+\hypertarget{_synchronized_object_8cpp_source_l00019}{}\hyperlink{classdsf_1_1_synchronized_object_a0181452530628f24baad25eea03580f9}{00019}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::~\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}()
+00020     \{
+00021     \}
+00022 
+\hypertarget{_synchronized_object_8cpp_source_l00023}{}\hyperlink{classdsf_1_1_synchronized_object_a9fbf045eff345188935402ae576933eb}{00023}     \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State} 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{getState}()
+00024     \{
+00025         \textcolor{keywordflow}{return} \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state};
+00026     \}
+00027 
+00028 
+\hypertarget{_synchronized_object_8cpp_source_l00029}{}\hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{00029}     \textcolor{keywordtype}{int} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{receive}()
+00030     \{
+00031         \textcolor{keywordtype}{int} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{count} = 0;
+00032         \textcolor{keywordflow}{while} (!\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{next}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{isEmpty}())
+00033         \{
+00034             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{tasks}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{push\_back}(\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{next}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{pop}());
+00035             \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{count} ++;
+00036         \}
+00037         \textcolor{keywordflow}{return} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{count};
+00038     \}
+00039 
+00040     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{push}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task} *
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task})
+00041     \{
+00042         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{lock}();
+00043         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{next}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{push}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{task});
+00044         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{unlock}();
+00045     \}
+00046 
+00047     \textcolor{comment}{////////////////////////////////////////////////////////}
+00048     \textcolor{comment}{// Privates}
+00049     \textcolor{comment}{////////////////////////////////////////////////////////}
+00050 
+00051     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{send}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf}::
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{to},
+00052                                 \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{taskFunction},
+00053                                 \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskArgument} *\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{args})
+00054     \{
+00055         \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{to}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{push}(\textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{Task}(\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{to}, \textcolor{keyword}{this}, \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{taskFunction}, 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{args}));
+00056     \}
+00057 
+00058 
+00059     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{start}()
+00060     \{
+00061         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state} = \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{RUNNING};
+00062         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{run}();
+00063         \textcolor{keywordflow}{if}(\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state} == \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{RUNNING})
+00064             \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{stop}();
+00065     \}
+00066 
+00067     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{stop}()
+00068     \{
+00069         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state} = \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{STOPPED};
+00070     \}
+00071 
+00072     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{distroy}()
+00073     \{
+00074         \textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{state} = \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{State}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{DELETED};
+00075     \}
+00076 
+00077 
+00078 
+00079     \textcolor{comment}{////////////////////////////////////////////////////////}
+00080     \textcolor{comment}{// Protected}
+00081     \textcolor{comment}{////////////////////////////////////////////////////////}
+00082 
+\hypertarget{_synchronized_object_8cpp_source_l00083}{}\hyperlink{classdsf_1_1_synchronized_object_a4e200d7b3508db98f09c6fe547f46cdb}{00083}     \textcolor{keywordtype}{void} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{SynchronizedObject}::\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{synchronise}()
+00084     \{
+00085         *((\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskBox}*) \textcolor{keyword}{this}) = *\textcolor{keyword}{this}->\hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{next};
+00086     \}
+00087 \}
+\end{DoxyCode}

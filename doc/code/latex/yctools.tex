@@ -1,0 +1,388 @@
+\hypertarget{yctools_yctoolsAny}{}\section{Any}\label{yctools_yctoolsAny}
+\hypertarget{yctools_yctoolsAny_h}{}\subsection{Any.\+h}\label{yctools_yctoolsAny_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/yctools/\+Any.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Any.h}
+3 \textcolor{comment}{//  YCTools}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 11/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef YCTools\_Any\_h}
+10 \textcolor{preprocessor}{#define YCTools\_Any\_h}
+11 
+12 \textcolor{preprocessor}{#include <memory>}
+13 \textcolor{preprocessor}{#include <typeindex>}
+14 \textcolor{preprocessor}{#include <string>}
+15 
+16 \textcolor{preprocessor}{#include "Export.h"}
+17 \textcolor{preprocessor}{#include "AnyException.h"}
+18 
+19 \textcolor{keyword}{namespace }yc
+20 \{
+21     \textcolor{keyword}{class }YCTOOLS\_API Any
+22     \{
+23     \textcolor{keyword}{public}:
+24         Any(\textcolor{keywordtype}{void});
+25         Any(Any& that);
+26         Any(Any && that);
+27         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> Any(T && value);
+28         
+29         \textcolor{keywordtype}{bool} isNull() \textcolor{keyword}{const};
+30         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} is() \textcolor{keyword}{const};
+31         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{typename} std::decay<T>::type& to();
+32         
+33         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{operator} T() \textcolor{keyword}{const};
+34         Any& operator=(\textcolor{keyword}{const} Any& any);
+35         
+36     \textcolor{keyword}{private}:
+37         \textcolor{keyword}{class }Base;
+38         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{class }Derived;
+39         std::unique\_ptr<Base> Clone() \textcolor{keyword}{const};
+40         std::unique\_ptr<Base> pointer;
+41         std::type\_index typeIndex;
+42     \};
+43 \}
+44 
+45 
+47 \textcolor{comment}{//  Class yc::Any}
+48 
+49 \textcolor{keyword}{namespace }yc
+50 \{
+51     
+52     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> Any::Any(T && value) :
+53         pointer(new Derived <typename std::decay<T>::type> (std::forward<T>(value))),
+54         typeIndex(std::type\_index(typeid(typename std::decay<T>::type)))
+55     \{\}
+56     
+57     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} Any::is()\textcolor{keyword}{ const}
+58 \textcolor{keyword}{    }\{
+59         \textcolor{keywordflow}{return} typeIndex == std::type\_index(\textcolor{keyword}{typeid}(T));
+60     \}
+61     
+62     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{typename} std::decay<T>::type& Any::to()
+63     \{
+64         \textcolor{keywordflow}{if} (!this->is<T>())
+65         \{
+66             \textcolor{keywordflow}{throw} Exception::AnyException(\textcolor{keyword}{typeid}(T).name(), typeIndex.name());
+67         \}
+68         
+69         \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::decay<T>::type U;
+70         \textcolor{keyword}{auto} derived = \textcolor{keyword}{static\_cast<}Derived<U>*\textcolor{keyword}{>} (pointer.get());
+71         \textcolor{keywordflow}{return} derived->value;
+72     \}
+73     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> Any::operator T()\textcolor{keyword}{ const}
+74 \textcolor{keyword}{    }\{
+75         \textcolor{keywordflow}{return} this->to<typename std::decay<T>::type>();
+76     \}
+77 
+78 \}
+79 
+81 \textcolor{comment}{// Inner Classes}
+82 
+83 \textcolor{keyword}{namespace }yc \{
+84     
+85     \textcolor{keyword}{class }YCTOOLS\_API Any::Base
+86     \{
+87         \textcolor{keyword}{public}:
+88         \textcolor{keyword}{virtual} ~Base();
+89         \textcolor{keyword}{virtual} std::unique\_ptr<Base> Clone() \textcolor{keyword}{const} = 0;
+90     \};
+91     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>
+92     \textcolor{keyword}{class }Any::Derived : \textcolor{keyword}{public} Any::Base
+93     \{
+94     \textcolor{keyword}{public}:
+95         \textcolor{keyword}{template}<\textcolor{keyword}{typename} U>
+96         Derived(U && value) : value(std::forward<U>(value)) \{ \}
+97         
+98         std::unique\_ptr<Base> Clone()\textcolor{keyword}{ const}
+99 \textcolor{keyword}{        }\{
+100             \textcolor{keywordflow}{return} std::unique\_ptr<Base>(\textcolor{keyword}{new} Derived<T>(this->value));
+101         \}
+102         
+103         T value;
+104     \};
+105 \}
+106 
+107 
+108 
+109 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{yctools_yctoolsAny_cpp}{}\subsection{Any.\+cpp}\label{yctools_yctoolsAny_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/yctools/\+Any.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Any.cpp}
+3 \textcolor{comment}{//  YCTools}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 11/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#include "../../include/yctools/Any.h"}
+10 
+11 \textcolor{keyword}{namespace }yc
+12 \{
+13     Any::Any() :
+14     typeIndex(std::type\_index(typeid(void) ))
+15     \{\}
+16     
+17     Any::Any(Any& that) :
+18     pointer(that.Clone()),
+19     typeIndex(that.typeIndex)
+20     \{\}
+21     
+22     Any::Any(Any && that) :
+23     pointer(std::move(that.pointer)),
+24     typeIndex(that.typeIndex)
+25     \{\}
+26     
+27     \textcolor{keywordtype}{bool} Any::isNull()\textcolor{keyword}{ const}
+28 \textcolor{keyword}{    }\{
+29         \textcolor{keywordflow}{return} !bool(pointer);
+30     \}
+31     
+32     Any& Any::operator=(\textcolor{keyword}{const} Any& any)
+33     \{
+34         \textcolor{keywordflow}{if} (this->pointer == any.pointer)
+35             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+36         
+37         this->pointer = any.Clone();
+38         this->typeIndex = any.typeIndex;
+39         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+40     \}
+41     
+42     Any::Base::~Base() \{\}
+43     
+44     std::unique\_ptr<Any::Base> Any::Clone()\textcolor{keyword}{ const}
+45 \textcolor{keyword}{    }\{
+46         \textcolor{keywordflow}{if} (pointer != \textcolor{keyword}{nullptr})
+47             \textcolor{keywordflow}{return} pointer->Clone();
+48         
+49         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+50     \}
+51 \}
+\end{DoxyCodeInclude}
+ \hypertarget{yctools_yctoolsAnyException}{}\section{Any\+Exception}\label{yctools_yctoolsAnyException}
+\hypertarget{yctools_yctoolsAnyException_h}{}\subsection{Any\+Exception.\+h}\label{yctools_yctoolsAnyException_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/yctools/\+Any\+Exception.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  AnyException.h}
+3 \textcolor{comment}{//  YCTools}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 11/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef YCTools\_AnyException\_h}
+10 \textcolor{preprocessor}{#define YCTools\_AnyException\_h}
+11 
+12 \textcolor{preprocessor}{#include <exception>}
+13 \textcolor{preprocessor}{#include <string>}
+14 
+15 \textcolor{preprocessor}{#include "Export.h"}
+16 \textcolor{keyword}{namespace }yc
+17 \{
+18     \textcolor{keyword}{namespace }Exception
+19     \{
+20         \textcolor{keyword}{class }YCTOOLS\_API AnyException : \textcolor{keyword}{public} std::exception
+21         \{
+22         \textcolor{keyword}{public}:
+23             AnyException(std::string from,
+24                          std::string to);
+25             \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* what() \textcolor{keyword}{const} throw() override;
+26             std::\textcolor{keywordtype}{string} details() const throw();
+27         private:
+28             std::\textcolor{keywordtype}{string} from;
+29             std::\textcolor{keywordtype}{string} to;
+30         \};
+31     \}
+32     
+33 \}
+34 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{yctools_yctoolsAnyException_cpp}{}\subsection{Any\+Exception.\+cpp}\label{yctools_yctoolsAnyException_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/yctools/\+Any\+Exception.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  AnyException.cpp}
+3 \textcolor{comment}{//  YCTools}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 11/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#include "../../include/yctools/AnyException.h"}
+10 
+11 \textcolor{keyword}{namespace }yc
+12 \{
+13     \textcolor{keyword}{namespace }Exception
+14     \{
+15         
+16         AnyException::AnyException(std::string from,
+17                                    std::string to) :
+18             from(from),
+19             to(to)
+20         \{\}
+21         
+22         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* AnyException::what() \textcolor{keyword}{const} throw()
+23         \{
+24             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"\(\backslash\)"Any\(\backslash\)" exception happened!"};
+25         \}
+26         std::string AnyException::details() \textcolor{keyword}{const} throw()
+27         \{
+28             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Can not cast "} + from + \textcolor{stringliteral}{" to "} + to;
+29         \}
+30     \}
+31 \}
+\end{DoxyCodeInclude}
+ \hypertarget{yctools_yctoolsConfig}{}\section{Config}\label{yctools_yctoolsConfig}
+\hypertarget{yctools_yctoolsConfig_h}{}\subsection{Config.\+h}\label{yctools_yctoolsConfig_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/yctools/\+Config.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  config.h}
+3 \textcolor{comment}{//  YCTOOLS}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef yctools\_Config\_h}
+10 \textcolor{preprocessor}{#define yctools\_Config\_h}
+11 
+12 \textcolor{preprocessor}{#if defined(\_WIN32)}
+13 
+14 \textcolor{comment}{// Windows compilers need specific (and different) keywords for export and import}
+15 \textcolor{preprocessor}{#define YCTOOLS\_API\_EXPORT \_\_declspec(dllexport)}
+16 \textcolor{preprocessor}{#define YCTOOLS\_API\_IMPORT \_\_declspec(dllimport)}
+17 
+18 \textcolor{comment}{// For Visual C++ compilers, we also need to turn off this annoying C4251 warning}
+19 \textcolor{preprocessor}{#ifdef \_MSC\_VER}
+20 
+21 \textcolor{preprocessor}{#pragma warning(disable : 4251)}
+22 
+23 \textcolor{preprocessor}{#endif}
+24 
+25 \textcolor{preprocessor}{#else // Linux, FreeBSD, Mac OS X}
+26 
+27 \textcolor{preprocessor}{#if \_\_GNUC\_\_ >= 4}
+28 
+29 \textcolor{comment}{// GCC 4 has special keywords for showing/hidding symbols,}
+30 \textcolor{comment}{// the same keyword is used for both importing and exporting}
+31 \textcolor{preprocessor}{#define YCTOOLS\_API\_EXPORT \_\_attribute\_\_ ((\_\_visibility\_\_ ("default")))}
+32 \textcolor{preprocessor}{#define YCTOOLS\_API\_IMPORT \_\_attribute\_\_ ((\_\_visibility\_\_ ("default")))}
+33 
+34 \textcolor{preprocessor}{#else}
+35 
+36 \textcolor{comment}{// GCC < 4 has no mechanism to explicitely hide symbols, everything's exported}
+37 \textcolor{preprocessor}{#define YCTOOLS\_API\_EXPORT}
+38 \textcolor{preprocessor}{#define YCTOOLS\_API\_IMPORT}
+39 
+40 \textcolor{preprocessor}{#endif}
+41 
+42 \textcolor{preprocessor}{#endif}
+43 
+44 
+45 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{yctools_yctoolsExport}{}\section{Export}\label{yctools_yctoolsExport}
+\hypertarget{yctools_yctoolsExport_h}{}\subsection{Export.\+h}\label{yctools_yctoolsExport_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/yctools/\+Export.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Export.h}
+3 \textcolor{comment}{//  YCTOOLS}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef yctools\_Export\_h}
+10 \textcolor{preprocessor}{#define yctools\_Export\_h}
+11 
+13 \textcolor{comment}{// Headers}
+15 \textcolor{comment}{}\textcolor{preprocessor}{#include "Config.h"}
+16 
+17 
+19 \textcolor{comment}{// Define portable import / export macros}
+21 \textcolor{comment}{}\textcolor{preprocessor}{#if defined(yctools\_EXPORTS)}
+22 
+23 \textcolor{preprocessor}{#define YCTOOLS\_API YCTOOLS\_API\_EXPORT}
+24 
+25 \textcolor{preprocessor}{#else}
+26 
+27 \textcolor{preprocessor}{#define YCTOOLS\_API YCTOOLS\_API\_IMPORT}
+28 
+29 \textcolor{preprocessor}{#endif}
+30 
+31 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{yctools_yctoolsRandom}{}\section{Random}\label{yctools_yctoolsRandom}
+\hypertarget{yctools_yctoolsRandom_h}{}\subsection{Random.\+h}\label{yctools_yctoolsRandom_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/yctools/\+Random.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Random.h}
+3 \textcolor{comment}{//  yctools}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 2/9/15.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef yctools\_Random\_h}
+10 \textcolor{preprocessor}{#define yctools\_Random\_h}
+11 
+12 \textcolor{preprocessor}{#include <stdlib.h>}
+13 \textcolor{preprocessor}{#include <ctime>}
+14 \textcolor{preprocessor}{#include <random>}
+15 
+16 \textcolor{preprocessor}{#include "Export.h"}
+17 \textcolor{keyword}{namespace }yc
+18 \{
+19     \textcolor{keyword}{class }YCTOOLS\_API Random
+20     \{
+21     \textcolor{keyword}{public}:
+22         \textcolor{keywordtype}{int} randInt(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max);
+23         \textcolor{keywordtype}{float} randFloat(\textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max);
+24     \};
+25 \}
+26 
+27 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{yctools_yctoolsRandom_cpp}{}\subsection{Random.\+cpp}\label{yctools_yctoolsRandom_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/yctools/\+Random.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Random.cpp}
+3 \textcolor{comment}{//  yctools}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 2/9/15.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 
+10 \textcolor{preprocessor}{#include <yctools/Random.h>}
+11 
+12 \textcolor{keywordtype}{int} yc::Random::randInt(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max)
+13 \{
+14     std::random\_device rd;
+15     std::default\_random\_engine generator(rd());
+16     std::uniform\_int\_distribution<int> distribution(min, max);
+17     \textcolor{keywordtype}{int} dice\_roll = distribution(generator);
+18     \textcolor{keywordflow}{return} dice\_roll;
+19 \}
+20 
+21 \textcolor{keywordtype}{float} yc::Random::randFloat(\textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max)
+22 \{
+23     std::random\_device rd;
+24     std::default\_random\_engine generator(rd());
+25     std::uniform\_real\_distribution<float> distribution(min, max);
+26     \textcolor{keywordtype}{float} dice\_roll = distribution(generator);
+27     \textcolor{keywordflow}{return} dice\_roll;
+28 \}
+\end{DoxyCodeInclude}
+ 

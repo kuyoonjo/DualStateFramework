@@ -1,0 +1,180 @@
+\hypertarget{classyc_1_1_any}{}\section{yc\+:\+:Any Class Reference}
+\label{classyc_1_1_any}\index{yc\+::\+Any@{yc\+::\+Any}}
+
+
+{\ttfamily \#include $<$Any.\+h$>$}
+
+
+
+Inherits Base.
+
+
+
+Inherited by \hyperlink{classdsf_1_1_synchronized_var}{dsf\+::\+Synchronized\+Var}.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classyc_1_1_any_ad8fcf7b262813c063a49dfc91a88e771}{Any} (void)
+\item 
+\hyperlink{classyc_1_1_any_a30faf7a0b6018dc259853ee153112003}{Any} (\hyperlink{classyc_1_1_any}{Any} \&that)
+\item 
+\hyperlink{classyc_1_1_any_a42a1478072e69e4bcdb1e3b46cb0a270}{Any} (\hyperlink{classyc_1_1_any}{Any} \&\&that)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classyc_1_1_any_a55eb7a9883b93f61c051bdc0f67ab667}{Any} (T \&\&value)
+\item 
+bool \hyperlink{classyc_1_1_any_aceb067996f86a6a6b3a15f5c7f4bf3c8}{is\+Null} () const 
+\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{classyc_1_1_any_aa70f1a046474d7b621331e44fdb6c20a}{is} () const 
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::decay$<$ T $>$\+::type \& \hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{classyc_1_1_any_a93c8a2b87ab82f62c3757af23981002e}{operator T} () const 
+\item 
+\hyperlink{classyc_1_1_any}{Any} \& \hyperlink{classyc_1_1_any_a52a7e3379867190ca9da0554d9323853}{operator=} (const \hyperlink{classyc_1_1_any}{Any} \&any)
+\item 
+virtual \hyperlink{classyc_1_1_any_a6b4586022a065098835382038e61e047}{$\sim$\+Base} ()
+\item 
+virtual std\+::unique\+\_\+ptr$<$ Base $>$ \hyperlink{classyc_1_1_any_af0f21086581a5ac8edcb01cd6204678c}{Clone} () const =0
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::decay$<$ T $>$\+::type \& \hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line \hyperlink{_any_8h_source_l00021}{21} of file \hyperlink{_any_8h_source}{Any.\+h}.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classyc_1_1_any_ad8fcf7b262813c063a49dfc91a88e771}{}\index{yc\+::\+Any@{yc\+::\+Any}!Any@{Any}}
+\index{Any@{Any}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{Any}]{\setlength{\rightskip}{0pt plus 5cm}yc\+::\+Any\+::\+Any (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{classyc_1_1_any_ad8fcf7b262813c063a49dfc91a88e771}
+
+
+Definition at line \hyperlink{_any_8cpp_source_l00013}{13} of file \hyperlink{_any_8cpp_source}{Any.\+cpp}.
+
+\hypertarget{classyc_1_1_any_a30faf7a0b6018dc259853ee153112003}{}\index{yc\+::\+Any@{yc\+::\+Any}!Any@{Any}}
+\index{Any@{Any}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{Any}]{\setlength{\rightskip}{0pt plus 5cm}yc\+::\+Any\+::\+Any (
+\begin{DoxyParamCaption}
+\item[{{\bf Any} \&}]{that}
+\end{DoxyParamCaption}
+)}\label{classyc_1_1_any_a30faf7a0b6018dc259853ee153112003}
+
+
+Definition at line \hyperlink{_any_8cpp_source_l00017}{17} of file \hyperlink{_any_8cpp_source}{Any.\+cpp}.
+
+\hypertarget{classyc_1_1_any_a42a1478072e69e4bcdb1e3b46cb0a270}{}\index{yc\+::\+Any@{yc\+::\+Any}!Any@{Any}}
+\index{Any@{Any}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{Any}]{\setlength{\rightskip}{0pt plus 5cm}yc\+::\+Any\+::\+Any (
+\begin{DoxyParamCaption}
+\item[{{\bf Any} \&\&}]{that}
+\end{DoxyParamCaption}
+)}\label{classyc_1_1_any_a42a1478072e69e4bcdb1e3b46cb0a270}
+
+
+Definition at line \hyperlink{_any_8cpp_source_l00022}{22} of file \hyperlink{_any_8cpp_source}{Any.\+cpp}.
+
+\hypertarget{classyc_1_1_any_a55eb7a9883b93f61c051bdc0f67ab667}{}\index{yc\+::\+Any@{yc\+::\+Any}!Any@{Any}}
+\index{Any@{Any}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{Any}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ yc\+::\+Any\+::\+Any (
+\begin{DoxyParamCaption}
+\item[{T \&\&}]{value}
+\end{DoxyParamCaption}
+)}\label{classyc_1_1_any_a55eb7a9883b93f61c051bdc0f67ab667}
+
+
+Definition at line \hyperlink{_any_8h_source_l00052}{52} of file \hyperlink{_any_8h_source}{Any.\+h}.
+
+\hypertarget{classyc_1_1_any_a6b4586022a065098835382038e61e047}{}\index{yc\+::\+Any@{yc\+::\+Any}!````~Base@{$\sim$\+Base}}
+\index{````~Base@{$\sim$\+Base}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{$\sim$\+Base}]{\setlength{\rightskip}{0pt plus 5cm}virtual yc\+::\+Any\+::$\sim$\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classyc_1_1_any_a6b4586022a065098835382038e61e047}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classyc_1_1_any_af0f21086581a5ac8edcb01cd6204678c}{}\index{yc\+::\+Any@{yc\+::\+Any}!Clone@{Clone}}
+\index{Clone@{Clone}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{Clone}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::unique\+\_\+ptr$<$Base$>$ yc\+::\+Any\+::\+Clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classyc_1_1_any_af0f21086581a5ac8edcb01cd6204678c}
+\hypertarget{classyc_1_1_any_aa70f1a046474d7b621331e44fdb6c20a}{}\index{yc\+::\+Any@{yc\+::\+Any}!is@{is}}
+\index{is@{is}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{is}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool yc\+::\+Any\+::is (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classyc_1_1_any_aa70f1a046474d7b621331e44fdb6c20a}
+
+
+Definition at line \hyperlink{_any_8h_source_l00057}{57} of file \hyperlink{_any_8h_source}{Any.\+h}.
+
+\hypertarget{classyc_1_1_any_aceb067996f86a6a6b3a15f5c7f4bf3c8}{}\index{yc\+::\+Any@{yc\+::\+Any}!is\+Null@{is\+Null}}
+\index{is\+Null@{is\+Null}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{is\+Null}]{\setlength{\rightskip}{0pt plus 5cm}bool yc\+::\+Any\+::is\+Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classyc_1_1_any_aceb067996f86a6a6b3a15f5c7f4bf3c8}
+
+
+Definition at line \hyperlink{_any_8cpp_source_l00027}{27} of file \hyperlink{_any_8cpp_source}{Any.\+cpp}.
+
+\hypertarget{classyc_1_1_any_a93c8a2b87ab82f62c3757af23981002e}{}\index{yc\+::\+Any@{yc\+::\+Any}!operator T@{operator T}}
+\index{operator T@{operator T}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{operator T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ yc\+::\+Any\+::operator T (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classyc_1_1_any_a93c8a2b87ab82f62c3757af23981002e}
+
+
+Definition at line \hyperlink{_any_8h_source_l00073}{73} of file \hyperlink{_any_8h_source}{Any.\+h}.
+
+\hypertarget{classyc_1_1_any_a52a7e3379867190ca9da0554d9323853}{}\index{yc\+::\+Any@{yc\+::\+Any}!operator=@{operator=}}
+\index{operator=@{operator=}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Any} \& yc\+::\+Any\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Any} \&}]{any}
+\end{DoxyParamCaption}
+)}\label{classyc_1_1_any_a52a7e3379867190ca9da0554d9323853}
+
+
+Definition at line \hyperlink{_any_8cpp_source_l00032}{32} of file \hyperlink{_any_8cpp_source}{Any.\+cpp}.
+
+\hypertarget{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{}\index{yc\+::\+Any@{yc\+::\+Any}!to@{to}}
+\index{to@{to}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{to}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ std\+::decay$<$T$>$\+::type\& yc\+::\+Any\+::to (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}
+\hypertarget{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{}\index{yc\+::\+Any@{yc\+::\+Any}!to@{to}}
+\index{to@{to}!yc\+::\+Any@{yc\+::\+Any}}
+\subsubsection[{to}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ std\+::decay$<$T$>$\+::type\& yc\+::\+Any\+::to (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}
+
+
+Definition at line \hyperlink{_any_8h_source_l00062}{62} of file \hyperlink{_any_8h_source}{Any.\+h}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_any_8h}{Any.\+h}\item 
+\hyperlink{_any_8cpp}{Any.\+cpp}\end{DoxyCompactItemize}

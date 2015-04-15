@@ -1,0 +1,136 @@
+\hypertarget{_bouncing_circle_manager_8cpp_source}{}\section{Bouncing\+Circle\+Manager.\+cpp}
+\label{_bouncing_circle_manager_8cpp_source}\index{Bouncing\+Circle\+Manager.\+cpp@{Bouncing\+Circle\+Manager.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  BouncingCircleManager.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/22/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/BouncingCircleManager.h"}
+00010 \textcolor{preprocessor}{#include <cmath>}
+00011 
+\hypertarget{_bouncing_circle_manager_8cpp_source_l00012}{}\hyperlink{class_bouncing_circle_manager_a03956961ae6a7c55ffccb15928c58802}{00012} \hyperlink{class_bouncing_circle_manager_a03956961ae6a7c55ffccb15928c58802}{BouncingCircleManager::BouncingCircleManager}(
+      \hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{namespacedsf}{dsf})
+00013 \{
+00014     this->dsf = \hyperlink{class_bouncing_circle_manager_a4c48cd67fe5ff21396b9e5552d2159a1}{dsf};
+00015     this->\hyperlink{class_bouncing_circle_manager_a470d50514892c85df73f25358d202d1b}{create} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00016                                          \{
+00017                                              \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}* syncObj;
+00018                                              std::vector<SyncBouncingCircle*>* syncObjs;
+00019                                              std::tie(syncObj, syncObjs) = args->
+      \hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<std::tuple<SyncBouncingCircle*, std::vector<SyncBouncingCircle*>*>>();
+00020                                              \textcolor{keywordflow}{if}(this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->isOpen())
+00021                                              \{
+00022                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_bouncing_circle_manager_a40c60a1170ab1528bf67c86bcc2d7637}{update}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(std::make\_tuple(syncObj, syncObjs)));
+00023                                                  this->dsf->\hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock}();
+00024                                                  this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->push\_back(syncObj);
+00025                                                  this->dsf->\hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock}();
+00026                                              \}
+00027                                              \textcolor{keywordflow}{else}
+00028                                              \{
+00029                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_bouncing_circle_manager_aee82e3ddd983f4e27c439b74494ab3d5}{destroy}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(syncObj));
+00030                                              \}
+00031                                          \});
+00032     this->\hyperlink{class_bouncing_circle_manager_a40c60a1170ab1528bf67c86bcc2d7637}{update} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00033                                          \{
+00034                                              \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}* syncObj;
+00035                                              std::vector<SyncBouncingCircle*>* syncObjs;
+00036                                              std::tie(syncObj, syncObjs) = args->
+      \hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<std::tuple<SyncBouncingCircle*, std::vector<SyncBouncingCircle*>*>>();
+00037                                              \textcolor{keywordflow}{if}(this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->isOpen())
+00038                                              \{
+00039                                                  \textcolor{keyword}{auto} size = this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->getSize();
+00040                                                  \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} & sb : *syncObjs)
+00041                                                  \{
+00042                                                      \textcolor{keywordflow}{if}(sb != syncObj)
+00043                                                          syncObj->\hyperlink{class_sync_bouncing_circle_a30bf8948d5c62d34d9f403228571886b}{collide}(sb);
+00044                                                  \}
+00045                                                  syncObj->\hyperlink{class_sync_bouncing_circle_a6c3d0788f0efb17e457f1a7d9500643b}{move}(size.x, size.y);
+00046                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->update, \textcolor{keyword}{new} 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(std::make\_tuple(syncObj, syncObjs)));
+00047                                              \}
+00048                                              \textcolor{keywordflow}{else}
+00049                                              \{
+00050                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_bouncing_circle_manager_aee82e3ddd983f4e27c439b74494ab3d5}{destroy}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(syncObj));
+00051                                              \}
+00052                                          \});
+00053     this->\hyperlink{class_bouncing_circle_manager_aee82e3ddd983f4e27c439b74494ab3d5}{destroy} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00054                                           \{
+00055                                               \textcolor{keyword}{auto} syncObj = args->\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<
+      \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}*>();
+00056                                               \textcolor{keyword}{auto} drawable = (sf::Drawable*) syncObj;
+00057                                               this->dsf->\hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock}();
+00058                                               this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->erase(
+00059                                                                           std::remove\_if(
+00060                                                                                          this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->begin(),
+00061                                                                                          this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->end(),
+00062                                                                                          [&](sf::Drawable* 
+      d)
+00063                                                                                          \{
+00064                                                                                              \textcolor{keywordflow}{return} d == 
+      drawable;
+00065                                                                                          \}),
+00066                                                                           this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->end());
+00067                                               this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{remove}(to);
+00068                                               this->dsf->\hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock}();
+00069                                           \});
+00070 \}
+\hypertarget{_bouncing_circle_manager_8cpp_source_l00071}{}\hyperlink{class_bouncing_circle_manager_afa060fb52ab29a72169af32eb03e39a1}{00071} \hyperlink{class_bouncing_circle_manager_afa060fb52ab29a72169af32eb03e39a1}{BouncingCircleManager::~BouncingCircleManager}()
+00072 \{
+00073     \textcolor{keyword}{delete} this->\hyperlink{class_bouncing_circle_manager_a470d50514892c85df73f25358d202d1b}{create};
+00074     \textcolor{keyword}{delete} this->\hyperlink{class_bouncing_circle_manager_a40c60a1170ab1528bf67c86bcc2d7637}{update};
+00075     \textcolor{keyword}{delete} this->\hyperlink{class_bouncing_circle_manager_aee82e3ddd983f4e27c439b74494ab3d5}{destroy};
+00076 \}
+00077 
+\hypertarget{_bouncing_circle_manager_8cpp_source_l00078}{}\hyperlink{class_bouncing_circle_manager_aa88c537cbffc870d5def5bcacd3c5ee2}{00078} std::vector<SyncBouncingCircle*>* \hyperlink{class_bouncing_circle_manager_aa88c537cbffc870d5def5bcacd3c5ee2}{BouncingCircleManager::createRandomCircles}
+      (\textcolor{keywordtype}{int} number, \textcolor{keywordtype}{int} radius, \textcolor{keywordtype}{int} boundX, \textcolor{keywordtype}{int} boundY) \{
+00079     \textcolor{keywordtype}{int} numberOfCircles = number;
+00080     \textcolor{keyword}{auto} circles = \textcolor{keyword}{new} std::vector<SyncBouncingCircle*>();
+00081     \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}* circle;
+00082     \textcolor{keywordflow}{while}(circles->size() < numberOfCircles) \{
+00083         std::vector<SyncBouncingCircle*>::iterator itr = circles->begin();
+00084         circle = createRandomCircle(radius, boundX, boundY);
+00085         \textcolor{keywordflow}{while} (itr != circles->end()) \{
+00086             \textcolor{keywordflow}{if} (circle->hasCollision(*itr)) \{
+00087                 \textcolor{keyword}{delete} circle;
+00088                 circle = createRandomCircle(radius, boundX, boundY);
+00089                 itr = circles->begin();
+00090             \} \textcolor{keywordflow}{else} \{
+00091                 itr ++;
+00092             \}
+00093         \}
+00094         circles->push\_back(circle);
+00095     \}
+00096     \textcolor{keywordflow}{return} circles;
+00097 \}
+00098 
+00099 \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}*  BouncingCircleManager::createRandomCircle(\textcolor{keywordtype}{int} radius, \textcolor{keywordtype}{int} boundX, \textcolor{keywordtype}{
+      int} boundY) \{
+00100     \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}* circle = \textcolor{keyword}{new} \hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}();
+00101     \textcolor{keywordtype}{int} direction = \hyperlink{classyc_1_1_random}{yc::Random}().\hyperlink{classyc_1_1_random_a8cf4d84430a8a030f93078d439d819b8}{randInt}(1, 360);
+00102     \textcolor{keywordtype}{int} posx = \hyperlink{classyc_1_1_random}{yc::Random}().\hyperlink{classyc_1_1_random_a8cf4d84430a8a030f93078d439d819b8}{randInt}(0, boundX - radius * 2);
+00103     \textcolor{keywordtype}{int} posy = \hyperlink{classyc_1_1_random}{yc::Random}().\hyperlink{classyc_1_1_random_a8cf4d84430a8a030f93078d439d819b8}{randInt}(0, boundY - radius * 2);
+00104     \textcolor{keywordtype}{float} x = cosf(direction * M\_PI / 180);
+00105     \textcolor{keywordtype}{float} y = sinf(direction * M\_PI / 180);
+00106     circle->setRadius(radius);
+00107     circle->setPosition(sf::Vector2<float>(posx, posy));
+00108     circle->\hyperlink{class_sync_bouncing_circle_a1e732f9061d50b87b227f7b57b3834bd}{setVelocity}(sf::Vector2<float>(x, y));
+00109     \textcolor{keywordflow}{return} circle;
+00110 \}
+\end{DoxyCode}

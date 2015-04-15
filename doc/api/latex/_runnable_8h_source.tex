@@ -1,0 +1,32 @@
+\hypertarget{_runnable_8h_source}{}\section{Runnable.\+h}
+\label{_runnable_8h_source}\index{Runnable.\+h@{Runnable.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Runnable.h}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_Runnable\_h}
+00010 \textcolor{preprocessor}{#define dsf\_Runnable\_h}
+00011 
+00012 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00013 \{
+\hypertarget{_runnable_8h_source_l00017}{}\hyperlink{classdsf_1_1_runnable}{00017}     \textcolor{keyword}{class }\hyperlink{classdsf_1_1_runnable}{Runnable}
+00018     \{
+00019     \textcolor{keyword}{public}:
+\hypertarget{_runnable_8h_source_l00027}{}\hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{00027}         \textcolor{keyword}{enum} \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State}
+00028         \{
+\hypertarget{_runnable_8h_source_l00029}{}\hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a0897925165e6577c4d3ebb185178c9c5}{00029}             \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991ad7167727fe5c31678c166aee6801ba0a}{RUNNING}, \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a0897925165e6577c4d3ebb185178c9c5}{STOPPED}, \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991a60038f4f186bbe0d05fdbbe9da0f85de}{READY}, \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991aea5cfe327f95ca42d589e660b7cffe28}{DELETED}
+00030         \};
+00032         \textcolor{keyword}{virtual} \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{State} \hyperlink{classdsf_1_1_runnable_a139342b0d6d53fc7f1bbd97d99d3724a}{getState}() = 0;
+00033     \textcolor{keyword}{protected}:
+00035         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_runnable_a6e23b3b551a7cfdbff0e9ba2265d4378}{run}() = 0;
+00036     \};
+00037 \}
+00038 
+00039 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -126,17 +126,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab6ca84c5186f4fc3e048c4ff7a104ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3063d7f0ce537eb44dc2bdcec816a36b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#a3063d7f0ce537eb44dc2bdcec816a36b">send</a> (<a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a> *to, <a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a> *from, <a class="el" href="namespacedsf.html#aa16e735f29587f4485b56fc46746f7a9">TaskFunction</a> *taskFunction, <a class="el" href="namespacedsf.html#abe4bf68433935a81c31a5ada9b17663a">TaskArgument</a> *args)</td></tr>
 <tr class="separator:a3063d7f0ce537eb44dc2bdcec816a36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f41adffe986e0d9360e0bbfba2a245a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#a9f41adffe986e0d9360e0bbfba2a245a">getState</a> () override</td></tr>
-<tr class="separator:a9f41adffe986e0d9360e0bbfba2a245a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca55fd7ccccf9637aa4cd626cd2bbe58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#aca55fd7ccccf9637aa4cd626cd2bbe58">getState</a> () override</td></tr>
+<tr class="separator:aca55fd7ccccf9637aa4cd626cd2bbe58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ab358a7456eeed264d53304b6562be4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#a8ab358a7456eeed264d53304b6562be4">setNumberOfThreads</a> (int NumberOfThreads)</td></tr>
 <tr class="separator:a8ab358a7456eeed264d53304b6562be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ab4c6856bd4036f8abbc2be2c0f00ea1a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#ab4c6856bd4036f8abbc2be2c0f00ea1a">refresh</a> ()</td></tr>
-<tr class="separator:ab4c6856bd4036f8abbc2be2c0f00ea1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b40bcf755127022f9258e846ddedb23"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#a7b40bcf755127022f9258e846ddedb23">run</a> () override</td></tr>
-<tr class="separator:a7b40bcf755127022f9258e846ddedb23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe53c4d52bfb56b0b73c6b9fd397b007"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#afe53c4d52bfb56b0b73c6b9fd397b007">refresh</a> ()</td></tr>
+<tr class="separator:afe53c4d52bfb56b0b73c6b9fd397b007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25b6b35182320df2cf02a8505b1ff83b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsf_1_1_dual_state_framework.html#a25b6b35182320df2cf02a8505b1ff83b">run</a> () override</td></tr>
+<tr class="separator:a25b6b35182320df2cf02a8505b1ff83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -206,7 +206,7 @@ Example</h1>
         <tr>
           <td class="memname">void dsf::DualStateFramework::add </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a> *&#160;</td>
           <td class="paramname"><em>syncObj</em></td><td>)</td>
           <td></td>
         </tr>
@@ -230,9 +230,27 @@ Example</h1>
 </div><div class="memdoc">
 <p>Do one frame of all SyncronizedObjects. </p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f_cgraph.png" border="0" usemap="#classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f_cgraph" alt=""/></div>
+<map name="classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f_cgraph" id="classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f_cgraph">
+<area shape="rect" id="node2" href="classdsf_1_1_dual_state_framework.html#afe53c4d52bfb56b0b73c6b9fd397b007" title="dsf::DualStateFramework\l::refresh" alt="" coords="238,5,410,44"/><area shape="rect" id="node3" href="classdsf_1_1_dual_state_framework.html#a25b6b35182320df2cf02a8505b1ff83b" title="dsf::DualStateFramework::run" alt="" coords="225,68,424,93"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f_icgraph.png" border="0" usemap="#classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f_icgraph" alt=""/></div>
+<map name="classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f_icgraph" id="classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f_icgraph">
+<area shape="rect" id="node2" href="classdsf_1_1_dual_state_framework.html#ab17692c652ab856818d5e8f0dd82f194" title="dsf::DualStateFramework\l::start" alt="" coords="225,5,397,44"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a9f41adffe986e0d9360e0bbfba2a245a"></a>
+<a class="anchor" id="aca55fd7ccccf9637aa4cd626cd2bbe58"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -240,7 +258,7 @@ Example</h1>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">State</a> dsf::DualStateFramework::getState </td>
+          <td class="memname"><a class="el" href="classdsf_1_1_runnable.html#a8eb63b21a0accc7a6a2a05f18e257991">DualStateFramework::State</a> dsf::DualStateFramework::getState </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -294,7 +312,7 @@ Example</h1>
 </div><!-- fragment --> 
 </div>
 </div>
-<a class="anchor" id="ab4c6856bd4036f8abbc2be2c0f00ea1a"></a>
+<a class="anchor" id="afe53c4d52bfb56b0b73c6b9fd397b007"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -302,7 +320,7 @@ Example</h1>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void dsf::DualStateFramework::refresh </td>
+          <td class="memname">void dsf::DualStateFramework::refresh </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -316,6 +334,15 @@ Example</h1>
 </div><div class="memdoc">
 <p>Clear all SyncronizedObjects which is marked as DELETE </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007_icgraph.png" border="0" usemap="#classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007_icgraph" alt=""/></div>
+<map name="classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007_icgraph" id="classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007_icgraph">
+<area shape="rect" id="node2" href="classdsf_1_1_dual_state_framework.html#a72f0e6753a30394c0e505bb0bc481e3f" title="dsf::DualStateFramework\l::doOneFrame" alt="" coords="225,5,397,44"/><area shape="rect" id="node3" href="classdsf_1_1_dual_state_framework.html#ab17692c652ab856818d5e8f0dd82f194" title="dsf::DualStateFramework\l::start" alt="" coords="445,5,617,44"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ab6ca84c5186f4fc3e048c4ff7a104ae7"></a>
@@ -325,7 +352,7 @@ Example</h1>
         <tr>
           <td class="memname">void dsf::DualStateFramework::remove </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a> *&#160;</td>
           <td class="paramname"><em>syncObj</em></td><td>)</td>
           <td></td>
         </tr>
@@ -335,7 +362,7 @@ Example</h1>
 
 </div>
 </div>
-<a class="anchor" id="a7b40bcf755127022f9258e846ddedb23"></a>
+<a class="anchor" id="a25b6b35182320df2cf02a8505b1ff83b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -343,7 +370,7 @@ Example</h1>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void dsf::DualStateFramework::run </td>
+          <td class="memname">void dsf::DualStateFramework::run </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -359,6 +386,15 @@ Example</h1>
 
 <p>Implements <a class="el" href="classdsf_1_1_runnable.html#a6e23b3b551a7cfdbff0e9ba2265d4378">dsf::Runnable</a>.</p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b_icgraph.png" border="0" usemap="#classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b_icgraph" alt=""/></div>
+<map name="classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b_icgraph" id="classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b_icgraph">
+<area shape="rect" id="node2" href="classdsf_1_1_dual_state_framework.html#a72f0e6753a30394c0e505bb0bc481e3f" title="dsf::DualStateFramework\l::doOneFrame" alt="" coords="252,5,424,44"/><area shape="rect" id="node3" href="classdsf_1_1_dual_state_framework.html#ab17692c652ab856818d5e8f0dd82f194" title="dsf::DualStateFramework\l::start" alt="" coords="472,5,643,44"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a3063d7f0ce537eb44dc2bdcec816a36b"></a>
@@ -368,13 +404,13 @@ Example</h1>
         <tr>
           <td class="memname">void dsf::DualStateFramework::send </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a> *&#160;</td>
           <td class="paramname"><em>to</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_object.html">SynchronizedObject</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classdsf_1_1_synchronized_object.html">dsf::SynchronizedObject</a> *&#160;</td>
           <td class="paramname"><em>from</em>, </td>
         </tr>
         <tr>
@@ -431,15 +467,25 @@ Example</h1>
 </div><div class="memdoc">
 <p>Start all SyncronizedObjects associated. </p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194_cgraph.png" border="0" usemap="#classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194_cgraph" alt=""/></div>
+<map name="classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194_cgraph" id="classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194_cgraph">
+<area shape="rect" id="node2" href="classdsf_1_1_dual_state_framework.html#a72f0e6753a30394c0e505bb0bc481e3f" title="dsf::DualStateFramework\l::doOneFrame" alt="" coords="225,33,397,72"/><area shape="rect" id="node3" href="classdsf_1_1_dual_state_framework.html#afe53c4d52bfb56b0b73c6b9fd397b007" title="dsf::DualStateFramework\l::refresh" alt="" coords="458,5,630,44"/><area shape="rect" id="node4" href="classdsf_1_1_dual_state_framework.html#a25b6b35182320df2cf02a8505b1ff83b" title="dsf::DualStateFramework::run" alt="" coords="445,68,643,93"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_dual_state_framework_8h_source.html">DualStateFramework.h</a></li>
+<li>DualStateFramework.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 6 2015 23:57:33 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 15 2015 14:08:15 for Dual State Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -1,0 +1,33 @@
+\hypertarget{_d_s_f_s_f_m_l_8cpp_source}{}\section{D\+S\+F\+S\+F\+M\+L.\+cpp}
+\label{_d_s_f_s_f_m_l_8cpp_source}\index{D\+S\+F\+S\+F\+M\+L.\+cpp@{D\+S\+F\+S\+F\+M\+L.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  DSFSFML.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/17/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/DSFSFML.h"}
+00010 
+00011 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00012 \{
+00013     \textcolor{keyword}{namespace }sfml
+00014     \{
+\hypertarget{_d_s_f_s_f_m_l_8cpp_source_l00015}{}\hyperlink{classdsf_1_1sfml_1_1_render_window_a86b08e1ee47f8cde51a731050be2f360}{00015}         \hyperlink{classdsf_1_1sfml_1_1_render_window_a86b08e1ee47f8cde51a731050be2f360}{RenderWindow::RenderWindow}()
+00016         \{
+00017             this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window} = \textcolor{keyword}{new} sf::RenderWindow();
+00018             this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables} = \textcolor{keyword}{new} std::vector<sf::Drawable*>();
+00019         \}
+00020 
+\hypertarget{_d_s_f_s_f_m_l_8cpp_source_l00021}{}\hyperlink{classdsf_1_1sfml_1_1_render_window_a3ef144a6351af67efcb71a647417da64}{00021}         \hyperlink{classdsf_1_1sfml_1_1_render_window_a3ef144a6351af67efcb71a647417da64}{RenderWindow::~RenderWindow}()
+00022         \{
+00023             \textcolor{keyword}{delete} this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window};
+00024             \textcolor{keyword}{delete} this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables};
+00025         \}
+00026     \}
+00027 \}
+00028 
+\end{DoxyCode}

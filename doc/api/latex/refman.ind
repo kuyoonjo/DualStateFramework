@@ -1,210 +1,210 @@
 \begin{theindex}
 
   \item {$\sim$\+Dual\+State\+Framework}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{14}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{10}
   \item {$\sim$\+Synchronisable}
-    \subitem {dsf\+::\+Synchronisable}, \hyperpage{20}
+    \subitem {dsf\+::\+Synchronisable}, \hyperpage{17}
   \item {$\sim$\+Synchronized\+Object}
-    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{22}
+    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{19}
   \item {$\sim$\+Task}
-    \subitem {dsf\+::\+Task}, \hyperpage{25}
+    \subitem {dsf\+::\+Task}, \hyperpage{23}
   \item {$\sim$\+Task\+Box}
-    \subitem {dsf\+::\+Task\+Box}, \hyperpage{27}
+    \subitem {dsf\+::\+Task\+Box}, \hyperpage{25}
 
   \indexspace
 
   \item {add}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{14}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{10}
 
   \indexspace
 
   \item {D\+E\+L\+E\+T\+E\+D}
-    \subitem {dsf\+::\+Runnable}, \hyperpage{19}
+    \subitem {dsf\+::\+Runnable}, \hyperpage{16}
   \item {do\+One\+Frame}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{14}
-  \item {dsf}, \hyperpage{11}
-    \subitem {Dual\+State\+Framework}, \hyperpage{12}
-    \subitem {function}, \hyperpage{12}
-    \subitem {Synchronized\+Object}, \hyperpage{12}
-    \subitem {Task}, \hyperpage{12}
-    \subitem {Task\+Argument}, \hyperpage{12}
-    \subitem {Task\+Argument\+Exception}, \hyperpage{12}
-    \subitem {Task\+Box}, \hyperpage{12}
-    \subitem {Task\+Function}, \hyperpage{12}
-  \item {dsf\+::\+Dual\+State\+Framework}, \hyperpage{13}
-    \subitem {$\sim$\+Dual\+State\+Framework}, \hyperpage{14}
-    \subitem {add}, \hyperpage{14}
-    \subitem {do\+One\+Frame}, \hyperpage{14}
-    \subitem {Dual\+State\+Framework}, \hyperpage{14}
-    \subitem {get\+State}, \hyperpage{14}
-    \subitem {initialize}, \hyperpage{14}
-    \subitem {refresh}, \hyperpage{15}
-    \subitem {remove}, \hyperpage{15}
-    \subitem {run}, \hyperpage{15}
-    \subitem {send}, \hyperpage{15}
-    \subitem {set\+Number\+Of\+Threads}, \hyperpage{15}
-    \subitem {start}, \hyperpage{15}
-  \item {dsf\+::\+Lock}, \hyperpage{15}
-    \subitem {lock}, \hyperpage{16}
-    \subitem {locker}, \hyperpage{17}
-    \subitem {unlock}, \hyperpage{17}
-  \item {dsf\+::\+Runnable}, \hyperpage{17}
-    \subitem {D\+E\+L\+E\+T\+E\+D}, \hyperpage{19}
-    \subitem {get\+State}, \hyperpage{19}
-    \subitem {R\+E\+A\+D\+Y}, \hyperpage{19}
-    \subitem {R\+U\+N\+N\+I\+N\+G}, \hyperpage{19}
-    \subitem {run}, \hyperpage{19}
-    \subitem {S\+T\+O\+P\+P\+E\+D}, \hyperpage{19}
-    \subitem {State}, \hyperpage{18}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{10}
+  \item {dsf}, \hyperpage{7}
+    \subitem {Dual\+State\+Framework}, \hyperpage{8}
+    \subitem {function}, \hyperpage{8}
+    \subitem {Synchronized\+Object}, \hyperpage{8}
+    \subitem {Task}, \hyperpage{8}
+    \subitem {Task\+Argument}, \hyperpage{8}
+    \subitem {Task\+Argument\+Exception}, \hyperpage{8}
+    \subitem {Task\+Box}, \hyperpage{8}
+    \subitem {Task\+Function}, \hyperpage{8}
+  \item {dsf\+::\+Dual\+State\+Framework}, \hyperpage{9}
+    \subitem {$\sim$\+Dual\+State\+Framework}, \hyperpage{10}
+    \subitem {add}, \hyperpage{10}
+    \subitem {do\+One\+Frame}, \hyperpage{10}
+    \subitem {Dual\+State\+Framework}, \hyperpage{10}
+    \subitem {get\+State}, \hyperpage{11}
+    \subitem {initialize}, \hyperpage{11}
+    \subitem {refresh}, \hyperpage{11}
+    \subitem {remove}, \hyperpage{12}
+    \subitem {run}, \hyperpage{12}
+    \subitem {send}, \hyperpage{12}
+    \subitem {set\+Number\+Of\+Threads}, \hyperpage{12}
+    \subitem {start}, \hyperpage{12}
+  \item {dsf\+::\+Lock}, \hyperpage{13}
+    \subitem {lock}, \hyperpage{14}
+    \subitem {locker}, \hyperpage{14}
+    \subitem {unlock}, \hyperpage{14}
+  \item {dsf\+::\+Runnable}, \hyperpage{14}
+    \subitem {D\+E\+L\+E\+T\+E\+D}, \hyperpage{16}
+    \subitem {get\+State}, \hyperpage{16}
+    \subitem {R\+E\+A\+D\+Y}, \hyperpage{16}
+    \subitem {R\+U\+N\+N\+I\+N\+G}, \hyperpage{16}
+    \subitem {run}, \hyperpage{16}
+    \subitem {S\+T\+O\+P\+P\+E\+D}, \hyperpage{16}
+    \subitem {State}, \hyperpage{15}
   \item {dsf\+::\+Synchronisable}
-    \subitem {$\sim$\+Synchronisable}, \hyperpage{20}
-    \subitem {next}, \hyperpage{20}
+    \subitem {$\sim$\+Synchronisable}, \hyperpage{17}
+    \subitem {next}, \hyperpage{17}
+    \subitem {synchronise}, \hyperpage{17}
+  \item {dsf\+::\+Synchronisable$<$ T $>$}, \hyperpage{16}
+  \item {dsf\+::\+Synchronized\+Object}, \hyperpage{17}
+    \subitem {$\sim$\+Synchronized\+Object}, \hyperpage{19}
+    \subitem {Dual\+State\+Framework}, \hyperpage{20}
+    \subitem {get\+State}, \hyperpage{19}
+    \subitem {receive}, \hyperpage{19}
+    \subitem {run}, \hyperpage{20}
     \subitem {synchronise}, \hyperpage{20}
-  \item {dsf\+::\+Synchronisable$<$ T $>$}, \hyperpage{19}
-  \item {dsf\+::\+Synchronized\+Object}, \hyperpage{20}
-    \subitem {$\sim$\+Synchronized\+Object}, \hyperpage{22}
-    \subitem {Dual\+State\+Framework}, \hyperpage{23}
-    \subitem {get\+State}, \hyperpage{22}
-    \subitem {receive}, \hyperpage{22}
-    \subitem {run}, \hyperpage{22}
+    \subitem {Synchronized\+Object}, \hyperpage{19}
+  \item {dsf\+::\+Synchronized\+Var}, \hyperpage{20}
+    \subitem {operator=}, \hyperpage{22}
     \subitem {synchronise}, \hyperpage{22}
-    \subitem {Synchronized\+Object}, \hyperpage{22}
-  \item {dsf\+::\+Synchronized\+Var}, \hyperpage{23}
-    \subitem {operator=}, \hyperpage{24}
-    \subitem {synchronise}, \hyperpage{24}
-    \subitem {Synchronized\+Var}, \hyperpage{24}
-  \item {dsf\+::\+Task}, \hyperpage{24}
-    \subitem {$\sim$\+Task}, \hyperpage{25}
-    \subitem {from}, \hyperpage{25}
-    \subitem {Task}, \hyperpage{25}
-    \subitem {task\+Argument}, \hyperpage{25}
-    \subitem {task\+Function}, \hyperpage{25}
-    \subitem {to}, \hyperpage{25}
-  \item {dsf\+::\+Task\+Box}, \hyperpage{25}
-    \subitem {$\sim$\+Task\+Box}, \hyperpage{27}
-    \subitem {is\+Empty}, \hyperpage{27}
-    \subitem {pop}, \hyperpage{27}
-    \subitem {process}, \hyperpage{27}
-    \subitem {push}, \hyperpage{27}
-    \subitem {Task\+Box}, \hyperpage{26}
-    \subitem {tasks}, \hyperpage{27}
+    \subitem {Synchronized\+Var}, \hyperpage{21}
+  \item {dsf\+::\+Task}, \hyperpage{22}
+    \subitem {$\sim$\+Task}, \hyperpage{23}
+    \subitem {from}, \hyperpage{23}
+    \subitem {Task}, \hyperpage{23}
+    \subitem {task\+Argument}, \hyperpage{23}
+    \subitem {task\+Function}, \hyperpage{23}
+    \subitem {to}, \hyperpage{23}
+  \item {dsf\+::\+Task\+Box}, \hyperpage{23}
+    \subitem {$\sim$\+Task\+Box}, \hyperpage{25}
+    \subitem {is\+Empty}, \hyperpage{25}
+    \subitem {pop}, \hyperpage{25}
+    \subitem {process}, \hyperpage{26}
+    \subitem {push}, \hyperpage{26}
+    \subitem {Task\+Box}, \hyperpage{24}
+    \subitem {tasks}, \hyperpage{26}
   \item {Dual\+State\+Framework}
-    \subitem {dsf}, \hyperpage{12}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{14}
-    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{23}
+    \subitem {dsf}, \hyperpage{8}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{10}
+    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{20}
 
   \indexspace
 
   \item {from}
-    \subitem {dsf\+::\+Task}, \hyperpage{25}
+    \subitem {dsf\+::\+Task}, \hyperpage{23}
   \item {function}
-    \subitem {dsf}, \hyperpage{12}
+    \subitem {dsf}, \hyperpage{8}
 
   \indexspace
 
   \item {get\+State}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{14}
-    \subitem {dsf\+::\+Runnable}, \hyperpage{19}
-    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{22}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{11}
+    \subitem {dsf\+::\+Runnable}, \hyperpage{16}
+    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{19}
 
   \indexspace
 
   \item {initialize}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{14}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{11}
   \item {is\+Empty}
-    \subitem {dsf\+::\+Task\+Box}, \hyperpage{27}
+    \subitem {dsf\+::\+Task\+Box}, \hyperpage{25}
 
   \indexspace
 
   \item {lock}
-    \subitem {dsf\+::\+Lock}, \hyperpage{16}
+    \subitem {dsf\+::\+Lock}, \hyperpage{14}
   \item {locker}
-    \subitem {dsf\+::\+Lock}, \hyperpage{17}
+    \subitem {dsf\+::\+Lock}, \hyperpage{14}
 
   \indexspace
 
   \item {next}
-    \subitem {dsf\+::\+Synchronisable}, \hyperpage{20}
+    \subitem {dsf\+::\+Synchronisable}, \hyperpage{17}
 
   \indexspace
 
   \item {operator=}
-    \subitem {dsf\+::\+Synchronized\+Var}, \hyperpage{24}
+    \subitem {dsf\+::\+Synchronized\+Var}, \hyperpage{22}
 
   \indexspace
 
   \item {pop}
-    \subitem {dsf\+::\+Task\+Box}, \hyperpage{27}
+    \subitem {dsf\+::\+Task\+Box}, \hyperpage{25}
   \item {process}
-    \subitem {dsf\+::\+Task\+Box}, \hyperpage{27}
+    \subitem {dsf\+::\+Task\+Box}, \hyperpage{26}
   \item {push}
-    \subitem {dsf\+::\+Task\+Box}, \hyperpage{27}
+    \subitem {dsf\+::\+Task\+Box}, \hyperpage{26}
 
   \indexspace
 
   \item {R\+E\+A\+D\+Y}
-    \subitem {dsf\+::\+Runnable}, \hyperpage{19}
+    \subitem {dsf\+::\+Runnable}, \hyperpage{16}
   \item {R\+U\+N\+N\+I\+N\+G}
-    \subitem {dsf\+::\+Runnable}, \hyperpage{19}
+    \subitem {dsf\+::\+Runnable}, \hyperpage{16}
   \item {receive}
-    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{22}
+    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{19}
   \item {refresh}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{15}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{11}
   \item {remove}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{15}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{12}
   \item {run}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{15}
-    \subitem {dsf\+::\+Runnable}, \hyperpage{19}
-    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{22}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{12}
+    \subitem {dsf\+::\+Runnable}, \hyperpage{16}
+    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{20}
 
   \indexspace
 
   \item {S\+T\+O\+P\+P\+E\+D}
-    \subitem {dsf\+::\+Runnable}, \hyperpage{19}
+    \subitem {dsf\+::\+Runnable}, \hyperpage{16}
   \item {send}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{15}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{12}
   \item {set\+Number\+Of\+Threads}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{15}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{12}
   \item {start}
-    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{15}
+    \subitem {dsf\+::\+Dual\+State\+Framework}, \hyperpage{12}
   \item {State}
-    \subitem {dsf\+::\+Runnable}, \hyperpage{18}
+    \subitem {dsf\+::\+Runnable}, \hyperpage{15}
   \item {synchronise}
-    \subitem {dsf\+::\+Synchronisable}, \hyperpage{20}
-    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{22}
-    \subitem {dsf\+::\+Synchronized\+Var}, \hyperpage{24}
+    \subitem {dsf\+::\+Synchronisable}, \hyperpage{17}
+    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{20}
+    \subitem {dsf\+::\+Synchronized\+Var}, \hyperpage{22}
   \item {Synchronized\+Object}
-    \subitem {dsf}, \hyperpage{12}
-    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{22}
+    \subitem {dsf}, \hyperpage{8}
+    \subitem {dsf\+::\+Synchronized\+Object}, \hyperpage{19}
   \item {Synchronized\+Var}
-    \subitem {dsf\+::\+Synchronized\+Var}, \hyperpage{24}
+    \subitem {dsf\+::\+Synchronized\+Var}, \hyperpage{21}
 
   \indexspace
 
   \item {Task}
-    \subitem {dsf}, \hyperpage{12}
-    \subitem {dsf\+::\+Task}, \hyperpage{25}
+    \subitem {dsf}, \hyperpage{8}
+    \subitem {dsf\+::\+Task}, \hyperpage{23}
   \item {Task\+Argument}
-    \subitem {dsf}, \hyperpage{12}
+    \subitem {dsf}, \hyperpage{8}
   \item {task\+Argument}
-    \subitem {dsf\+::\+Task}, \hyperpage{25}
+    \subitem {dsf\+::\+Task}, \hyperpage{23}
   \item {Task\+Argument\+Exception}
-    \subitem {dsf}, \hyperpage{12}
+    \subitem {dsf}, \hyperpage{8}
   \item {Task\+Box}
-    \subitem {dsf}, \hyperpage{12}
-    \subitem {dsf\+::\+Task\+Box}, \hyperpage{26}
+    \subitem {dsf}, \hyperpage{8}
+    \subitem {dsf\+::\+Task\+Box}, \hyperpage{24}
   \item {Task\+Function}
-    \subitem {dsf}, \hyperpage{12}
+    \subitem {dsf}, \hyperpage{8}
   \item {task\+Function}
-    \subitem {dsf\+::\+Task}, \hyperpage{25}
+    \subitem {dsf\+::\+Task}, \hyperpage{23}
   \item {tasks}
-    \subitem {dsf\+::\+Task\+Box}, \hyperpage{27}
+    \subitem {dsf\+::\+Task\+Box}, \hyperpage{26}
   \item {to}
-    \subitem {dsf\+::\+Task}, \hyperpage{25}
+    \subitem {dsf\+::\+Task}, \hyperpage{23}
 
   \indexspace
 
   \item {unlock}
-    \subitem {dsf\+::\+Lock}, \hyperpage{17}
+    \subitem {dsf\+::\+Lock}, \hyperpage{14}
 
 \end{theindex}

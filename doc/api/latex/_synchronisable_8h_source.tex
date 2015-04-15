@@ -1,0 +1,30 @@
+\hypertarget{_synchronisable_8h_source}{}\section{Synchronisable.\+h}
+\label{_synchronisable_8h_source}\index{Synchronisable.\+h@{Synchronisable.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Synchronisable.h}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 3/24/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_Synchronisable\_h}
+00010 \textcolor{preprocessor}{#define dsf\_Synchronisable\_h}
+00011 
+00012 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf} \{
+\hypertarget{_synchronisable_8h_source_l00040}{}\hyperlink{classdsf_1_1_synchronisable}{00040}     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{class }\hyperlink{classdsf_1_1_synchronisable}{Synchronisable}
+00041     \{
+00042     \textcolor{keyword}{protected}:
+\hypertarget{_synchronisable_8h_source_l00044}{}\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{00044}         T* \hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next};
+00045     \textcolor{keyword}{public}:
+\hypertarget{_synchronisable_8h_source_l00046}{}\hyperlink{classdsf_1_1_synchronisable_ae733344b5ac5742826aa4781abdc6e2c}{00046}         \textcolor{keyword}{virtual} \hyperlink{classdsf_1_1_synchronisable_ae733344b5ac5742826aa4781abdc6e2c}{~Synchronisable}() \{
+00047             \textcolor{keyword}{delete} this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next};
+00048         \}
+00050         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_synchronisable_a225f9a5f6cb47d73e1ea4d788bbfcaaa}{synchronise}() = 0;
+00051     \};
+00052 \}
+00053 
+00054 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

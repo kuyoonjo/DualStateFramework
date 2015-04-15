@@ -1,0 +1,83 @@
+\hypertarget{_implementation_ImplementationDualState}{}\section{Dual State}\label{_implementation_ImplementationDualState}
+The idea to make an object two states is to create an abstract class named \char`\"{}\+Synchronisable\char`\"{} that any other class inherits it will have two copies. The class is designed as this\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{class }Synchronisable
+\{
+\textcolor{keyword}{protected}:
+    T* next; \textcolor{comment}{//A copy of current object.}
+\textcolor{keyword}{public}:
+    \textcolor{keyword}{virtual} ~Synchronisable() \{
+        \textcolor{keyword}{delete} this->next;
+    \}
+    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} synchronise() = 0; \textcolor{comment}{//Signs current value to next value.}
+\};
+\end{DoxyCode}
+ Any class implements the abstract class will automatically generate a copy \char`\"{}next\char`\"{} when an object is created. What we need to do is just override the method \char`\"{}synchronise\char`\"{}. For example\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <dsf/Synchronisable.h>}
+
+\textcolor{keyword}{class }Int
+\{
+\textcolor{keyword}{private}:
+    \textcolor{keywordtype}{int} value;
+\textcolor{keyword}{public}:
+    \textcolor{keywordtype}{void} setValue(\textcolor{keywordtype}{int} value)
+    \{
+        this->value = value;
+    \}
+    \textcolor{keywordtype}{int} getValue()\textcolor{keyword}{ const}
+\textcolor{keyword}{    }\{
+        \textcolor{keywordflow}{return} this->value;
+    \}
+\};
+
+\textcolor{keyword}{class }SynchronizedInt : \textcolor{keyword}{public} dsf::Synchronisable<Int>, \textcolor{keyword}{public} Int
+\{
+\textcolor{keyword}{public}:
+    \textcolor{keywordtype}{void} synchronise()\textcolor{keyword}{ override}
+\textcolor{keyword}{    }\{
+        this->setValue(next->getValue());
+    \}
+\};
+\end{DoxyCode}
+\hypertarget{_implementation_Implementationrnd}{}\section{Read operation and Write operation}\label{_implementation_Implementationrnd}
+Now, we need to make the current value for all read operations, and the next value for all write operations. To implement this, we just need to override the method \char`\"{}set\+Value\char`\"{}. 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} setValue(\textcolor{keywordtype}{int} value)
+\{
+    next->setValue(value);
+\}
+\end{DoxyCode}
+ Every time we call the method \char`\"{}set\+Value\char`\"{} will effect the next, but not the current. The example code will now like this\+: 
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <dsf/Synchronisable.h>}
+
+\textcolor{keyword}{class }Int
+\{
+\textcolor{keyword}{private}:
+    \textcolor{keywordtype}{int} value;
+\textcolor{keyword}{public}:
+    \textcolor{keywordtype}{void} setValue(\textcolor{keywordtype}{int} value)
+    \{
+        this->value = value;
+    \}
+    \textcolor{keywordtype}{int} getValue()\textcolor{keyword}{ const}
+\textcolor{keyword}{    }\{
+        \textcolor{keywordflow}{return} this->value;
+    \}
+\};
+
+\textcolor{keyword}{class }SynchronizedInt : \textcolor{keyword}{public} dsf::Synchronisable<Int>, \textcolor{keyword}{public} Int
+\{
+\textcolor{keyword}{public}:
+    \textcolor{keywordtype}{void} synchronise()\textcolor{keyword}{ override}
+\textcolor{keyword}{    }\{
+        this->setValue(next->getValue());
+    \}
+    \textcolor{keywordtype}{void} setValue(\textcolor{keywordtype}{int} value)
+    \{
+        next->setValue(value);
+    \}
+\};
+\end{DoxyCodeInclude}
+ 

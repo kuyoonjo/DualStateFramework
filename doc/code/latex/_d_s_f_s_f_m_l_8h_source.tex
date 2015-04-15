@@ -1,0 +1,36 @@
+\hypertarget{_d_s_f_s_f_m_l_8h_source}{}\section{D\+S\+F\+S\+F\+M\+L.\+h}
+\label{_d_s_f_s_f_m_l_8h_source}\index{D\+S\+F\+S\+F\+M\+L.\+h@{D\+S\+F\+S\+F\+M\+L.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  DSFSFML.h}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/16/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef profiler\_DSFSFML\_h}
+00010 \textcolor{preprocessor}{#define profiler\_DSFSFML\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <SFML/Graphics.hpp>}
+00013 \textcolor{preprocessor}{#include <vector>}
+00014 
+00015 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00016 \{
+\hypertarget{_d_s_f_s_f_m_l_8h_source_l00017}{}\hyperlink{namespacedsf_1_1sfml}{00017}     \textcolor{keyword}{namespace }sfml
+00018     \{
+\hypertarget{_d_s_f_s_f_m_l_8h_source_l00019}{}\hyperlink{classdsf_1_1sfml_1_1_render_window}{00019}         \textcolor{keyword}{class }\hyperlink{classdsf_1_1sfml_1_1_render_window}{RenderWindow}
+00020         \{
+00021         \textcolor{keyword}{public}:
+00022             \textcolor{keyword}{explicit} \hyperlink{classdsf_1_1sfml_1_1_render_window_a86b08e1ee47f8cde51a731050be2f360}{RenderWindow}();
+00023             \textcolor{keyword}{virtual} \hyperlink{classdsf_1_1sfml_1_1_render_window_a3ef144a6351af67efcb71a647417da64}{~RenderWindow}();
+\hypertarget{_d_s_f_s_f_m_l_8h_source_l00024}{}\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{00024}             sf::RenderWindow* \hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window};
+\hypertarget{_d_s_f_s_f_m_l_8h_source_l00025}{}\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{00025}             std::vector<sf::Drawable*>* \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables};
+00026         \textcolor{keyword}{protected}:
+00027             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1sfml_1_1_render_window_ae61615a7eaa041c97ac4aed62361479a}{draw}() = 0;
+00028         \};
+00029     \}
+00030 \}
+00031 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -770,10 +770,8 @@ WARN_LOGFILE           =
 
 INPUT                  = ../dsf/include/dsf \
                          api/Mainpage.txt \
-                         api/Mac.txt \
-                         api/Win.txt \
-                         api/Linux.txt \
-                         api/source.txt
+                         api/Installation.txt \
+                         ../dsf/src/dsf
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1774,7 +1772,7 @@ LATEX_HIDE_INDICES     = YES
 # The default value is: NO.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
-LATEX_SOURCE_CODE      = NO
+LATEX_SOURCE_CODE      = YES
 
 # The LATEX_BIB_STYLE tag can be used to specify the style to use for the
 # bibliography, e.g. plainnat, or ieeetr. See

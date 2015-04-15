@@ -1,0 +1,95 @@
+\hypertarget{_flocking_boid_manager_8cpp_source}{}\section{Flocking\+Boid\+Manager.\+cpp}
+\label{_flocking_boid_manager_8cpp_source}\index{Flocking\+Boid\+Manager.\+cpp@{Flocking\+Boid\+Manager.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  FlockingBoidManager.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 3/12/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/FlockingBoidManager.h"}
+00010 
+00011 
+\hypertarget{_flocking_boid_manager_8cpp_source_l00012}{}\hyperlink{class_flocking_boid_manager_a54782df4dd7271ffae97e3cf0fd5e8a1}{00012} \hyperlink{class_flocking_boid_manager_a54782df4dd7271ffae97e3cf0fd5e8a1}{FlockingBoidManager::FlockingBoidManager}(
+      \hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{namespacedsf}{dsf})
+00013 \{
+00014     this->dsf = \hyperlink{class_flocking_boid_manager_a9a564c99978c8e6115562472544bb839}{dsf};
+00015     this->\hyperlink{class_flocking_boid_manager_adba8774f051608d3aa3591cd848087bb}{create} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00016                                          \{
+00017                                              \hyperlink{class_sync_flocking_boid}{SyncFlockingBoid}* syncObj;
+00018                                              std::vector<SyncFlockingBoid*>* syncObjs;
+00019                                              std::tie(syncObj, syncObjs) = args->
+      \hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<std::tuple<SyncFlockingBoid*, std::vector<SyncFlockingBoid*>*>>();
+00020                                              \textcolor{keywordflow}{if}(this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->isOpen())
+00021                                              \{
+00022                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_flocking_boid_manager_a53cd9d7409eb6169290c4447c82c4906}{update}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(std::make\_tuple(syncObj, syncObjs)));
+00023                                                  this->dsf->\hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock}();
+00024                                                  this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->push\_back(syncObj);
+00025                                                  this->dsf->\hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock}();
+00026                                              \}
+00027                                              \textcolor{keywordflow}{else}
+00028                                              \{
+00029                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_flocking_boid_manager_a71e9958bd298f68630681364bd0677f8}{destroy}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(syncObj));
+00030                                              \}
+00031                                          \});
+00032     this->\hyperlink{class_flocking_boid_manager_a53cd9d7409eb6169290c4447c82c4906}{update} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00033                                          \{
+00034                                              \hyperlink{class_sync_flocking_boid}{SyncFlockingBoid}* syncObj;
+00035                                              std::vector<SyncFlockingBoid*>* syncObjs;
+00036                                              std::tie(syncObj, syncObjs) = args->
+      \hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<std::tuple<SyncFlockingBoid*, std::vector<SyncFlockingBoid*>*>>();
+00037                                              \textcolor{keywordflow}{if}(this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->isOpen())
+00038                                              \{
+00039                                                  syncObj->\hyperlink{class_sync_flocking_boid_a5756920e77254f47a358256f0c317716}{run}(syncObjs, this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window});
+00040                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->update, \textcolor{keyword}{new} 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(std::make\_tuple(syncObj, syncObjs)));
+00041                                              \}
+00042                                              \textcolor{keywordflow}{else}
+00043                                              \{
+00044                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_flocking_boid_manager_a71e9958bd298f68630681364bd0677f8}{destroy}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(syncObj));
+00045                                              \}
+00046                                          \});
+00047     this->\hyperlink{class_flocking_boid_manager_a71e9958bd298f68630681364bd0677f8}{destroy} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00048                                           \{
+00049                                               \textcolor{keyword}{auto} syncObj = args->\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<
+      \hyperlink{class_sync_flocking_boid}{SyncFlockingBoid}*>();
+00050                                               \textcolor{keyword}{auto} drawable = (sf::Drawable*) syncObj;
+00051                                               this->dsf->\hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock}();
+00052                                               this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->erase(
+00053                                                                           std::remove\_if(
+00054                                                                                          this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->begin(),
+00055                                                                                          this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->end(),
+00056                                                                                          [&](sf::Drawable* 
+      d)
+00057                                                                                          \{
+00058                                                                                              \textcolor{keywordflow}{return} d == 
+      drawable;
+00059                                                                                          \}),
+00060                                                                           this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->end());
+00061                                               this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{remove}(to);
+00062                                               this->dsf->\hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock}();
+00063                                           \});
+00064 \}
+\hypertarget{_flocking_boid_manager_8cpp_source_l00065}{}\hyperlink{class_flocking_boid_manager_ad9a7f5d35a1867a60b55b1160a8068ab}{00065} \hyperlink{class_flocking_boid_manager_ad9a7f5d35a1867a60b55b1160a8068ab}{FlockingBoidManager::~FlockingBoidManager}()
+00066 \{
+00067     \textcolor{keyword}{delete} this->\hyperlink{class_flocking_boid_manager_adba8774f051608d3aa3591cd848087bb}{create};
+00068     \textcolor{keyword}{delete} this->\hyperlink{class_flocking_boid_manager_a53cd9d7409eb6169290c4447c82c4906}{update};
+00069     \textcolor{keyword}{delete} this->\hyperlink{class_flocking_boid_manager_a71e9958bd298f68630681364bd0677f8}{destroy};
+00070 \}
+\end{DoxyCode}

@@ -1,0 +1,76 @@
+Dual State Framework uses \hyperlink{}{yctools } and \hyperlink{}{Intel tbb }. Before the installation you need to install them first.\hypertarget{_installation_Mac}{}\section{Mac O\+S X}\label{_installation_Mac}
+\hypertarget{_installation_dependencies_mac}{}\subsection{Install Dependencies}\label{_installation_dependencies_mac}
+\begin{DoxyParagraph}{yctools}
+Download\+: \hyperlink{}{\href{https://sourceforge.net/projects/yctools/}{\tt https\+://sourceforge.\+net/projects/yctools/} } ~\newline
+ Download the pkg file and install it.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Intel tbb}
+Download\+: \hyperlink{}{\href{https://www.threadingbuildingblocks.org/download}{\tt https\+://www.\+threadingbuildingblocks.\+org/download} } ~\newline
+ Download the O\+S X version and unzip it. ~\newline
+ Inside the directory, copy \char`\"{}libtbb.\+dylib\char`\"{} in the subdirectory \char`\"{}lib\char`\"{} to \char`\"{}/usr/lib\char`\"{} or \char`\"{}/usr/local/lib\char`\"{}. ~\newline
+ Next, copy the directory \char`\"{}include/dsf\char`\"{} to \char`\"{}/usr/include\char`\"{} or \char`\"{}/usr/local/include\char`\"{}.
+\end{DoxyParagraph}
+\hypertarget{_installation_dsf_mac}{}\subsection{Install Dual State Framework}\label{_installation_dsf_mac}
+Download\+: \hyperlink{}{\href{https://sourceforge.net/projects/dualstateframework/}{\tt https\+://sourceforge.\+net/projects/dualstateframework/} } ~\newline
+ Download the pkg file and install it.\hypertarget{_installation_use_mac}{}\subsection{Use D\+S\+F in Xcode}\label{_installation_use_mac}
+To use this framework in Xcode is very simple. You just need to drag dsf.\+framework and yctools.\+framework to your project explorer.\hypertarget{_installation_Win}{}\section{Microsoft Windows}\label{_installation_Win}
+\hypertarget{_installation_dependencies_win}{}\subsection{Install Dependencies}\label{_installation_dependencies_win}
+\begin{DoxyParagraph}{yctools}
+Download\+: \hyperlink{}{\href{https://sourceforge.net/projects/yctools/}{\tt https\+://sourceforge.\+net/projects/yctools/} } ~\newline
+ Download the exe file and install it. ~\newline
+ The installation will create an environment variable \char`\"{}yctools\char`\"{} which refers to the program installed path.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Intel tbb}
+Download\+: \hyperlink{}{\href{https://www.threadingbuildingblocks.org/download}{\tt https\+://www.\+threadingbuildingblocks.\+org/download} } ~\newline
+ Download the Window O\+S version and unzip it. ~\newline
+ Inside the directory, copy \char`\"{}tbb.\+lib\char`\"{} in the subdirectory \char`\"{}lib/your architecture/your visual studio version\char`\"{} to \char`\"{}where you want to store them/lib\char`\"{}. ~\newline
+ Copy \char`\"{}tbb.\+dll\char`\"{} in the subderectory \char`\"{}bin/your architecture/your visual studio version\char`\"{} to \char`\"{}where you want to store them/bin\char`\"{}. ~\newline
+ Add an environment variable \char`\"{}tbb\char`\"{}, and set its value to \char`\"{}where you want to store them\char`\"{}. ~\newline
+ Next, copy the directory \char`\"{}include/dsf\char`\"{} to \char`\"{}where you want to store them/include\char`\"{}. 
+\end{DoxyParagraph}
+\hypertarget{_installation_dsf_win}{}\subsection{Install Dual State Framework}\label{_installation_dsf_win}
+Download\+: \hyperlink{}{\href{https://sourceforge.net/projects/dualstateframework/}{\tt https\+://sourceforge.\+net/projects/dualstateframework/} } ~\newline
+ Download the exe file and install it. ~\newline
+ The installation will create an environment variable \char`\"{}dsf\char`\"{} which refers to the program installed path.\hypertarget{_installation_use_win}{}\subsection{Use D\+S\+F in Visual Studio}\label{_installation_use_win}
+\begin{DoxyParagraph}{Add additional header path}
+In project properties -\/$>$ C/\+C++ -\/$>$ General -\/$>$ Additional Include Directories, add \$(yctools)\textbackslash{}include, \$(dsf)\textbackslash{}include, and \$(tbb)\textbackslash{}include.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Add Dependencies}
+In project properties -\/$>$ Linker -\/$>$ General -\/$>$ Additional Library Directories, add \$(yctools)\textbackslash{}lib, \$(dsf)\textbackslash{}lib, and \$(tbb)\textbackslash{}lib. ~\newline
+ In project properties -\/$>$ Linker -\/$>$ Input -\/$>$ Additional Dependencies, add yctools.\+lib, tbb.\+lib, and dsf.\+lib.
+\end{DoxyParagraph}
+\hypertarget{_installation_Linux}{}\section{Linux}\label{_installation_Linux}
+This page is only for Linux with Debian package management tools (Debian, ubuntu, and etc.). Other Linux users please visit \hyperlink{_installation_source}{Compile source code }. \hypertarget{_installation_dependencies_linux}{}\subsection{Install Dependencies}\label{_installation_dependencies_linux}
+\begin{DoxyParagraph}{yctools}
+Download\+: \hyperlink{}{\href{https://sourceforge.net/projects/yctools/}{\tt https\+://sourceforge.\+net/projects/yctools/} } ~\newline
+ Download the deb file and install it.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Intel tbb}
+In terminal or console, type 
+\begin{DoxyCode}
+$ sudo apt-\textcolor{keyword}{get} install libtbb2
+\end{DoxyCode}
+
+\end{DoxyParagraph}
+\hypertarget{_installation_dsf_linux}{}\subsection{Install Dual State Framework}\label{_installation_dsf_linux}
+Download\+: \hyperlink{}{\href{https://sourceforge.net/projects/dualstateframework/}{\tt https\+://sourceforge.\+net/projects/dualstateframework/} } ~\newline
+ Download the deb file and install it.\hypertarget{_installation_source}{}\section{Compile source code}\label{_installation_source}
+To compile the code, you need a C++ compiler with c++11 supported, git, and C\+Make.\hypertarget{_installation_pre_source}{}\subsection{Pre-\/\+Build}\label{_installation_pre_source}
+\begin{DoxyParagraph}{Get source code}
+
+\begin{DoxyCode}
+$ git clone https:\textcolor{comment}{//github.com/kuyoonjo/DualStateFramework.git}
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Generate project for compiler}
+G\+U\+I version of C\+Make is recommended to generate the project. For more information about cmake, please visit \hyperlink{}{\href{http://www.cmake.org}{\tt http\+://www.\+cmake.\+org} }.
+\end{DoxyParagraph}
+\hypertarget{_installation_compile_source}{}\subsection{Build the project}\label{_installation_compile_source}
+If you generate an Xcode, Visual Studio, or any other G\+U\+I I\+D\+E project, just open the project and build it. ~\newline
+ If you generate a Makefile project, in a terminal or console, type 
+\begin{DoxyCode}
+$ cd \textcolor{stringliteral}{"your project directory"}
+$ make
+\end{DoxyCode}
+ Good luck! 

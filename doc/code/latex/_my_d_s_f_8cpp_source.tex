@@ -1,0 +1,256 @@
+\hypertarget{_my_d_s_f_8cpp_source}{}\section{My\+D\+S\+F.\+cpp}
+\label{_my_d_s_f_8cpp_source}\index{My\+D\+S\+F.\+cpp@{My\+D\+S\+F.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  MyDSF.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/8/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/MyDSF.h"}
+00010 \textcolor{preprocessor}{#include "../include/FPS.h"}
+00011 \textcolor{preprocessor}{#include <\hyperlink{_task_argument_8h}{dsf/TaskArgument.h}>}
+00012 \textcolor{preprocessor}{#include <SFML/Graphics.hpp>}
+00013 \textcolor{preprocessor}{#include <iostream>}
+00014 \textcolor{preprocessor}{#include <\hyperlink{_random_8h}{yctools/Random.h}>}
+00015 
+\hypertarget{_my_d_s_f_8cpp_source_l00016}{}\hyperlink{class_my_d_s_f_a7a674c56832e56804ef3f529b5ea8873}{00016} \hyperlink{class_my_d_s_f_a7a674c56832e56804ef3f529b5ea8873}{MyDSF::MyDSF}()
+00017 : \hyperlink{namespacedsf_a68ac3b6a0526bfa7f6a412918afb1841}{DualStateFramework}()
+00018 \{
+00019     this->\hyperlink{class_my_d_s_f_aadd27ab33c6958abe2ed4c507e6e5dae}{initialize}();
+00020 \}
+\hypertarget{_my_d_s_f_8cpp_source_l00021}{}\hyperlink{class_my_d_s_f_a045f1ee7aab3f5259e93da63646d2265}{00021} \hyperlink{class_my_d_s_f_a045f1ee7aab3f5259e93da63646d2265}{MyDSF::~MyDSF}()
+00022 \{
+00023     \textcolor{keyword}{delete} this->fps;
+00024     \textcolor{keyword}{delete} this->clock;
+00025 \}
+00026 
+\hypertarget{_my_d_s_f_8cpp_source_l00027}{}\hyperlink{class_my_d_s_f_aadd27ab33c6958abe2ed4c507e6e5dae}{00027} \textcolor{keywordtype}{void} \hyperlink{class_my_d_s_f_aadd27ab33c6958abe2ed4c507e6e5dae}{MyDSF::initialize}()
+00028 \{
+00029     this->\hyperlink{class_my_d_s_f_a0c9939346f14a4e8542a22bc5e17bd7a}{sender} = \textcolor{keyword}{new} \hyperlink{class_my_d_s_f_1_1_sender}{Sender}(\textcolor{keyword}{this});
+00030     this->fps = \textcolor{keyword}{new} \hyperlink{class_f_p_s}{FPS}();
+00031     this->clock = \textcolor{keyword}{new} sf::Clock();
+00032     this->\hyperlink{classdsf_1_1_dual_state_framework_a2ce40c8e165a8ed8fd6cb6cb30ae985b}{add}(this->\hyperlink{class_my_d_s_f_a0c9939346f14a4e8542a22bc5e17bd7a}{sender});
+00033     this->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(this->\hyperlink{class_my_d_s_f_a0c9939346f14a4e8542a22bc5e17bd7a}{sender}, this->\hyperlink{class_my_d_s_f_a0c9939346f14a4e8542a22bc5e17bd7a}{sender}, this->\hyperlink{class_my_d_s_f_a0c9939346f14a4e8542a22bc5e17bd7a}{sender}->
+      \hyperlink{class_my_d_s_f_1_1_sender_a44b80ad5f2e1c9b66b2beccdca6f2e9a}{create}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}((\hyperlink{classdsf_1_1sfml_1_1_render_window}{dsf::sfml::RenderWindow}*)\textcolor{keyword}{this})
+      );
+00034     this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->create(sf::VideoMode(800, 600), \textcolor{stringliteral}{"DSF Profiler"});
+00035     this->\hyperlink{classdsf_1_1_dual_state_framework_a8ab358a7456eeed264d53304b6562be4}{setNumberOfThreads}(numberOfCores);
+00036     this->font.loadFromFile(\hyperlink{_resource_path_8hpp_a377b456e3964835648f2d726c2e4f510}{resourcePath}() + \textcolor{stringliteral}{"sansation.ttf"});
+00037 \}
+00038 
+\hypertarget{_my_d_s_f_8cpp_source_l00039}{}\hyperlink{class_my_d_s_f_aca87f9fcb58b03edefec3ce1dbbcefc5}{00039} \textcolor{keywordtype}{void} \hyperlink{class_my_d_s_f_aca87f9fcb58b03edefec3ce1dbbcefc5}{MyDSF::refresh}()
+00040 \{
+00041     \hyperlink{classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007}{dsf::DualStateFramework::refresh}();
+00042 \}
+00043 
+\hypertarget{_my_d_s_f_8cpp_source_l00044}{}\hyperlink{class_my_d_s_f_ad8c4269e040ef6373f36411cf8e5d2f2}{00044} \textcolor{keywordtype}{void} \hyperlink{class_my_d_s_f_ad8c4269e040ef6373f36411cf8e5d2f2}{MyDSF::run}()
+00045 \{
+00046     \textcolor{keywordflow}{if}(this->numberOfCores <= this->\hyperlink{class_my_d_s_f_a3ca13f96cce426bc99251a5b27616e16}{maxNumberOfCores}
+00047        && this->clock->getElapsedTime().asSeconds() >= this->\hyperlink{class_my_d_s_f_a5216506e3952579bd83ebcf77013df15}{duration})
+00048     \{
+00049         this->fpsList.push\_back(std::make\_tuple(this->fps->\hyperlink{class_f_p_s_a5724af794ec15040b8b101dd0c547893}{average},
+00050                                                 this->fps->min,
+00051                                                 this->fps->max));
+00052         this->clock->restart();
+00053         this->fps->\hyperlink{class_f_p_s_a2804b8d6ff6f3670bc25fbbc53f5e689}{restart}();
+00054         this->numberOfCores ++;
+00055         this->\hyperlink{classdsf_1_1_dual_state_framework_a8ab358a7456eeed264d53304b6562be4}{setNumberOfThreads}(this->numberOfCores);
+00056     \}
+00057     \hyperlink{classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b}{dsf::DualStateFramework::run}();
+00058     \textcolor{keywordflow}{if} (this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->isOpen())
+00059     \{
+00060         sf::Event event;
+00061         \textcolor{keywordflow}{while} (this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->pollEvent(event))
+00062         \{
+00063             \textcolor{keywordflow}{if} (event.type == sf::Event::Closed)
+00064             \{
+00065                 this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->close();
+00066             \}
+00067         \}
+00068         this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->clear();
+00069         this->\hyperlink{class_my_d_s_f_a148c79b6e221ade1184c2f6f0b9abad5}{draw}();
+00070         this->fps->\hyperlink{class_f_p_s_aa143312d7f24775fc5d829efa3878c83}{refresh}();
+00071         \textcolor{keywordflow}{if}(this->numberOfCores <= this->\hyperlink{class_my_d_s_f_a3ca13f96cce426bc99251a5b27616e16}{maxNumberOfCores})
+00072         \{
+00073             \textcolor{keywordflow}{if}(this->fps->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current})
+00074             \{
+00075                 std::string msg = \textcolor{stringliteral}{"Number of Core: "} + std::to\_string(this->numberOfCores) + \textcolor{stringliteral}{"\(\backslash\)n"};
+00076                 msg += \textcolor{stringliteral}{"FPS \(\backslash\)n"};
+00077                 msg += \textcolor{stringliteral}{" Current: "} + std::to\_string(fps->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current}) + \textcolor{stringliteral}{"\(\backslash\)n"};
+00078                 msg += \textcolor{stringliteral}{" Average: "} + std::to\_string(fps->\hyperlink{class_f_p_s_a5724af794ec15040b8b101dd0c547893}{average}) + \textcolor{stringliteral}{"\(\backslash\)n"};
+00079                 msg += \textcolor{stringliteral}{" Min: "} + std::to\_string(fps->\hyperlink{class_f_p_s_af873eaf0d65931baa5f58415f024ccf7}{min}) + \textcolor{stringliteral}{"\(\backslash\)n"};
+00080                 msg += \textcolor{stringliteral}{" Max: "} + std::to\_string(fps->\hyperlink{class_f_p_s_afdca12a152cef9df305e78d8d05ce518}{max});
+00081                 sf::Text text(msg, font);
+00082                 this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(text);
+00083             \}
+00084         \}
+00085         \textcolor{keywordflow}{else}
+00086         \{
+00087             \textcolor{keyword}{const} \textcolor{keywordtype}{float} width = 700;
+00088             \textcolor{keyword}{const} \textcolor{keywordtype}{float} height = 500;
+00089             \textcolor{keyword}{const} sf::Vector2<float> origin(50, 550);
+00090             \textcolor{keyword}{const} \textcolor{keywordtype}{float} thickness = 3;
+00091             \textcolor{keyword}{const} \textcolor{keywordtype}{float} barThickness = 10;
+00092             sf::RectangleShape x(sf::Vector2<float>(width, thickness));
+00093             sf::RectangleShape y(sf::Vector2<float>(thickness, height));
+00094             sf::RectangleShape fill(sf::Vector2<float>(thickness, thickness));
+00095             x.setPosition(origin);
+00096             y.setPosition(origin);
+00097             fill.setPosition(origin - sf::Vector2<float>(thickness, 0));
+00098             y.rotate(180);
+00099             this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(x);
+00100             this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(y);
+00101             this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(fill);
+00102             \textcolor{keyword}{auto} bars = stretch(this->fpsList, this->fpsList, height);
+00103             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this->fpsList.size(); i ++)
+00104             \{
+00105                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} charSize = 12;
+00106                 \textcolor{keywordtype}{float} x = width / (this->fpsList.size() + 1) * (i + 1);
+00107                 \textcolor{keywordtype}{float} average;
+00108                 \textcolor{keywordtype}{float} min;
+00109                 \textcolor{keywordtype}{float} max;
+00110                 \textcolor{keywordtype}{float} averageBar;
+00111                 \textcolor{keywordtype}{float} minBar;
+00112                 \textcolor{keywordtype}{float} maxBar;
+00113                 std::tie(averageBar, minBar, maxBar) = bars[i];
+00114                 std::tie(average, min, max) = this->fpsList[i];
+00115                 sf::RectangleShape bar(sf::Vector2<float>(barThickness, maxBar - minBar));
+00116                 bar.setPosition(origin + sf::Vector2<float>(x, -minBar));
+00117                 bar.rotate(180);
+00118                 sf::Text textAverage(std::to\_string(average), this->font);
+00119                 textAverage.setCharacterSize(charSize);
+00120                 textAverage.setPosition(origin + sf::Vector2<float>(x, -averageBar));
+00121                 sf::Text textMin(std::to\_string(min), this->font);
+00122                 textMin.setCharacterSize(charSize);
+00123                 textMin.setPosition(origin + sf::Vector2<float>(x, -minBar));
+00124                 sf::Text textMax(std::to\_string(max), this->font);
+00125                 textMax.setCharacterSize(charSize);
+00126                 textMax.setPosition(origin + sf::Vector2<float>(x, -maxBar));
+00127                 sf::Text textCore(std::to\_string(i + 1), this->font);
+00128                 textCore.setCharacterSize(14);
+00129                 textCore.setPosition(origin + sf::Vector2<float>(x, 0));
+00130                 this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(bar);
+00131                 this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(textAverage);
+00132                 this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(textMin);
+00133                 this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(textMax);
+00134                 this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(textCore);
+00135             \}
+00136         \}
+00137         this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->display();
+00138     \}
+00139 \}
+00140 
+\hypertarget{_my_d_s_f_8cpp_source_l00141}{}\hyperlink{class_my_d_s_f_a148c79b6e221ade1184c2f6f0b9abad5}{00141} \textcolor{keywordtype}{void} \hyperlink{class_my_d_s_f_a148c79b6e221ade1184c2f6f0b9abad5}{MyDSF::draw}()
+00142 \{
+00143     std::for\_each(this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->begin(), this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->end(), [\textcolor{keyword}{this}](sf::Drawable* 
+      drawable)
+00144                   \{
+00145                       this->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->draw(*drawable);
+00146                   \});
+00147 \}
+00148 
+\hypertarget{_my_d_s_f_8cpp_source_l00149}{}\hyperlink{class_my_d_s_f_1_1_sender_a88b31982fa5ea972cd022f1786ef6ab7}{00149} \hyperlink{class_my_d_s_f_1_1_sender_a88b31982fa5ea972cd022f1786ef6ab7}{MyDSF::Sender::Sender}(\hyperlink{classdsf_1_1_dual_state_framework}{dsf::DualStateFramework}* 
+      \hyperlink{namespacedsf}{dsf})  : \hyperlink{namespacedsf_acbf1798fc56cfb1707162a17e13f5fda}{SynchronizedObject}()
+00150 \{
+00151     this->dsf = \hyperlink{class_my_d_s_f_1_1_sender_a74dc0baa462ddc42b3b032fdf8b5c224}{dsf};
+00152     this->\hyperlink{class_my_d_s_f_1_1_sender_a44b80ad5f2e1c9b66b2beccdca6f2e9a}{create} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00153                                          \{
+00154                                              \textcolor{keyword}{auto} rw = args->\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<
+      \hyperlink{classdsf_1_1sfml_1_1_render_window}{dsf::sfml::RenderWindow}*>();
+00155                                              \textcolor{keywordflow}{if}(rw->window->isOpen())
+00156                                              \{
+00157                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_my_d_s_f_1_1_sender_a15eb7f6b4e8124216e7fd29369543095}{update}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(rw));
+00158                                              \}
+00159                                              \textcolor{keywordflow}{else}
+00160                                              \{
+00161                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_my_d_s_f_1_1_sender_a15d42b9428ac6e290d84937824058bc2}{destroy}, \textcolor{keyword}{nullptr});
+00162                                              \}
+00163                                          \});
+00164     this->\hyperlink{class_my_d_s_f_1_1_sender_a15eb7f6b4e8124216e7fd29369543095}{update} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00165                                          \{
+00166                                              \textcolor{keyword}{auto} rw = args->\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<
+      \hyperlink{classdsf_1_1sfml_1_1_render_window}{dsf::sfml::RenderWindow}*>();
+00167                                              \textcolor{keywordflow}{if}(rw->window->isOpen())
+00168                                              \{
+00169                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->update, \textcolor{keyword}{new} 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(rw));
+00170                                              \}
+00171                                              \textcolor{keywordflow}{else}
+00172                                              \{
+00173                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_my_d_s_f_1_1_sender_a15d42b9428ac6e290d84937824058bc2}{destroy}, \textcolor{keyword}{nullptr});
+00174                                              \}
+00175                                          \});
+00176     this->\hyperlink{class_my_d_s_f_1_1_sender_a15d42b9428ac6e290d84937824058bc2}{destroy} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00177                                           \{
+00178                                               this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{remove}(to);
+00179                                           \});
+00180 \}
+00181 
+\hypertarget{_my_d_s_f_8cpp_source_l00182}{}\hyperlink{class_my_d_s_f_1_1_sender_a2f57637935caf346a15d56a86907caa5}{00182} \hyperlink{class_my_d_s_f_1_1_sender_a2f57637935caf346a15d56a86907caa5}{MyDSF::Sender::~Sender}()
+00183 \{
+00184     \textcolor{keyword}{delete} this->create;
+00185     \textcolor{keyword}{delete} this->update;
+00186     \textcolor{keyword}{delete} this->destroy;
+00187 \}
+00188 
+\hypertarget{_my_d_s_f_8cpp_source_l00189}{}\hyperlink{class_my_d_s_f_1_1_sender_a0d328bcb8646e429712d2dd62ab9d201}{00189} \textcolor{keywordtype}{void} \hyperlink{class_my_d_s_f_1_1_sender_a0d328bcb8646e429712d2dd62ab9d201}{MyDSF::Sender::run}()
+00190 \{
+00191     \textcolor{keywordflow}{if}(this->receive())
+00192         this->process();
+00193 \}
+00194 
+00195 std::vector<std::tuple<float,float,float>> MyDSF::stretch(std::vector<std::tuple<float,float,float>> arr,
+00196                                                    std::vector<std::tuple<float,float,float>> strelen,
+00197                                                    \textcolor{keywordtype}{int} maxLen)
+00198 \{
+00199     \textcolor{keywordtype}{bool} canDouble = \textcolor{keyword}{true};
+00200     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < arr.size(); i ++)
+00201     \{
+00202         \textcolor{keywordtype}{float} average;
+00203         \textcolor{keywordtype}{float} min;
+00204         \textcolor{keywordtype}{float} max;
+00205         \textcolor{keywordtype}{float} averageOrigin;
+00206         \textcolor{keywordtype}{float} minOrigin;
+00207         \textcolor{keywordtype}{float} maxOrigin;
+00208         std::tie(average, min, max) = arr[i];
+00209         std::tie(averageOrigin, minOrigin, maxOrigin) = strelen[i];
+00210         \textcolor{keywordflow}{if}(max + maxOrigin > maxLen)
+00211         \{
+00212             canDouble = \textcolor{keyword}{false};
+00213             \textcolor{keywordflow}{break};
+00214         \}
+00215     \}
+00216     \textcolor{keywordflow}{if}(canDouble)
+00217     \{
+00218         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < arr.size(); i ++)
+00219         \{
+00220             \textcolor{keywordtype}{float} average;
+00221             \textcolor{keywordtype}{float} min;
+00222             \textcolor{keywordtype}{float} max;
+00223             \textcolor{keywordtype}{float} averageOrigin;
+00224             \textcolor{keywordtype}{float} minOrigin;
+00225             \textcolor{keywordtype}{float} maxOrigin;
+00226             std::tie(average, min, max) = arr[i];
+00227             std::tie(averageOrigin, minOrigin, maxOrigin) = strelen[i];
+00228             arr[i] = std::make\_tuple(average + averageOrigin,
+00229                                      min + minOrigin,
+00230                                      max + maxOrigin);
+00231         \}
+00232         \textcolor{keywordflow}{return} stretch(arr, strelen, maxLen);
+00233     \}
+00234     \textcolor{keywordflow}{return} arr;
+00235 \}
+\end{DoxyCode}

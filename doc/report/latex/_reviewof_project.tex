@@ -1,0 +1,119 @@
+Overall, the project went very smoothly. One of the things I was very happy with was the fact that the benchmark program gave me a surprise. Before the benchmarks, I thought that if the number of threads increases, then the F\+P\+S will grow proportionally. However, the result depends on the C\+P\+U. For example, my C\+P\+U is Intel i5 with 2 cores running 4 threads. The best performance is using 4 threads to run the framework.\hypertarget{_reviewof_project_ReviewofProjectPEF}{}\section{Problems Encountered \& Fixes}\label{_reviewof_project_ReviewofProjectPEF}
+\hypertarget{_reviewof_project_ReviewofProjectPEFMemoryLeaks}{}\subsection{Memory Leaks}\label{_reviewof_project_ReviewofProjectPEFMemoryLeaks}
+\begin{DoxyParagraph}{Background}
+I tries to implement a class type that can be signed as any type of value like this\+: 
+\begin{DoxyCode}
+Any one = int(1);
+Any pi = float(3.14);
+Any rect = Rectangle(2, 3);
+\end{DoxyCode}
+ Originally, I used void pointer to save the value. 
+\begin{DoxyCode}
+\textcolor{keyword}{class }Any
+\{
+\textcolor{keyword}{private}:
+    \textcolor{keywordtype}{void}* value;
+\}
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Reason}
+When I ran the code, there was a memory leak issue. The reason is that a void pointer cannot be released. 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void}* i = \textcolor{keyword}{new} int() \textcolor{comment}{// no problem}
+delete i; \textcolor{comment}{// it will not deallocate the memory}
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Solution}
+I could cast the pointer to a specified type and delete it. 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void}* i = \textcolor{keyword}{new} int() \textcolor{comment}{// no problem}
+delete (\textcolor{keywordtype}{int})i; \textcolor{comment}{// works fine}
+\end{DoxyCode}
+ However, if I did that way, the class Any should be designed as a template class. That would be meaningless. The solution was using smart pointer indeed of traditional pointer.
+\end{DoxyParagraph}
+\hypertarget{_reviewof_project_ReviewofProjectPEFWrongPathwithDynamiclinkLibrary}{}\subsection{Wrong path with dynamic-\/link library}\label{_reviewof_project_ReviewofProjectPEFWrongPathwithDynamiclinkLibrary}
+\begin{DoxyParagraph}{Background}
+When I tried to package resources to an App bundle, I got an error message\+: 
+\begin{DoxyCode}
+dyld: Library not loaded: libtbb.dylib
+  Referenced from: /Users/yuchen/Documents/XCode/profiler/build/Release/profiler.app/Contents/MacOS/
+      profiler
+  Reason: image not found
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Reason}
+Mac App Bundle uses @rpath, @excutable\+\_\+path, and @load\+\_\+path to handle the resource path. By using otool command, I got the message as below\+: 
+\begin{DoxyCode}
+MacBook-Pro:libs-osx yuchen$ otool -L libtbb.dylib 
+libtbb.dylib:
+    libtbb.dylib (compatibility version 0.0.0, current version 0.0.0)
+    /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1)
+    mac64/libcilkrts.5.dylib (compatibility version 0.0.0, current version 0.0.0)
+    /usr/lib/libstdc++.6.dylib (compatibility version 7.0.0, current version 60.0.0)
+    /usr/lib/libgcc\_s.1.dylib (compatibility version 1.0.0, current version 2577.0.0)
+\end{DoxyCode}
+ The third line is the reference path for the dynamic-\/link library. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Solution}
+The solution was using install\+\_\+name\+\_\+tool command to change the reference path. 
+\begin{DoxyCode}
+MacBook-Pro:libs-osx yuchen$ install\_name\_tool -\textcolor{keywordtype}{id} @executable\_path/../Frameworks/libtbb.dylib libtbb.dylib
+       
+MacBook-Pro:libs-osx yuchen$ otool -L libtbb.dylib 
+libtbb.dylib:
+    @executable\_path/../Frameworks/libtbb.dylib (compatibility version 0.0.0, current version 0.0.0)
+    /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1)
+    mac64/libcilkrts.5.dylib (compatibility version 0.0.0, current version 0.0.0)
+    /usr/lib/libstdc++.6.dylib (compatibility version 7.0.0, current version 60.0.0)
+    /usr/lib/libgcc\_s.1.dylib (compatibility version 1.0.0, current version 2577.0.0)
+\end{DoxyCode}
+
+\end{DoxyParagraph}
+\hypertarget{_reviewof_project_ReviewofProjectPEFSomefunctionsandvariablesnotdefined}{}\subsection{Some functions and variables not defined}\label{_reviewof_project_ReviewofProjectPEFSomefunctionsandvariablesnotdefined}
+\begin{DoxyParagraph}{Background}
+I used C++ std library for this project. It worked fine in Mac O\+S X. However, when I debugged it in Windows and Linux, some error message prompted out. 
+\begin{DoxyCode}
+Error   3   error C2065: \textcolor{stringliteral}{'M\_PI'} : undeclared identifier C:
+      \(\backslash\)Users\(\backslash\)Administrator\(\backslash\)Documents\(\backslash\)DualStateFramework\(\backslash\)profiler\(\backslash\)src\(\backslash\)BouncingCircleManager.cpp  104 1   profiler
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Reason}
+The reason is that M\+\_\+\+P\+I is not \char`\"{}pure\char`\"{} standard. Most compilers regard it as a standard, but Visual C++ not. The similar problem I met is G\+C\+C does not know what std\+::powf is, but both L\+L\+V\+M and Visual C++ use it as a standard. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Solution}
+Once I knew the reason, the solution was easily made up. For M\+\_\+\+P\+I, I added a preprocessor definition \+\_\+\+U\+S\+E\+\_\+\+M\+A\+T\+H\+\_\+\+D\+E\+F\+I\+N\+E\+S for Visual Studio by C\+Make\+List\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{# Add Math definitions}
+\textcolor{preprocessor}{add\_definitions(-D\_USE\_MATH\_DEFINES)}
+\end{DoxyCode}
+ For std\+::powf, I changed it to std\+::pow, which is the standard. 
+\end{DoxyParagraph}
+\hypertarget{_reviewof_project_ReviewofProjectAttemptingtheProjectAgain}{}\section{Attempting the Project Again}\label{_reviewof_project_ReviewofProjectAttemptingtheProjectAgain}
+If I were to attempt the project again I would avoid using pointers if they are not necessary. I think this is because my first Object Oriented Programming language is Java. In Java word, all objects should be created by keyword \char`\"{}new\char`\"{}. However, that is not guaranteed in C++. The reason is Java virtual machine has garbage collection but C++ not, which means in C++, objects created by \char`\"{}new\char`\"{} need user to deallocate them manually. ~\newline
+~\newline
+Pointers sometimes make users confused in a framework. For example, in this framework, some pointers passed by functions will be deleted automatically. 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} send(SynchronizedObject* to,
+          TaskFunction* taskFunction,
+          TaskArgument* args);
+\end{DoxyCode}
+ The method \char`\"{}send\char`\"{} takes three pointers as arguments. The third one \char`\"{}args\char`\"{} will be deleted automatically, but \char`\"{}task\+Function\char`\"{} or \char`\"{}to\char`\"{} not. Users may be confused when should they manually free the pointers. If I did not use pointers as arguments, the code may look like this\+: 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} send(SynchronizedObject& to,
+          \textcolor{keyword}{const} TaskFunction& taskFunction,
+          \textcolor{keyword}{const} TaskArgument& args);
+\end{DoxyCode}
+ Users do not need to worry about memory allocations.
+
+In addition, I would use C++ 14 indeed of C++ 11, because it is the new standard and some features are really useful.\hypertarget{_reviewof_project_ReviewofProjectAdviceforSomeoneElseAttemptingaSimilarProject}{}\section{Advice for Someone Else Attempting a Similar Project}\label{_reviewof_project_ReviewofProjectAdviceforSomeoneElseAttemptingaSimilarProject}
+I would advise them to spend more time researching C++ Object-\/\+Oriented Concepts. This is because I found that a lot people use O\+O\+P languages not in O\+O\+P concept. The understanding of O\+O\+P concept can make the code usable. Also, I would them to spend a little time figuring out Agile Project Management, which is helpful during the hole project. Some smart tools are recommended\+:
+\begin{DoxyItemize}
+\item Git, for source control
+\item Doxygen with Graphviz, very powerful for framework A\+P\+I document
+\item Umlet, for U\+M\+L diagrams
+\end{DoxyItemize}\hypertarget{_reviewof_project_ReviewofProjectTechnologyChoices}{}\section{Technology Choices}\label{_reviewof_project_ReviewofProjectTechnologyChoices}
+I believe I made the right choices of technologies that I used during this project. The finished project is proof in itself. Intel T\+B\+B is powerful and compatible with standard C++ threading library. 

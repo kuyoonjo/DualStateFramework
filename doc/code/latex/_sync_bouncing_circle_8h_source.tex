@@ -1,0 +1,39 @@
+\hypertarget{_sync_bouncing_circle_8h_source}{}\section{Sync\+Bouncing\+Circle.\+h}
+\label{_sync_bouncing_circle_8h_source}\index{Sync\+Bouncing\+Circle.\+h@{Sync\+Bouncing\+Circle.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  SyncBouncingCircle.h}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/21/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef profiler\_SyncBouncingCircle\_h}
+00010 \textcolor{preprocessor}{#define profiler\_SyncBouncingCircle\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <\hyperlink{_synchronized_object_8h}{dsf/SynchronizedObject.h}>}
+00013 \textcolor{preprocessor}{#include <SFML/Graphics.hpp>}
+00014 \textcolor{preprocessor}{#include <cmath>}
+00015 
+\hypertarget{_sync_bouncing_circle_8h_source_l00016}{}\hyperlink{class_sync_bouncing_circle}{00016} \textcolor{keyword}{class }\hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle} : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}, \textcolor{keyword}{public} 
+      sf::CircleShape
+00017 \{
+00018 \textcolor{keyword}{public}:
+00019     \hyperlink{class_sync_bouncing_circle_aa00f50414fddd97cbb14fe702fa201e2}{SyncBouncingCircle}();
+00020     sf::Vector2<float> \hyperlink{class_sync_bouncing_circle_a53ee06bdeb5025dfd42a49c385e5a1c0}{getVelocity}();
+00021     \textcolor{keywordtype}{void} \hyperlink{class_sync_bouncing_circle_a1e732f9061d50b87b227f7b57b3834bd}{setVelocity}(\textcolor{keyword}{const} sf::Vector2<float>& velocity);
+00022     \textcolor{keywordtype}{float} \hyperlink{class_sync_bouncing_circle_ae9682f881b9bcb70450ae6546f3f28a3}{getMass}();
+00023     \textcolor{keywordtype}{void} \hyperlink{class_sync_bouncing_circle_a6c3d0788f0efb17e457f1a7d9500643b}{move}(\textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height);
+00024     \textcolor{keywordtype}{void} \hyperlink{class_sync_bouncing_circle_a30bf8948d5c62d34d9f403228571886b}{collide}(\hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}* sbc);
+00025     \textcolor{keywordtype}{bool} \hyperlink{class_sync_bouncing_circle_ab4c66394f5604d08cc1c1738f33376b5}{hasCollision}(\hyperlink{class_sync_bouncing_circle}{SyncBouncingCircle}* sbc);
+00026 \textcolor{keyword}{protected}:
+00027     \textcolor{keywordtype}{void} \hyperlink{class_sync_bouncing_circle_a65add49b37f08c7c2c1ab24fc2251f5a}{run}() \textcolor{keyword}{override};
+00028 \textcolor{keyword}{private}:
+00029     sf::Vector2<float> velocity;
+00030     \textcolor{keywordtype}{float} mass = 1;
+00031 \};
+00032 
+00033 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

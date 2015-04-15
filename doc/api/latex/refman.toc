@@ -5,127 +5,118 @@
 \contentsline {subsection}{\numberline {1.2.2}Implementing dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object}{1}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Creating a manager class}{2}{subsection.1.2.3}
 \contentsline {subsection}{\numberline {1.2.4}Running D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F}{2}{subsection.1.2.4}
-\contentsline {chapter}{\numberline {2}Mac O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S X}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Install Dependencies}{3}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}yctools}{3}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Intel tbb}{3}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Install Dual State Framework}{3}{section.2.2}
-\contentsline {section}{\numberline {2.3}Use D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F in Xcode}{3}{section.2.3}
-\contentsline {chapter}{\numberline {3}Microsoft Windows}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Install Dependencies}{5}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}yctools}{5}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Intel tbb}{5}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Install Dual State Framework}{5}{section.3.2}
-\contentsline {section}{\numberline {3.3}Use D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F in Visual Studio}{5}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Add additional header path}{5}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Add Dependencies}{5}{subsection.3.3.2}
-\contentsline {chapter}{\numberline {4}Linux}{7}{chapter.4}
-\contentsline {section}{\numberline {4.1}Install Dependencies}{7}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}yctools}{7}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Intel tbb}{7}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Install Dual State Framework}{7}{section.4.2}
-\contentsline {chapter}{\numberline {5}Compile source code}{9}{chapter.5}
-\contentsline {section}{\numberline {5.1}Pre-\/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Build}{9}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Get source code}{9}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Generate project for compiler}{9}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Build the project}{9}{section.5.2}
-\contentsline {chapter}{\numberline {6}Namespace Documentation}{11}{chapter.6}
-\contentsline {section}{\numberline {6.1}dsf Namespace Reference}{11}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Typedef Documentation}{12}{subsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.1.1}function}{12}{subsubsection.6.1.1.1}
-\contentsline {subsubsection}{\numberline {6.1.1.2}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Argument}{12}{subsubsection.6.1.1.2}
-\contentsline {subsubsection}{\numberline {6.1.1.3}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Argument\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Exception}{12}{subsubsection.6.1.1.3}
-\contentsline {subsubsection}{\numberline {6.1.1.4}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Function}{12}{subsubsection.6.1.1.4}
-\contentsline {subsection}{\numberline {6.1.2}Variable Documentation}{12}{subsection.6.1.2}
-\contentsline {subsubsection}{\numberline {6.1.2.1}Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework}{12}{subsubsection.6.1.2.1}
-\contentsline {subsubsection}{\numberline {6.1.2.2}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object}{12}{subsubsection.6.1.2.2}
-\contentsline {subsubsection}{\numberline {6.1.2.3}Task}{12}{subsubsection.6.1.2.3}
-\contentsline {subsubsection}{\numberline {6.1.2.4}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box}{12}{subsubsection.6.1.2.4}
-\contentsline {chapter}{\numberline {7}Class Documentation}{13}{chapter.7}
-\contentsline {section}{\numberline {7.1}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework Class Reference}{13}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{14}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}Example}{14}{subsection.7.1.2}
-\contentsline {subsection}{\numberline {7.1.3}Constructor \& Destructor Documentation}{14}{subsection.7.1.3}
-\contentsline {subsubsection}{\numberline {7.1.3.1}Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework}{14}{subsubsection.7.1.3.1}
-\contentsline {subsubsection}{\numberline {7.1.3.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework}{14}{subsubsection.7.1.3.2}
-\contentsline {subsection}{\numberline {7.1.4}Member Function Documentation}{14}{subsection.7.1.4}
-\contentsline {subsubsection}{\numberline {7.1.4.1}add}{14}{subsubsection.7.1.4.1}
-\contentsline {subsubsection}{\numberline {7.1.4.2}do\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}One\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Frame}{14}{subsubsection.7.1.4.2}
-\contentsline {subsubsection}{\numberline {7.1.4.3}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{14}{subsubsection.7.1.4.3}
-\contentsline {subsubsection}{\numberline {7.1.4.4}initialize}{15}{subsubsection.7.1.4.4}
-\contentsline {subsection}{\numberline {7.1.5}Example}{15}{subsection.7.1.5}
-\contentsline {subsubsection}{\numberline {7.1.5.1}refresh}{15}{subsubsection.7.1.5.1}
-\contentsline {subsubsection}{\numberline {7.1.5.2}remove}{15}{subsubsection.7.1.5.2}
-\contentsline {subsubsection}{\numberline {7.1.5.3}run}{15}{subsubsection.7.1.5.3}
-\contentsline {subsubsection}{\numberline {7.1.5.4}send}{15}{subsubsection.7.1.5.4}
-\contentsline {subsubsection}{\numberline {7.1.5.5}set\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Number\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Of\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Threads}{15}{subsubsection.7.1.5.5}
-\contentsline {subsubsection}{\numberline {7.1.5.6}start}{15}{subsubsection.7.1.5.6}
-\contentsline {section}{\numberline {7.2}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Lock Class Reference}{15}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Detailed Description}{16}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Example}{16}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Member Function Documentation}{16}{subsection.7.2.3}
-\contentsline {subsubsection}{\numberline {7.2.3.1}lock}{16}{subsubsection.7.2.3.1}
-\contentsline {subsubsection}{\numberline {7.2.3.2}unlock}{17}{subsubsection.7.2.3.2}
-\contentsline {subsection}{\numberline {7.2.4}Member Data Documentation}{17}{subsection.7.2.4}
-\contentsline {subsubsection}{\numberline {7.2.4.1}locker}{17}{subsubsection.7.2.4.1}
-\contentsline {section}{\numberline {7.3}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Runnable Class Reference}{17}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Detailed Description}{18}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Member Enumeration Documentation}{18}{subsection.7.3.2}
-\contentsline {subsubsection}{\numberline {7.3.2.1}State}{19}{subsubsection.7.3.2.1}
-\contentsline {subsection}{\numberline {7.3.3}Member Function Documentation}{19}{subsection.7.3.3}
-\contentsline {subsubsection}{\numberline {7.3.3.1}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{19}{subsubsection.7.3.3.1}
-\contentsline {subsubsection}{\numberline {7.3.3.2}run}{19}{subsubsection.7.3.3.2}
-\contentsline {section}{\numberline {7.4}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Synchronisable$<$ T $>$ Class Template Reference}{19}{section.7.4}
-\contentsline {subsection}{\numberline {7.4.1}Detailed Description}{19}{subsection.7.4.1}
-\contentsline {subsection}{\numberline {7.4.2}Example}{20}{subsection.7.4.2}
-\contentsline {subsection}{\numberline {7.4.3}Constructor \& Destructor Documentation}{20}{subsection.7.4.3}
-\contentsline {subsubsection}{\numberline {7.4.3.1}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Synchronisable}{20}{subsubsection.7.4.3.1}
-\contentsline {subsection}{\numberline {7.4.4}Member Function Documentation}{20}{subsection.7.4.4}
-\contentsline {subsubsection}{\numberline {7.4.4.1}synchronise}{20}{subsubsection.7.4.4.1}
-\contentsline {subsection}{\numberline {7.4.5}Member Data Documentation}{20}{subsection.7.4.5}
-\contentsline {subsubsection}{\numberline {7.4.5.1}next}{20}{subsubsection.7.4.5.1}
-\contentsline {section}{\numberline {7.5}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object Class Reference}{20}{section.7.5}
-\contentsline {subsection}{\numberline {7.5.1}Detailed Description}{21}{subsection.7.5.1}
-\contentsline {subsection}{\numberline {7.5.2}Example}{21}{subsection.7.5.2}
-\contentsline {subsection}{\numberline {7.5.3}Constructor \& Destructor Documentation}{22}{subsection.7.5.3}
-\contentsline {subsubsection}{\numberline {7.5.3.1}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object}{22}{subsubsection.7.5.3.1}
-\contentsline {subsubsection}{\numberline {7.5.3.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object}{22}{subsubsection.7.5.3.2}
-\contentsline {subsection}{\numberline {7.5.4}Member Function Documentation}{22}{subsection.7.5.4}
-\contentsline {subsubsection}{\numberline {7.5.4.1}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{22}{subsubsection.7.5.4.1}
-\contentsline {subsubsection}{\numberline {7.5.4.2}receive}{22}{subsubsection.7.5.4.2}
-\contentsline {subsubsection}{\numberline {7.5.4.3}run}{22}{subsubsection.7.5.4.3}
-\contentsline {subsection}{\numberline {7.5.5}Example}{22}{subsection.7.5.5}
-\contentsline {subsubsection}{\numberline {7.5.5.1}synchronise}{22}{subsubsection.7.5.5.1}
-\contentsline {subsection}{\numberline {7.5.6}Friends And Related Function Documentation}{23}{subsection.7.5.6}
-\contentsline {subsubsection}{\numberline {7.5.6.1}Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework}{23}{subsubsection.7.5.6.1}
-\contentsline {section}{\numberline {7.6}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Var Class Reference}{23}{section.7.6}
-\contentsline {subsection}{\numberline {7.6.1}Detailed Description}{23}{subsection.7.6.1}
-\contentsline {subsection}{\numberline {7.6.2}Example}{24}{subsection.7.6.2}
-\contentsline {subsection}{\numberline {7.6.3}Constructor \& Destructor Documentation}{24}{subsection.7.6.3}
-\contentsline {subsubsection}{\numberline {7.6.3.1}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Var}{24}{subsubsection.7.6.3.1}
-\contentsline {subsection}{\numberline {7.6.4}Member Function Documentation}{24}{subsection.7.6.4}
-\contentsline {subsubsection}{\numberline {7.6.4.1}operator=}{24}{subsubsection.7.6.4.1}
-\contentsline {subsubsection}{\numberline {7.6.4.2}synchronise}{24}{subsubsection.7.6.4.2}
-\contentsline {section}{\numberline {7.7}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Task Class Reference}{24}{section.7.7}
-\contentsline {subsection}{\numberline {7.7.1}Detailed Description}{25}{subsection.7.7.1}
-\contentsline {subsection}{\numberline {7.7.2}Constructor \& Destructor Documentation}{25}{subsection.7.7.2}
-\contentsline {subsubsection}{\numberline {7.7.2.1}Task}{25}{subsubsection.7.7.2.1}
-\contentsline {subsubsection}{\numberline {7.7.2.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Task}{25}{subsubsection.7.7.2.2}
-\contentsline {subsection}{\numberline {7.7.3}Member Data Documentation}{25}{subsection.7.7.3}
-\contentsline {subsubsection}{\numberline {7.7.3.1}from}{25}{subsubsection.7.7.3.1}
-\contentsline {subsubsection}{\numberline {7.7.3.2}task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Argument}{25}{subsubsection.7.7.3.2}
-\contentsline {subsubsection}{\numberline {7.7.3.3}task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Function}{25}{subsubsection.7.7.3.3}
-\contentsline {subsubsection}{\numberline {7.7.3.4}to}{25}{subsubsection.7.7.3.4}
-\contentsline {section}{\numberline {7.8}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box Class Reference}{25}{section.7.8}
-\contentsline {subsection}{\numberline {7.8.1}Detailed Description}{26}{subsection.7.8.1}
-\contentsline {subsection}{\numberline {7.8.2}Constructor \& Destructor Documentation}{26}{subsection.7.8.2}
-\contentsline {subsubsection}{\numberline {7.8.2.1}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box}{27}{subsubsection.7.8.2.1}
-\contentsline {subsubsection}{\numberline {7.8.2.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box}{27}{subsubsection.7.8.2.2}
-\contentsline {subsection}{\numberline {7.8.3}Member Function Documentation}{27}{subsection.7.8.3}
-\contentsline {subsubsection}{\numberline {7.8.3.1}is\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Empty}{27}{subsubsection.7.8.3.1}
-\contentsline {subsubsection}{\numberline {7.8.3.2}pop}{27}{subsubsection.7.8.3.2}
-\contentsline {subsubsection}{\numberline {7.8.3.3}process}{27}{subsubsection.7.8.3.3}
-\contentsline {subsubsection}{\numberline {7.8.3.4}push}{27}{subsubsection.7.8.3.4}
-\contentsline {subsection}{\numberline {7.8.4}Member Data Documentation}{27}{subsection.7.8.4}
-\contentsline {subsubsection}{\numberline {7.8.4.1}tasks}{27}{subsubsection.7.8.4.1}
-\contentsline {chapter}{Index}{29}{section*.2}
+\contentsline {chapter}{\numberline {2}Installation}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Mac O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S X}{3}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Install Dependencies}{3}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Install Dual State Framework}{3}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Use D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F in Xcode}{3}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Microsoft Windows}{3}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Install Dependencies}{3}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Install Dual State Framework}{4}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Use D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F in Visual Studio}{4}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Linux}{4}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Install Dependencies}{4}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Install Dual State Framework}{4}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Compile source code}{4}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Pre-\/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Build}{5}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Build the project}{5}{subsection.2.4.2}
+\contentsline {chapter}{\numberline {3}Namespace Documentation}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}dsf Namespace Reference}{7}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Typedef Documentation}{8}{subsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.1}function}{8}{subsubsection.3.1.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.2}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Argument}{8}{subsubsection.3.1.1.2}
+\contentsline {subsubsection}{\numberline {3.1.1.3}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Argument\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Exception}{8}{subsubsection.3.1.1.3}
+\contentsline {subsubsection}{\numberline {3.1.1.4}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Function}{8}{subsubsection.3.1.1.4}
+\contentsline {subsection}{\numberline {3.1.2}Variable Documentation}{8}{subsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.2.1}Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework}{8}{subsubsection.3.1.2.1}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object}{8}{subsubsection.3.1.2.2}
+\contentsline {subsubsection}{\numberline {3.1.2.3}Task}{8}{subsubsection.3.1.2.3}
+\contentsline {subsubsection}{\numberline {3.1.2.4}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box}{8}{subsubsection.3.1.2.4}
+\contentsline {chapter}{\numberline {4}Class Documentation}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework Class Reference}{9}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{10}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Example}{10}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Constructor \& Destructor Documentation}{10}{subsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.3.1}Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework}{10}{subsubsection.4.1.3.1}
+\contentsline {subsubsection}{\numberline {4.1.3.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework}{10}{subsubsection.4.1.3.2}
+\contentsline {subsection}{\numberline {4.1.4}Member Function Documentation}{10}{subsection.4.1.4}
+\contentsline {subsubsection}{\numberline {4.1.4.1}add}{10}{subsubsection.4.1.4.1}
+\contentsline {subsubsection}{\numberline {4.1.4.2}do\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}One\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Frame}{10}{subsubsection.4.1.4.2}
+\contentsline {subsubsection}{\numberline {4.1.4.3}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{11}{subsubsection.4.1.4.3}
+\contentsline {subsubsection}{\numberline {4.1.4.4}initialize}{11}{subsubsection.4.1.4.4}
+\contentsline {subsection}{\numberline {4.1.5}Example}{11}{subsection.4.1.5}
+\contentsline {subsubsection}{\numberline {4.1.5.1}refresh}{11}{subsubsection.4.1.5.1}
+\contentsline {subsubsection}{\numberline {4.1.5.2}remove}{12}{subsubsection.4.1.5.2}
+\contentsline {subsubsection}{\numberline {4.1.5.3}run}{12}{subsubsection.4.1.5.3}
+\contentsline {subsubsection}{\numberline {4.1.5.4}send}{12}{subsubsection.4.1.5.4}
+\contentsline {subsubsection}{\numberline {4.1.5.5}set\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Number\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Of\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Threads}{12}{subsubsection.4.1.5.5}
+\contentsline {subsubsection}{\numberline {4.1.5.6}start}{12}{subsubsection.4.1.5.6}
+\contentsline {section}{\numberline {4.2}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Lock Class Reference}{13}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{13}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Example}{13}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Member Function Documentation}{14}{subsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3.1}lock}{14}{subsubsection.4.2.3.1}
+\contentsline {subsubsection}{\numberline {4.2.3.2}unlock}{14}{subsubsection.4.2.3.2}
+\contentsline {subsection}{\numberline {4.2.4}Member Data Documentation}{14}{subsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.4.1}locker}{14}{subsubsection.4.2.4.1}
+\contentsline {section}{\numberline {4.3}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Runnable Class Reference}{14}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{15}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Member Enumeration Documentation}{15}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}State}{16}{subsubsection.4.3.2.1}
+\contentsline {subsection}{\numberline {4.3.3}Member Function Documentation}{16}{subsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.3.1}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{16}{subsubsection.4.3.3.1}
+\contentsline {subsubsection}{\numberline {4.3.3.2}run}{16}{subsubsection.4.3.3.2}
+\contentsline {section}{\numberline {4.4}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Synchronisable$<$ T $>$ Class Template Reference}{16}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{16}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Example}{17}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Constructor \& Destructor Documentation}{17}{subsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.3.1}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Synchronisable}{17}{subsubsection.4.4.3.1}
+\contentsline {subsection}{\numberline {4.4.4}Member Function Documentation}{17}{subsection.4.4.4}
+\contentsline {subsubsection}{\numberline {4.4.4.1}synchronise}{17}{subsubsection.4.4.4.1}
+\contentsline {subsection}{\numberline {4.4.5}Member Data Documentation}{17}{subsection.4.4.5}
+\contentsline {subsubsection}{\numberline {4.4.5.1}next}{17}{subsubsection.4.4.5.1}
+\contentsline {section}{\numberline {4.5}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object Class Reference}{17}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{18}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Example}{18}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Constructor \& Destructor Documentation}{19}{subsection.4.5.3}
+\contentsline {subsubsection}{\numberline {4.5.3.1}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object}{19}{subsubsection.4.5.3.1}
+\contentsline {subsubsection}{\numberline {4.5.3.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Object}{19}{subsubsection.4.5.3.2}
+\contentsline {subsection}{\numberline {4.5.4}Member Function Documentation}{19}{subsection.4.5.4}
+\contentsline {subsubsection}{\numberline {4.5.4.1}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{19}{subsubsection.4.5.4.1}
+\contentsline {subsubsection}{\numberline {4.5.4.2}receive}{19}{subsubsection.4.5.4.2}
+\contentsline {subsubsection}{\numberline {4.5.4.3}run}{20}{subsubsection.4.5.4.3}
+\contentsline {subsection}{\numberline {4.5.5}Example}{20}{subsection.4.5.5}
+\contentsline {subsubsection}{\numberline {4.5.5.1}synchronise}{20}{subsubsection.4.5.5.1}
+\contentsline {subsection}{\numberline {4.5.6}Friends And Related Function Documentation}{20}{subsection.4.5.6}
+\contentsline {subsubsection}{\numberline {4.5.6.1}Dual\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Framework}{20}{subsubsection.4.5.6.1}
+\contentsline {section}{\numberline {4.6}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Var Class Reference}{20}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{21}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Example}{21}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Constructor \& Destructor Documentation}{21}{subsection.4.6.3}
+\contentsline {subsubsection}{\numberline {4.6.3.1}Synchronized\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Var}{22}{subsubsection.4.6.3.1}
+\contentsline {subsection}{\numberline {4.6.4}Member Function Documentation}{22}{subsection.4.6.4}
+\contentsline {subsubsection}{\numberline {4.6.4.1}operator=}{22}{subsubsection.4.6.4.1}
+\contentsline {subsubsection}{\numberline {4.6.4.2}synchronise}{22}{subsubsection.4.6.4.2}
+\contentsline {section}{\numberline {4.7}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Task Class Reference}{22}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{23}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Constructor \& Destructor Documentation}{23}{subsection.4.7.2}
+\contentsline {subsubsection}{\numberline {4.7.2.1}Task}{23}{subsubsection.4.7.2.1}
+\contentsline {subsubsection}{\numberline {4.7.2.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Task}{23}{subsubsection.4.7.2.2}
+\contentsline {subsection}{\numberline {4.7.3}Member Data Documentation}{23}{subsection.4.7.3}
+\contentsline {subsubsection}{\numberline {4.7.3.1}from}{23}{subsubsection.4.7.3.1}
+\contentsline {subsubsection}{\numberline {4.7.3.2}task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Argument}{23}{subsubsection.4.7.3.2}
+\contentsline {subsubsection}{\numberline {4.7.3.3}task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Function}{23}{subsubsection.4.7.3.3}
+\contentsline {subsubsection}{\numberline {4.7.3.4}to}{23}{subsubsection.4.7.3.4}
+\contentsline {section}{\numberline {4.8}dsf\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}:Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box Class Reference}{23}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{24}{subsection.4.8.1}
+\contentsline {subsection}{\numberline {4.8.2}Constructor \& Destructor Documentation}{24}{subsection.4.8.2}
+\contentsline {subsubsection}{\numberline {4.8.2.1}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box}{25}{subsubsection.4.8.2.1}
+\contentsline {subsubsection}{\numberline {4.8.2.2}$\sim $\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Task\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Box}{25}{subsubsection.4.8.2.2}
+\contentsline {subsection}{\numberline {4.8.3}Member Function Documentation}{25}{subsection.4.8.3}
+\contentsline {subsubsection}{\numberline {4.8.3.1}is\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Empty}{25}{subsubsection.4.8.3.1}
+\contentsline {subsubsection}{\numberline {4.8.3.2}pop}{25}{subsubsection.4.8.3.2}
+\contentsline {subsubsection}{\numberline {4.8.3.3}process}{26}{subsubsection.4.8.3.3}
+\contentsline {subsubsection}{\numberline {4.8.3.4}push}{26}{subsubsection.4.8.3.4}
+\contentsline {subsection}{\numberline {4.8.4}Member Data Documentation}{26}{subsection.4.8.4}
+\contentsline {subsubsection}{\numberline {4.8.4.1}tasks}{26}{subsubsection.4.8.4.1}
+\contentsline {chapter}{Index}{27}{section*.2}

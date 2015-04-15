@@ -1,0 +1,54 @@
+\hypertarget{_sync_vector3_d_8cpp_source}{}\section{Sync\+Vector3\+D.\+cpp}
+\label{_sync_vector3_d_8cpp_source}\index{Sync\+Vector3\+D.\+cpp@{Sync\+Vector3\+D.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Vector3D.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 3/22/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/SyncVector3D.h"}
+00010 
+00011 
+\hypertarget{_sync_vector3_d_8cpp_source_l00012}{}\hyperlink{class_sync_vector3_d_a58df77cc374692447265c2a6356635ba}{00012} \hyperlink{class_sync_vector3_d_a58df77cc374692447265c2a6356635ba}{SyncVector3D::SyncVector3D}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z) : 
+      \hyperlink{class_vector3_d}{Vector3D}(x, y, z) \{
+00013     this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next} = \textcolor{keyword}{new} \hyperlink{class_vector3_d_a2716997bbfe6f8ef2a7d6714f60295e5}{Vector3D}(x, y, z);
+00014 \}
+00015 
+\hypertarget{_sync_vector3_d_8cpp_source_l00016}{}\hyperlink{class_sync_vector3_d_a281c1fdd14cf470374f97c03e80b9051}{00016} \textcolor{keywordtype}{void} \hyperlink{class_sync_vector3_d_a281c1fdd14cf470374f97c03e80b9051}{SyncVector3D::setX}(\textcolor{keywordtype}{float} x) \{
+00017     this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_ac3904b095a2440b9067effc640cf7e5e}{setX}(x);
+00018 \}
+00019 
+\hypertarget{_sync_vector3_d_8cpp_source_l00020}{}\hyperlink{class_sync_vector3_d_a5d3dc3a35ff906da6e26e774c49efe98}{00020} \textcolor{keywordtype}{void} \hyperlink{class_sync_vector3_d_a5d3dc3a35ff906da6e26e774c49efe98}{SyncVector3D::setY}(\textcolor{keywordtype}{float} y) \{
+00021     this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_a4672b17cd2a364928149b689958e273d}{setY}(y);
+00022 \}
+00023 
+\hypertarget{_sync_vector3_d_8cpp_source_l00024}{}\hyperlink{class_sync_vector3_d_ab46ef5a61256a8c8eeef7028efc4d418}{00024} \textcolor{keywordtype}{void} \hyperlink{class_sync_vector3_d_ab46ef5a61256a8c8eeef7028efc4d418}{SyncVector3D::setZ}(\textcolor{keywordtype}{float} z) \{
+00025     this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_a2433f43f72a29a8b330ca6ef346eb6ab}{setZ}(z);
+00026 \}
+00027 
+\hypertarget{_sync_vector3_d_8cpp_source_l00028}{}\hyperlink{class_sync_vector3_d_a15fde3ee61d3c112b5badeb59a9576c4}{00028} \textcolor{keywordtype}{void} \hyperlink{class_sync_vector3_d_a15fde3ee61d3c112b5badeb59a9576c4}{SyncVector3D::add}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v) \{
+00029     this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_ac47070b057dc8aeae60ad59cb2b32114}{add}(v);
+00030 \}
+00031 
+\hypertarget{_sync_vector3_d_8cpp_source_l00032}{}\hyperlink{class_sync_vector3_d_aa6eef5af29a37eade701c8ea8183ab75}{00032} \textcolor{keywordtype}{void} \hyperlink{class_sync_vector3_d_aa6eef5af29a37eade701c8ea8183ab75}{SyncVector3D::sub}(\textcolor{keyword}{const} \hyperlink{class_vector3_d}{Vector3D}& v) \{
+00033     this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_a7382a2c358e364d2fbfd4c9cc621eac9}{sub}(v);
+00034 \}
+00035 
+\hypertarget{_sync_vector3_d_8cpp_source_l00036}{}\hyperlink{class_sync_vector3_d_ad6f04d38d38c227e4ae5acc551683a34}{00036} \textcolor{keywordtype}{void} \hyperlink{class_sync_vector3_d_ad6f04d38d38c227e4ae5acc551683a34}{SyncVector3D::mul}(\textcolor{keywordtype}{float} n) \{
+00037     this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_a24fba77b4f4eef3094ece55b189154de}{mul}(n);
+00038 \}
+00039 
+\hypertarget{_sync_vector3_d_8cpp_source_l00040}{}\hyperlink{class_sync_vector3_d_a0aec0712353e70426391d74b84b10355}{00040} \textcolor{keywordtype}{void} \hyperlink{class_sync_vector3_d_a0aec0712353e70426391d74b84b10355}{SyncVector3D::div}(\textcolor{keywordtype}{float} n) \{
+00041     this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_a2903bc421971e5734281b58ab05f6313}{div}(n);
+00042 \}
+00043 
+\hypertarget{_sync_vector3_d_8cpp_source_l00044}{}\hyperlink{class_sync_vector3_d_a99be7456cf1a444ce9ca3d144772f6ff}{00044} \textcolor{keywordtype}{void} \hyperlink{class_sync_vector3_d_a99be7456cf1a444ce9ca3d144772f6ff}{SyncVector3D::synchronise}() \{
+00045     this->\hyperlink{class_vector3_d_aca5d15bdb846448e3cb73b072783f329}{x} = this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_af3d8e02a27e13d31831a3329402548c2}{getX}();
+00046     this->\hyperlink{class_vector3_d_a9b6d194fcf526d7d4f9e902421285e94}{y} = this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_abcffa21ac0e55556ff519ef521f6fbc0}{getY}();
+00047     this->\hyperlink{class_vector3_d_af9728f1eba23b9ee091755346214f391}{z} = this->\hyperlink{classdsf_1_1_synchronisable_ae2434faac15d3184da1543a91e175713}{next}->\hyperlink{class_vector3_d_a5f54a4dc4864266c310949f9fe53df81}{getZ}();
+00048 \}
+\end{DoxyCode}

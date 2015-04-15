@@ -1,0 +1,129 @@
+\hypertarget{_dual_state_framework_8cpp_source}{}\section{Dual\+State\+Framework.\+cpp}
+\label{_dual_state_framework_8cpp_source}\index{Dual\+State\+Framework.\+cpp@{Dual\+State\+Framework.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  TaskManager.cpp}
+00003 \textcolor{comment}{//  dsf}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include <tbb/parallel\_for\_each.h>}
+00010 \textcolor{preprocessor}{#include <\hyperlink{_dual_state_framework_8h}{dsf/DualStateFramework.h}>}
+00011 \textcolor{preprocessor}{#include <tbb/task\_scheduler\_init.h>}
+00012 \textcolor{preprocessor}{#include <algorithm>}
+00013 
+00014 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00015 \{
+\hypertarget{_dual_state_framework_8cpp_source_l00016}{}\hyperlink{classdsf_1_1_dual_state_framework_ab2c3f064dee1876d92694544d032b942}{00016}     \hyperlink{classdsf_1_1_dual_state_framework_ab2c3f064dee1876d92694544d032b942}{DualStateFramework::DualStateFramework}()
+00017     \{
+00018         this->NumberOfThreads = tbb::task\_scheduler\_init::automatic;
+00019         this->syncObjs = \textcolor{keyword}{new} std::vector<SynchronizedObject*>();
+00020         this->state = DualStateFramework::State::STOPPED;
+00021     \}
+00022     
+\hypertarget{_dual_state_framework_8cpp_source_l00023}{}\hyperlink{classdsf_1_1_dual_state_framework_a0e5246056c73a684d0a167f3ed6d1fb1}{00023}     \hyperlink{classdsf_1_1_dual_state_framework_a0e5246056c73a684d0a167f3ed6d1fb1}{DualStateFramework::~DualStateFramework}()
+00024     \{
+00025         \textcolor{keywordflow}{while} (!this->syncObjs->empty()) \{
+00026             \hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* syncObj = this->syncObjs->back();
+00027             this->syncObjs->pop\_back();
+00028             \textcolor{keyword}{delete} syncObj;
+00029         \}
+00030         \textcolor{keyword}{delete} this->syncObjs;
+00031     \}
+00032     
+\hypertarget{_dual_state_framework_8cpp_source_l00033}{}\hyperlink{classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194}{00033}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194}{DualStateFramework::start}()
+00034     \{
+00035         \textcolor{keywordflow}{if}(!this->syncObjs->empty())
+00036         \{
+00037             this->\hyperlink{classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f}{doOneFrame}();
+00038             this->\hyperlink{classdsf_1_1_dual_state_framework_ab17692c652ab856818d5e8f0dd82f194}{start}();
+00039         \}
+00040     \}
+00041     
+\hypertarget{_dual_state_framework_8cpp_source_l00042}{}\hyperlink{classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f}{00042}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a72f0e6753a30394c0e505bb0bc481e3f}{DualStateFramework::doOneFrame}()
+00043     \{
+00044         this->\hyperlink{classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007}{refresh}();
+00045         
+00046         \textcolor{keywordflow}{if}(!this->syncObjs->empty())
+00047         \{
+00048             this->state = DualStateFramework::State::RUNNING;
+00049             this->\hyperlink{classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b}{run}();
+00050             \textcolor{keywordflow}{if}(this->state == DualStateFramework::State::RUNNING)
+00051                 this->state = DualStateFramework::State::STOPPED;
+00052         \}
+00053     \}
+00054     
+00055     
+\hypertarget{_dual_state_framework_8cpp_source_l00056}{}\hyperlink{classdsf_1_1_dual_state_framework_a2ce40c8e165a8ed8fd6cb6cb30ae985b}{00056}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a2ce40c8e165a8ed8fd6cb6cb30ae985b}{DualStateFramework::add}(\hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject} *
+      syncObj)
+00057     \{
+00058         this->syncObjs->push\_back(syncObj);
+00059     \}
+00060     
+\hypertarget{_dual_state_framework_8cpp_source_l00061}{}\hyperlink{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{00061}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{DualStateFramework::remove}(
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject} *syncObj)
+00062     \{
+00063         syncObj->distroy();
+00064     \}
+00065     
+\hypertarget{_dual_state_framework_8cpp_source_l00066}{}\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{00066}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{DualStateFramework::send}(
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject} *to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject} *from, 
+      \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction} *taskFunction, \hyperlink{classyc_1_1_any}{TaskArgument} *args)
+00067     \{
+00068         from->send(to, taskFunction, args);
+00069     \}
+00070     
+\hypertarget{_dual_state_framework_8cpp_source_l00071}{}\hyperlink{classdsf_1_1_dual_state_framework_aca55fd7ccccf9637aa4cd626cd2bbe58}{00071}     \hyperlink{classdsf_1_1_runnable_a8eb63b21a0accc7a6a2a05f18e257991}{DualStateFramework::State} 
+      \hyperlink{classdsf_1_1_dual_state_framework_aca55fd7ccccf9637aa4cd626cd2bbe58}{DualStateFramework::getState}()
+00072     \{
+00073         \textcolor{keywordflow}{return} this->state;
+00074     \}
+00075     
+\hypertarget{_dual_state_framework_8cpp_source_l00076}{}\hyperlink{classdsf_1_1_dual_state_framework_a8ab358a7456eeed264d53304b6562be4}{00076}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a8ab358a7456eeed264d53304b6562be4}{DualStateFramework::setNumberOfThreads}(\textcolor{keywordtype}{int} NumberOfThreads)
+00077     \{
+00078         \textcolor{keywordflow}{if}(NumberOfThreads == 0)
+00079             this->NumberOfThreads = tbb::task\_scheduler\_init::automatic;
+00080         \textcolor{keywordflow}{else}
+00081             this->NumberOfThreads = NumberOfThreads;
+00082     \}
+00083     
+00085     \textcolor{comment}{// Private}
+00087 \textcolor{comment}{}    
+00088     
+00090     \textcolor{comment}{// Protected}
+00092 \textcolor{comment}{}
+00093     
+\hypertarget{_dual_state_framework_8cpp_source_l00094}{}\hyperlink{classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007}{00094}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_afe53c4d52bfb56b0b73c6b9fd397b007}{DualStateFramework::refresh}()
+00095     \{
+00096         this->syncObjs->erase(std::remove\_if(this->syncObjs->begin(),
+00097                                              this->syncObjs->end(),
+00098                                              [](\hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* sb)
+00099                                              \{
+00100                                                  \textcolor{keywordflow}{if} (sb->getState() == SynchronizedObject::State::DELETED) 
+      \{
+00101                                                      \textcolor{keyword}{delete} sb;
+00102                                                      \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00103                                                  \}
+00104                                                  \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00105                                              \}) ,
+00106                               this->syncObjs->end());
+00107     \}
+00108     
+\hypertarget{_dual_state_framework_8cpp_source_l00109}{}\hyperlink{classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b}{00109}     \textcolor{keywordtype}{void} \hyperlink{classdsf_1_1_dual_state_framework_a25b6b35182320df2cf02a8505b1ff83b}{DualStateFramework::run}()
+00110     \{
+00111         tbb::task\_scheduler\_init init(this->NumberOfThreads);
+00112         tbb::parallel\_for\_each(this->syncObjs->begin(),
+00113                                this->syncObjs->end(),
+00114                                [](\hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* sb)
+00115                                \{
+00116                                    \textcolor{keywordflow}{if}(sb->getState() == SynchronizedObject::State::STOPPED)
+00117                                    \{
+00118                                        sb->start();
+00119                                    \}
+00120                                \});
+00121     \}
+00122 \}
+\end{DoxyCode}

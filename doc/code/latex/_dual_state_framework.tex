@@ -1,0 +1,1000 @@
+\hypertarget{_dual_state_framework_DualStateFrameworkCMakeLists}{}\section{C\+Make\+Lists}\label{_dual_state_framework_DualStateFrameworkCMakeLists}
+\hypertarget{_dual_state_framework_DualStateFrameworkCMakeListsMain}{}\subsection{C\+Make\+Lists.\+txt}\label{_dual_state_framework_DualStateFrameworkCMakeListsMain}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/\+C\+Make\+Lists.txt} 
+\begin{DoxyCodeInclude}
+1 cmake\_minimum\_required(VERSION 2.8)
+2 
+3 \textcolor{preprocessor}{# project name}
+4 project(dsf)
+5 
+6 \textcolor{preprocessor}{# setup version numbers}
+7 set(VERSION\_MAJOR 1)
+8 set(VERSION\_MINOR 0)
+9 set(VERSION\_PATCH 0)
+10 
+11 
+12 \textcolor{preprocessor}{# disable the rpath stuff}
+13 set(CMAKE\_SKIP\_BUILD\_RPATH FALSE)
+14 
+15 
+16 \textcolor{preprocessor}{# detect the architecture (note: this test won't work for cross-compilation)}
+17     
+18 include(CheckTypeSize)
+19 check\_type\_size(\textcolor{keywordtype}{void}* SIZEOF\_VOID\_PTR)
+20 if("$\{SIZEOF\_VOID\_PTR\}\textcolor{stringliteral}{" STREQUAL "}4\textcolor{stringliteral}{")}
+21 \textcolor{stringliteral}{    set(ARCH x86)}
+22 \textcolor{stringliteral}{elseif("}$\{SIZEOF\_VOID\_PTR\}\textcolor{stringliteral}{" STREQUAL "}8\textcolor{stringliteral}{")}
+23 \textcolor{stringliteral}{    set(ARCH x64)}
+24 \textcolor{stringliteral}{else()}
+25 \textcolor{stringliteral}{    message(FATAL\_ERROR "}Unsupported architecture\textcolor{stringliteral}{")}
+26 \textcolor{stringliteral}{    return()}
+27 \textcolor{stringliteral}{endif()}
+28 \textcolor{stringliteral}{}
+29 \textcolor{stringliteral}{# configure links and headers}
+30 \textcolor{stringliteral}{}
+31 \textcolor{stringliteral}{set(LIBS tbb yctools) }
+32 \textcolor{stringliteral}{}
+33 \textcolor{stringliteral}{if (MSVC)}
+34 \textcolor{stringliteral}{    # Windows VC}
+35 \textcolor{stringliteral}{    # Activate C++ exception handling}
+36 \textcolor{stringliteral}{    if (NOT CMAKE\_CXX\_FLAGS MATCHES "}/EHsc\textcolor{stringliteral}{")}
+37 \textcolor{stringliteral}{    set(CMAKE\_CXX\_FLAGS "}$\{CMAKE\_CXX\_FLAGS\} /EHsc\textcolor{stringliteral}{")}
+38 \textcolor{stringliteral}{    endif ()}
+39 \textcolor{stringliteral}{}
+40 \textcolor{stringliteral}{    # Set Warning level always to 4}
+41 \textcolor{stringliteral}{    if (CMAKE\_CXX\_FLAGS MATCHES "}/W[0-4]\textcolor{stringliteral}{")}
+42 \textcolor{stringliteral}{        string(REGEX REPLACE "}/W[0-4]\textcolor{stringliteral}{" "}/W4\textcolor{stringliteral}{" CMAKE\_CXX\_FLAGS "}$\{CMAKE\_CXX\_FLAGS\}\textcolor{stringliteral}{")}
+43 \textcolor{stringliteral}{    else ()}
+44 \textcolor{stringliteral}{        set(CMAKE\_CXX\_FLAGS "}$\{CMAKE\_CXX\_FLAGS\} /W4\textcolor{stringliteral}{")}
+45 \textcolor{stringliteral}{    endif () }
+46 \textcolor{stringliteral}{}
+47 \textcolor{stringliteral}{    set(LIBS\_DIR $\{CMAKE\_CURRENT\_SOURCE\_DIR\}/extlibs/libs-msvc/$\{ARCH\}/libs)}
+48 \textcolor{stringliteral}{elseif(APPLE)}
+49 \textcolor{stringliteral}{    # Mac OS X Xcode}
+50 \textcolor{stringliteral}{    set(CMAKE\_MACOSX\_RPATH 1)}
+51 \textcolor{stringliteral}{    set(LIBS\_DIR $\{CMAKE\_CURRENT\_SOURCE\_DIR\}/extlibs/libs-osx)}
+52 \textcolor{stringliteral}{    OPTION(OSX\_FRAMEWORK "}Build a Mac OS X Framework\textcolor{stringliteral}{")}
+53 \textcolor{stringliteral}{    ADD\_DEFINITIONS(-std=c++11)}
+54 \textcolor{stringliteral}{else()}
+55 \textcolor{stringliteral}{    # Unix}
+56 \textcolor{stringliteral}{    set(LIBS\_DIR $\{CMAKE\_CURRENT\_SOURCE\_DIR\}/extlibs/libs-unix/$\{ARCH\})}
+57 \textcolor{stringliteral}{    ADD\_DEFINITIONS(-std=c++11)}
+58 \textcolor{stringliteral}{endif()}
+59 \textcolor{stringliteral}{}
+60 \textcolor{stringliteral}{# Source}
+61 \textcolor{stringliteral}{set(INCROOT $\{CMAKE\_CURRENT\_SOURCE\_DIR\}/dsf/include)}
+62 \textcolor{stringliteral}{set(SRCROOT $\{CMAKE\_CURRENT\_SOURCE\_DIR\}/dsf/src)}
+63 \textcolor{stringliteral}{add\_subdirectory($\{CMAKE\_CURRENT\_SOURCE\_DIR\}/dsf)}
+64 \textcolor{stringliteral}{}
+65 \textcolor{stringliteral}{# add the header path}
+66 \textcolor{stringliteral}{include\_directories($\{CMAKE\_CURRENT\_SOURCE\_DIR\}/extlibs/headers)}
+67 \textcolor{stringliteral}{include\_directories($\{INCROOT\})}
+68 \textcolor{stringliteral}{}
+69 \textcolor{stringliteral}{# output}
+70 \textcolor{stringliteral}{add\_library ($\{PROJECT\_NAME\} SHARED $\{DSF\_INC\} $\{DSF\_SRC\})}
+71 \textcolor{stringliteral}{set\_target\_properties(}
+72 \textcolor{stringliteral}{    $\{PROJECT\_NAME\} PROPERTIES}
+73 \textcolor{stringliteral}{    ARCHIVE\_OUTPUT\_DIRECTORY "}$\{CMAKE\_BINARY\_DIR\}/build\textcolor{stringliteral}{"}
+74 \textcolor{stringliteral}{    LIBRARY\_OUTPUT\_DIRECTORY "}$\{CMAKE\_BINARY\_DIR\}/build\textcolor{stringliteral}{"}
+75 \textcolor{stringliteral}{    RUNTIME\_OUTPUT\_DIRECTORY "}$\{CMAKE\_BINARY\_DIR\}/build\textcolor{stringliteral}{"}
+76 \textcolor{stringliteral}{)}
+77 \textcolor{stringliteral}{}
+78 \textcolor{stringliteral}{if(OSX\_FRAMEWORK)}
+79 \textcolor{stringliteral}{    set\_target\_properties(}
+80 \textcolor{stringliteral}{        $\{PROJECT\_NAME\} PROPERTIES}
+81 \textcolor{stringliteral}{        FRAMEWORK TRUE}
+82 \textcolor{stringliteral}{        FRAMEWORK\_VERSION $\{VERSION\_MAJOR\}.$\{VERSION\_MINOR\}.$\{VERSION\_PATCH\}}
+83 \textcolor{stringliteral}{        MACOSX\_FRAMEWORK\_IDENTIFIER ie.itcarlow.yuchen.dsf}
+84 \textcolor{stringliteral}{        MACOSX\_FRAMEWORK\_SHORT\_VERSION\_STRING $\{VERSION\_MAJOR\}.$\{VERSION\_MINOR\}.$\{VERSION\_PATCH\}}
+85 \textcolor{stringliteral}{        MACOSX\_FRAMEWORK\_BUNDLE\_VERSION $\{VERSION\_MAJOR\}.$\{VERSION\_MINOR\}.$\{VERSION\_PATCH\}}
+86 \textcolor{stringliteral}{        PUBLIC\_HEADER "}$\{DSF\_INC\}\textcolor{stringliteral}{"}
+87 \textcolor{stringliteral}{    )}
+88 \textcolor{stringliteral}{endif()}
+89 \textcolor{stringliteral}{}
+90 \textcolor{stringliteral}{foreach(LIB $\{LIBS\})}
+91 \textcolor{stringliteral}{    find\_library(LIB\_$\{LIB\} NAMES $\{LIB\} PATHS $\{LIBS\_DIR\})}
+92 \textcolor{stringliteral}{    set\_source\_files\_properties($\{LIB\_$\{LIB\}\} PROPERTIES MACOSX\_PACKAGE\_LOCATION Frameworks)}
+93 \textcolor{stringliteral}{    target\_link\_libraries($\{PROJECT\_NAME\} $\{LIB\_$\{LIB\}\})}
+94 \textcolor{stringliteral}{endforeach()}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkCMakeListsDSF}{}\subsection{dsf/\+C\+Make\+Lists.\+txt}\label{_dual_state_framework_DualStateFrameworkCMakeListsDSF}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/\+C\+Make\+Lists.txt} 
+\begin{DoxyCodeInclude}
+1 \textcolor{preprocessor}{# source files}
+2 set(DSF\_SRC
+3     $\{SRCROOT\}/dsf/DualStateFramework.cpp
+4     $\{SRCROOT\}/dsf/Lock.cpp
+5     $\{SRCROOT\}/dsf/SynchronizedObject.cpp
+6     $\{SRCROOT\}/dsf/SynchronizedVar.cpp
+7     $\{SRCROOT\}/dsf/Task.cpp
+8     $\{SRCROOT\}/dsf/TaskBox.cpp
+9     PARENT\_SCOPE
+10 )
+11 source\_group(\textcolor{stringliteral}{""} FILES $\{DSF\_SRC\})
+12 
+13 # headers
+14 
+15 set(DSF\_INC
+16     $\{INCROOT\}/dsf/Config.h
+17     $\{INCROOT\}/dsf/Declaration.h
+18     $\{INCROOT\}/dsf/DualStateFramework.h
+19     $\{INCROOT\}/dsf/Export.h
+20     $\{INCROOT\}/dsf/Lock.h
+21     $\{INCROOT\}/dsf/Runnable.h
+22     $\{INCROOT\}/dsf/SynchronizedObject.h
+23     $\{INCROOT\}/dsf/SynchronizedVar.h
+24     $\{INCROOT\}/dsf/Synchronisable.h
+25     $\{INCROOT\}/dsf/Task.h
+26     $\{INCROOT\}/dsf/TaskArgument.h
+27     $\{INCROOT\}/dsf/TaskBox.h
+28     $\{INCROOT\}/dsf/TaskFunction.h
+29     PARENT\_SCOPE
+30 )
+31 source\_group(\textcolor{stringliteral}{""} FILES $\{DSF\_INC\})
+32 
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkConfig}{}\section{Config}\label{_dual_state_framework_DualStateFrameworkConfig}
+\hypertarget{_dual_state_framework_DualStateFrameworkConfig_h}{}\subsection{Config.\+h}\label{_dual_state_framework_DualStateFrameworkConfig_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Config.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  config.h}
+3 \textcolor{comment}{//  DualStateFramework}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_Config\_h}
+10 \textcolor{preprocessor}{#define dsf\_Config\_h}
+11 
+12 \textcolor{preprocessor}{#if defined(\_WIN32)}
+13 
+14 \textcolor{comment}{// Windows compilers need specific (and different) keywords for export and import}
+15 \textcolor{preprocessor}{#define DSF\_API\_EXPORT \_\_declspec(dllexport)}
+16 \textcolor{preprocessor}{#define DSF\_API\_IMPORT \_\_declspec(dllimport)}
+17 
+18 \textcolor{comment}{// For Visual C++ compilers, we also need to turn off this annoying C4251 warning}
+19 \textcolor{preprocessor}{#ifdef \_MSC\_VER}
+20 
+21 \textcolor{preprocessor}{#pragma warning(disable : 4251)}
+22 
+23 \textcolor{preprocessor}{#endif}
+24 
+25 \textcolor{preprocessor}{#else // Linux, FreeBSD, Mac OS X}
+26 
+27 \textcolor{preprocessor}{#if \_\_GNUC\_\_ >= 4}
+28 
+29 \textcolor{comment}{// GCC 4 has special keywords for showing/hidding symbols,}
+30 \textcolor{comment}{// the same keyword is used for both importing and exporting}
+31 \textcolor{preprocessor}{#define DSF\_API\_EXPORT \_\_attribute\_\_ ((\_\_visibility\_\_ ("default")))}
+32 \textcolor{preprocessor}{#define DSF\_API\_IMPORT \_\_attribute\_\_ ((\_\_visibility\_\_ ("default")))}
+33 
+34 \textcolor{preprocessor}{#else}
+35 
+36 \textcolor{comment}{// GCC < 4 has no mechanism to explicitely hide symbols, everything's exported}
+37 \textcolor{preprocessor}{#define DSF\_API\_EXPORT}
+38 \textcolor{preprocessor}{#define DSF\_API\_IMPORT}
+39 
+40 \textcolor{preprocessor}{#endif}
+41 
+42 \textcolor{preprocessor}{#endif}
+43 
+44 
+45 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkDeclaration}{}\section{Declaration}\label{_dual_state_framework_DualStateFrameworkDeclaration}
+\hypertarget{_dual_state_framework_DualStateFrameworkDeclaration_h}{}\subsection{Declaration.\+h}\label{_dual_state_framework_DualStateFrameworkDeclaration_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Declaration.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Declaration.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_Declaration\_h}
+10 \textcolor{preprocessor}{#define dsf\_Declaration\_h}
+11 
+12 \textcolor{preprocessor}{#include "Export.h"}
+13 
+14 \textcolor{keyword}{namespace }dsf \{
+15     \textcolor{keyword}{class }DSF\_API Task;
+16     \textcolor{keyword}{class }DSF\_API TaskBox;
+17     \textcolor{keyword}{class }DSF\_API DualStateFramework;
+18     \textcolor{keyword}{class }DSF\_API SynchronizedObject;
+19 \}
+20 
+21 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkDualStateFramework}{}\section{Dual\+State\+Framework}\label{_dual_state_framework_DualStateFrameworkDualStateFramework}
+\hypertarget{_dual_state_framework_DualStateFrameworkDualStateFramework_h}{}\subsection{Dual\+State\+Framework.\+h}\label{_dual_state_framework_DualStateFrameworkDualStateFramework_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Dual\+State\+Framework.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  DualStateFramework.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_DualStateFramework\_h}
+10 \textcolor{preprocessor}{#define dsf\_DualStateFramework\_h}
+11 
+12 \textcolor{preprocessor}{#include <vector>}
+13 
+14 \textcolor{preprocessor}{#include "TaskBox.h"}
+15 \textcolor{preprocessor}{#include "Task.h"}
+16 \textcolor{preprocessor}{#include "SynchronizedObject.h"}
+17 \textcolor{preprocessor}{#include "Runnable.h"}
+18 
+19 \textcolor{keyword}{namespace }dsf \{
+25     \textcolor{keyword}{class }DSF\_API DualStateFramework : \textcolor{keyword}{public} Runnable
+26     \{
+27     \textcolor{keyword}{public}:
+28         DualStateFramework();
+29         
+30         ~DualStateFramework();
+31         
+49         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initialize() = 0;
+50         
+53         \textcolor{keywordtype}{void} start();
+54         
+57         \textcolor{keywordtype}{void} doOneFrame();
+58         
+59         
+60         
+63         \textcolor{keywordtype}{void} add(SynchronizedObject* syncObj);
+64         
+67         \textcolor{keywordtype}{void} \textcolor{keyword}{remove}(SynchronizedObject* syncObj);
+68         
+71         \textcolor{keywordtype}{void} send(SynchronizedObject* to,
+72                   SynchronizedObject* from,
+73                   TaskFunction* taskFunction,
+74                   TaskArgument* args);
+75         
+78         State getState() \textcolor{keyword}{override};
+79         
+83         \textcolor{keywordtype}{void} setNumberOfThreads(\textcolor{keywordtype}{int} NumberOfThreads);
+84         
+85     \textcolor{keyword}{private}:
+86         \textcolor{keywordtype}{int} NumberOfThreads;
+87         std::vector<SynchronizedObject*>* syncObjs;
+88         State state;
+89     \textcolor{keyword}{protected}:
+92         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} refresh();
+95          \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run() \textcolor{keyword}{override};
+96     \};
+97 \}
+98 
+99 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkDualStateFramework_cpp}{}\subsection{Dual\+State\+Framework.\+cpp}\label{_dual_state_framework_DualStateFrameworkDualStateFramework_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/dsf/\+Dual\+State\+Framework.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  TaskManager.cpp}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#include <tbb/parallel\_for\_each.h>}
+10 \textcolor{preprocessor}{#include <dsf/DualStateFramework.h>}
+11 \textcolor{preprocessor}{#include <tbb/task\_scheduler\_init.h>}
+12 \textcolor{preprocessor}{#include <algorithm>}
+13 
+14 \textcolor{keyword}{namespace }dsf
+15 \{
+16     DualStateFramework::DualStateFramework()
+17     \{
+18         this->NumberOfThreads = tbb::task\_scheduler\_init::automatic;
+19         this->syncObjs = \textcolor{keyword}{new} std::vector<SynchronizedObject*>();
+20         this->state = DualStateFramework::State::STOPPED;
+21     \}
+22     
+23     DualStateFramework::~DualStateFramework()
+24     \{
+25         \textcolor{keywordflow}{while} (!this->syncObjs->empty()) \{
+26             SynchronizedObject* syncObj = this->syncObjs->back();
+27             this->syncObjs->pop\_back();
+28             \textcolor{keyword}{delete} syncObj;
+29         \}
+30         \textcolor{keyword}{delete} this->syncObjs;
+31     \}
+32     
+33     \textcolor{keywordtype}{void} DualStateFramework::start()
+34     \{
+35         \textcolor{keywordflow}{if}(!this->syncObjs->empty())
+36         \{
+37             this->doOneFrame();
+38             this->start();
+39         \}
+40     \}
+41     
+42     \textcolor{keywordtype}{void} DualStateFramework::doOneFrame()
+43     \{
+44         this->refresh();
+45         
+46         \textcolor{keywordflow}{if}(!this->syncObjs->empty())
+47         \{
+48             this->state = DualStateFramework::State::RUNNING;
+49             this->run();
+50             \textcolor{keywordflow}{if}(this->state == DualStateFramework::State::RUNNING)
+51                 this->state = DualStateFramework::State::STOPPED;
+52         \}
+53     \}
+54     
+55     
+56     \textcolor{keywordtype}{void} DualStateFramework::add(dsf::SynchronizedObject *syncObj)
+57     \{
+58         this->syncObjs->push\_back(syncObj);
+59     \}
+60     
+61     \textcolor{keywordtype}{void} DualStateFramework::remove(dsf::SynchronizedObject *syncObj)
+62     \{
+63         syncObj->distroy();
+64     \}
+65     
+66     \textcolor{keywordtype}{void} DualStateFramework::send(dsf::SynchronizedObject *to, dsf::SynchronizedObject *from, TaskFunction 
+      *taskFunction, TaskArgument *args)
+67     \{
+68         from->send(to, taskFunction, args);
+69     \}
+70     
+71     DualStateFramework::State DualStateFramework::getState()
+72     \{
+73         \textcolor{keywordflow}{return} this->state;
+74     \}
+75     
+76     \textcolor{keywordtype}{void} DualStateFramework::setNumberOfThreads(\textcolor{keywordtype}{int} NumberOfThreads)
+77     \{
+78         \textcolor{keywordflow}{if}(NumberOfThreads == 0)
+79             this->NumberOfThreads = tbb::task\_scheduler\_init::automatic;
+80         \textcolor{keywordflow}{else}
+81             this->NumberOfThreads = NumberOfThreads;
+82     \}
+83     
+85     \textcolor{comment}{// Private}
+87 \textcolor{comment}{}    
+88     
+90     \textcolor{comment}{// Protected}
+92 \textcolor{comment}{}
+93     
+94     \textcolor{keywordtype}{void} DualStateFramework::refresh()
+95     \{
+96         this->syncObjs->erase(std::remove\_if(this->syncObjs->begin(),
+97                                              this->syncObjs->end(),
+98                                              [](SynchronizedObject* sb)
+99                                              \{
+100                                                  \textcolor{keywordflow}{if} (sb->getState() == SynchronizedObject::State::DELETED) 
+      \{
+101                                                      \textcolor{keyword}{delete} sb;
+102                                                      \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+103                                                  \}
+104                                                  \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+105                                              \}) ,
+106                               this->syncObjs->end());
+107     \}
+108     
+109     \textcolor{keywordtype}{void} DualStateFramework::run()
+110     \{
+111         tbb::task\_scheduler\_init init(this->NumberOfThreads);
+112         tbb::parallel\_for\_each(this->syncObjs->begin(),
+113                                this->syncObjs->end(),
+114                                [](SynchronizedObject* sb)
+115                                \{
+116                                    \textcolor{keywordflow}{if}(sb->getState() == SynchronizedObject::State::STOPPED)
+117                                    \{
+118                                        sb->start();
+119                                    \}
+120                                \});
+121     \}
+122 \}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkExport}{}\section{Export}\label{_dual_state_framework_DualStateFrameworkExport}
+\hypertarget{_dual_state_framework_DualStateFrameworkExport_h}{}\subsection{Export.\+h}\label{_dual_state_framework_DualStateFrameworkExport_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Export.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Export.h}
+3 \textcolor{comment}{//  DualStateFramework}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_Export\_h}
+10 \textcolor{preprocessor}{#define dsf\_Export\_h}
+11 
+13 \textcolor{comment}{// Headers}
+15 \textcolor{comment}{}\textcolor{preprocessor}{#include "Config.h"}
+16 
+17 
+19 \textcolor{comment}{// Define portable import / export macros}
+21 \textcolor{comment}{}\textcolor{preprocessor}{#if defined(dsf\_EXPORTS)}
+22 
+23 \textcolor{preprocessor}{#define DSF\_API DSF\_API\_EXPORT}
+24 
+25 \textcolor{preprocessor}{#else}
+26 
+27 \textcolor{preprocessor}{#define DSF\_API DSF\_API\_IMPORT}
+28 
+29 \textcolor{preprocessor}{#endif}
+30 
+31 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkLock}{}\section{Lock}\label{_dual_state_framework_DualStateFrameworkLock}
+\hypertarget{_dual_state_framework_DualStateFrameworkLock_h}{}\subsection{Lock.\+h}\label{_dual_state_framework_DualStateFrameworkLock_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Lock.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Lockable.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 12/10/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_Lock\_h}
+10 \textcolor{preprocessor}{#define dsf\_Lock\_h}
+11 
+12 \textcolor{preprocessor}{#include <mutex>}
+13 \textcolor{preprocessor}{#include "Export.h"}
+14 
+15 \textcolor{keyword}{namespace }dsf
+16 \{
+29     \textcolor{keyword}{class }DSF\_API Lock
+30     \{
+31     \textcolor{keyword}{protected}:
+33         std::mutex locker;
+34     \textcolor{keyword}{public}:
+36         \textcolor{keywordtype}{void} lock();
+38         \textcolor{keywordtype}{void} unlock();
+39     \};
+40 \}
+41 
+42 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkLock_cpp}{}\subsection{Lock.\+cpp}\label{_dual_state_framework_DualStateFrameworkLock_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/dsf/\+Lock.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Lock.cpp}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 12/10/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#include <dsf/Lock.h>}
+10 
+11 \textcolor{keyword}{namespace }dsf
+12 \{
+13     \textcolor{keywordtype}{void} Lock::lock()
+14     \{
+15         this->locker.lock();
+16     \}
+17     
+18     \textcolor{keywordtype}{void} Lock::unlock()
+19     \{
+20         this->locker.unlock();
+21     \}
+22 \}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkRunnable}{}\section{Runnable}\label{_dual_state_framework_DualStateFrameworkRunnable}
+\hypertarget{_dual_state_framework_DualStateFrameworkRunnable_h}{}\subsection{Runnable.\+h}\label{_dual_state_framework_DualStateFrameworkRunnable_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Runnable.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Runnable.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_Runnable\_h}
+10 \textcolor{preprocessor}{#define dsf\_Runnable\_h}
+11 
+12 \textcolor{keyword}{namespace }dsf
+13 \{
+17     \textcolor{keyword}{class }Runnable
+18     \{
+19     \textcolor{keyword}{public}:
+27         \textcolor{keyword}{enum} State
+28         \{
+29             RUNNING, STOPPED, READY, DELETED
+30         \};
+32         \textcolor{keyword}{virtual} State getState() = 0;
+33     \textcolor{keyword}{protected}:
+35         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run() = 0;
+36     \};
+37 \}
+38 
+39 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkSynchronisable}{}\section{Synchronisable}\label{_dual_state_framework_DualStateFrameworkSynchronisable}
+\hypertarget{_dual_state_framework_DualStateFrameworkSynchronisable_h}{}\subsection{Synchronisable.\+h}\label{_dual_state_framework_DualStateFrameworkSynchronisable_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Synchronisable.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Synchronisable.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 3/24/15.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_Synchronisable\_h}
+10 \textcolor{preprocessor}{#define dsf\_Synchronisable\_h}
+11 
+12 \textcolor{keyword}{namespace }dsf \{
+40     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{class }Synchronisable
+41     \{
+42     \textcolor{keyword}{protected}:
+44         T* next;
+45     \textcolor{keyword}{public}:
+46         \textcolor{keyword}{virtual} ~Synchronisable() \{
+47             \textcolor{keyword}{delete} this->next;
+48         \}
+50         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} synchronise() = 0;
+51     \};
+52 \}
+53 
+54 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkSynchronizedObject}{}\section{Synchronized\+Object}\label{_dual_state_framework_DualStateFrameworkSynchronizedObject}
+\hypertarget{_dual_state_framework_DualStateFrameworkSynchronizedObject_h}{}\subsection{Synchronized\+Object.\+h}\label{_dual_state_framework_DualStateFrameworkSynchronizedObject_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Synchronized\+Object.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  SynchronizedObject.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_SynchronizedObject\_h}
+10 \textcolor{preprocessor}{#define dsf\_SynchronizedObject\_h}
+11 
+12 \textcolor{preprocessor}{#include <vector>}
+13 \textcolor{preprocessor}{#include <string>}
+14 
+15 \textcolor{preprocessor}{#include "Export.h"}
+16 \textcolor{preprocessor}{#include "Declaration.h"}
+17 \textcolor{preprocessor}{#include "Task.h"}
+18 \textcolor{preprocessor}{#include "TaskBox.h"}
+19 \textcolor{preprocessor}{#include "TaskFunction.h"}
+20 \textcolor{preprocessor}{#include "TaskArgument.h"}
+21 \textcolor{preprocessor}{#include "Synchronisable.h"}
+22 \textcolor{preprocessor}{#include "Lock.h"}
+23 \textcolor{preprocessor}{#include "Runnable.h"}
+24 
+25 \textcolor{keyword}{namespace }dsf
+26 \{
+62     \textcolor{keyword}{class }DSF\_API SynchronizedObject : \textcolor{keyword}{public} Runnable, \textcolor{keyword}{public} TaskBox, \textcolor{keyword}{public} Synchronisable<TaskBox>, \textcolor{keyword}{
+      public} Lock
+63     \{
+64     \textcolor{keyword}{public}:
+65         SynchronizedObject();
+66         \textcolor{keyword}{virtual} ~SynchronizedObject();
+68         State getState() \textcolor{keyword}{override};
+70         \textcolor{keywordtype}{int} receive();
+71     \textcolor{keyword}{private}:
+72         State state;
+73         
+74         \textcolor{keywordtype}{void} push(Task* task);
+75         \textcolor{keywordtype}{void} send(SynchronizedObject* to,
+76                   TaskFunction* taskFunction,
+77                   TaskArgument* args);
+78         \textcolor{keywordtype}{void} start();
+79         \textcolor{keywordtype}{void} stop();
+80         \textcolor{keywordtype}{void} distroy();
+81         \textcolor{keyword}{friend} \textcolor{keyword}{class }DualStateFramework;
+82     \textcolor{keyword}{protected}:
+92         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run() \textcolor{keyword}{override} = 0;
+94         \textcolor{keywordtype}{void} synchronise() \textcolor{keyword}{override};
+95     \};
+96 \}
+97 
+98 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkSynchronizedObject_cpp}{}\subsection{Synchronized\+Object.\+cpp}\label{_dual_state_framework_DualStateFrameworkSynchronizedObject_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/dsf/\+Synchronized\+Object.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  SynchronizedObject.cpp}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#include <dsf/SynchronizedObject.h>}
+10 
+11 \textcolor{keyword}{namespace }dsf
+12 \{
+13     SynchronizedObject::SynchronizedObject()
+14         : TaskBox()
+15     \{
+16         this->next = \textcolor{keyword}{new} TaskBox();
+17         this->state = State::STOPPED;
+18     \}
+19     SynchronizedObject::~SynchronizedObject()
+20     \{
+21     \}
+22     
+23     SynchronizedObject::State SynchronizedObject::getState()
+24     \{
+25         \textcolor{keywordflow}{return} this->state;
+26     \}
+27 
+28     
+29     \textcolor{keywordtype}{int} SynchronizedObject::receive()
+30     \{
+31         \textcolor{keywordtype}{int} count = 0;
+32         \textcolor{keywordflow}{while} (!this->next->isEmpty())
+33         \{
+34             this->tasks->push\_back(this->next->pop());
+35             count ++;
+36         \}
+37         \textcolor{keywordflow}{return} count;
+38     \}
+39     
+40     \textcolor{keywordtype}{void} SynchronizedObject::push(dsf::Task *task)
+41     \{
+42         this->lock();
+43         this->next->push(task);
+44         this->unlock();
+45     \}
+46     
+48     \textcolor{comment}{// Privates}
+50 \textcolor{comment}{}    
+51     \textcolor{keywordtype}{void} SynchronizedObject::send(dsf::SynchronizedObject *to,
+52                                 TaskFunction *taskFunction,
+53                                 TaskArgument *args)
+54     \{
+55         to->push(\textcolor{keyword}{new} Task(to, \textcolor{keyword}{this}, taskFunction, args));
+56     \}
+57     
+58     
+59     \textcolor{keywordtype}{void} SynchronizedObject::start()
+60     \{
+61         this->state = State::RUNNING;
+62         this->run();
+63         \textcolor{keywordflow}{if}(this->state == State::RUNNING)
+64             this->stop();
+65     \}
+66     
+67     \textcolor{keywordtype}{void} SynchronizedObject::stop()
+68     \{
+69         this->state = State::STOPPED;
+70     \}
+71     
+72     \textcolor{keywordtype}{void} SynchronizedObject::distroy()
+73     \{
+74         this->state = State::DELETED;
+75     \}
+76     
+77     
+78     
+80     \textcolor{comment}{// Protected}
+82 \textcolor{comment}{}    
+83     \textcolor{keywordtype}{void} SynchronizedObject::synchronise()
+84     \{
+85         *((TaskBox*) \textcolor{keyword}{this}) = *this->next;
+86     \}
+87 \}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkSynchronizedVar}{}\section{Synchronized\+Var}\label{_dual_state_framework_DualStateFrameworkSynchronizedVar}
+\hypertarget{_dual_state_framework_DualStateFrameworkSynchronizedVar_h}{}\subsection{Synchronized\+Var.\+h}\label{_dual_state_framework_DualStateFrameworkSynchronizedVar_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Synchronized\+Var.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  SynchronizedVar.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 12/2/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_SynchronizedVar\_h}
+10 \textcolor{preprocessor}{#define dsf\_SynchronizedVar\_h}
+11 
+12 \textcolor{preprocessor}{#include "Export.h"}
+13 \textcolor{preprocessor}{#include <yctools/Any.h>}
+14 \textcolor{preprocessor}{#include "Synchronisable.h"}
+15 \textcolor{preprocessor}{#include "Lock.h"}
+16 
+17 \textcolor{keyword}{namespace }dsf
+18 \{
+37     \textcolor{keyword}{class }DSF\_API SynchronizedVar : \textcolor{keyword}{public} Synchronisable<yc::Any>, \textcolor{keyword}{public} yc::Any, \textcolor{keyword}{public} Lock
+38     \{
+39     \textcolor{keyword}{public}:
+41         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> SynchronizedVar(T && value);
+43         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} operator=(T && value);
+44         \textcolor{keywordtype}{void} synchronise() \textcolor{keyword}{override};
+45     \};
+46 \}
+47 
+48 \textcolor{keyword}{namespace }dsf
+49 \{
+50     
+51     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> SynchronizedVar::SynchronizedVar(T && value)
+52     : Any(value)
+53     \{
+54         this->next = \textcolor{keyword}{new} Any(value);
+55     \}
+56     
+57     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} SynchronizedVar::operator=(T && value)
+58     \{
+59         this->lock();
+60         this->next = value;
+61         this->unlock();
+62     \}
+63 \}
+64 
+65 
+66 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkSynchronizedVar_cpp}{}\subsection{Synchronized\+Var.\+cpp}\label{_dual_state_framework_DualStateFrameworkSynchronizedVar_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/dsf/\+Synchronized\+Var.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  SynchronizedVar.cpp}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 12/2/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#include <dsf/SynchronizedVar.h>}
+10 
+11 \textcolor{keyword}{namespace }dsf
+12 \{
+13     \textcolor{keywordtype}{void} SynchronizedVar::synchronise()
+14     \{
+15         *((yc::Any*)\textcolor{keyword}{this}) = *this->next;
+16     \}
+17 \}
+18 
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkTask}{}\section{Task}\label{_dual_state_framework_DualStateFrameworkTask}
+\hypertarget{_dual_state_framework_DualStateFrameworkTask_h}{}\subsection{Task.\+h}\label{_dual_state_framework_DualStateFrameworkTask_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Task.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Parallel.h}
+3 \textcolor{comment}{//  DualStateFramework}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_Task\_h}
+10 \textcolor{preprocessor}{#define dsf\_Task\_h}
+11 
+12 \textcolor{preprocessor}{#include <vector>}
+13 \textcolor{preprocessor}{#include <memory>}
+14 
+15 \textcolor{preprocessor}{#include "Export.h"}
+16 \textcolor{preprocessor}{#include "Declaration.h"}
+17 \textcolor{preprocessor}{#include "TaskBox.h"}
+18 \textcolor{preprocessor}{#include "TaskFunction.h"}
+19 \textcolor{preprocessor}{#include "TaskArgument.h"}
+20 
+21 
+22 \textcolor{keyword}{namespace }dsf
+23 \{
+28     \textcolor{keyword}{class }DSF\_API Task
+29     \{
+30     \textcolor{keyword}{public}:
+32         SynchronizedObject* to;
+34         SynchronizedObject* from;
+36         TaskFunction* taskFunction;
+38         TaskArgument* taskArgument;
+39         \textcolor{keyword}{explicit} Task(SynchronizedObject* to,
+40              SynchronizedObject* from,
+41              TaskFunction* taskFunction,
+42              TaskArgument* taskArgument);
+43         ~Task();
+44     \};
+45 \}
+46 
+47 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkTask_cpp}{}\subsection{Task.\+cpp}\label{_dual_state_framework_DualStateFrameworkTask_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/dsf/\+Task.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Parallel.cpp}
+3 \textcolor{comment}{//  DualStateFramework}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+6 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#include <dsf/Task.h>}
+10 \textcolor{keyword}{namespace }dsf
+11 \{
+12     Task::Task(SynchronizedObject* to,
+13                SynchronizedObject* from,
+14                TaskFunction* taskFunction,
+15                TaskArgument* taskArgument)
+16     \{
+17         this->to = to;
+18         this->from = from;
+19         this->taskFunction = taskFunction;
+20         this->taskArgument = taskArgument;
+21     \}
+22     
+23     Task::~Task()
+24     \{
+25         \textcolor{keyword}{delete} this->taskArgument;
+26     \}
+27 \}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkTaskArgument}{}\section{Task\+Argument}\label{_dual_state_framework_DualStateFrameworkTaskArgument}
+\hypertarget{_dual_state_framework_DualStateFrameworkTaskArgument_h}{}\subsection{Task\+Argument.\+h}\label{_dual_state_framework_DualStateFrameworkTaskArgument_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Task\+Argument.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  TaskArguments.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_TaskArgument\_h}
+10 \textcolor{preprocessor}{#define dsf\_TaskArgument\_h}
+11 
+12 \textcolor{preprocessor}{#include <vector>}
+13 
+14 \textcolor{preprocessor}{#include <yctools/Any.h>}
+15 \textcolor{preprocessor}{#include <yctools/AnyException.h>}
+16 
+17 \textcolor{keyword}{namespace }dsf
+18 \{
+19     \textcolor{keyword}{typedef} yc::Any TaskArgument;
+20     \textcolor{keyword}{typedef} yc::Exception::AnyException TaskArgumentException;
+21 \}
+22 
+23 
+24 
+25 
+26 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkTaskBox}{}\section{Task\+Box}\label{_dual_state_framework_DualStateFrameworkTaskBox}
+\hypertarget{_dual_state_framework_DualStateFrameworkTaskBox_h}{}\subsection{Task\+Box.\+h}\label{_dual_state_framework_DualStateFrameworkTaskBox_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Task\+Box.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  Parallelable.h}
+3 \textcolor{comment}{//  DSF}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/14/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_TaskBox\_h}
+10 \textcolor{preprocessor}{#define dsf\_TaskBox\_h}
+11 
+12 \textcolor{preprocessor}{#include <vector>}
+13 \textcolor{preprocessor}{#include <string>}
+14 
+15 \textcolor{preprocessor}{#include "Export.h"}
+16 \textcolor{preprocessor}{#include "Declaration.h"}
+17 \textcolor{preprocessor}{#include "Task.h"}
+18 \textcolor{preprocessor}{#include "Runnable.h"}
+19 
+20 \textcolor{keyword}{namespace }dsf
+21 \{
+25     \textcolor{keyword}{class }DSF\_API TaskBox
+26     \{
+27     \textcolor{keyword}{public}:
+28         TaskBox();
+29         \textcolor{keyword}{virtual} ~TaskBox();
+31         \textcolor{keywordtype}{bool} isEmpty();
+33         \textcolor{keywordtype}{void} push(Task* task);
+35         Task* pop();
+37         \textcolor{keywordtype}{void} process();
+38     \textcolor{keyword}{protected}:
+40         std::vector<Task*>* tasks;
+41     \};
+42 \}
+43 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkTaskBox_cpp}{}\subsection{Task\+Box.\+cpp}\label{_dual_state_framework_DualStateFrameworkTaskBox_cpp}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/src/dsf/\+Task\+Box.cpp} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  TaskBox.cpp}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#include <dsf/TaskBox.h>}
+10 
+11 \textcolor{keyword}{namespace }dsf
+12 \{
+13     TaskBox::TaskBox()
+14     \{
+15         this->tasks = \textcolor{keyword}{new} std::vector<Task*>();
+16     \}
+17     
+18     TaskBox::~TaskBox()
+19     \{
+20         \textcolor{keywordflow}{for} (std::vector<Task*>::iterator i = this->tasks->begin(); i != this->tasks->end(); ++i)
+21         \{
+22             \textcolor{keyword}{delete} *i;
+23         \}
+24         \textcolor{keyword}{delete} this->tasks;
+25     \}
+26     
+27     \textcolor{keywordtype}{bool} TaskBox::isEmpty()
+28     \{
+29         \textcolor{keywordflow}{return} this->tasks->empty();
+30     \}
+31     
+32     \textcolor{keywordtype}{void} TaskBox::push(dsf::Task *task)
+33     \{
+34         this->tasks->push\_back(task);
+35     \}
+36     
+37     Task* TaskBox::pop()
+38     \{
+39         Task* task = this->tasks->back();
+40         this->tasks->pop\_back();
+41         \textcolor{keywordflow}{return} task;
+42     \}
+43     
+44     \textcolor{keywordtype}{void} TaskBox::process()
+45     \{
+46         \textcolor{keywordflow}{while} (!this->isEmpty())
+47         \{
+48             Task* task = this->pop();
+49             (*task->taskFunction)(task->to, task->from, task->taskArgument);
+50             \textcolor{keyword}{delete} task;
+51         \}
+52     \}
+53 \}
+\end{DoxyCodeInclude}
+ \hypertarget{_dual_state_framework_DualStateFrameworkTaskFunction}{}\section{Task\+Function}\label{_dual_state_framework_DualStateFrameworkTaskFunction}
+\hypertarget{_dual_state_framework_DualStateFrameworkTaskFunction_h}{}\subsection{Task\+Function.\+h}\label{_dual_state_framework_DualStateFrameworkTaskFunction_h}
+{\bfseries Path\+:} {\itshape \$\+P\+R\+O\+J\+E\+C\+T\+\_\+\+D\+I\+R/dsf/include/dsf/\+Task\+Function.h} 
+\begin{DoxyCodeInclude}
+1 \textcolor{comment}{//}
+2 \textcolor{comment}{//  TaskFunction.h}
+3 \textcolor{comment}{//  dsf}
+4 \textcolor{comment}{//}
+5 \textcolor{comment}{//  Created by Yu Chen on 10/17/14.}
+6 \textcolor{comment}{//}
+7 \textcolor{comment}{//}
+8 
+9 \textcolor{preprocessor}{#ifndef dsf\_TaskFunction\_h}
+10 \textcolor{preprocessor}{#define dsf\_TaskFunction\_h}
+11 
+12 \textcolor{preprocessor}{#include <functional>}
+13 \textcolor{preprocessor}{#include <vector>}
+14 
+15 \textcolor{preprocessor}{#include "TaskArgument.h"}
+16 
+17 \textcolor{keyword}{namespace }dsf
+18 \{
+19     \textcolor{keyword}{typedef} std::function<void (dsf::SynchronizedObject*, dsf::SynchronizedObject*, TaskArgument*)> 
+      TaskFunction;
+20     \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} \textcolor{keyword}{function};
+21 \}
+22 
+23 \textcolor{preprocessor}{#endif}
+\end{DoxyCodeInclude}
+ 

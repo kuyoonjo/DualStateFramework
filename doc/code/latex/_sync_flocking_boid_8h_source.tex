@@ -1,0 +1,45 @@
+\hypertarget{_sync_flocking_boid_8h_source}{}\section{Sync\+Flocking\+Boid.\+h}
+\label{_sync_flocking_boid_8h_source}\index{Sync\+Flocking\+Boid.\+h@{Sync\+Flocking\+Boid.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  SyncFlockingBoid.h}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 3/12/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef profiler\_SyncFlockingBoid\_h}
+00010 \textcolor{preprocessor}{#define profiler\_SyncFlockingBoid\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <\hyperlink{_synchronized_object_8h}{dsf/SynchronizedObject.h}>}
+00013 \textcolor{preprocessor}{#include <\hyperlink{_synchronized_var_8h}{dsf/SynchronizedVar.h}>}
+00014 \textcolor{preprocessor}{#include <SFML/Graphics.hpp>}
+00015 \textcolor{preprocessor}{#include <\hyperlink{_random_8h}{yctools/Random.h}>}
+00016 \textcolor{preprocessor}{#include "\hyperlink{_sync_vector3_d_8h}{SyncVector3D.h}"}
+00017 
+\hypertarget{_sync_flocking_boid_8h_source_l00018}{}\hyperlink{class_sync_flocking_boid}{00018} \textcolor{keyword}{class }\hyperlink{class_sync_flocking_boid}{SyncFlockingBoid} : \textcolor{keyword}{public} \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}, \textcolor{keyword}{public} 
+      sf::CircleShape
+00019 \{
+00020 \textcolor{keyword}{public}:
+\hypertarget{_sync_flocking_boid_8h_source_l00021}{}\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{00021}     \hyperlink{class_sync_vector3_d}{SyncVector3D}* \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc};
+\hypertarget{_sync_flocking_boid_8h_source_l00022}{}\hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{00022}     \hyperlink{class_sync_vector3_d}{SyncVector3D}* \hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{vel};
+\hypertarget{_sync_flocking_boid_8h_source_l00023}{}\hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{00023}     \hyperlink{class_sync_vector3_d}{SyncVector3D}* \hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc};
+\hypertarget{_sync_flocking_boid_8h_source_l00024}{}\hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{00024}     \textcolor{keywordtype}{float} \hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r};
+\hypertarget{_sync_flocking_boid_8h_source_l00025}{}\hyperlink{class_sync_flocking_boid_add7d9f2bf292a749bd17e730027e7350}{00025}     \textcolor{keywordtype}{float} \hyperlink{class_sync_flocking_boid_add7d9f2bf292a749bd17e730027e7350}{maxforce};    \textcolor{comment}{// Maximum steering force}
+\hypertarget{_sync_flocking_boid_8h_source_l00026}{}\hyperlink{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}{00026}     \textcolor{keywordtype}{float} \hyperlink{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}{maxspeed};    \textcolor{comment}{// Maximum speed}
+00027     \hyperlink{class_sync_flocking_boid_a76ceab54bd8eec11f04c11f557f24100}{SyncFlockingBoid}();
+00028     \hyperlink{class_sync_flocking_boid_a2a7c4d7467f92cd223b1ab5290be9f05}{~SyncFlockingBoid}();
+00029     \hyperlink{class_sync_flocking_boid_a76ceab54bd8eec11f04c11f557f24100}{SyncFlockingBoid}(\hyperlink{class_vector3_d}{Vector3D}* loc, \textcolor{keywordtype}{float} ms, \textcolor{keywordtype}{float} mf);
+00030     \textcolor{keywordtype}{void} \hyperlink{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{run}(std::vector<SyncFlockingBoid*>* boids, sf::RenderWindow* window);
+00031     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}{steer}(\hyperlink{class_vector3_d}{Vector3D}* target, \textcolor{keywordtype}{bool} slowdown);
+00032     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_a372baffa82756888408de186ea06715b}{separate} (std::vector<SyncFlockingBoid*>* boids);
+00033     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_afdffc148b6eb1062aac75fe081af344f}{align} (std::vector<SyncFlockingBoid*>* boids);
+00034     \hyperlink{class_vector3_d}{Vector3D} \hyperlink{class_sync_flocking_boid_a369309343183c3145da610b82ec1e621}{cohesion} (std::vector<SyncFlockingBoid*>* boids);
+00035 \textcolor{keyword}{protected}:
+00036     \textcolor{keywordtype}{void} \hyperlink{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{run}() \textcolor{keyword}{override};
+00037 \};
+00038 
+00039 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

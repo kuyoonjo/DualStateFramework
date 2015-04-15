@@ -1,0 +1,130 @@
+\begin{thebibliography}{10}
+
+\bibitem{bundle}
+Bundle.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at:
+  \url{https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html}.
+
+\bibitem{cmakegui}
+cmake-gui.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at:
+  \url{http://www.cmake.org/cmake/help/v3.0/manual/cmake-gui.1.html}.
+
+\bibitem{gcc}
+Gcc.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{https://gcc.gnu.org}.
+
+\bibitem{homebrew}
+Homebrew.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://brew.sh}.
+
+\bibitem{inteltbb}
+Intel tbb.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{https://www.threadingbuildingblocks.org}.
+
+\bibitem{llvm}
+Llvm.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://llvm.org}.
+
+\bibitem{microsoftwindows7}
+Microsoft windows 7.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at:
+  \url{https://support.microsoft.com/en-us/product/windows/windows-7}.
+
+\bibitem{osxyosemite}
+Os x yosemite.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{https://www.apple.com/osx/}.
+
+\bibitem{sfml}
+Sfml.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://www.sfml-dev.org/index.php}.
+
+\bibitem{sourceforge}
+Sourceforge.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{https://sourceforge.net}.
+
+\bibitem{sourcetree}
+Sourcetree.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at:
+  \url{https://www.atlassian.com/software/sourcetree/overview}.
+
+\bibitem{ubuntu14_04LTS}
+Ubuntu 14.04 lts.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://releases.ubuntu.com/14.04/}.
+
+\bibitem{visualstudiocommunity}
+Visual studio community.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{https://www.visualstudio.com}.
+
+\bibitem{vmwarefusion}
+Vmware fusion.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{www.vmware.com/products/fusion}.
+
+\bibitem{xcode}
+Xcode.
+\newblock webpage, Last checked: Apr. 2015.
+\newblock Available at: \url{https://developer.apple.com/xcode/}.
+
+\bibitem{multiple-corearchitectures}
+Jernej Barbic.
+\newblock Multiple-core architectures.
+\newblock May 3, 2007, pdf, Last checked: Apr. 2015.
+\newblock Available at:
+  \url{http://www.cs.cmu.edu/~fp/courses/15213-s07/lectures/27-multicore.pdf}.
+
+\bibitem{paulbarry}
+Paul Barry.
+\newblock Email: paul.barry@itcarlow.ie.
+\newblock Homepage, Last checked: Apr. 2015.
+\newblock Available at: \url{http://glasnost.itcarlow.ie/~barryp/}.
+
+\bibitem{philipbourke}
+Philip Bourke.
+\newblock Email: philip.bourke@itcarlow.ie.
+\newblock Linkedin, Last checked: Apr. 2015.
+\newblock Available at: \url{https://www.linkedin.com/in/bourkephilip}.
+
+\bibitem{gregdoyle}
+Greg Doyle.
+\newblock Email: Greg.doyle@itcarlow.ie.
+\newblock Linkedin, Last checked: Apr. 2015.
+\newblock Available at: \url{https://www.linkedin.com/in/gregdoyleitcarlow}.
+
+\bibitem{josephkehoe}
+Joseph Kehoe.
+\newblock Email: joseph.kehoe@itcarlow.ie.
+\newblock Linkedin, Last checked: Apr. 2015.
+\newblock Available at: \url{https://ie.linkedin.com/in/josephkehoe}.
+
+\bibitem{christophemeudec}
+Christophe Meudec.
+\newblock Email: echancrure@gmail.com.
+\newblock Linkedin, Last checked: Apr. 2015.
+\newblock Available at:
+  \url{https://ie.linkedin.com/pub/christophe-meudec/46/178/811}.
+
+\bibitem{marianmurphy}
+Marian Murphy.
+\newblock Email: Marian.murphy@itcarlow.ie.
+
+\bibitem{kenpower}
+Ken Power.
+\newblock Email: ken.power@itcarlow.ie.
+\newblock Linkedin, Last checked: Apr. 2015.
+\newblock Available at: \url{https://ie.linkedin.com/pub/ken-power/46/935/496}.
+
+\end{thebibliography}

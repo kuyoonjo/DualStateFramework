@@ -1,0 +1,229 @@
+\hypertarget{class_sync_flocking_boid}{}\section{Sync\+Flocking\+Boid Class Reference}
+\label{class_sync_flocking_boid}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+
+
+{\ttfamily \#include $<$Sync\+Flocking\+Boid.\+h$>$}
+
+
+
+Inherits \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object}, and Circle\+Shape.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sync_flocking_boid_a76ceab54bd8eec11f04c11f557f24100}{Sync\+Flocking\+Boid} ()
+\item 
+\hyperlink{class_sync_flocking_boid_a2a7c4d7467f92cd223b1ab5290be9f05}{$\sim$\+Sync\+Flocking\+Boid} ()
+\item 
+\hyperlink{class_sync_flocking_boid_ac136f832c43c76135ad2cd80e549320f}{Sync\+Flocking\+Boid} (\hyperlink{class_vector3_d}{Vector3\+D} $\ast$\hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}, float ms, float mf)
+\item 
+void \hyperlink{class_sync_flocking_boid_a5756920e77254f47a358256f0c317716}{run} (std\+::vector$<$ \hyperlink{class_sync_flocking_boid}{Sync\+Flocking\+Boid} $\ast$ $>$ $\ast$boids, sf\+::\+Render\+Window $\ast$window)
+\item 
+\hyperlink{class_vector3_d}{Vector3\+D} \hyperlink{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}{steer} (\hyperlink{class_vector3_d}{Vector3\+D} $\ast$target, bool slowdown)
+\item 
+\hyperlink{class_vector3_d}{Vector3\+D} \hyperlink{class_sync_flocking_boid_a372baffa82756888408de186ea06715b}{separate} (std\+::vector$<$ \hyperlink{class_sync_flocking_boid}{Sync\+Flocking\+Boid} $\ast$ $>$ $\ast$boids)
+\item 
+\hyperlink{class_vector3_d}{Vector3\+D} \hyperlink{class_sync_flocking_boid_afdffc148b6eb1062aac75fe081af344f}{align} (std\+::vector$<$ \hyperlink{class_sync_flocking_boid}{Sync\+Flocking\+Boid} $\ast$ $>$ $\ast$boids)
+\item 
+\hyperlink{class_vector3_d}{Vector3\+D} \hyperlink{class_sync_flocking_boid_a369309343183c3145da610b82ec1e621}{cohesion} (std\+::vector$<$ \hyperlink{class_sync_flocking_boid}{Sync\+Flocking\+Boid} $\ast$ $>$ $\ast$boids)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sync_vector3_d}{Sync\+Vector3\+D} $\ast$ \hyperlink{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{loc}
+\item 
+\hyperlink{class_sync_vector3_d}{Sync\+Vector3\+D} $\ast$ \hyperlink{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{vel}
+\item 
+\hyperlink{class_sync_vector3_d}{Sync\+Vector3\+D} $\ast$ \hyperlink{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{acc}
+\item 
+float \hyperlink{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{r}
+\item 
+float \hyperlink{class_sync_flocking_boid_add7d9f2bf292a749bd17e730027e7350}{maxforce}
+\item 
+float \hyperlink{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}{maxspeed}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{run} () override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8h_source_l00018}{18} of file \hyperlink{_sync_flocking_boid_8h_source}{Sync\+Flocking\+Boid.\+h}.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_sync_flocking_boid_a76ceab54bd8eec11f04c11f557f24100}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{Sync\+Flocking\+Boid}]{\setlength{\rightskip}{0pt plus 5cm}Sync\+Flocking\+Boid\+::\+Sync\+Flocking\+Boid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sync_flocking_boid_a76ceab54bd8eec11f04c11f557f24100}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00011}{11} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+\hypertarget{class_sync_flocking_boid_a2a7c4d7467f92cd223b1ab5290be9f05}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!````~Sync\+Flocking\+Boid@{$\sim$\+Sync\+Flocking\+Boid}}
+\index{````~Sync\+Flocking\+Boid@{$\sim$\+Sync\+Flocking\+Boid}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{$\sim$\+Sync\+Flocking\+Boid}]{\setlength{\rightskip}{0pt plus 5cm}Sync\+Flocking\+Boid\+::$\sim$\+Sync\+Flocking\+Boid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sync_flocking_boid_a2a7c4d7467f92cd223b1ab5290be9f05}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00014}{14} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+\hypertarget{class_sync_flocking_boid_ac136f832c43c76135ad2cd80e549320f}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{Sync\+Flocking\+Boid}]{\setlength{\rightskip}{0pt plus 5cm}Sync\+Flocking\+Boid\+::\+Sync\+Flocking\+Boid (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector3\+D} $\ast$}]{loc, }
+\item[{float}]{ms, }
+\item[{float}]{mf}
+\end{DoxyParamCaption}
+)}\label{class_sync_flocking_boid_ac136f832c43c76135ad2cd80e549320f}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00020}{20} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sync_flocking_boid_afdffc148b6eb1062aac75fe081af344f}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!align@{align}}
+\index{align@{align}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{align}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3\+D} Sync\+Flocking\+Boid\+::align (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Sync\+Flocking\+Boid} $\ast$ $>$ $\ast$}]{boids}
+\end{DoxyParamCaption}
+)}\label{class_sync_flocking_boid_afdffc148b6eb1062aac75fe081af344f}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00150}{150} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+\hypertarget{class_sync_flocking_boid_a369309343183c3145da610b82ec1e621}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!cohesion@{cohesion}}
+\index{cohesion@{cohesion}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{cohesion}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3\+D} Sync\+Flocking\+Boid\+::cohesion (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Sync\+Flocking\+Boid} $\ast$ $>$ $\ast$}]{boids}
+\end{DoxyParamCaption}
+)}\label{class_sync_flocking_boid_a369309343183c3145da610b82ec1e621}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00170}{170} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+\hypertarget{class_sync_flocking_boid_a5756920e77254f47a358256f0c317716}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!run@{run}}
+\index{run@{run}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void Sync\+Flocking\+Boid\+::run (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Sync\+Flocking\+Boid} $\ast$ $>$ $\ast$}]{boids, }
+\item[{sf\+::\+Render\+Window $\ast$}]{window}
+\end{DoxyParamCaption}
+)}\label{class_sync_flocking_boid_a5756920e77254f47a358256f0c317716}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00031}{31} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+\hypertarget{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!run@{run}}
+\index{run@{run}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void Sync\+Flocking\+Boid\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}
+Executes messages \hypertarget{classdsf_1_1_synchronized_object_eg}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_eg}
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} \hyperlink{class_sync_flocking_boid_a5e55737f1391da4454b31c0fcb0311ea}{run}()\textcolor{keyword}{ override }\{ \textcolor{comment}{// Overrides pure virtual function}
+   \textcolor{keywordflow}{if}(this->\hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{receive}()) \textcolor{comment}{// Returns the number of message received}
+       this->\hyperlink{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{process}(); \textcolor{comment}{// Executes received messages}
+\}
+\end{DoxyCode}
+ 
+
+Implements \hyperlink{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{dsf\+::\+Synchronized\+Object}.
+
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00189}{189} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+\hypertarget{class_sync_flocking_boid_a372baffa82756888408de186ea06715b}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!separate@{separate}}
+\index{separate@{separate}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{separate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3\+D} Sync\+Flocking\+Boid\+::separate (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Sync\+Flocking\+Boid} $\ast$ $>$ $\ast$}]{boids}
+\end{DoxyParamCaption}
+)}\label{class_sync_flocking_boid_a372baffa82756888408de186ea06715b}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00120}{120} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+\hypertarget{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!steer@{steer}}
+\index{steer@{steer}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{steer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector3\+D} Sync\+Flocking\+Boid\+::steer (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector3\+D} $\ast$}]{target, }
+\item[{bool}]{slowdown}
+\end{DoxyParamCaption}
+)}\label{class_sync_flocking_boid_af08726d6328bb3d507d8630ba9090e17}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8cpp_source_l00092}{92} of file \hyperlink{_sync_flocking_boid_8cpp_source}{Sync\+Flocking\+Boid.\+cpp}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!acc@{acc}}
+\index{acc@{acc}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{acc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sync\+Vector3\+D}$\ast$ Sync\+Flocking\+Boid\+::acc}\label{class_sync_flocking_boid_ac3bd9015e70a26d8a59d200563a5cf0e}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8h_source_l00023}{23} of file \hyperlink{_sync_flocking_boid_8h_source}{Sync\+Flocking\+Boid.\+h}.
+
+\hypertarget{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!loc@{loc}}
+\index{loc@{loc}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{loc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sync\+Vector3\+D}$\ast$ Sync\+Flocking\+Boid\+::loc}\label{class_sync_flocking_boid_a1448999018acaa4ec3117ee2bbee2b02}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8h_source_l00021}{21} of file \hyperlink{_sync_flocking_boid_8h_source}{Sync\+Flocking\+Boid.\+h}.
+
+\hypertarget{class_sync_flocking_boid_add7d9f2bf292a749bd17e730027e7350}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!maxforce@{maxforce}}
+\index{maxforce@{maxforce}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{maxforce}]{\setlength{\rightskip}{0pt plus 5cm}float Sync\+Flocking\+Boid\+::maxforce}\label{class_sync_flocking_boid_add7d9f2bf292a749bd17e730027e7350}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8h_source_l00025}{25} of file \hyperlink{_sync_flocking_boid_8h_source}{Sync\+Flocking\+Boid.\+h}.
+
+\hypertarget{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!maxspeed@{maxspeed}}
+\index{maxspeed@{maxspeed}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{maxspeed}]{\setlength{\rightskip}{0pt plus 5cm}float Sync\+Flocking\+Boid\+::maxspeed}\label{class_sync_flocking_boid_a2dbbbab7d604e28ed779dbe098f9803d}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8h_source_l00026}{26} of file \hyperlink{_sync_flocking_boid_8h_source}{Sync\+Flocking\+Boid.\+h}.
+
+\hypertarget{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!r@{r}}
+\index{r@{r}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{r}]{\setlength{\rightskip}{0pt plus 5cm}float Sync\+Flocking\+Boid\+::r}\label{class_sync_flocking_boid_ac4386412e74ca67214ad6e1c55eb1525}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8h_source_l00024}{24} of file \hyperlink{_sync_flocking_boid_8h_source}{Sync\+Flocking\+Boid.\+h}.
+
+\hypertarget{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}{}\index{Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}!vel@{vel}}
+\index{vel@{vel}!Sync\+Flocking\+Boid@{Sync\+Flocking\+Boid}}
+\subsubsection[{vel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sync\+Vector3\+D}$\ast$ Sync\+Flocking\+Boid\+::vel}\label{class_sync_flocking_boid_a1b6cf043598e64ecd40ecd5b75beb01f}
+
+
+Definition at line \hyperlink{_sync_flocking_boid_8h_source_l00022}{22} of file \hyperlink{_sync_flocking_boid_8h_source}{Sync\+Flocking\+Boid.\+h}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sync_flocking_boid_8h}{Sync\+Flocking\+Boid.\+h}\item 
+\hyperlink{_sync_flocking_boid_8cpp}{Sync\+Flocking\+Boid.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,113 @@
+/**
+\page ReviewofProject Review of Project
+Overall, the project went very smoothly. One of the things I was very happy with was the fact that the benchmark program gave me a surprise. Before the benchmarks, I thought that if the number of threads increases, then the FPS  will grow proportionally. However, the result depends on the CPU. For example, my CPU is Intel i5 with 2 cores running 4 threads. The best performance is using 4 threads to run the framework.
+
+\section ReviewofProjectPEF Problems Encountered \& Fixes 
+\subsection ReviewofProjectPEFMemoryLeaks Memory Leaks
+\par Background
+I tries to implement a class type that can be signed as any type of value like this:
+~~~~~~~~~{.cpp}
+Any one = int(1);
+Any pi = float(3.14);
+Any rect = Rectangle(2, 3);
+~~~~~~~~~
+Originally, I used void pointer to save the value.
+~~~~~~~~{.cpp}
+class Any
+{
+private:
+	void* value;
+}
+~~~~~~~~
+\par Reason
+When I ran the code, there was a memory leak issue. The reason is that a void pointer cannot be released.
+~~~~~~~~{.cpp}
+void* i = new int() // no problem
+delete i; // it will not deallocate the memory
+~~~~~~~~
+\par Solution
+I could cast the pointer to a specified type and delete it.
+~~~~~~~~{.cpp}
+void* i = new int() // no problem
+delete (int)i; // works fine
+~~~~~~~~
+However, if I did that way, the class Any should be designed as a template class. That would be meaningless. The solution was using smart pointer indeed of traditional pointer. 
+
+\subsection ReviewofProjectPEFWrongPathwithDynamiclinkLibrary Wrong path with dynamic-link library
+\par Background
+When I tried to package resources to an App bundle, I got an error message:
+~~~~~~~~~~
+dyld: Library not loaded: libtbb.dylib
+  Referenced from: /Users/yuchen/Documents/XCode/profiler/build/Release/profiler.app/Contents/MacOS/profiler
+  Reason: image not found
+~~~~~~~~~~
+\par Reason
+Mac App Bundle uses \@rpath, \@excutable_path, and \@load_path to handle the resource path. By using otool command, I got the message as below:
+~~~~~~~~~~
+MacBook-Pro:libs-osx yuchen$ otool -L libtbb.dylib 
+libtbb.dylib:
+	libtbb.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1)
+	mac64/libcilkrts.5.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libstdc++.6.dylib (compatibility version 7.0.0, current version 60.0.0)
+	/usr/lib/libgcc_s.1.dylib (compatibility version 1.0.0, current version 2577.0.0)
+~~~~~~~~~~
+The third line is the reference path for the dynamic-link library.
+\par Solution
+The solution was using install_name_tool command to change the reference path. 
+~~~~~~~~~
+MacBook-Pro:libs-osx yuchen$ install_name_tool -id @executable_path/../Frameworks/libtbb.dylib libtbb.dylib 
+MacBook-Pro:libs-osx yuchen$ otool -L libtbb.dylib 
+libtbb.dylib:
+	@executable_path/../Frameworks/libtbb.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1)
+	mac64/libcilkrts.5.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libstdc++.6.dylib (compatibility version 7.0.0, current version 60.0.0)
+	/usr/lib/libgcc_s.1.dylib (compatibility version 1.0.0, current version 2577.0.0)
+~~~~~~~~~
+
+\subsection ReviewofProjectPEFSomefunctionsandvariablesnotdefined Some functions and variables not defined
+\par Background
+I used C++ std library for this project. It worked fine in Mac OS X. However, when I debugged it in Windows and Linux, some error message prompted out.
+~~~~~~~~~~~~~~~~~~
+Error	3	error C2065: 'M_PI' : undeclared identifier	C:\Users\Administrator\Documents\DualStateFramework\profiler\src\BouncingCircleManager.cpp	104	1	profiler
+~~~~~~~~~~~~~~~~~~
+\par Reason
+The reason is that M_PI is not "pure" standard. Most compilers regard it as a standard, but Visual C++ not. The similar problem I met is GCC does not know what std::powf is, but both LLVM and Visual C++ use it as a standard.
+\par Solution
+Once I knew the reason, the solution was easily made up. For M_PI, I added a preprocessor definition _USE_MATH_DEFINES for Visual Studio by CMakeList:
+~~~~~~~~~~~~~~~~~
+# Add Math definitions
+add_definitions(-D_USE_MATH_DEFINES)
+~~~~~~~~~~~~~~~~~
+For std::powf, I changed it to std::pow, which is the standard.
+\section ReviewofProjectAttemptingtheProjectAgain Attempting the Project Again
+If I were to attempt the project again I would avoid using pointers if they are not necessary. I think this is because my first Object Oriented Programming language is Java. In Java word, all objects should be created by keyword "new". However, that is not guaranteed in C++. The reason is Java virtual machine has garbage collection but C++ not, which means in C++, objects created by "new" need user to deallocate them manually. 
+\n\n
+Pointers sometimes make users confused in a framework. For example, in this framework, some pointers passed by functions will be deleted automatically.
+~~~~~~~~~~~~{.cpp}
+void send(SynchronizedObject* to,
+          TaskFunction* taskFunction,
+          TaskArgument* args);
+~~~~~~~~~~~~
+The method "send" takes three pointers as arguments. The third one "args" will be deleted automatically, but "taskFunction" or "to" not. Users may be confused when should they manually free the pointers. If I did not use pointers as arguments, the code may look like this:
+~~~~~~~~~~~~{.cpp}
+void send(SynchronizedObject& to,
+          const TaskFunction& taskFunction,
+          const TaskArgument& args);
+~~~~~~~~~~~~
+Users do not need to worry about memory allocations.
+
+In addition, I would use C++ 14 indeed of C++ 11, because it is the new standard and some features are really useful.
+
+\section ReviewofProjectAdviceforSomeoneElseAttemptingaSimilarProject Advice for Someone Else Attempting a Similar Project
+I would advise them to spend more time researching C++ Object-Oriented Concepts. This is because I found that a lot people use OOP languages not in OOP concept. The understanding of OOP concept can make the code usable.
+Also, I would them to spend a little time figuring out Agile Project Management, which is helpful during the hole project. Some smart tools are recommended:
+		- Git, for source control
+		- Doxygen with Graphviz, very powerful for framework API document
+		- Umlet, for UML diagrams
+
+\section ReviewofProjectTechnologyChoices Technology Choices
+I believe I made the right choices of technologies that I used during this project. The finished project is proof in itself. Intel TBB is powerful and compatible with standard C++ threading library. 
+
+*/

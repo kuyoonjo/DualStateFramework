@@ -14,6 +14,7 @@
 		4B3C39DC1AC89EDC00953A52 /* dsf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B3C39D61AC89EA600953A52 /* dsf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		4B3C39DD1AC89EDC00953A52 /* libtbb.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B3C39D71AC89EA600953A52 /* libtbb.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		4B3C39DE1AC89EDC00953A52 /* yctools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B3C39D81AC89EA600953A52 /* yctools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		4B967E981ADD0AC300FFD57F /* SynchronizedInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B967E971ADD0AC300FFD57F /* SynchronizedInt.cpp */; };
 		4BB7A75B1AC9C56B0046DC60 /* synchronizedVar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BB7A75A1AC9C56B0046DC60 /* synchronizedVar.cpp */; };
 		4BB7A75C1AC9C57C0046DC60 /* dsf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3C39D61AC89EA600953A52 /* dsf.framework */; };
 		4BB7A75D1AC9C57C0046DC60 /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3C39D71AC89EA600953A52 /* libtbb.dylib */; };
@@ -59,6 +60,7 @@
 		4B3C39D61AC89EA600953A52 /* dsf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = dsf.framework; path = extlibs/dsf.framework; sourceTree = "<group>"; };
 		4B3C39D71AC89EA600953A52 /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = extlibs/libtbb.dylib; sourceTree = "<group>"; };
 		4B3C39D81AC89EA600953A52 /* yctools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = yctools.framework; path = extlibs/yctools.framework; sourceTree = "<group>"; };
+		4B967E971ADD0AC300FFD57F /* SynchronizedInt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SynchronizedInt.cpp; sourceTree = "<group>"; };
 		4BB7A7521AC9C5040046DC60 /* synchronizedVar */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = synchronizedVar; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB7A75A1AC9C56B0046DC60 /* synchronizedVar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = synchronizedVar.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,9 +92,7 @@
 		4B3C39BE1AC89D1400953A52 = {
 			isa = PBXGroup;
 			children = (
-				4B3C39D61AC89EA600953A52 /* dsf.framework */,
-				4B3C39D71AC89EA600953A52 /* libtbb.dylib */,
-				4B3C39D81AC89EA600953A52 /* yctools.framework */,
+				4B967E991ADD275700FFD57F /* Frameworks */,
 				4BB7A7591AC9C5360046DC60 /* src */,
 				4B3C39CE1AC89DC000953A52 /* Products */,
 			);
@@ -107,6 +107,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4B967E991ADD275700FFD57F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B3C39D81AC89EA600953A52 /* yctools.framework */,
+				4B3C39D71AC89EA600953A52 /* libtbb.dylib */,
+				4B3C39D61AC89EA600953A52 /* dsf.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4BB7A7591AC9C5360046DC60 /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 				4B3C39C71AC89D6600953A52 /* MyDSF.h */,
 				4B3C39C81AC89D6600953A52 /* main.cpp */,
 				4BB7A75A1AC9C56B0046DC60 /* synchronizedVar.cpp */,
+				4B967E971ADD0AC300FFD57F /* SynchronizedInt.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -196,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3C39D51AC89E6E00953A52 /* main.cpp in Sources */,
+				4B967E981ADD0AC300FFD57F /* SynchronizedInt.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +446,7 @@
 				4BB7A7581AC9C5040046DC60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

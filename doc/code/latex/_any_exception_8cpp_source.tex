@@ -1,0 +1,36 @@
+\hypertarget{_any_exception_8cpp_source}{}\section{Any\+Exception.\+cpp}
+\label{_any_exception_8cpp_source}\index{Any\+Exception.\+cpp@{Any\+Exception.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  AnyException.cpp}
+00003 \textcolor{comment}{//  YCTools}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 11/13/14.}
+00006 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../../include/yctools/AnyException.h"}
+00010 
+00011 \textcolor{keyword}{namespace }\hyperlink{namespaceyc}{yc}
+00012 \{
+00013     \textcolor{keyword}{namespace }Exception
+00014     \{
+00015         
+\hypertarget{_any_exception_8cpp_source_l00016}{}\hyperlink{classyc_1_1_exception_1_1_any_exception_abda851a91ea23881a962fe03aa8cdade}{00016}         \hyperlink{classyc_1_1_exception_1_1_any_exception_abda851a91ea23881a962fe03aa8cdade}{AnyException::AnyException}(std::string from,
+00017                                    std::string to) :
+00018             from(from),
+00019             to(to)
+00020         \{\}
+00021         
+\hypertarget{_any_exception_8cpp_source_l00022}{}\hyperlink{classyc_1_1_exception_1_1_any_exception_adb9ee72fffdead0be22d0e919528c73c}{00022}         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \hyperlink{classyc_1_1_exception_1_1_any_exception_adb9ee72fffdead0be22d0e919528c73c}{AnyException::what}() \textcolor{keyword}{const} throw()
+00023         \{
+00024             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"\(\backslash\)"Any\(\backslash\)" exception happened!"};
+00025         \}
+\hypertarget{_any_exception_8cpp_source_l00026}{}\hyperlink{classyc_1_1_exception_1_1_any_exception_adad22f07ba9d119cd168758fa85d4020}{00026}         std::string \hyperlink{classyc_1_1_exception_1_1_any_exception_adad22f07ba9d119cd168758fa85d4020}{AnyException::details}() \textcolor{keyword}{const} throw()
+00027         \{
+00028             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Can not cast "} + from + \textcolor{stringliteral}{" to "} + to;
+00029         \}
+00030     \}
+00031 \}
+\end{DoxyCode}

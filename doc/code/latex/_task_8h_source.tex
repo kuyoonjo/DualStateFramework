@@ -1,0 +1,44 @@
+\hypertarget{_task_8h_source}{}\section{Task.\+h}
+\label{_task_8h_source}\index{Task.\+h@{Task.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Parallel.h}
+00003 \textcolor{comment}{//  DualStateFramework}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+00006 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_Task\_h}
+00010 \textcolor{preprocessor}{#define dsf\_Task\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <vector>}
+00013 \textcolor{preprocessor}{#include <memory>}
+00014 
+00015 \textcolor{preprocessor}{#include "\hyperlink{dsf_2_export_8h}{Export.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{_declaration_8h}{Declaration.h}"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{_task_box_8h}{TaskBox.h}"}
+00018 \textcolor{preprocessor}{#include "\hyperlink{_task_function_8h}{TaskFunction.h}"}
+00019 \textcolor{preprocessor}{#include "\hyperlink{_task_argument_8h}{TaskArgument.h}"}
+00020 
+00021 
+00022 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00023 \{
+\hypertarget{_task_8h_source_l00028}{}\hyperlink{classdsf_1_1_task}{00028}     \textcolor{keyword}{class }\hyperlink{dsf_2_export_8h_ad7bb940831423512f29a6981786c37bd}{DSF\_API} \hyperlink{classdsf_1_1_task}{Task}
+00029     \{
+00030     \textcolor{keyword}{public}:
+\hypertarget{_task_8h_source_l00032}{}\hyperlink{classdsf_1_1_task_a36c485fbeb9c2330f5637b9d625cf01a}{00032}         \hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* \hyperlink{classdsf_1_1_task_a36c485fbeb9c2330f5637b9d625cf01a}{to};
+\hypertarget{_task_8h_source_l00034}{}\hyperlink{classdsf_1_1_task_afc1faf30dab0d57501dfdcb4ef7b5450}{00034}         \hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* \hyperlink{classdsf_1_1_task_afc1faf30dab0d57501dfdcb4ef7b5450}{from};
+\hypertarget{_task_8h_source_l00036}{}\hyperlink{classdsf_1_1_task_a681617cab34fbae641c5b0cf4be46659}{00036}         \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction}* \hyperlink{classdsf_1_1_task_a681617cab34fbae641c5b0cf4be46659}{taskFunction};
+\hypertarget{_task_8h_source_l00038}{}\hyperlink{classdsf_1_1_task_a8a095d8a36668f6500d4df8c24dbef8d}{00038}         \hyperlink{classyc_1_1_any}{TaskArgument}* \hyperlink{classdsf_1_1_task_a8a095d8a36668f6500d4df8c24dbef8d}{taskArgument};
+00039         \textcolor{keyword}{explicit} \hyperlink{namespacedsf_a7df24c7d3d82e2e686aa3a524dc1dee9}{Task}(\hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* to,
+00040              \hyperlink{classdsf_1_1_synchronized_object}{SynchronizedObject}* from,
+00041              \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{TaskFunction}* taskFunction,
+00042              \hyperlink{classyc_1_1_any}{TaskArgument}* taskArgument);
+00043         ~\hyperlink{classdsf_1_1_task}{Task}();
+00044     \};
+00045 \}
+00046 
+00047 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

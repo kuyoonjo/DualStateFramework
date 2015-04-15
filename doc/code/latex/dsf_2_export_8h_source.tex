@@ -1,0 +1,32 @@
+\hypertarget{dsf_2_export_8h_source}{}\section{dsf/\+Export.h}
+\label{dsf_2_export_8h_source}\index{Export.\+h@{Export.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Export.h}
+00003 \textcolor{comment}{//  DualStateFramework}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/13/14.}
+00006 \textcolor{comment}{//  Copyright (c) 2014 Yu Chen. All rights reserved.}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_Export\_h}
+00010 \textcolor{preprocessor}{#define dsf\_Export\_h}
+00011 
+00013 \textcolor{comment}{// Headers}
+00015 \textcolor{comment}{}\textcolor{preprocessor}{#include "\hyperlink{dsf_2_config_8h}{Config.h}"}
+00016 
+00017 
+00019 \textcolor{comment}{// Define portable import / export macros}
+00021 \textcolor{comment}{}\textcolor{preprocessor}{#if defined(dsf\_EXPORTS)}
+00022 
+00023 \textcolor{preprocessor}{#define DSF\_API DSF\_API\_EXPORT}
+00024 
+00025 \textcolor{preprocessor}{#else}
+00026 
+\hypertarget{dsf_2_export_8h_source_l00027}{}\hyperlink{dsf_2_export_8h_ad7bb940831423512f29a6981786c37bd}{00027} \textcolor{preprocessor}{#define DSF\_API DSF\_API\_IMPORT}
+00028 
+00029 \textcolor{preprocessor}{#endif}
+00030 
+00031 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

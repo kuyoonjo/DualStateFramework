@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['win_2etxt',['Win.txt',['../_win_8txt.html',1,'']]]
+  ['task_2ecpp',['Task.cpp',['../_task_8cpp.html',1,'']]],
+  ['task_2eh',['Task.h',['../_task_8h.html',1,'']]],
+  ['taskargument_2eh',['TaskArgument.h',['../_task_argument_8h.html',1,'']]],
+  ['taskbox_2ecpp',['TaskBox.cpp',['../_task_box_8cpp.html',1,'']]],
+  ['taskbox_2eh',['TaskBox.h',['../_task_box_8h.html',1,'']]],
+  ['taskfunction_2eh',['TaskFunction.h',['../_task_function_8h.html',1,'']]]
 ];

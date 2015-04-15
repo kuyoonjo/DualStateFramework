@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['from',['from',['../classdsf_1_1_task.html#afc1faf30dab0d57501dfdcb4ef7b5450',1,'dsf::Task']]],
-  ['function',['function',['../namespacedsf.html#a3ad20407a44eaf5ce4cf784a60c1b92b',1,'dsf']]]
+  ['getstate',['getState',['../classdsf_1_1_dual_state_framework.html#aca55fd7ccccf9637aa4cd626cd2bbe58',1,'dsf::DualStateFramework::getState()'],['../classdsf_1_1_runnable.html#a139342b0d6d53fc7f1bbd97d99d3724a',1,'dsf::Runnable::getState()'],['../classdsf_1_1_synchronized_object.html#a9fbf045eff345188935402ae576933eb',1,'dsf::SynchronizedObject::getState()']]]
 ];

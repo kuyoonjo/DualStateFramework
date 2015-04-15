@@ -1,0 +1,40 @@
+\hypertarget{_task_box_8h_source}{}\section{Task\+Box.\+h}
+\label{_task_box_8h_source}\index{Task\+Box.\+h@{Task\+Box.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  Parallelable.h}
+00003 \textcolor{comment}{//  DSF}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 10/14/14.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#ifndef dsf\_TaskBox\_h}
+00010 \textcolor{preprocessor}{#define dsf\_TaskBox\_h}
+00011 
+00012 \textcolor{preprocessor}{#include <vector>}
+00013 \textcolor{preprocessor}{#include <string>}
+00014 
+00015 \textcolor{preprocessor}{#include "Export.h"}
+00016 \textcolor{preprocessor}{#include "Declaration.h"}
+00017 \textcolor{preprocessor}{#include "Task.h"}
+00018 \textcolor{preprocessor}{#include "Runnable.h"}
+00019 
+00020 \textcolor{keyword}{namespace }\hyperlink{namespacedsf}{dsf}
+00021 \{
+\hypertarget{_task_box_8h_source_l00025}{}\hyperlink{classdsf_1_1_task_box}{00025}     \textcolor{keyword}{class }DSF\_API \hyperlink{classdsf_1_1_task_box}{TaskBox}
+00026     \{
+00027     \textcolor{keyword}{public}:
+00028         \hyperlink{namespacedsf_ac3c92e2a98380dd728b0c18d0c495966}{TaskBox}();
+00029         \textcolor{keyword}{virtual} ~\hyperlink{classdsf_1_1_task_box}{TaskBox}();
+00031         \textcolor{keywordtype}{bool} isEmpty();
+00033         \textcolor{keywordtype}{void} push(\hyperlink{classdsf_1_1_task}{Task}* task);
+00035         \hyperlink{classdsf_1_1_task}{Task}* pop();
+00037         \textcolor{keywordtype}{void} process();
+00038     \textcolor{keyword}{protected}:
+\hypertarget{_task_box_8h_source_l00040}{}\hyperlink{classdsf_1_1_task_box_ae13d0d245cacbf7f4019f7ff5486aa79}{00040}         std::vector<Task*>* \hyperlink{classdsf_1_1_task_box_ae13d0d245cacbf7f4019f7ff5486aa79}{tasks};
+00041     \};
+00042 \}
+00043 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

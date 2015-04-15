@@ -1,0 +1,100 @@
+\hypertarget{_start_development_StartDevelopmentSourceControl}{}\section{Source Control}\label{_start_development_StartDevelopmentSourceControl}
+I used git for source control. The repository is available at \href{https://github.com/kuyoonjo/DualStateFramework.git}{\tt https\+://github.\+com/kuyoonjo/\+Dual\+State\+Framework.\+git}. \hypertarget{_start_development_StartDevelopmentCodeConfigurations}{}\section{Code Configurations}\label{_start_development_StartDevelopmentCodeConfigurations}
+The project is designed for Mac O\+S X, Microsoft Window, and other Unix-\/like operating systems. Therefore, the code should be portable in all of them. Write different copy for different operating system is not a good idea. The best solution is prepare some configuration file, then different operating system will generate different copies. \hypertarget{_start_development_StartDevelopmentCodeConfigurationsConfig_h}{}\subsection{Config.\+h}\label{_start_development_StartDevelopmentCodeConfigurationsConfig_h}
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#ifndef dsf\_Config\_h}
+\textcolor{preprocessor}{#define dsf\_Config\_h}
+
+\textcolor{preprocessor}{#if defined(\_WIN32)}
+
+\textcolor{comment}{// Windows compilers need specific (and different) keywords for export and import}
+\textcolor{preprocessor}{#define DSF\_API\_EXPORT \_\_declspec(dllexport)}
+\textcolor{preprocessor}{#define DSF\_API\_IMPORT \_\_declspec(dllimport)}
+
+\textcolor{comment}{// For Visual C++ compilers, we also need to turn off this annoying C4251 warning}
+\textcolor{preprocessor}{#ifdef \_MSC\_VER}
+
+\textcolor{preprocessor}{#pragma warning(disable : 4251)}
+
+\textcolor{preprocessor}{#endif}
+
+\textcolor{preprocessor}{#else // Linux, FreeBSD, Mac OS X}
+
+\textcolor{preprocessor}{#if \_\_GNUC\_\_ >= 4}
+
+\textcolor{comment}{// GCC 4 has special keywords for showing/hidding symbols,}
+\textcolor{comment}{// the same keyword is used for both importing and exporting}
+\textcolor{preprocessor}{#define DSF\_API\_EXPORT \_\_attribute\_\_ ((\_\_visibility\_\_ ("default")))}
+\textcolor{preprocessor}{#define DSF\_API\_IMPORT \_\_attribute\_\_ ((\_\_visibility\_\_ ("default")))}
+
+\textcolor{preprocessor}{#else}
+
+\textcolor{comment}{// GCC < 4 has no mechanism to explicitely hide symbols, everything's exported}
+\textcolor{preprocessor}{#define DSF\_API\_EXPORT}
+\textcolor{preprocessor}{#define DSF\_API\_IMPORT}
+
+\textcolor{preprocessor}{#endif}
+
+\textcolor{preprocessor}{#endif}
+
+
+\textcolor{preprocessor}{#endif}
+\end{DoxyCode}
+ \hypertarget{_start_development_StartDevelopmentCodeConfigurationsExport_h}{}\subsection{Export.\+h}\label{_start_development_StartDevelopmentCodeConfigurationsExport_h}
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#ifndef dsf\_Export\_h}
+\textcolor{preprocessor}{#define dsf\_Export\_h}
+
+\textcolor{comment}{// Headers}
+\textcolor{comment}{}\textcolor{preprocessor}{#include "Config.h"}
+
+
+\textcolor{comment}{// Define portable import / export macros}
+\textcolor{comment}{}\textcolor{preprocessor}{#if defined(dsf\_EXPORTS)}
+
+\textcolor{preprocessor}{#define DSF\_API DSF\_API\_EXPORT}
+
+\textcolor{preprocessor}{#else}
+
+\textcolor{preprocessor}{#define DSF\_API DSF\_API\_IMPORT}
+
+\textcolor{preprocessor}{#endif}
+
+\textcolor{preprocessor}{#endif}
+\end{DoxyCode}
+\hypertarget{_start_development_StartDevelopmentBuildProcessManagement}{}\section{Build Process Management}\label{_start_development_StartDevelopmentBuildProcessManagement}
+Different I\+D\+Es use different build process managements.
+\begin{DoxyItemize}
+\item A bundle with extension name \char`\"{}xcodeproj\char`\"{} is an Xcode project.
+\item A file with extension name \char`\"{}sln\char`\"{} is a Visual Studio Solution.
+\item G\+C\+C uses Makefile.
+\item Many others.
+\end{DoxyItemize}
+
+C\+Make can generate different build process systems for those. What I need is a little bit configurations for different I\+D\+Es. 
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (MSVC)
+\textcolor{preprocessor}{    # Windows VC}
+\textcolor{preprocessor}{    # Activate C++ exception handling}
+    \textcolor{keywordflow}{if} (NOT CMAKE\_CXX\_FLAGS MATCHES \textcolor{stringliteral}{"/EHsc"})
+    set(CMAKE\_CXX\_FLAGS \textcolor{stringliteral}{"$\{CMAKE\_CXX\_FLAGS\} /EHsc"})
+    endif ()
+
+    \textcolor{preprocessor}{# Set Warning level always to 4}
+    \textcolor{keywordflow}{if} (CMAKE\_CXX\_FLAGS MATCHES \textcolor{stringliteral}{"/W[0-4]"})
+        string(REGEX REPLACE \textcolor{stringliteral}{"/W[0-4]"} \textcolor{stringliteral}{"/W4"} CMAKE\_CXX\_FLAGS \textcolor{stringliteral}{"$\{CMAKE\_CXX\_FLAGS\}"})
+    \textcolor{keywordflow}{else} ()
+        set(CMAKE\_CXX\_FLAGS \textcolor{stringliteral}{"$\{CMAKE\_CXX\_FLAGS\} /W4"})
+    endif () 
+elseif(APPLE)
+    \textcolor{preprocessor}{# Mac OS X Xcode}
+    set(CMAKE\_MACOSX\_RPATH 1)
+    ADD\_DEFINITIONS(-std=c++11)
+else()
+    \textcolor{preprocessor}{# Unix}
+    ADD\_DEFINITIONS(-std=c++11)
+endif()
+\end{DoxyCode}
+ 

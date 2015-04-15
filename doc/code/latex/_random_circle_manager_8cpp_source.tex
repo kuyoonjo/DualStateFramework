@@ -1,0 +1,96 @@
+\hypertarget{_random_circle_manager_8cpp_source}{}\section{Random\+Circle\+Manager.\+cpp}
+\label{_random_circle_manager_8cpp_source}\index{Random\+Circle\+Manager.\+cpp@{Random\+Circle\+Manager.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  RandomCircleManager.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/21/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/RandomCircleManager.h"}
+00010 
+\hypertarget{_random_circle_manager_8cpp_source_l00011}{}\hyperlink{class_random_circle_manager_aa16cf845cb91227bd58709fa4ee44c2c}{00011} \hyperlink{class_random_circle_manager_aa16cf845cb91227bd58709fa4ee44c2c}{RandomCircleManager::RandomCircleManager}(
+      \hyperlink{class_my_d_s_f}{MyDSF}* \hyperlink{namespacedsf}{dsf})
+00012 \{
+00013     this->dsf = \hyperlink{class_random_circle_manager_acd654c100c962b48a97aff05fdf3aa5d}{dsf};
+00014     this->\hyperlink{class_random_circle_manager_a5df9bb06afdb248a8400f4f708c16f0b}{create} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00015                                          \{
+00016                                              \textcolor{keyword}{auto} syncObj = args->\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<
+      \hyperlink{class_sync_circle}{SyncCircle}*>();
+00017                                              \textcolor{keywordflow}{if}(this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->isOpen())
+00018                                              \{
+00019                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_random_circle_manager_a05c52359eec88a70be1296bfbeeb17c7}{update}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(syncObj));
+00020                                                  this->dsf->\hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock}();
+00021                                                  this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->push\_back(syncObj);
+00022                                                  this->dsf->\hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock}();
+00023                                              \}
+00024                                              \textcolor{keywordflow}{else}
+00025                                              \{
+00026                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_random_circle_manager_af87d7d788cd9c4a1a37a30ad959cc445}{destroy}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(syncObj));
+00027                                              \}
+00028                                          \});
+00029     this->\hyperlink{class_random_circle_manager_a05c52359eec88a70be1296bfbeeb17c7}{update} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00030                                          \{
+00031                                              \textcolor{keyword}{auto} syncObj = args->\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<
+      \hyperlink{class_sync_circle}{SyncCircle}*>();
+00032                                              \textcolor{keywordflow}{if}(this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->isOpen())
+00033                                              \{
+00034                                                  \textcolor{keyword}{auto} size = this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a2c04b61ca1bfba140120001c4a9a30e1}{window}->getSize();
+00035                                                  \textcolor{keyword}{auto} radius = syncObj->getRadius();
+00036                                                  syncObj->setPosition(
+00037                                                                       \hyperlink{classyc_1_1_random}{yc::Random}().randInt(0, 
+      size.x - 2 * radius),
+00038                                                                       \hyperlink{classyc_1_1_random}{yc::Random}().
+      \hyperlink{classyc_1_1_random_a8cf4d84430a8a030f93078d439d819b8}{randInt}(0, size.y - 2 * radius)
+00039                                                                       );
+00040                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->update, \textcolor{keyword}{new} 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(syncObj));
+00041                                              \}
+00042                                              \textcolor{keywordflow}{else}
+00043                                              \{
+00044                                                  this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_a3063d7f0ce537eb44dc2bdcec816a36b}{send}(to, from, this->
+      \hyperlink{class_random_circle_manager_af87d7d788cd9c4a1a37a30ad959cc445}{destroy}, \textcolor{keyword}{new} \hyperlink{classyc_1_1_any}{dsf::TaskArgument}(syncObj));
+00045                                              \}
+00046                                          \});
+00047     this->\hyperlink{class_random_circle_manager_af87d7d788cd9c4a1a37a30ad959cc445}{destroy} = \textcolor{keyword}{new} \hyperlink{namespacedsf_aa16e735f29587f4485b56fc46746f7a9}{dsf::TaskFunction}([\textcolor{keyword}{this}](
+      \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* to, \hyperlink{classdsf_1_1_synchronized_object}{dsf::SynchronizedObject}* from, 
+      \hyperlink{classyc_1_1_any}{dsf::TaskArgument}* args)
+00048                                           \{
+00049                                               \textcolor{keyword}{auto} syncObj = args->\hyperlink{classyc_1_1_any_a3db663604505ef8d7e84dd41d5bfcc75}{to}<
+      \hyperlink{class_sync_circle}{SyncCircle}*>();
+00050                                               \textcolor{keyword}{auto} drawable = (sf::Drawable*) syncObj;
+00051                                               this->dsf->\hyperlink{classdsf_1_1_lock_ae521388d861fe66b9c6e2f09811b0d4b}{lock}();
+00052                                               this->dsf->\hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->erase(
+00053                                                                           std::remove\_if(
+00054                                                                                          this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->begin(),
+00055                                                                                          this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->end(),
+00056                                                                                          [&](sf::Drawable* 
+      d)
+00057                                                                                          \{
+00058                                                                                              \textcolor{keywordflow}{return} d == 
+      drawable;
+00059                                                                                          \}),
+00060                                                                           this->dsf->
+      \hyperlink{classdsf_1_1sfml_1_1_render_window_a745350dfdb1f752359f9055d714c453d}{drawables}->end());
+00061                                               this->dsf->\hyperlink{classdsf_1_1_dual_state_framework_ab6ca84c5186f4fc3e048c4ff7a104ae7}{remove}(to);
+00062                                               this->dsf->\hyperlink{classdsf_1_1_lock_a3d03f801920d458b3c3c402a0f4af323}{unlock}();
+00063                                           \});
+00064 \}
+\hypertarget{_random_circle_manager_8cpp_source_l00065}{}\hyperlink{class_random_circle_manager_aa45606f5a7e53c08e6ca15702fa118d3}{00065} \hyperlink{class_random_circle_manager_aa45606f5a7e53c08e6ca15702fa118d3}{RandomCircleManager::~RandomCircleManager}()
+00066 \{
+00067     \textcolor{keyword}{delete} this->\hyperlink{class_random_circle_manager_a5df9bb06afdb248a8400f4f708c16f0b}{create};
+00068     \textcolor{keyword}{delete} this->\hyperlink{class_random_circle_manager_a05c52359eec88a70be1296bfbeeb17c7}{update};
+00069     \textcolor{keyword}{delete} this->\hyperlink{class_random_circle_manager_af87d7d788cd9c4a1a37a30ad959cc445}{destroy};
+00070 \}
+\end{DoxyCode}

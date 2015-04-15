@@ -1,0 +1,52 @@
+\hypertarget{_resource_path_8mm_source}{}\section{Resource\+Path.\+mm}
+\label{_resource_path_8mm_source}\index{Resource\+Path.\+mm@{Resource\+Path.\+mm}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00003 \textcolor{comment}{// SFML - Simple and Fast Multimedia Library}
+00004 \textcolor{comment}{// Copyright (C) 2007-2013 Marco Antognini (antognini.marco@gmail.com),}
+00005 \textcolor{comment}{//                         Laurent Gomila (laurent.gom@gmail.com),}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{// This software is provided 'as-is', without any express or implied warranty.}
+00008 \textcolor{comment}{// In no event will the authors be held liable for any damages arising from the use of this software.}
+00009 \textcolor{comment}{//}
+00010 \textcolor{comment}{// Permission is granted to anyone to use this software for any purpose,}
+00011 \textcolor{comment}{// including commercial applications, and to alter it and redistribute it freely,}
+00012 \textcolor{comment}{// subject to the following restrictions:}
+00013 \textcolor{comment}{//}
+00014 \textcolor{comment}{// 1. The origin of this software must not be misrepresented;}
+00015 \textcolor{comment}{//    you must not claim that you wrote the original software.}
+00016 \textcolor{comment}{//    If you use this software in a product, an acknowledgment}
+00017 \textcolor{comment}{//    in the product documentation would be appreciated but is not required.}
+00018 \textcolor{comment}{//}
+00019 \textcolor{comment}{// 2. Altered source versions must be plainly marked as such,}
+00020 \textcolor{comment}{//    and must not be misrepresented as being the original software.}
+00021 \textcolor{comment}{//}
+00022 \textcolor{comment}{// 3. This notice may not be removed or altered from any source distribution.}
+00023 \textcolor{comment}{//}
+00025 \textcolor{comment}{}
+00027 \textcolor{comment}{// Headers}
+00029 \textcolor{comment}{}\textcolor{preprocessor}{#include "../include/ResourcePath.hpp"}
+00030 \textcolor{preprocessor}{#import <Foundation/Foundation.h>}
+00031 
+\hypertarget{_resource_path_8mm_source_l00033}{}\hyperlink{_resource_path_8mm_a377b456e3964835648f2d726c2e4f510}{00033} std::string \hyperlink{_resource_path_8mm_a377b456e3964835648f2d726c2e4f510}{resourcePath}(\textcolor{keywordtype}{void})
+00034 \{
+00035     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+00036 
+00037     std::string rpath;
+00038     NSBundle* bundle = [NSBundle mainBundle];
+00039 
+00040     \textcolor{keywordflow}{if} (bundle == nil) \{
+00041 \textcolor{preprocessor}{#ifdef DEBUG}
+00042         NSLog(\textcolor{stringliteral}{@"bundle is nil... thus no resources path can be found."});
+00043 \textcolor{preprocessor}{#endif}
+00044     \} \textcolor{keywordflow}{else} \{
+00045         NSString* path = [bundle resourcePath];
+00046         rpath = [path UTF8String] + std::string(\textcolor{stringliteral}{"/"});
+00047     \}
+00048 
+00049     [pool drain];
+00050 
+00051     \textcolor{keywordflow}{return} rpath;
+00052 \}
+\end{DoxyCode}

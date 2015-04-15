@@ -1,0 +1,66 @@
+\hypertarget{_f_p_s_8cpp_source}{}\section{F\+P\+S.\+cpp}
+\label{_f_p_s_8cpp_source}\index{F\+P\+S.\+cpp@{F\+P\+S.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{//}
+00002 \textcolor{comment}{//  FPS.cpp}
+00003 \textcolor{comment}{//  profiler}
+00004 \textcolor{comment}{//}
+00005 \textcolor{comment}{//  Created by Yu Chen on 2/8/15.}
+00006 \textcolor{comment}{//}
+00007 \textcolor{comment}{//}
+00008 
+00009 \textcolor{preprocessor}{#include "../include/FPS.h"}
+00010 
+\hypertarget{_f_p_s_8cpp_source_l00011}{}\hyperlink{class_f_p_s_aa7155cdb7ab1a351ae797f5c137dc39c}{00011} \hyperlink{class_f_p_s_aa7155cdb7ab1a351ae797f5c137dc39c}{FPS::FPS}(\textcolor{keywordtype}{float} refreshTime, \textcolor{keywordtype}{float} startTime)
+00012 \{
+00013     this->refreshTime = refreshTime;
+00014     this->startTime = startTime;
+00015 \}
+00016 
+\hypertarget{_f_p_s_8cpp_source_l00017}{}\hyperlink{class_f_p_s_ae9c26e732f0773feaacd6c812db04e88}{00017} \hyperlink{class_f_p_s_ae9c26e732f0773feaacd6c812db04e88}{FPS::~FPS}()
+00018 \{
+00019     
+00020 \}
+00021 
+\hypertarget{_f_p_s_8cpp_source_l00022}{}\hyperlink{class_f_p_s_aa143312d7f24775fc5d829efa3878c83}{00022} \textcolor{keywordtype}{void} \hyperlink{class_f_p_s_aa143312d7f24775fc5d829efa3878c83}{FPS::refresh}()
+00023 \{
+00024     \textcolor{keywordflow}{if}(started)
+00025     \{
+00026         \textcolor{keywordflow}{if}(!this->temp)
+00027             this->temp = 1.0f / this->clockFps.getElapsedTime().asSeconds();
+00028         \textcolor{keywordflow}{else}
+00029             this->temp = (this->temp + 1.0f / this->clockFps.getElapsedTime().asSeconds()) / 2.0f;
+00030         this->clockFps.restart();
+00031         \textcolor{keywordflow}{if}(this->clock.getElapsedTime().asSeconds() >= refreshTime)
+00032         \{
+00033             this->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current} = this->temp;
+00034             this->temp = 0;
+00035             \textcolor{keywordflow}{if}(this->\hyperlink{class_f_p_s_a5724af794ec15040b8b101dd0c547893}{average})
+00036                 this->\hyperlink{class_f_p_s_a5724af794ec15040b8b101dd0c547893}{average} = (this->\hyperlink{class_f_p_s_a5724af794ec15040b8b101dd0c547893}{average} + this->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current}) / 2.0f;
+00037             \textcolor{keywordflow}{else}
+00038                 this->\hyperlink{class_f_p_s_a5724af794ec15040b8b101dd0c547893}{average} = this->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current};
+00039             \textcolor{keywordflow}{if}(!this->\hyperlink{class_f_p_s_afdca12a152cef9df305e78d8d05ce518}{max} || this->max < this->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current})
+00040                 this->\hyperlink{class_f_p_s_afdca12a152cef9df305e78d8d05ce518}{max} = this->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current};
+00041             \textcolor{keywordflow}{if}(!this->\hyperlink{class_f_p_s_af873eaf0d65931baa5f58415f024ccf7}{min} || this->\hyperlink{class_f_p_s_af873eaf0d65931baa5f58415f024ccf7}{min} > this->current)
+00042                 this->\hyperlink{class_f_p_s_af873eaf0d65931baa5f58415f024ccf7}{min} = this->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current};
+00043             
+00044             this->clock.restart();
+00045         \}
+00046     \}
+00047     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(this->clockStart.getElapsedTime().asSeconds() >= startTime)
+00048     \{
+00049         this->started = \textcolor{keyword}{true};
+00050         this->clock.restart();
+00051         this->clockFps.restart();
+00052         this->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current} = this->\hyperlink{class_f_p_s_a5724af794ec15040b8b101dd0c547893}{average} = this->\hyperlink{class_f_p_s_afdca12a152cef9df305e78d8d05ce518}{max} = this->\hyperlink{class_f_p_s_af873eaf0d65931baa5f58415f024ccf7}{min} = this->temp = 0;
+00053     \}
+00054 \}
+00055 
+\hypertarget{_f_p_s_8cpp_source_l00056}{}\hyperlink{class_f_p_s_a2804b8d6ff6f3670bc25fbbc53f5e689}{00056} \textcolor{keywordtype}{void} \hyperlink{class_f_p_s_a2804b8d6ff6f3670bc25fbbc53f5e689}{FPS::restart}()
+00057 \{
+00058     this->clockStart.restart();
+00059     this->started = \textcolor{keyword}{false};
+00060     this->\hyperlink{class_f_p_s_ada217de2ec2b66f8485fdbf70ee33675}{current} = this->\hyperlink{class_f_p_s_a5724af794ec15040b8b101dd0c547893}{average} = this->\hyperlink{class_f_p_s_afdca12a152cef9df305e78d8d05ce518}{max} = this->\hyperlink{class_f_p_s_af873eaf0d65931baa5f58415f024ccf7}{min} = this->temp = 0;
+00061 \}
+\end{DoxyCode}

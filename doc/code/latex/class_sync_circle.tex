@@ -1,0 +1,74 @@
+\hypertarget{class_sync_circle}{}\section{Sync\+Circle Class Reference}
+\label{class_sync_circle}\index{Sync\+Circle@{Sync\+Circle}}
+
+
+{\ttfamily \#include $<$Sync\+Circle.\+h$>$}
+
+
+
+Inherits \hyperlink{classdsf_1_1_synchronized_object}{dsf\+::\+Synchronized\+Object}, and Circle\+Shape.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sync_circle_ac4137a95bfb88c1014059c57ceb92d2c}{Sync\+Circle} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_sync_circle_aa3087260d193fe4fee75b2adcfb986a3}{run} () override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line \hyperlink{_sync_circle_8h_source_l00015}{15} of file \hyperlink{_sync_circle_8h_source}{Sync\+Circle.\+h}.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_sync_circle_ac4137a95bfb88c1014059c57ceb92d2c}{}\index{Sync\+Circle@{Sync\+Circle}!Sync\+Circle@{Sync\+Circle}}
+\index{Sync\+Circle@{Sync\+Circle}!Sync\+Circle@{Sync\+Circle}}
+\subsubsection[{Sync\+Circle}]{\setlength{\rightskip}{0pt plus 5cm}Sync\+Circle\+::\+Sync\+Circle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sync_circle_ac4137a95bfb88c1014059c57ceb92d2c}
+
+
+Definition at line \hyperlink{_sync_circle_8cpp_source_l00011}{11} of file \hyperlink{_sync_circle_8cpp_source}{Sync\+Circle.\+cpp}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sync_circle_aa3087260d193fe4fee75b2adcfb986a3}{}\index{Sync\+Circle@{Sync\+Circle}!run@{run}}
+\index{run@{run}!Sync\+Circle@{Sync\+Circle}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void Sync\+Circle\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_sync_circle_aa3087260d193fe4fee75b2adcfb986a3}
+Executes messages \hypertarget{classdsf_1_1_synchronized_object_eg}{}\subsection{Example}\label{classdsf_1_1_synchronized_object_eg}
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} \hyperlink{class_sync_circle_aa3087260d193fe4fee75b2adcfb986a3}{run}()\textcolor{keyword}{ override }\{ \textcolor{comment}{// Overrides pure virtual function}
+   \textcolor{keywordflow}{if}(this->\hyperlink{classdsf_1_1_synchronized_object_a3ce496c6aaecc4b0ca3a4d09539a4920}{receive}()) \textcolor{comment}{// Returns the number of message received}
+       this->\hyperlink{classdsf_1_1_task_box_ad35070ac305146aaa4073b2078d9209e}{process}(); \textcolor{comment}{// Executes received messages}
+\}
+\end{DoxyCode}
+ 
+
+Implements \hyperlink{classdsf_1_1_synchronized_object_ae94875bd63d8071f8a563ac45ca7ccc2}{dsf\+::\+Synchronized\+Object}.
+
+
+
+Definition at line \hyperlink{_sync_circle_8cpp_source_l00015}{15} of file \hyperlink{_sync_circle_8cpp_source}{Sync\+Circle.\+cpp}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sync_circle_8h}{Sync\+Circle.\+h}\item 
+\hyperlink{_sync_circle_8cpp}{Sync\+Circle.\+cpp}\end{DoxyCompactItemize}
